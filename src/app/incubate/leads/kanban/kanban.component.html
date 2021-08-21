@@ -1,0 +1,319 @@
+<div class="container">
+    <!-- <app-content-header [contentHeader]="contentHeader"></app-content-header>  -->
+    <div class="row mb-2">
+
+        <div class="col-sm-8  m-0 p-0" >
+            <div class="pills">
+                <ul class="nav nav-pills">
+                    <li routerLinkActive="active" routerLink="/leads/conversations">
+                        <!-- <button type="button" class="btn btn-secondary" style="padding-inline: 5px;margin-right: 5px;"
+                            rippleEffect>Conversations</button> -->
+                            <a mat-raised-button class="navtabWidth">
+                                Conversations
+                              </a>
+                    </li>
+                    <li routerLinkActive="active" routerLink="/leads/possibilities">
+                        <!-- <button type="button" class="btn btn-secondary" style="padding-inline: 5px;margin-right: 5px;"
+                            rippleEffect>Possibilities</button> -->
+                            <a mat-raised-button class="navtabWidth">
+                                Possibilities
+                              </a>
+                    </li>
+                    <li routerLinkActive="active" routerLink="/leads/opportunities">
+                        <!-- <button type="button" class="btn btn-secondary" style="padding-inline: 5px;margin-right: 5px;"
+                            rippleEffect>Opportunities</button> -->
+                            <a mat-raised-button class="navtabWidth">
+                                Opportunities
+                              </a>
+                    </li>
+                    <li routerLinkActive="active" routerLink="/leads/archives">
+                        <!-- <button type="button" class="btn btn-secondary" style="padding-inline: 5px;margin-right: 5px;"
+                            rippleEffect>Archives</button> -->
+                            <a mat-raised-button class="navtabWidth">
+                                
+                                Archives
+                              </a>
+                    </li>
+                    <li routerLinkActive="active" routerLink="/leads/kanban">
+                        <!-- <button type="button" class="btn btn-secondary" style="padding-inline: 5px;margin-right: 5px;"
+                            rippleEffect>Kanban View</button> -->
+                            <a mat-raised-button class="navtabWidth">
+                                Kanban View
+                              </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-sm-4  m-0 p-0 mt-0 text-right">
+            <button type="button" class="btn btn-gradient-secondary" style="padding-inline: 10px;margin-right: 8px; "
+                rippleEffect>
+                <i class="fa fa-angle-double-left"></i> Previous</button>
+            <button type="button" class="btn btn-gradient-secondary" style="padding-inline: 15px;margin-right: 8px; "
+                rippleEffect>
+                <i class="fa fa-angle-double-right"></i> Next</button>
+            <button type="button" class="btn btn-gradient-dark" style="padding-inline: 15px; " rippleEffect
+                (click)="filterToggle = !filterToggle"> <i class="feather icon-align-justify"></i> Filter</button>
+
+        </div>
+
+    </div>
+</div>
+<div class="container">
+
+<!-- Filter -->
+<div class="row" fxLayout="row wrap" *ngIf="filterToggle">
+    <div class="col-sm-12 m-0 p-0">
+        <div class="card">
+
+            <hr class="m-t-0">
+            <form class="form-horizontal r-separator">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-3 text-left control-label col-form-label">Search
+                                    by Lead:</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="inputEmail3"
+                                        placeholder="Search by Lead">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-3 text-left control-label col-form-label">Search
+                                    by Contact:</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="inputEmail3"
+                                        placeholder="Search by Contact">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-3 text-left control-label col-form-label">Search
+                                    by Industry:</label>
+                                <div class="col-sm-8">
+                                    <ng-multiselect-dropdown [placeholder]="'--Search by Industry--'" [data]="cities"
+                                        [(ngModel)]="selectedItems" [settings]="dropdownSettings"
+                                        (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+                                    </ng-multiselect-dropdown>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-3 text-left control-label col-form-label">Search
+                                    by Country:</label>
+                                <div class="col-sm-8">
+                                    <ng-multiselect-dropdown [placeholder]="'--Search by Country--'" [data]="cities"
+                                        [(ngModel)]="selectedItems" [settings]="dropdownSettings"
+                                        (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+                                    </ng-multiselect-dropdown>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-3 text-left control-label col-form-label">Search
+                                    by BD Name:</label>
+                                <div class="col-sm-8">
+                                    <ng-multiselect-dropdown [placeholder]="'--Search by BD Name--'" [data]="cities"
+                                        [(ngModel)]="selectedItems" [settings]="dropdownSettings"
+                                        (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+                                    </ng-multiselect-dropdown>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-3 text-left control-label col-form-label">Search
+                                    by Solution:</label>
+                                <div class="col-sm-8">
+                                    <ng-multiselect-dropdown [placeholder]="'--Search by Solution--'" [data]="cities"
+                                        [(ngModel)]="selectedItems" [settings]="dropdownSettings"
+                                        (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+                                    </ng-multiselect-dropdown>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-3 text-left control-label col-form-label">Search
+                                    by Tag:</label>
+                                <div class="col-sm-8">
+                                    <ng-multiselect-dropdown [placeholder]="'--Search by Tag--'" [data]="cities"
+                                        [(ngModel)]="selectedItems" [settings]="dropdownSettings"
+                                        (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+                                    </ng-multiselect-dropdown>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-3 text-left control-label col-form-label">Search
+                                    by Head Count:</label>
+                                <div class="col-sm-8">
+                                    <ng-multiselect-dropdown [placeholder]="'--Search by Head Count--'" [data]="cities"
+                                        [(ngModel)]="selectedItems" [settings]="dropdownSettings"
+                                        (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+                                    </ng-multiselect-dropdown>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-3 text-left control-label col-form-label">Select
+                                    Date Type:</label>
+                                <div class="col-sm-8">
+                                    <ng-multiselect-dropdown [placeholder]="'--Select Date Type--'" [data]="cities"
+                                        [(ngModel)]="selectedItems" [settings]="dropdownSettings"
+                                        (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+                                    </ng-multiselect-dropdown>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-3 text-left control-label col-form-label">Select
+                                    Start Date:</label>
+                                <div class="col-sm-8">
+                                    <div class="input-group-append">
+                                        <input class="form-control" placeholder="--Select Start Date--" name="d1"
+                                            #c1="ngModel" [(ngModel)]="model11" ngbDatepicker #d1="ngbDatepicker">
+                                        <button class="btn btn-outline-secondary calendar" (click)="d1.toggle()"
+                                            type="button"><i class="fa fa-calendar"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-3 text-left control-label col-form-label">Select
+                                    End Date:</label>
+                                <div class="col-sm-8">
+                                    <div class="input-group-append">
+                                        <input class="form-control" placeholder="--Select End Date--" name="d2"
+                                            #c2="ngModel" [(ngModel)]="model11" ngbDatepicker #d2="ngbDatepicker">
+                                        <button class="btn btn-outline-secondary calendar" (click)="d2.toggle()"
+                                            type="button"><i class="fa fa-calendar"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group row">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">Show Target Leads</label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="card-body">
+                    <div class="form-group m-b-0 text-right" style="margin-right: 50px;">
+                        <button type="submit" class="btn btn-info waves-effect waves-light"
+                            style="margin-right: 15px">Save</button>
+                        <button type="submit" class="btn btn-dark waves-effect waves-light"
+                        (click)="filterToggle = !filterToggle">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="row-wrap">
+    <div class="flex-p w-100">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="row" style="margin-bottom:17px;">
+                    <div class="col-xs-6 ">
+                        <div class="flex-p">
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="w-100 flex-p kanban-table-container" id="kanban-table-container">
+                    <div *ngFor="let step of localData; let index = index" [ngStyle]="step.style">
+                        <div id="{{step.id}}">
+                            <div (click)='changestatus(index)' style="cursor: pointer;" *ngIf="step.collapsed==true"
+                                class="outer">
+                                <div class="inner">{{step.header | slice:0:30}}</div>
+                            </div>
+                            <table>
+                                <thead *ngIf="step.collapsed==false">
+                                    <tr>
+                                        <th class="kanban-header">
+                                            <div>
+                                                <a class="info-card" style="color:rgb(0, 0, 0)!important">{{step.header |
+                                                    slice:0:30}}</a>
+                                                <a style="float:right;margin-left: 6px;margin-top: 2px;cursor: pointer;"
+                                                    (click)='changestatus(index)'><span class="material-icons">
+                                                        <!-- keyboard_arrow_left -->
+                                                        <i class="feather icon-chevron-left"></i>
+                                                    </span></a>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody *ngIf="step.collapsed==false" [dndDraggable]="step.data" dndDropzone
+                                    dndEffectAllowed="all" (dndDrop)="drop($event)" class="dndList">
+                                    <div class="kanban-item-container">
+                                        <tr *ngFor="let item of step.data;let i = index" id="{{item.id}}"
+                                            [dndDraggable]="step.data" dndEffectAllowed="all" (dndMoved)="drag(item)"
+                                            (dndStart)="dragStart($event,item, step.id)"
+                                            (dndEnd)="dragEnd($event,item)">
+                                            <div class="kanban-item" [style.background-color]="item.hex">
+                                                <span >
+                                                    <a class="res-name" id="resname"> {{item.projectcode}}
+                                                    </a>&nbsp;&nbsp;
+                                                    <div class="text-center datediff"
+                                                        style="color:white;margin-top: -23px;margin-right: 17px;">1
+                                                    </div>
+                                                </span>
+                                                <span>
+                                                    <a class="res-name" id="resname">
+                                                    </a>&nbsp;&nbsp;
+                                                    <div class="text-center datediff1"
+                                                        style="color:white;margin-top: -10px;margin-right: 17px;">M
+                                                    </div>
+                                                </span>
+                                                <span class="cap-name"> {{ item.clientName }} </span><br>
+                                                <span class="cap-name"> {{ item.stage }} </span><br>
+                                                <span class="cap-name" style="margin-right: 10px;"> {{ item.percentage
+                                                    }} </span>
+                                                <!-- <i class="fa fa-plus" style="margin-right: 10px;"></i> -->
+                                                <!-- <i class=" fa fa-arrow-right"></i> -->
+                                                <span [style.color]="item.colorcode1" class="cap-name">{{ item.duedate
+                                                    }} </span>
+                                                <span [style.color]="item.colorcode2" class="cap-name"> {{ item.cost }}
+                                                </span><br>
+                                                <span class="cap-name">{{ item.updateddate }} </span>
+                                            </div>
+                                        </tr>
+                                    </div>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+<!-- <ngb-pagination class="d-flex justify-content-center" [collectionSize]="10" [(page)]="page"></ngb-pagination> -->

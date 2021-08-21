@@ -1,0 +1,1673 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 pl-0">
+            <div class="pills">
+                <ul class="nav nav-pills">
+                    <li routerLinkActive="active" (click)=" changeDisplayValue(1)">
+                        <a mat-raised-button class="navtabWidth" [ngClass]="{'linkSelected': displayValue == 1}">
+                            Projects(6)
+                        </a>
+                        <!-- <button type="button" class="btn btn-outline-primary" rippleEffect>
+                      <span [data-feather]="'home'" [class]="'mr-25'"></span>Dashboard</button> -->
+                    </li>&nbsp;
+                    <li routerLinkActive="active" (click)=" changeDisplayValue(2)">
+                        <a mat-raised-button class="navtabWidth" [ngClass]="{'linkSelected': displayValue == 2}">
+                            Products(2)
+                        </a>
+                        <!-- <button type="button" class="btn btn-outline-primary" rippleEffect>
+                      <span [data-feather]="'users'" [class]="'mr-25'"></span>Constant Contact</button> -->
+                    </li>&nbsp;
+                    <li routerLinkActive="active" (click)=" changeDisplayValue(3)">
+                        <a mat-raised-button class="navtabWidth" [ngClass]="{'linkSelected': displayValue == 3}">
+                            Bench(3)
+                        </a>
+                        <!-- <button type="button" class="btn btn-outline-primary" rippleEffect>
+                      <span [data-feather]="'bookmark'" [class]="'mr-25'"></span>Lead Sources</button> -->
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-6 pr-0">
+            <button class="btn btn-gradient-dark float-right" (click)="modalOpen(modalBasic)">
+                <i class="fa fa-plus"></i>Add Activity</button>
+        </div>
+
+        <ng-template #modalBasic let-modal>
+            <div class="modal-">
+                <div class="modal-header">
+                    <h2 class="modal-title p-0 m-0" id="myModalLabel1">Add Bench</h2>
+                    <button type="button" class="close" style="margin-right: 5px; margin-top: 3px;"
+                        (click)="modal.dismiss('Cross click')" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body pr-0 pl-0" tabindex="0" ngbAutofocus style="width: 100%;">
+                    <mat-stepper [linear]="isLinear" #stepper>
+                        <mat-step [stepControl]="firstFormGroup">
+                          <form [formGroup]="firstFormGroup">
+                            <ng-template matStepLabel>Project Details</ng-template>
+                        
+                                <div class="row mt-1 pr-1 pl-2">
+                                    <div class="col-sm-6">
+                                        <div class="form-group row">
+                                            <label for="inputEmail3"
+                                                class="col-sm-4 mt-0 text-left control-label col-form-label">Project
+                                                Name:</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="inputEmail3"
+                                                    placeholder="Enter Project Name" style="height: 33px;width: 100%;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group row">
+                                            <label for="inputEmail3"
+                                                class="col-sm-4 mt-0  text-left control-label col-form-label">Subject:</label>
+                                            <div class="col-sm-8" for="status" style="color: gray;">
+                                                <select name="status" style="width: 100%; height: 33px; color: gray; ">
+                                                    <option value="volvo">-- Select Subject --</option>
+                                                    <option value="0">.Net</option>
+                                                    <option value="1">Android</option>
+                                                    <option value="2">JavaScript</option>
+                                                    <option value="3">Node</option>
+                                                    <option value="4">PHP</option>
+                                                    <option value="5">Support</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row pr-1 pl-2">
+                                    <div class="col-sm-6">
+                                        <div class="form-group row">
+                                            <label for="inputEmail3"
+                                                class="col-sm-4  mt-0 text-left control-label col-form-label">Description:</label>
+                                            <fieldset class="form-label-group col-sm-8">
+                                                <textarea class="form-control" id="label-textarea" rows="3"
+                                                    placeholder="Enter Description"></textarea>
+                                                <label for="label-textarea">Enter Description</label>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group row">
+                                            <label for="inputEmail3"
+                                                class="col-sm-4  mt-0 text-left control-label col-form-label">Industry:</label>
+                                            <div class="col-sm-8" for="status" style="color: gray;">
+                                                <select name="status" style="width: 100%; height: 33px; color: gray; ">
+                                                    <option value="volvo">-- Select Industry --</option>
+                                                    <option value="0">Packaging</option>
+                                                    <option value="1">Chemicals</option>
+                                                    <option value="2">Logistics</option>
+                                                    <option value="3">Digital Marketing</option>
+                                                    <option value="4">Import & Export</option>
+                                                    <option value="5">FInancial Support</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row   pr-1 pl-2">
+                                    <div class="col-sm-6">
+                                        <div class="form-group row">
+                                            <label for="inputEmail3"
+                                                class="col-sm-4  mt-0 text-left control-label col-form-label">Location:</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="inputEmail3"
+                                                    placeholder="Enter Location" style="height: 33px;width: 100%;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group row">
+                                            <label for="inputEmail3"
+                                                class="col-sm-4 mt-0  text-left control-label col-form-label">Project
+                                                Health:</label>
+                                            <div class="col-sm-8" for="status" style="color: gray;">
+                                                <select name="status" style="width: 100%; height: 33px; color: gray; ">
+                                                    <option value="volvo">-- Select Project Health --</option>
+                                                    <option value="0">New</option>
+                                                    <option value="1">Okay</option>
+                                                    <option value="2">Good</option>
+                                                    <option value="3">Bad</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row   pr-1 pl-2">
+                                    <div class="col-sm-6">
+                                        <div class="form-group row">
+                                            <label for="inputEmail3"
+                                                class="col-sm-4  mt-0 text-left control-label col-form-label">Start
+                                                Date:</label>
+                                            <div class="col-sm-8">
+                                                <form class="form-inline">
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <input class="form-control" placeholder="yyyy-mm-dd"
+                                                                name="Basic Date Picker" [(ngModel)]="basicDPdata"
+                                                                ngbDatepicker #basicDP="ngbDatepicker"
+                                                                style="height: 33px;width: 165px;">
+                                                            <div class="input-group-append">
+                                                                <button style="height: 33px;"
+                                                                    class="btn btn-outline-secondary feather icon-calendar"
+                                                                    (click)="basicDP.toggle()" type="button"
+                                                                    rippleEffect></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                                <!-- <pre class="mt-2 p-1">Model: {{ basicDPdata | json }}</pre> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group row">
+                                            <label for="inputEmail3"
+                                                class="col-sm-4 mt-0  text-left control-label col-form-label">Workforce:</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="inputEmail3"
+                                                    placeholder="Enter Workorce Required"
+                                                    style="height: 33px;width: 100%;">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row pr-1 pl-2">
+                                    <div class="col-sm-6">
+                                        <div class="form-group row">
+                                            <label for="inputEmail3"
+                                                class="col-sm-4  mt-0  text-left control-label col-form-label">End
+                                                Date:</label>
+                                            <div class="col-sm-8">
+                                                <form class="form-inline">
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <input class="form-control" placeholder="yyyy-mm-dd"
+                                                                name="Basic Date Picker" [(ngModel)]="basicDPdata"
+                                                                ngbDatepicker #basicDP="ngbDatepicker"
+                                                                style="height: 33px;width: 165px;">
+                                                            <div class="input-group-append">
+                                                                <button style="height: 33px;"
+                                                                    class="btn btn-outline-secondary feather icon-calendar"
+                                                                    (click)="basicDP.toggle()" type="button"
+                                                                    rippleEffect></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                                <!-- <pre class="mt-2 p-1">Model: {{ basicDPdata | json }}</pre> -->
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row pr-2 pl-2 mt-3">
+                                    <div class="col-sm-12">
+                                        <button class="float-right btn btn-gradient-dark"
+                                            (click)="modal.close('Accept click')">Cancel</button>
+                                        <button  matStepperNext class="float-right btn btn-gradient-primary mr-1">Proceed</button>
+                                    </div>
+                                </div>
+                            
+                            <!-- <mat-form-field appearance="fill">
+                              <mat-label>Name</mat-label>
+                              <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+                            </mat-form-field> -->
+                            <!-- <div>
+                              <button mat-button>Next</button>
+                            </div> -->
+                          </form>
+                        </mat-step>
+                        <!-- <mat-step [stepControl]="secondFormGroup" label="Fill out your address">
+                          <form [formGroup]="secondFormGroup"> -->
+                            <!-- <mat-form-field appearance="fill">
+                              <mat-label>Address</mat-label>
+                              <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+                                     required>
+                            </mat-form-field> -->
+                            <!-- <div>
+                              <button mat-button matStepperPrevious>Back</button>
+                              <button mat-button matStepperNext>Next</button>
+                            </div>
+                          </form>
+                        </mat-step> -->
+                        <mat-step>
+                          <ng-template matStepLabel>Team Allocation</ng-template>
+                            <div class="row mt-2">
+                                <div class="col-sm-12 card p-0 m-0">
+                                    <div class="">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        Name
+                                                    </th>
+                                                    <th>
+                                                        Role
+                                                    </th>
+                                                    <th>Hrs Allocated/Day</th>
+                                                    <th>
+                                                        Now
+                                                    </th>
+                                                    <th>WEF</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="p-0 m-0">
+                                                        <div class="col-sm-8" for="status" style="color: gray;">
+                                                            <select name="status"
+                                                                style="width:150px; height: 33px; color: gray; ">
+                                                                <option value="volvo">-- Select Associate --
+                                                                </option>
+                                                                <!-- <option value="0">New</option>
+                                                                <option value="1">Okay</option>
+                                                                <option value="2">Good</option>
+                                                                <option value="3">Bad</option> -->
+                                                            </select>
+                                                        </div>
+                                                    </td>
+                                                    <td class="p-0 m-0">
+                                                        <div class="col-sm-8" for="status" style="color: gray;">
+                                                            <select name="status"
+                                                                style="width: 100px; height: 33px; color: gray; ">
+                                                                <option value="volvo">-- Select Role --</option>
+                                                                <option value="0">Developers</option>
+                                                                <option value="1">Analysts</option>
+                                                                <option value="2">Team Leaders</option>
+                                                                <option value="3">Support</option>
+                                                            </select>
+                                                        </div>
+                                                    </td>
+                                                    <td class="p-0 m-0">
+                                                        <div class="col-sm-8" for="status" style="color: gray;">
+                                                            <select name="status"
+                                                                style="width:150px; height: 33px; color: gray; ">
+                                                                <option value="volvo">-- Select Hrs --</option>
+                                                                <option value="0">Full Day</option>
+                                                                <option value="1">Half Day</option>
+                                                                <option value="2">2 Hrs</option>
+                                                                <!-- <option value="3">Bad</option> -->
+                                                            </select>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="custom-control custom-control-danger custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input"
+                                                                id="colorCheck5" />
+                                                            <label class="custom-control-label"
+                                                                for="colorCheck5"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td class="p-0 m-0">
+                                                        <input type="text" placeholder="Select Date"
+                                                            style="width: 80px; height: 33px;">
+                                                    </td>
+                                                    <td class="">
+                                                        <i class="fa fa-plus ml-1" style="color: blue;"></i>
+                                                    </td>
+
+                                                </tr>
+                                            </tbody>
+
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row pr-2 pl-2 mt-3">
+                                <div class="col-sm-12">
+                                    <button class="float-right btn btn-gradient-dark"
+                                        (click)="modal.close('Accept click')">Cancel</button>
+                                    <button  matStepperPrevious class="float-right btn btn-gradient-secondary mr-1">Back</button>
+                                    <button class="float-right btn btn-gradient-info mr-1">Save</button>
+                                </div>
+                            </div>
+                       
+                          <!-- <div>
+                            <button mat-button matStepperPrevious>Back</button>
+                            <button mat-button (click)="stepper.reset()">Reset</button>
+                          </div> -->
+                        </mat-step>
+                      </mat-stepper>
+
+                </div>
+                <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-primary" (click)="modal.close('Accept click')" rippleEffect>
+                    Accept
+                </button>
+            </div> -->
+            </div>
+        </ng-template>
+        <ng-template #modalBasic1 let-modal>
+            <div class="modal-">
+                <div class="modal-header">
+                    <h2 class="modal-title p-0 m-0" id="myModalLabel1">Update Bench</h2>
+                    <button type="button" class="close" style="margin-right: 5px; margin-top: 3px;"
+                        (click)="modal.dismiss('Cross click')" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body pr-0 pl-0" tabindex="0" ngbAutofocus style="width: 100%;">
+                    <mat-stepper [linear]="isLinear" #stepper>
+                        <mat-step [stepControl]="firstFormGroup">
+                          <form [formGroup]="firstFormGroup">
+                            <ng-template matStepLabel>Project Details</ng-template>
+                        
+                                <div class="row mt-1 pr-1 pl-2">
+                                    <div class="col-sm-6">
+                                        <div class="form-group row">
+                                            <label for="inputEmail3"
+                                                class="col-sm-4 mt-0 text-left control-label col-form-label">Project
+                                                Name:</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="inputEmail3"
+                                                    placeholder="Enter Project Name" style="height: 33px;width: 100%;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group row">
+                                            <label for="inputEmail3"
+                                                class="col-sm-4 mt-0  text-left control-label col-form-label">Subject:</label>
+                                            <div class="col-sm-8" for="status" style="color: gray;">
+                                                <select name="status" style="width: 100%; height: 33px; color: gray; ">
+                                                    <option value="volvo">-- Select Subject --</option>
+                                                    <option value="0">.Net</option>
+                                                    <option value="1">Android</option>
+                                                    <option value="2">JavaScript</option>
+                                                    <option value="3">Node</option>
+                                                    <option value="4">PHP</option>
+                                                    <option value="5">Support</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row pr-1 pl-2">
+                                    <div class="col-sm-6">
+                                        <div class="form-group row">
+                                            <label for="inputEmail3"
+                                                class="col-sm-4  mt-0 text-left control-label col-form-label">Description:</label>
+                                            <fieldset class="form-label-group col-sm-8">
+                                                <textarea class="form-control" id="label-textarea" rows="3"
+                                                    placeholder="Enter Description"></textarea>
+                                                <label for="label-textarea">Enter Description</label>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group row">
+                                            <label for="inputEmail3"
+                                                class="col-sm-4  mt-0 text-left control-label col-form-label">Industry:</label>
+                                            <div class="col-sm-8" for="status" style="color: gray;">
+                                                <select name="status" style="width: 100%; height: 33px; color: gray; ">
+                                                    <option value="volvo">-- Select Industry --</option>
+                                                    <option value="0">Packaging</option>
+                                                    <option value="1">Chemicals</option>
+                                                    <option value="2">Logistics</option>
+                                                    <option value="3">Digital Marketing</option>
+                                                    <option value="4">Import & Export</option>
+                                                    <option value="5">FInancial Support</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row   pr-1 pl-2">
+                                    <div class="col-sm-6">
+                                        <div class="form-group row">
+                                            <label for="inputEmail3"
+                                                class="col-sm-4  mt-0 text-left control-label col-form-label">Location:</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="inputEmail3"
+                                                    placeholder="Enter Location" style="height: 33px;width: 100%;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group row">
+                                            <label for="inputEmail3"
+                                                class="col-sm-4 mt-0  text-left control-label col-form-label">Project
+                                                Health:</label>
+                                            <div class="col-sm-8" for="status" style="color: gray;">
+                                                <select name="status" style="width: 100%; height: 33px; color: gray; ">
+                                                    <option value="volvo">-- Select Project Health --</option>
+                                                    <option value="0">New</option>
+                                                    <option value="1">Okay</option>
+                                                    <option value="2">Good</option>
+                                                    <option value="3">Bad</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row   pr-1 pl-2">
+                                    <div class="col-sm-6">
+                                        <div class="form-group row">
+                                            <label for="inputEmail3"
+                                                class="col-sm-4  mt-0 text-left control-label col-form-label">Start
+                                                Date:</label>
+                                            <div class="col-sm-8">
+                                                <form class="form-inline">
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <input class="form-control" placeholder="yyyy-mm-dd"
+                                                                name="Basic Date Picker" [(ngModel)]="basicDPdata"
+                                                                ngbDatepicker #basicDP="ngbDatepicker"
+                                                                style="height: 33px;width: 165px;">
+                                                            <div class="input-group-append">
+                                                                <button style="height: 33px;"
+                                                                    class="btn btn-outline-secondary feather icon-calendar"
+                                                                    (click)="basicDP.toggle()" type="button"
+                                                                    rippleEffect></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                                <!-- <pre class="mt-2 p-1">Model: {{ basicDPdata | json }}</pre> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group row">
+                                            <label for="inputEmail3"
+                                                class="col-sm-4 mt-0  text-left control-label col-form-label">Workforce:</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="inputEmail3"
+                                                    placeholder="Enter Workorce Required"
+                                                    style="height: 33px;width: 100%;">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row pr-1 pl-2">
+                                    <div class="col-sm-6">
+                                        <div class="form-group row">
+                                            <label for="inputEmail3"
+                                                class="col-sm-4  mt-0  text-left control-label col-form-label">End
+                                                Date:</label>
+                                            <div class="col-sm-8">
+                                                <form class="form-inline">
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <input class="form-control" placeholder="yyyy-mm-dd"
+                                                                name="Basic Date Picker" [(ngModel)]="basicDPdata"
+                                                                ngbDatepicker #basicDP="ngbDatepicker"
+                                                                style="height: 33px;width: 165px;">
+                                                            <div class="input-group-append">
+                                                                <button style="height: 33px;"
+                                                                    class="btn btn-outline-secondary feather icon-calendar"
+                                                                    (click)="basicDP.toggle()" type="button"
+                                                                    rippleEffect></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                                <!-- <pre class="mt-2 p-1">Model: {{ basicDPdata | json }}</pre> -->
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row pr-2 pl-2 mt-3">
+                                    <div class="col-sm-12">
+                                        <button class="float-right btn btn-gradient-dark"
+                                            (click)="modal.close('Accept click')">Cancel</button>
+                                        <button  matStepperNext class="float-right btn btn-gradient-primary mr-1">Proceed</button>
+                                    </div>
+                                </div>
+                            
+                            <!-- <mat-form-field appearance="fill">
+                              <mat-label>Name</mat-label>
+                              <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+                            </mat-form-field> -->
+                            <!-- <div>
+                              <button mat-button>Next</button>
+                            </div> -->
+                          </form>
+                        </mat-step>
+                        <!-- <mat-step [stepControl]="secondFormGroup" label="Fill out your address">
+                          <form [formGroup]="secondFormGroup"> -->
+                            <!-- <mat-form-field appearance="fill">
+                              <mat-label>Address</mat-label>
+                              <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+                                     required>
+                            </mat-form-field> -->
+                            <!-- <div>
+                              <button mat-button matStepperPrevious>Back</button>
+                              <button mat-button matStepperNext>Next</button>
+                            </div>
+                          </form>
+                        </mat-step> -->
+                        <mat-step>
+                          <ng-template matStepLabel>Team Allocation</ng-template>
+                            <div class="row mt-2">
+                                <div class="col-sm-12 card p-0 m-0">
+                                    <div class="">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        Name
+                                                    </th>
+                                                    <th>
+                                                        Role
+                                                    </th>
+                                                    <th>Hrs Allocated/Day</th>
+                                                    <th>
+                                                        Now
+                                                    </th>
+                                                    <th>WEF</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="p-0 m-0">
+                                                        <div class="col-sm-8" for="status" style="color: gray;">
+                                                            <select name="status"
+                                                                style="width:150px; height: 33px; color: gray; ">
+                                                                <option value="volvo">-- Select Associate --
+                                                                </option>
+                                                                <!-- <option value="0">New</option>
+                                                                <option value="1">Okay</option>
+                                                                <option value="2">Good</option>
+                                                                <option value="3">Bad</option> -->
+                                                            </select>
+                                                        </div>
+                                                    </td>
+                                                    <td class="p-0 m-0">
+                                                        <div class="col-sm-8" for="status" style="color: gray;">
+                                                            <select name="status"
+                                                                style="width: 100px; height: 33px; color: gray; ">
+                                                                <option value="volvo">-- Select Role --</option>
+                                                                <option value="0">Developers</option>
+                                                                <option value="1">Analysts</option>
+                                                                <option value="2">Team Leaders</option>
+                                                                <option value="3">Support</option>
+                                                            </select>
+                                                        </div>
+                                                    </td>
+                                                    <td class="p-0 m-0">
+                                                        <div class="col-sm-8" for="status" style="color: gray;">
+                                                            <select name="status"
+                                                                style="width:150px; height: 33px; color: gray; ">
+                                                                <option value="volvo">-- Select Hrs --</option>
+                                                                <option value="0">Full Day</option>
+                                                                <option value="1">Half Day</option>
+                                                                <option value="2">2 Hrs</option>
+                                                                <!-- <option value="3">Bad</option> -->
+                                                            </select>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="custom-control custom-control-danger custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input"
+                                                                id="colorCheck5" />
+                                                            <label class="custom-control-label"
+                                                                for="colorCheck5"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td class="p-0 m-0">
+                                                        <input type="text" placeholder="Select Date"
+                                                            style="width: 80px; height: 33px;">
+                                                    </td>
+                                                    <td class="">
+                                                        <i class="fa fa-plus ml-1" style="color: blue;"></i>
+                                                    </td>
+
+                                                </tr>
+                                            </tbody>
+
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row pr-2 pl-2 mt-3">
+                                <div class="col-sm-12">
+                                    <button class="float-right btn btn-gradient-dark"
+                                        (click)="modal.close('Accept click')">Cancel</button>
+                                    <button  matStepperPrevious class="float-right btn btn-gradient-secondary mr-1">Back</button>
+                                    <button class="float-right btn btn-gradient-info mr-1">Save</button>
+                                </div>
+                            </div>
+                       
+                          <!-- <div>
+                            <button mat-button matStepperPrevious>Back</button>
+                            <button mat-button (click)="stepper.reset()">Reset</button>
+                          </div> -->
+                        </mat-step>
+                      </mat-stepper>
+
+                </div>
+                <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-primary" (click)="modal.close('Accept click')" rippleEffect>
+                    Accept
+                </button>
+            </div> -->
+            </div>
+        </ng-template>
+
+        <div *ngIf="displayValue == 1" class="col-sm-12 pt-3">
+            <div class="row">
+                <div class="col-sm-4 m-0 pl-0">
+                    <div class="card">
+                        <div class="row p-0 m-0 bg-gradient-primary">
+                            <div class="col">
+                                <h2 class="mt-1 ml-2 text-white" matTooltip="People First" style="font-weight: 500;">
+                                    LOG &nbsp; | &nbsp; Instant</h2>
+                            </div>
+                            <h2 class="mr-2 mt-1 text-white">
+                                <i class="data feather icon-edit-2" title="Edit Potential Project" (click)="modalOpen(modalBasic1)"></i>&nbsp;
+                                <i class="data feather icon-trash" mwlConfirmationPopover type="button"
+                                    title="Delete Potential Project" popoverTitle="Confirm Delete"
+                                    popoverMessage="Are you sure you want to Delete?" placement="left"
+                                    confirm="cancelClicked = true" cancel="cancelClicked = true"></i>&nbsp;
+                            </h2>
+                        </div>
+                        <div class="row p-0 m-0">
+                            <div class="col-sm-6 pt-1 pr-0">
+                                <p class="p-1" style="color: black;background: yellow;">
+                                    Operations automation for a logistics fleet provider with transactions
+                                </p>
+                                <table class="table table-bordered p-0 m-0">
+
+                                    <tbody class="p-0 m-0">
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Location
+                                            </td>
+                                            <td class="p-1 ">
+                                                NCR
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Start Date
+                                            </td>
+                                            <td class="p-1 ">
+                                                Dec 1, 2020
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                End Date
+                                            </td>
+                                            <td class="p-1 ">
+                                                Sep 30, 2021
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Resources
+                                            </td>
+                                            <td class="p-1 ">
+                                                8
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Subject
+                                            </td>
+                                            <td class="p-1 ">
+                                                .Net
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-sm-6 pr-1 mr-0 pt-1 pb-1">
+                                <p style="color: black; font-weight: 500;"> Team Allocation:</p>
+                                <table class="table table-bordered p-0 m-0">
+
+                                    <tbody class="p-0 m-0">
+                                        <tr>
+                                            <td class="p-1 ">
+                                                SK(8 Hrs)
+                                            </td>
+                                            <td class="p-1 ">
+                                                Now
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                VR(8 Hrs)
+                                            </td>
+                                            <td class="p-1 ">
+                                                Now
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                SM(8 Hrs)
+                                            </td>
+                                            <td class="p-1 ">
+                                                Now
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                RB(8 Hrs)
+                                            </td>
+                                            <td class="p-1 ">
+                                                Now
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                RS(8 hrs)
+                                            </td>
+                                            <td class="p-1 ">
+                                                Now
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                MC(8 hrs)
+                                            </td>
+                                            <td class="p-1 ">
+                                                Now
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                KT(8 hrs)
+                                            </td>
+                                            <td class="p-1 ">
+                                                Now
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                SG(8 hrs)
+                                            </td>
+                                            <td class="p-1 ">
+                                                Now
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 m-0 pl-0">
+                    <div class="card" style="height: 517px;">
+                        <div class="row p-0 m-0 bg-gradient-primary">
+                            <div class="col">
+                                <h2 class="mt-1 ml-2 text-white" matTooltip="People First" style="font-weight: 500;">LOG
+                                    &nbsp; | &nbsp; XP</h2>
+                            </div>
+                            <h2 class="mr-2 mt-1 text-white">
+                                <i class="data feather icon-edit-2" title="Edit Potential Project" (click)="modalOpen(modalBasic1)"></i>&nbsp;
+                                <i class="data feather icon-trash" mwlConfirmationPopover type="button"
+                                    title="Delete Potential Project" popoverTitle="Confirm Delete"
+                                    popoverMessage="Are you sure you want to Delete?" placement="left"
+                                    confirm="cancelClicked = true" cancel="cancelClicked = true"></i>&nbsp;
+                            </h2>
+                        </div>
+                        <div class="row p-0 m-0">
+                            <div class="col-sm-6 pt-1 pr-0">
+                                <p class="p-1" style="color: black;background: yellow;">
+                                    Comprehensive Transport Management System with Web Administration
+                                </p>
+                                <table class="table table-bordered p-0 m-0">
+
+                                    <tbody class="p-0 m-0">
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Location
+                                            </td>
+                                            <td class="p-1 ">
+                                                NCR
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Start Date
+                                            </td>
+                                            <td class="p-1 ">
+                                                Jan 1, 2020
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                End Date
+                                            </td>
+                                            <td class="p-1 ">
+                                                Sep 30, 2021
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Resources
+                                            </td>
+                                            <td class="p-1 ">
+                                                6
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Subject
+                                            </td>
+                                            <td class="p-1 ">
+                                                .Net
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-sm-6 pr-1 mr-0 pt-1 pb-1">
+                                <p style="color: black; font-weight: 500;"> Team Allocation:</p>
+                                <table class="table table-bordered p-0 m-0">
+
+                                    <tbody class="p-0 m-0">
+                                        <tr>
+                                            <td class="p-1 ">
+                                                ST(8 Hrs)
+                                            </td>
+                                            <td class="p-1 ">
+                                                Now
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                SS(8 Hrs)
+                                            </td>
+                                            <td class="p-1 ">
+                                                Now
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                SC(8 Hrs)
+                                            </td>
+                                            <td class="p-1 ">
+                                                Now
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                PV(8 Hrs)
+                                            </td>
+                                            <td class="p-1 ">
+                                                Now
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                PG(8 hrs)
+                                            </td>
+                                            <td class="p-1 ">
+                                                Now
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                NB(8 hrs)
+                                            </td>
+                                            <td class="p-1 ">
+                                                Now
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 m-0 pl-0 pr-0">
+                    <div class="card" style="height: 517px;">
+                        <div class="row p-0 m-0 btn-gradient-success">
+                            <div class="col">
+                                <h2 class="mt-1 ml-2 text-white" matTooltip="People First" style="font-weight: 500;">
+                                   LOG &nbsp; | &nbsp; CXR</h2>
+                            </div>
+                            <h2 class="mr-2 mt-1 text-white">
+                                <i class="data feather icon-edit-2" title="Edit Potential Project" (click)="modalOpen(modalBasic1)"></i>&nbsp;
+                                <i class="data feather icon-trash" mwlConfirmationPopover type="button"
+                                    title="Delete Potential Project" popoverTitle="Confirm Delete"
+                                    popoverMessage="Are you sure you want to Delete?" placement="left"
+                                    confirm="cancelClicked = true" cancel="cancelClicked = true"></i>&nbsp;
+                            </h2>
+                        </div>
+                        <div class="row p-0 m-0">
+                            <div class="col-sm-12 pb-0 pt-1 mb-0">
+                                <p class="p-1" style="color: black;background: yellow;">
+                                    Operations automation on the cloud for money changers. This is for offshore product
+                                    development
+                                </p>
+                            </div>
+                            <div class="col-sm-6 pr-0">
+
+                                <table class="table table-bordered p-0 m-0">
+
+                                    <tbody class="p-0 m-0">
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Location
+                                            </td>
+                                            <td class="p-1 ">
+                                                CA
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Start Date
+                                            </td>
+                                            <td class="p-1 ">
+                                                Jun 1, 2018
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                End Date
+                                            </td>
+                                            <td class="p-1 ">
+                                                Dec 31, 2021
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Resources
+                                            </td>
+                                            <td class="p-1 ">
+                                                2
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Subject
+                                            </td>
+                                            <td class="p-1 ">
+                                                .Net
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-sm-6 pr-1 mr-0 pt-0 pb-1">
+                                <p style="color: black; font-weight: 500;"> Team Allocation:</p>
+                                <table class="table table-bordered p-0 m-0">
+
+                                    <tbody class="p-0 m-0">
+                                        <tr>
+                                            <td class="p-1 ">
+                                                RR(4 Hrs)
+                                            </td>
+                                            <td class="p-1 ">
+                                                Now
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                VB(8 Hrs)
+                                            </td>
+                                            <td class="p-1 ">
+                                                Now
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 m-0 pl-0">
+                    <div class="card" style="height: 517px;">
+                        <div class="row p-0 m-0 btn-gradient-success">
+                            <div class="col">
+                                <h2 class="mt-1 ml-2 text-white" matTooltip="People First" style="font-weight: 500;">
+                                   LOG &nbsp; | &nbsp; BGR</h2>
+                            </div>
+                            <h2 class="mr-2 mt-1 text-white">
+                                <i class="data feather icon-edit-2" title="Edit Potential Project" (click)="modalOpen(modalBasic1)"></i>&nbsp;
+                                <i class="data feather icon-trash" mwlConfirmationPopover type="button"
+                                    title="Delete Potential Project" popoverTitle="Confirm Delete"
+                                    popoverMessage="Are you sure you want to Delete?" placement="left"
+                                    confirm="cancelClicked = true" cancel="cancelClicked = true"></i>&nbsp;
+                            </h2>
+                        </div>
+                        <div class="row p-0 m-0">
+                            <div class="col-sm-12 pb-0 pt-1 mb-0">
+                                <p class="p-1" style="color: black;background: yellow; height: 70px;">
+                                    Purchase automation application</p>
+                            </div>
+                            <div class="col-sm-6 pr-0">
+
+                                <table class="table table-bordered p-0 m-0">
+
+                                    <tbody class="p-0 m-0">
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Location
+                                            </td>
+                                            <td class="p-1 ">
+                                                HYD
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Start Date
+                                            </td>
+                                            <td class="p-1 ">
+                                                Jun 1, 2017
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                End Date
+                                            </td>
+                                            <td class="p-1 ">
+                                                Dec 31, 2021
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Resources
+                                            </td>
+                                            <td class="p-1 ">
+                                                1
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Subject
+                                            </td>
+                                            <td class="p-1 ">
+                                                .Net
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-sm-6 pr-1 mr-0 pt-0 pb-1">
+                                <p style="color: black; font-weight: 500;"> Team Allocation:</p>
+                                <table class="table table-bordered p-0 m-0">
+
+                                    <tbody class="p-0 m-0">
+                                        <tr>
+                                            <td class="p-1 ">
+                                                AB(8 Hrs)
+                                            </td>
+                                            <td class="p-1 ">
+                                                Now
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div *ngIf="displayValue == 2" class="col-sm-12 pt-3">
+            <div class="row">
+                <div class="col-sm-4 m-0 pl-0">
+                    <div class="card" style="height: 517px;">
+                        <div class="row p-0 m-0 bg-gradient-primary">
+                            <div class="col">
+                                <h2 class="mt-1 ml-2 text-white" matTooltip="People First" style="font-weight: 500;">
+                                    CONS &nbsp; | &nbsp; CPM</h2>
+                            </div>
+                            <h2 class="mr-2 mt-1 text-white">
+                                <i class="data feather icon-edit-2" title="Edit Potential Project" (click)="modalOpen(modalBasic1)"></i>&nbsp;
+                                <i class="data feather icon-trash" mwlConfirmationPopover type="button"
+                                    title="Delete Potential Project" popoverTitle="Confirm Delete"
+                                    popoverMessage="Are you sure you want to Delete?" placement="left"
+                                    confirm="cancelClicked = true" cancel="cancelClicked = true"></i>&nbsp;
+                            </h2>
+                        </div>
+                        <div class="row p-0 m-0">
+                            <div class="col-sm-6 pt-1 pr-0">
+                                <p class="p-1" style="color: black;background: yellow;">
+                                    Project and material management framework for builders and general construction
+                                    contractors.
+                                </p>
+                                <table class="table table-bordered p-0 m-0">
+
+                                    <tbody class="p-0 m-0">
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Location
+                                            </td>
+                                            <td class="p-1 ">
+                                                HYD
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Start Date
+                                            </td>
+                                            <td class="p-1 ">
+                                                Dec 1, 2020
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                End Date
+                                            </td>
+                                            <td class="p-1 ">
+                                                Sep 30, 2021
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Resources
+                                            </td>
+                                            <td class="p-1 ">
+                                                8
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Subject
+                                            </td>
+                                            <td class="p-1 ">
+                                                .Net
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-sm-6 pr-1 mr-0 pt-1 pb-1">
+                                <p style="color: black; font-weight: 500;"> Team Allocation:</p>
+                                <table class="table table-bordered p-0 m-0">
+
+                                    <tbody class="p-0 m-0">
+                                        <tr>
+                                            <td class="p-1 ">
+                                                SK(8 Hrs)
+                                            </td>
+                                            <td class="p-1 ">
+                                                Now
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                VR(8 Hrs)
+                                            </td>
+                                            <td class="p-1 ">
+                                                Now
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                SM(8 Hrs)
+                                            </td>
+                                            <td class="p-1 ">
+                                                Now
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                RB(8 Hrs)
+                                            </td>
+                                            <td class="p-1 ">
+                                                Now
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 m-0 pl-0">
+                    <div class="card" style="height: 517px;">
+                        <div class="row p-0 m-0 bg-gradient-danger">
+                            <div class="col">
+                                <h2 class="mt-1 ml-2 text-white" matTooltip="People First" style="font-weight: 500;">
+                                    SOFT &nbsp; | &nbsp; Creative Design</h2>
+                            </div>
+                            <h2 class="mr-2 mt-1 text-white">
+                                <i class="data feather icon-edit-2" title="Edit Potential Project" (click)="modalOpen(modalBasic1)"></i>&nbsp;
+                                <i class="data feather icon-trash" mwlConfirmationPopover type="button"
+                                    title="Delete Potential Project" popoverTitle="Confirm Delete"
+                                    popoverMessage="Are you sure you want to Delete?" placement="left"
+                                    confirm="cancelClicked = true" cancel="cancelClicked = true"></i>&nbsp;
+                            </h2>
+                        </div>
+                        <div class="row p-0 m-0">
+                            <div class="col-sm-6 pt-1 pr-0">
+                                <p class="p-1" style="color: black;background: yellow;">
+                                    We are developing five alternative themes alongside GRADUS.
+                                </p>
+                                <table class="table table-bordered p-0 m-0">
+
+                                    <tbody class="p-0 m-0">
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Location
+                                            </td>
+                                            <td class="p-1 ">
+                                                HYD
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Start Date
+                                            </td>
+                                            <td class="p-1 ">
+                                                Jul 19, 2021
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                End Date
+                                            </td>
+                                            <td class="p-1 ">
+                                                Aug 7, 2021
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Resources
+                                            </td>
+                                            <td class="p-1 ">
+                                                6
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Subject
+                                            </td>
+                                            <td class="p-1 ">
+                                                JavaScript
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-sm-6 pr-1 mr-0 pt-1 pb-1">
+                                <p style="color: black; font-weight: 500;"> Team Allocation:</p>
+                                <table class="table table-bordered p-0 m-0">
+
+                                    <tbody class="p-0 m-0">
+                                        <tr>
+                                            <td class="p-1 ">
+                                                YK(8 Hrs)
+                                            </td>
+                                            <td class="p-1 ">
+                                                Now
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                BU(8 Hrs)
+                                            </td>
+                                            <td class="p-1 ">
+                                                Now
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                VM(8 Hrs)
+                                            </td>
+                                            <td class="p-1 ">
+                                                Now
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                AT(8 Hrs)
+                                            </td>
+                                            <td class="p-1 ">
+                                                Now
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                MA(4 hrs)
+                                            </td>
+                                            <td class="p-1 ">
+                                                Now
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                MR(4 hrs)
+                                            </td>
+                                            <td class="p-1 ">
+                                                Now
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div *ngIf="displayValue == 3" class="col-sm-12 pt-3">
+            <div class="row">
+                <div class="col-sm-4 m-0 pl-0">
+                    <div class="card" style="height: 517px;">
+                        <div class="row p-0 m-0 btn-gradient-success">
+                            <div class="col">
+                                <h2 class="mt-1 ml-2 text-white" matTooltip="People First" style="font-weight: 500;">MAN
+                                    &nbsp; | &nbsp; MPK Node</h2>
+                            </div>
+                            <h2 class="mr-2 mt-1 text-white">
+                                <i class="data feather icon-edit-2" title="Edit Potential Project" (click)="modalOpen(modalBasic1)"></i>&nbsp;
+                                <i class="data feather icon-trash" mwlConfirmationPopover type="button"
+                                    title="Delete Potential Project" popoverTitle="Confirm Delete"
+                                    popoverMessage="Are you sure you want to Delete?" placement="left"
+                                    confirm="cancelClicked = true" cancel="cancelClicked = true"></i>&nbsp;
+                            </h2>
+                        </div>
+                        <div class="row p-0 m-0">
+                            <div class="col-sm-12 pb-0 pt-1 mb-0">
+                                <p class="p-1" style="color: black;background: yellow;">
+                                    MPK Phase 2 project is about managing specs and monitoring the engineering change
+                                    request process
+                                </p>
+                            </div>
+                            <div class="col-sm-6 pr-0">
+
+                                <table class="table table-bordered p-0 m-0">
+
+                                    <tbody class="p-0 m-0">
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Location
+                                            </td>
+                                            <td class="p-1 ">
+                                                USA
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Start Date
+                                            </td>
+                                            <td class="p-1 ">
+                                                Jun 1, 2018
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                End Date
+                                            </td>
+                                            <td class="p-1 ">
+                                                Dec 31, 2021
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Resources
+                                            </td>
+                                            <td class="p-1 ">
+                                                2
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Subject
+                                            </td>
+                                            <td class="p-1 ">
+                                                .Net
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-sm-6 pr-1 mr-0 pt-0 pb-1">
+                                <p style="color: black; font-weight: 500;"> Team Allocation:</p>
+                                <table class="table table-bordered p-0 m-0">
+
+                                    <tbody class="p-0 m-0">
+                                        <tr>
+                                            <td class="p-1 ">
+                                                RR(4 Hrs)
+                                            </td>
+                                            <td class="p-1 ">
+                                                Now
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                VB(8 Hrs)
+                                            </td>
+                                            <td class="p-1 ">
+                                                Now
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 m-0 pl-0">
+                    <div class="card" style="height: 517px;">
+                        <div class="row p-0 m-0 btn-gradient-secondary">
+                            <div class="col">
+                                <h2 class="mt-1 ml-2 text-white" matTooltip="People First" style="font-weight: 500;">
+                                    CONS &nbsp; | &nbsp;Inscape/Manteena</h2>
+                            </div>
+                            <h2 class="mr-2 mt-1 text-white">
+                                <i class="data feather icon-edit-2" title="Edit Potential Project" (click)="modalOpen(modalBasic1)"></i>&nbsp;
+                                <i class="data feather icon-trash" mwlConfirmationPopover type="button"
+                                    title="Delete Potential Project" popoverTitle="Confirm Delete"
+                                    popoverMessage="Are you sure you want to Delete?" placement="left"
+                                    confirm="cancelClicked = true" cancel="cancelClicked = true"></i>&nbsp;
+                            </h2>
+                        </div>
+                        <div class="row p-0 m-0">
+                            <div class="col-sm-12 pb-0 pt-1 mb-0">
+                                <p class="p-1" style="color: black;background: yellow; height: 70px;">
+                                    Both are Australia based construction industrial opportunities</p>
+                            </div>
+                            <div class="col-sm-6 pr-0">
+
+                                <table class="table table-bordered p-0 m-0">
+
+                                    <tbody class="p-0 m-0">
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Location
+                                            </td>
+                                            <td class="p-1 ">
+                                                AUS
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Start Date
+                                            </td>
+                                            <td class="p-1 ">
+                                                Jun 1, 2017
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                End Date
+                                            </td>
+                                            <td class="p-1 ">
+                                                Dec 31, 2021
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Resources
+                                            </td>
+                                            <td class="p-1 ">
+                                                1
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Subject
+                                            </td>
+                                            <td class="p-1 ">
+                                                .Net
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-sm-6 pr-1 mr-0 pt-0 pb-1">
+                                <p style="color: black; font-weight: 500;"> Team Allocation:</p>
+                                <table class="table table-bordered p-0 m-0">
+
+                                    <tbody class="p-0 m-0">
+                                        <tr>
+                                            <td class="p-1 ">
+                                                LP(8 Hrs)
+                                            </td>
+                                            <td class="p-1 ">
+                                                Now
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Ap(8 Hrs)
+                                            </td>
+                                            <td class="p-1 ">
+                                                Now
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                MN(8 Hrs)
+                                            </td>
+                                            <td class="p-1 ">
+                                                Now
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                AB(8 Hrs)
+                                            </td>
+                                            <td class="p-1 ">
+                                                Now
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 m-0 pl-0 pr-0">
+                    <div class="card" style="height: 517px;">
+                        <div class="row p-0 m-0 btn-gradient-primary">
+                            <div class="col">
+                                <h2 class="mt-1 ml-2 text-white" matTooltip="People First" style="font-weight: 500;">
+                                    CONS &nbsp; | &nbsp;Wise Working</h2>
+                            </div>
+                            <h2 class="mr-2 mt-1 text-white">
+                                <i class="data feather icon-edit-2" title="Edit Potential Project" (click)="modalOpen(modalBasic1)"></i>&nbsp;
+                                <i class="data feather icon-trash" mwlConfirmationPopover type="button"
+                                    title="Delete Potential Project" popoverTitle="Confirm Delete"
+                                    popoverMessage="Are you sure you want to Delete?" placement="left"
+                                    confirm="cancelClicked = true" cancel="cancelClicked = true"></i>&nbsp;
+                            </h2>
+                        </div>
+                        <div class="row p-0 m-0">
+                            <div class="col-sm-12 pb-0 pt-1 mb-0">
+                                <p class="p-1" style="color: black;background: yellow; height: 70px;">
+                                    IP Product Development for Australian Construction Industry
+                                </p>
+                            </div>
+                            <div class="col-sm-6 pr-0">
+
+                                <table class="table table-bordered p-0 m-0">
+
+                                    <tbody class="p-0 m-0">
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Location
+                                            </td>
+                                            <td class="p-1 ">
+                                                AUS
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Start Date
+                                            </td>
+                                            <td class="p-1 ">
+                                                Jun 1, 2018
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                End Date
+                                            </td>
+                                            <td class="p-1 ">
+                                                Dec 31, 2021
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Resources
+                                            </td>
+                                            <td class="p-1 ">
+                                                2
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                Subject
+                                            </td>
+                                            <td class="p-1 ">
+                                                .Net
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-sm-6 pr-1 mr-0 pt-0 pb-1">
+                                <p style="color: black; font-weight: 500;"> Team Allocation:</p>
+                                <table class="table table-bordered p-0 m-0">
+
+                                    <tbody class="p-0 m-0">
+                                        <tr>
+                                            <td class="p-1 ">
+                                                RR(4 Hrs)
+                                            </td>
+                                            <td class="p-1 ">
+                                                Now
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1 ">
+                                                VB(8 Hrs)
+                                            </td>
+                                            <td class="p-1 ">
+                                                Now
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+    <!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+        {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+      </button> -->
+      
+</div>

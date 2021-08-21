@@ -1,0 +1,543 @@
+<!-- <p>digital works!</p> -->
+<!--The content below is only a placeholder and can be replaced.-->
+<!-- <div id="chart">
+    <apx-chart
+      [series]="chartOptions.series"
+      [chart]="chartOptions.chart"
+      [xaxis]="chartOptions.xaxis"
+      [dataLabels]="chartOptions.dataLabels"
+      [grid]="chartOptions.grid"
+      [stroke]="chartOptions.stroke"
+      [title]="chartOptions.title"
+      [markers]="chartOptions.markers"
+      [yaxis]="chartOptions.yaxis"
+      [fill]="chartOptions.fill"
+    ></apx-chart>
+  </div> -->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 m-0 p-0" >
+        <div class="pills">
+          <ul class="nav nav-pills">
+            <li routerLinkActive="active" routerLink="/analytics/dashboard">
+              <a mat-raised-button class="navtabWidth">
+                <span [data-feather]="'home'" [class]="'mr-25'"></span>Dashboard
+                        </a>
+              <!-- <button type="button" class="btn btn-outline-primary" rippleEffect>
+                <span [data-feather]="'home'" [class]="'mr-25'"></span>Dashboard</button> -->
+            </li>&nbsp;
+            <li routerLinkActive="active" routerLink="/analytics/constcontact">
+              <a mat-raised-button class="navtabWidth">
+                <span [data-feather]="'users'" [class]="'mr-25'"></span> Constant Contact
+                        </a>
+              <!-- <button type="button" class="btn btn-outline-primary" rippleEffect>
+                <span [data-feather]="'users'" [class]="'mr-25'"></span>Constant Contact</button> -->
+            </li>&nbsp;
+            <li routerLinkActive="active" routerLink="/analytics/leadsources">
+              <a mat-raised-button class="navtabWidth">
+                <span [data-feather]="'bookmark'" [class]="'mr-25'"></span>  Lead Sources
+                        </a>
+              <!-- <button type="button" class="btn btn-outline-primary" rippleEffect>
+                <span [data-feather]="'bookmark'" [class]="'mr-25'"></span>Lead Sources</button> -->
+            </li>
+          </ul>
+        </div>
+      </div>
+    
+    </div>
+   
+    <div class="row mt-1">
+      <div class="col-sm-4 pl-0">
+        <div class="">
+          <div class="card card-congratulation-medal">
+            <div class="card-body">
+              <h2>Congratulations 🎉 John!</h2>
+              <p class="card-text font-small-3">You have won gold medal</p>
+              <h2 class="mb-75 mt-2 pt-50">
+                <a href="javascript:void(0);">$48.9k</a>
+              </h2>
+              <button type="button" class="btn btn-primary" rippleEffect>View Sales</button>
+              <img src="assets/images/illustration/badge.svg" class="congratulation-medal" alt="Medal Pic" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="row ">
+            <div class="col-sm-1 m-1">
+              <div class="avatar bg-light-warning avatar-lg">
+                <div class="avatar-content">
+                  <span [data-feather]="'users'" [class]="'avatar-icon'"></span>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 ml-1">
+              <p style="font-size:x-large ;">92.6k</p>
+              <p class="mt-0">Subscribers Gained</p>
+            </div>
+          </div>
+          
+          <div id="chart-spark3">
+            <apx-chart
+              #chartspark3
+              [series]="chartAreaSparkline3Options.series"
+              [chart]="commonAreaSparlineOptions.chart"
+              [stroke]="commonAreaSparlineOptions.stroke"
+              [colors]="chartAreaSparkline3Options.colors"
+              [yaxis]="commonAreaSparlineOptions.yaxis"
+              [fill]="commonAreaSparlineOptions.fill"
+            ></apx-chart>
+          </div>
+        </div>
+          
+        </div>
+        <div class="col-sm-4 pr-0">
+          <div class="card m-0 p-0">
+            <div class="row ">
+              <div class="col-sm-1 m-1">
+                <div class="avatar bg-light-info avatar-lg">
+                  <div class="avatar-content">
+                    <span [data-feather]="'box'" [class]="'avatar-icon'"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 ml-1">
+                <p style="font-size:x-large ;">38.4k</p>
+                <p class="mt-0">Orders Received</p>
+              </div>
+            </div>
+            
+            <div id="chart-spark3">
+              <apx-chart
+                #chartspark3
+                [series]="chartAreaSparkline3Options.series"
+                [chart]="commonAreaSparlineOptions.chart"
+                [stroke]="commonAreaSparlineOptions.stroke"
+                [yaxis]="commonAreaSparlineOptions.yaxis"
+                [fill]="commonAreaSparlineOptions.fill"
+              ></apx-chart>
+            </div>
+          </div>
+            
+          </div>
+     
+    </div>
+  
+
+
+    <div class="row mt-0">
+      <div class="col-sm-2 m-0 p-0">
+  
+        <!-- <section id="page-account-settings">
+          <div class="row nav-vertical d-flex mt-2">
+            <div class=" mb-2 mb-md-0">
+              <ul ngbNav #navVertical="ngbNav" class="nav nav-pills flex-column nav-left">
+                <li class="nav-item" ngbNavItem>
+                  <a ngbNavLink class="nav-link d-flex py-75" id="account-pill-general" data-toggle="pill"
+                    routerLink="/analytics/dashboard/digital" aria-expanded="false">
+                    <i data-feather="chevrons-right" class="font-medium-3 mr-1"></i>
+                    <span class="font-weight-bold">Digital</span>
+                  </a>
+  
+                </li>
+                <li class="nav-item" ngbNavItem>
+                  <a ngbNavLink class="nav-link d-flex py-75" id="account-pill-password" data-toggle="pill"
+                    routerLink="/analytics/dashboard/conversations" h aria-expanded="false">
+                    <i data-feather="chevrons-right" class="font-medium-3 mr-1"></i>
+                    <span class="font-weight-bold">Conversations</span>
+                  </a>
+  
+                </li>
+                <li class="nav-item" ngbNavItem>
+                  <a ngbNavLink class="nav-link d-flex py-75" id="account-pill-info" data-toggle="pill"
+                    routerLink="/analytics/dashboard/possibilites" aria-expanded="false">
+                    <i data-feather="chevrons-right" class="font-medium-3 mr-1"></i>
+                    <span class="font-weight-bold">Possibilities</span>
+                  </a>
+  
+                </li>
+                <li class="nav-item" ngbNavItem>
+                  <a ngbNavLink class="nav-link d-flex py-75" id="account-pill-social" data-toggle="pill"
+                    routerLink="/analytics/dashboard/opportunities" aria-expanded="false">
+                    <i data-feather="chevrons-right" class="font-medium-3 mr-1"></i>
+                    <span class="font-weight-bold">Opportunities</span>
+                  </a>
+  
+                </li>
+  
+                <li class="nav-item" ngbNavItem>
+                  <a ngbNavLink class="nav-link d-flex py-75" id="account-pill-general" data-toggle="pill"
+                    routerLink="/analytics/dashboard/parallelprojects" aria-expanded="true">
+                    <i data-feather="chevrons-right" class="font-medium-3 mr-1"></i>
+                    <span class="font-weight-bold">Parallel Projects</span>
+                  </a>
+  
+                </li>
+                <li class="nav-item" ngbNavItem>
+                  <a ngbNavLink class="nav-link d-flex py-75" id="account-pill-notifications" data-toggle="pill"
+                    routerLink="/analytics/dashboard/ppm" aria-expanded="false">
+                    <i data-feather="chevrons-right" class="font-medium-3 mr-1"></i>
+                    <span class="font-weight-bold">PPM</span>
+                  </a>
+  
+                </li>
+                <li class="nav-item" ngbNavItem>
+                  <a ngbNavLink class="nav-link d-flex py-75" id="account-pill-notifications" data-toggle="pill"
+                    routerLink="/analytics/dashboard/repeat" aria-expanded="false">
+                    <i data-feather="chevrons-right" class="font-medium-3 mr-1"></i>
+                    <span class="font-weight-bold">Repeat</span>
+                  </a>
+  
+                </li>
+                <li class="nav-item" ngbNavItem>
+                  <a ngbNavLink class="nav-link d-flex py-75" id="account-pill-notifications" data-toggle="pill"
+                    routerLink="/analytics/dashboard/priority" aria-expanded="false">
+                    <i data-feather="chevrons-right" class="font-medium-3 mr-1"></i>
+                    <span class="font-weight-bold">Priority</span>
+                  </a>
+  
+                </li>
+                <li class="nav-item" ngbNavItem>
+                  <a ngbNavLink class="nav-link d-flex py-75" id="account-pill-notifications" data-toggle="pill"
+                    routerLink="/analytics/dashboard/ip" aria-expanded="false">
+                    <i data-feather="chevrons-right" class="font-medium-3 mr-1"></i>
+                    <span class="font-weight-bold">IP</span>
+                  </a>
+  
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section> -->
+        <div class="pills mt-1">
+          <ul class="nav nav-pills" style="width: 100%;">
+              <li class="ml-0 mb-1" routerLinkActive="active" routerLink="/analytics/dashboard/digital" style="width: 100%;">
+                <a mat-raised-button class="navtabWidth">
+                 Digital
+                </a>
+              </li>
+              <li class="ml-0 mb-1" routerLinkActive="active" routerLink="/analytics/dashboard/conversations" style="width: 100%;">
+                <a mat-raised-button class="navtabWidth">
+                  Conversations
+                </a>
+              </li>
+              <li class="ml-0 mb-1" routerLinkActive="active" routerLink="/analytics/dashboard/possibilites" style="width: 100%;">
+                <a mat-raised-button class="navtabWidth">
+                  Possibilities
+                </a>
+              </li>
+              <li class="ml-0 mb-1" routerLinkActive="active" routerLink="/analytics/dashboard/opportunities" style="width: 100%;">
+                <a mat-raised-button class="navtabWidth">
+                  Opportunities
+                </a>
+              </li>
+              <li class="ml-0 mb-1" routerLinkActive="active" routerLink="/analytics/dashboard/parallelprojects" style="width: 100%;">
+                <a mat-raised-button class="navtabWidth">
+                  Parallel Projects
+                </a>
+              </li>
+              <li class="ml-0 mb-1" routerLinkActive="active" routerLink="/analytics/dashboard/ppm" style="width: 100%;">
+                <a mat-raised-button class="navtabWidth">
+                  PPM
+                </a>
+              </li>
+              <li class="ml-0 mb-1" routerLinkActive="active" routerLink="/analytics/dashboard/repeat" style="width: 100%;">
+                <a mat-raised-button class="navtabWidth">
+                  Repeat
+                </a>
+              </li>
+              <li class="ml-0 mb-1" routerLinkActive="active" routerLink="/analytics/dashboard/priority" style="width: 100%;">
+                <a mat-raised-button class="navtabWidth">
+                  Priority
+                </a>
+              </li>
+              <li class="ml-0 mb-1" routerLinkActive="active" routerLink="/analytics/dashboard/ip" style="width: 100%;">
+                <a mat-raised-button class="navtabWidth">
+                  <!-- <i data-feather="chevrons-right" class="font-medium-3"></i> -->
+                  IP
+                </a>
+              </li>
+          </ul>
+        </div>
+  
+  
+  
+  
+  
+      </div>
+      <div class="col-sm-10 pr-0" style="margin-left: 0px;">
+        <div class="row" style="margin-top: -5px;">
+          <div class="col-sm-4" >
+            <!-- <div class="pt-2 pb-2 chart" >
+              <h2 class="text-center">Distribution By Industry</h2>
+              <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [labels]="chartOptions.labels"
+                [responsive]="chartOptions.responsive"></apx-chart>
+            </div> -->
+            <div class="card">
+            <div class="card-body pl-0 pr-0">
+              <h3 class="card-title text-center">Distribution by Industry</h3>
+              <div class="m-t-20 d-flex flex-column m-auto">
+                <apx-chart [series]="DeviceSalesChartOptions.series" [chart]="DeviceSalesChartOptions.chart"
+                  [dataLabels]="DeviceSalesChartOptions.dataLabels" [legend]="DeviceSalesChartOptions.legends"
+                  [colors]="DeviceSalesChartOptions.colors" [stroke]="DeviceSalesChartOptions.stroke"
+                  [labels]="DeviceSalesChartOptions.labels" [tooltip]="DeviceSalesChartOptions.tooltip"
+                  [plotOptions]="DeviceSalesChartOptions.plotOptions"></apx-chart>
+              </div>
+              <ul class="list-inline text-center mt-3">
+                <li class="list-inline-item">
+                  <i class="fa fa-circle" style="color: rgb(0, 255, 149);"></i> AI
+                </li>
+                <!-- <li class="list-inline-item">
+                  <i class="fa fa-circle" style="color: rgb(251, 140, 0);"></i> IM
+                </li> -->
+                <li class="list-inline-item">
+                  <i class="fa fa-circle" style="color: rgb(0, 174, 255);"></i> IS
+                </li>
+                <li class="list-inline-item">
+                  <i class="fa fa-circle" style="color: rgb(255, 238, 0);"></i> TM
+                </li>
+                <!-- <li class="list-inline-item">
+                  <i class="fa fa-circle" style="color: rgb(32, 201, 151);"></i> ZT
+                </li> -->
+              </ul>
+            </div>
+          </div>
+          </div>
+          <div class="col-sm-4" >
+            <!-- <div class="pt-2 pb-2 chart">
+              <h2 class="text-center">Distribution By Country</h2>
+              <apx-chart [series]="chartOptions2.series" [chart]="chartOptions2.chart" [labels]="chartOptions2.labels"
+                [responsive]="chartOptions2.responsive"></apx-chart>
+            </div> -->
+            <div class="card">
+              <div class="card-body pl-0 pr-0">
+                <h3 class="card-title text-center">Distribution by Country</h3>
+                <div class="m-t-20 d-flex flex-column m-auto">
+                  <apx-chart [series]="DeviceSalesChartOptions1.series" [chart]="DeviceSalesChartOptions1.chart"
+                    [dataLabels]="DeviceSalesChartOptions1.dataLabels" [legend]="DeviceSalesChartOptions1.legends"
+                    [colors]="DeviceSalesChartOptions1.colors" [stroke]="DeviceSalesChartOptions1.stroke"
+                    [labels]="DeviceSalesChartOptions1.labels" [tooltip]="DeviceSalesChartOptions1.tooltip"
+                    [plotOptions]="DeviceSalesChartOptions1.plotOptions"></apx-chart>
+                </div>
+                <ul class="list-inline text-center mt-3">
+                  <li class="list-inline-item">
+                    <i class="fa fa-circle" style="color: rgb(0, 255, 149);"></i> India 
+                  </li>
+                  <!-- <li class="list-inline-item">
+                    <i class="fa fa-circle" style="color: rgb(251, 140, 0);"></i> IM
+                  </li> -->
+                  <li class="list-inline-item">
+                    <i class="fa fa-circle" style="color: rgb(0, 174, 255);"></i> USA
+                  </li>
+                  <li class="list-inline-item">
+                    <i class="fa fa-circle" style="color: rgb(255, 238, 0);"></i> Australia
+                  </li>
+                  <!-- <li class="list-inline-item">
+                    <i class="fa fa-circle" style="color: rgb(32, 201, 151);"></i> ZT
+                  </li> -->
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4" >
+            <!-- <div  class="pt-2 pb-2 chart">
+              <h2 class="text-center">Distribution By Solutions</h2>
+              <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [labels]="chartOptions.labels"
+                [responsive]="chartOptions.responsive"></apx-chart>
+            </div> -->
+            <div class="card">
+              <div class="card-body pl-0 pr-0">
+                <h3 class="card-title text-center">Distribution by Solutions</h3>
+                <div class="m-t-20 d-flex flex-column m-auto">
+                  <apx-chart [series]="DeviceSalesChartOptions2.series" [chart]="DeviceSalesChartOptions2.chart"
+                    [dataLabels]="DeviceSalesChartOptions2.dataLabels" [legend]="DeviceSalesChartOptions2.legends"
+                    [colors]="DeviceSalesChartOptions2.colors" [stroke]="DeviceSalesChartOptions2.stroke"
+                    [labels]="DeviceSalesChartOptions2.labels" [tooltip]="DeviceSalesChartOptions2.tooltip"
+                    [plotOptions]="DeviceSalesChartOptions2.plotOptions"></apx-chart>
+                </div>
+                <ul class="list-inline text-center mt-3">
+                  <li class="list-inline-item">
+                    <i class="fa fa-circle" style="color: rgb(0, 174, 255);"></i> Others
+                  </li>
+                  <!-- <li class="list-inline-item">
+                    <i class="fa fa-circle" style="color: rgb(251, 140, 0);"></i> IM
+                  </li> -->
+                  <li class="list-inline-item">
+                    <i class="fa fa-circle" style="color: rgb(255, 238, 0);"></i> Transports
+                  </li>
+                  <li class="list-inline-item">
+                    <i class="fa fa-circle" style="color: rgb(0, 255, 149);"></i> Documents
+                  </li>
+                  <!-- <li class="list-inline-item">
+                    <i class="fa fa-circle" style="color: rgb(32, 201, 151);"></i> ZT
+                  </li> -->
+                </ul>
+              </div>
+            </div>
+  
+          </div>
+          <div class="col-sm-4" >
+            <!-- <div  class="pt-2 pb-2 chart">
+              <h2 class="text-center">Distribution By Potential</h2>
+              <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [labels]="chartOptions.labels"
+                [responsive]="chartOptions.responsive"></apx-chart>
+            </div> -->
+            <div class="card">
+              <div class="card-body pl-0 pr-0">
+                <h3 class="card-title text-center">Distribution by Solutions</h3>
+                <div class="m-t-20 d-flex flex-column m-auto">
+                  <apx-chart [series]="DeviceSalesChartOptions2.series" [chart]="DeviceSalesChartOptions2.chart"
+                    [dataLabels]="DeviceSalesChartOptions2.dataLabels" [legend]="DeviceSalesChartOptions2.legends"
+                    [colors]="DeviceSalesChartOptions2.colors" [stroke]="DeviceSalesChartOptions2.stroke"
+                    [labels]="DeviceSalesChartOptions2.labels" [tooltip]="DeviceSalesChartOptions2.tooltip"
+                    [plotOptions]="DeviceSalesChartOptions2.plotOptions"></apx-chart>
+                </div>
+                <ul class="list-inline text-center mt-3">
+                  <li class="list-inline-item">
+                    <i class="fa fa-circle" style="color: rgb(0, 174, 255);"></i> Others
+                  </li>
+                  <!-- <li class="list-inline-item">
+                    <i class="fa fa-circle" style="color: rgb(251, 140, 0);"></i> IM
+                  </li> -->
+                  <li class="list-inline-item">
+                    <i class="fa fa-circle" style="color: rgb(255, 238, 0);"></i> Transports
+                  </li>
+                  <li class="list-inline-item">
+                    <i class="fa fa-circle" style="color: rgb(0, 255, 149);"></i> Documents
+                  </li>
+                  <!-- <li class="list-inline-item">
+                    <i class="fa fa-circle" style="color: rgb(32, 201, 151);"></i> ZT
+                  </li> -->
+                </ul>
+              </div>
+            </div>
+  
+          </div>
+          <div class="col-sm-4" >
+            <!-- <div  class="pt-2 pb-2 chart">
+              <h2 class="text-center">Distribution By Head Count</h2>
+              <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [labels]="chartOptions.labels"
+                [responsive]="chartOptions.responsive"></apx-chart>
+            </div> -->
+            <div class="card">
+              <div class="card-body pl-0 pr-0">
+                <h3 class="card-title text-center">Distribution by Industry</h3>
+                <div class="m-t-20 d-flex flex-column m-auto">
+                  <apx-chart [series]="DeviceSalesChartOptions.series" [chart]="DeviceSalesChartOptions.chart"
+                    [dataLabels]="DeviceSalesChartOptions.dataLabels" [legend]="DeviceSalesChartOptions.legends"
+                    [colors]="DeviceSalesChartOptions.colors" [stroke]="DeviceSalesChartOptions.stroke"
+                    [labels]="DeviceSalesChartOptions.labels" [tooltip]="DeviceSalesChartOptions.tooltip"
+                    [plotOptions]="DeviceSalesChartOptions.plotOptions"></apx-chart>
+                </div>
+                <ul class="list-inline text-center mt-3">
+                  <li class="list-inline-item">
+                    <i class="fa fa-circle" style="color: rgb(0, 255, 149);"></i> AI
+                  </li>
+                  <!-- <li class="list-inline-item">
+                    <i class="fa fa-circle" style="color: rgb(251, 140, 0);"></i> IM
+                  </li> -->
+                  <li class="list-inline-item">
+                    <i class="fa fa-circle" style="color: rgb(0, 174, 255);"></i> IS
+                  </li>
+                  <li class="list-inline-item">
+                    <i class="fa fa-circle" style="color: rgb(255, 238, 0);"></i> TM
+                  </li>
+                  <!-- <li class="list-inline-item">
+                    <i class="fa fa-circle" style="color: rgb(32, 201, 151);"></i> ZT
+                  </li> -->
+                </ul>
+              </div>
+            </div>
+  
+          </div>
+          <div class="col-sm-4" >
+            <!-- <div  class="pt-2 pb-2 chart">
+              <h2 class="text-center">Distribution By Lead Gen Partner</h2>
+              <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [labels]="chartOptions.labels"
+                [responsive]="chartOptions.responsive"></apx-chart>
+            </div> -->
+            <div class="card">
+              <div class="card-body pl-0 pr-0">
+                <h3 class="card-title text-center">Distribution by Country</h3>
+                <div class="m-t-20 d-flex flex-column m-auto">
+                  <apx-chart [series]="DeviceSalesChartOptions1.series" [chart]="DeviceSalesChartOptions1.chart"
+                    [dataLabels]="DeviceSalesChartOptions1.dataLabels" [legend]="DeviceSalesChartOptions1.legends"
+                    [colors]="DeviceSalesChartOptions1.colors" [stroke]="DeviceSalesChartOptions1.stroke"
+                    [labels]="DeviceSalesChartOptions1.labels" [tooltip]="DeviceSalesChartOptions1.tooltip"
+                    [plotOptions]="DeviceSalesChartOptions1.plotOptions"></apx-chart>
+                </div>
+                <ul class="list-inline text-center mt-3">
+                  <li class="list-inline-item">
+                    <i class="fa fa-circle" style="color: rgb(0, 255, 149);"></i> India 
+                  </li>
+                  <!-- <li class="list-inline-item">
+                    <i class="fa fa-circle" style="color: rgb(251, 140, 0);"></i> IM
+                  </li> -->
+                  <li class="list-inline-item">
+                    <i class="fa fa-circle" style="color: rgb(0, 174, 255);"></i> USA
+                  </li>
+                  <li class="list-inline-item">
+                    <i class="fa fa-circle" style="color: rgb(255, 238, 0);"></i> Australia
+                  </li>
+                  <!-- <li class="list-inline-item">
+                    <i class="fa fa-circle" style="color: rgb(32, 201, 151);"></i> ZT
+                  </li> -->
+                </ul>
+              </div>
+            </div>
+  
+          </div>
+  
+          <div class="col-sm-12 mt-2">
+  
+            <div id="chart1" class="card p-2">
+              <apx-chart [series]="chartOptions1.series" [chart]="chartOptions1.chart" [xaxis]="chartOptions1.xaxis"
+                [dataLabels]="chartOptions1.dataLabels" [grid]="chartOptions1.grid" [stroke]="chartOptions1.stroke"
+                [title]="chartOptions1.title" [markers]="chartOptions1.markers" [yaxis]="chartOptions1.yaxis"
+                [fill]="chartOptions1.fill"></apx-chart>
+            </div>
+  
+  
+          </div>
+  
+          <div class="col-sm-4">
+            <!-- <div class="card">
+                <div class="card-header d-flex flex-column align-items-start pb-0">
+                  <div class="avatar bg-light-primary p-50 m-0">
+                    <div class="avatar-content">
+                      <i data-feather="users" class="font-medium-5"></i>
+                    </div>
+                  </div>
+                  <h2 class="font-weight-bolder mt-1">{{ data.subscribers_gained.analyticsData.subscribers }}</h2>
+                  <p class="mb-0">Subscribers Gained</p> 
+                </div>
+  
+  
+                <div id="gainedChartoptions" #gainedChartRef>
+                  <apx-chart
+                    [series]="data.subscribers_gained.series"
+                    [chart]="{
+                      height: 100,
+                      width: isMenuToggled === true ? gainedChartRef.offsetWidth : gainedChartoptions.chart.width,
+                      type: 'area',
+                      toolbar: {
+                        show: false
+                      },
+                      sparkline: {
+                        enabled: true
+                      }
+                    }"
+                    [stroke]="gainedChartoptions.stroke"
+                    [fill]="gainedChartoptions.fill"
+                    [tooltip]="gainedChartoptions.tooltip"
+                    [colors]="gainedChartoptions.colors"
+                    [dataLabels]="gainedChartoptions.dataLabels"
+                  ></apx-chart>
+                </div>
+              </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

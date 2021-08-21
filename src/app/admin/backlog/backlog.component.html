@@ -1,0 +1,384 @@
+<div class="container">
+    <div class="row">
+  
+      <div class="col-sm-6 pl-0" style="margin-bottom: 15px;">
+  
+      </div>
+  
+      <div class="col-sm-6 pr-0">
+  
+        <button class="btn btn-gradient-dark float-right" style="height: 40px;border-radius: 5px;" (click)="openn(addOpportunityModal, null)">
+            <i class="fa fa-plus"></i> Add Item
+          </button>
+    
+        <button class="btn btn-gradient-secondary float-right" style="height: 40px;border-radius: 5px;margin-right: 10px;"
+            (click)="filterToggle = !filterToggle">
+            <i class="fa fa-align-justify"></i> Filter
+        </button>
+  
+       
+      </div>
+  
+    </div>
+
+  
+  
+  
+  <!-- Filter -->
+  <div class="row" fxLayout="row wrap" *ngIf="filterToggle">
+      <div class="col-12 m-0 p-0">
+          <div class="card" style="margin-top: 20px;">
+  
+              <hr class="m-t-0">
+              <form class="form-horizontal r-separator">
+                  <div class="card-body">
+                      <div class="row">
+  
+                          <div class="col-4">
+                              <div class="form-group row">
+                                  <label for="inputEmail3" class="col-sm-5 text-left control-label col-form-label">Search
+                                    by Developer: </label>
+                                  <div class="col-sm-7">
+                                      <input type="text" class="form-control" id="inputEmail3"
+                                          placeholder="Search by Developer">
+                                  </div>
+                              </div>
+                          </div>
+  
+                          <div class="col-4">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-5 text-left control-label col-form-label">Search
+                                    by Screen Name:</label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" id="inputEmail3"
+                                        placeholder="Search by Screen Name">
+                                </div>
+                            </div>
+                          </div>
+  
+                            <div class="col-4">
+                              <div class="form-group row">
+                                  <label for="inputEmail3" class="col-sm-5 text-left control-label col-form-label">Search
+                                      by Priority:</label>
+                                  <div class="col-sm-7">
+                                      <input type="text" class="form-control" id="inputEmail3"
+                                          placeholder="Search by Priority">
+                                  </div>
+                              </div>
+                          </div>
+  
+                          <div class="col-4">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-5 text-left control-label col-form-label">Search
+                                    by Upcoming:</label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" id="inputEmail3"
+                                        placeholder="Search by Upcoming">
+                                </div>
+                            </div>
+                        </div>
+  
+                          <div class="col-4">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-5 text-left control-label col-form-label">Search
+                                    by Demo Date:</label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" id="inputEmail3"
+                                        placeholder="Search by Demo Date">
+                                </div>
+                            </div>
+                        </div>
+  
+                        <div class="col-4">
+                            <div class="form-group row mt-2">
+                                <div class="custom-control custom-checkbox" style="margin-left: 30px;">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">Show Target Leads</label>
+                                </div>
+                            </div>
+                        </div>
+  
+                        <div class="col-4">
+                          <div class="form-group row">
+                              <label for="inputEmail3" class="col-sm-5 text-left control-label col-form-label">Keyword
+                                Search:</label>
+                              <div class="col-sm-7">
+                                  <input type="text" class="form-control" id="inputEmail3"
+                                      placeholder="Keyword Search">
+                              </div>
+                          </div>
+                        </div>
+  
+                      </div>
+                    </div>
+  
+                    <div class="card-body pt-0">
+                        <div class="form-group m-b-0 text-right" style="margin-right: 50px;">
+                            <button type="submit" class="btn btn-info waves-effect waves-light" style="margin-right: 15px;">Search</button>
+                            <button type="submit" class="btn btn-dark waves-effect waves-light"
+                            (click)="filterToggle = !filterToggle">Clear</button>
+                        </div>
+                    </div>
+  
+              </form>
+          </div>
+      </div>
+  </div>
+  
+  
+  <!-- Opportunity Modal --> 
+  
+  <ng-template #addOpportunityModal let-modal>
+    <div class="">
+      <div class="modal-header">
+        <div class="col-sm-10 d-flex text-left p-0 m-0">
+          <h3 class="modal-title p-0 m-0" id="modal-basic-title" style="font-weight: 500;">{{ header }} Details</h3>
+        </div>
+        <div class="col-sm-2 pr-1">
+          <button class="float-right" type="button" class="close ml-0" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    <form class="form-horizontal r-separator">
+        <div class="card-body">
+            <div class="row">
+                <div class="col">
+                    <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-3 text-left control-label col-form-label">Subject:</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="inputEmail3"
+                                placeholder="Enter Subject" style="width: 100%;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-3 text-left control-label col-form-label">Description:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="inputEmail3"
+                            placeholder="Enter Description">
+                    </div>
+                  </div>
+                </div>
+  
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-3 text-left control-label col-form-label">Screen Name:</label>
+                        <div class="col-sm-8" for="status">
+                            <select name="status" style="width: 100%;height: 33px; color: gray;">
+                                <option value="volvo">-- Select Screen --</option>
+                                <option value="0">Actions</option>
+                                <option value="1">Admin</option>
+                                <option value="2">Analytics</option>
+                                <option value="3">Backlog</option>
+                                <option value="4">Benchmarking</option>
+                                <option value="5">Campaigns</option>
+                              </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                  <div class="form-group row">
+                      <label for="inputEmail3" class="col-sm-3 text-left control-label col-form-label">Priority:</label>
+                      <div class="col-sm-8" for="status">
+                          <select name="status" style="width: 100%;height:33px; color: gray;">
+                              <option value="volvo">-- Select Priority --</option>
+                              <option value="0">High</option>
+                              <option value="1">Medium</option>
+                              <option value="2">Low</option>
+                            </select>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+            <div class="col">
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-3 text-left control-label col-form-label">Developer:</label>
+                    <div class="col-sm-8" for="status">
+                        <select name="status" style="width: 100%;height:33px; color: gray;">
+                            <option value="volvo">-- Select Developer --</option>
+                            <option value="0">Person 1</option>
+                            <option value="1">Person 2</option>
+                          </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+            <div class="row">
+              <div class="col">
+                  <div class="form-group row">
+                      <label for="inputEmail3" class="col-sm-3 text-left control-label col-form-label">Dev Effort:</label>
+                      <div class="col-sm-6 pr-0">
+                        <input class="form-control" placeholder="YY/MM/DD" name="d1"
+                          #c1="ngModel" [(ngModel)]="model11" ngbDatepicker #d1="ngbDatepicker">
+                      </div>
+                      <div class="col-sm-1 p-0" >
+                        <button class="btn btn-outline-secondary calendar" (click)="d1.toggle()"style="margin-left: 10px;"
+                          type="button"><i class="fa fa-calendar"></i></button>
+                      </div>
+                  </div>
+              </div>
+            </div>
+  
+            <div class="row">
+                <div class="col">
+                    <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-3 text-left control-label col-form-label">Dev Effort:</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="inputEmail3"
+                                placeholder="Enter Dev Effort (in days)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+  
+            <div class="row">
+              <div class="col">
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-3 text-left control-label col-form-label">Dev Effort:</label>
+                    <div class="col-sm-6 pr-0">
+                      <input class="form-control" placeholder="YY/MM/DD" name="d2"
+                        #c2="ngModel" [(ngModel)]="model12" ngbDatepicker #d2="ngbDatepicker">
+                    </div>
+                    <div class="col-sm-1 p-0">
+                      <button class="btn btn-outline-secondary calendar" (click)="d2.toggle()" style="margin-left: 10px;"
+                        type="button"><i class="fa fa-calendar"></i></button>
+                    </div>
+                  </div>
+              </div>
+            </div>
+  
+            <div class="row ">
+              <div class="col">
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-3 text-left control-label col-form-label">Dev Effort:</label>
+                    <div class="col-sm-6 pr-0">
+                      <input class="form-control r-2" placeholder="YY/MM/DD" name="d3"
+                        #c3="ngModel" [(ngModel)]="model13" ngbDatepicker #d3="ngbDatepicker">
+                    </div>
+                    <div class="col-sm-1 p-0">
+                      <button class="btn btn-outline-secondary calendar" (click)="d3.toggle()" style="margin-left: 10px;"
+                        type="button"><i class="fa fa-calendar"></i></button>
+                    </div>
+                  </div>
+              </div>
+            </div>
+  
+  
+        </div>
+        <div class="card-body">
+            <div class="form-group m-b-0 float-right" style="margin-top: -30px;">
+                <button type="submit" class="btn btn-info waves-effect waves-light" style="margin-right:10px">Save</button>
+                <button type="submit" class="btn btn-dark waves-effect waves-light"
+                (click)="modal.close('Accept click')">Cancel</button>
+            </div>
+        </div>
+    </form>
+  </div>
+  </ng-template>
+  
+  
+  
+  <div class="card row mt-2" #widgetsContent style="margin-top:0px;overflow-x: auto;">
+    <div class="col-xs-12" style="margin-left:0px">
+        <div class="card pb-0 mb-0">
+          <div id="grid-table-container" class="table-responsive" style="width:100%">
+              <table matSort id="example2" class="table table-bordered table-striped table-hover ">
+                  <thead class="tbl-head ">
+                      <tr>
+                        <th style="min-width: 200px; background: white;">Subject</th>
+                        <th class="text-center" style="background: white;">Info</th>
+                        <th class="text-center"style="background: white;">Screen Name</th>
+                        <th class="text-center"style="background: white;">Created By</th>
+                        <th class="text-center"style="background: white;">Dev Role</th>
+                        <th class="text-center" style="min-width: 150px;background: white;">Dev Date</th>
+                        <th class="text-center"style="background: white;">Dev Effort</th>
+                        <th class="text-center" style="min-width: 150px;background: white;">QA Date</th>
+                        <th class="text-center" style="min-width: 150px;background: white;">Demo Date</th>
+                        <th class='text-center'style="background: white;">UX Spec</th>
+                        <th class="text-center"style="background: white;">Task Spec</th>
+                        <th class='text-center'style="background: white;">QA Checklist</th>
+                        <th class='text-center'style="background: white;">Tech Spec</th>
+                        <th class='text-center'style="background: white;">Issues</th>
+                        <th class='text-center'style="background: white;">Docs</th>
+                        <th class="text-center"style="background: white;">Priority</th>
+                        <th class="text-center"style="background: white;">Completed</th>
+                        <th class="text-center"style="background: white;">Next</th>
+                        <th class="text-center"style="background: white;">Actions</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let item of items">
+  
+                          <td>{{ item.sub }}</td>
+                          <td class="text-center">
+                            <a style="cursor: pointer;color:#246ade;">
+                                <i matTooltip="Edit Description" class="fa fa-info fa-1x" aria-hidden="true"></i>
+                            </a>
+                          </td>
+                          <td class="text-center">{{ item.screen }}</td>
+                          <td class="text-center">{{ item.created }}</td>
+                          <td class="text-center">{{ item.dev }}</td>
+                          <td class="text-center">{{ item.devDate }}</td>
+                          <td class="text-center">{{ item.devEffort }}</td>
+                          <td class="text-center">{{ item.qaDate }}</td>
+                          <td class="text-center">{{ item.demoDate }}</td>
+                          <td class="text-center" style="cursor: pointer;color:#246ade;">{{ item.ux }}</td>
+                          <td class="text-center" style="cursor: pointer;color:#246ade;">{{ item.ux }}</td>
+                          <td class="text-center" style="cursor: pointer;color:#246ade;">{{ item.ux }}</td>
+                          <td class="text-center" style="cursor: pointer;color:#246ade;">{{ item.ux }}</td>
+                          <td class="text-center" style="cursor: pointer;color:#246ade;">{{ item.ux }}</td>
+                          <td class="text-center" style="cursor: pointer;color:#246ade;">{{ item.docs }}</td>
+                          <td class="text-center">{{ item.priority }}</td>
+  
+                          <td><input class="col" type="checkbox" value=""></td>
+  
+                          <td><input class="col" type="checkbox" value=""></td>
+  
+                          <td>
+                              <a><i class="fa fa-edit" ngbTooltip="Edit Backlog" (click)="openn(addOpportunityModal, 'item')"
+                                  style="cursor: pointer;margin-right:10px;color: cornflowerblue"></i>
+                              </a>
+                              <a mwlConfirmationPopover
+                                  type="button"
+                                  popoverTitle="Confirm Delete"
+                                  popoverMessage="Are you sure you want to Delete?"
+                                  placement="left"
+                                  (confirm)="cancelClicked = true"
+                                  (cancel)="cancelClicked = true">
+                                  <i class="fa fa-trash red" ngbTooltip="Delete Backlog"
+                                  style="cursor: pointer;color: rgb(241, 44, 44)"></i>
+                              </a>
+                          </td>
+  
+                      </tr>
+                  </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- <ngb-pagination class="d-flex justify-content-center" [collectionSize]="10" [(page)]="page"></ngb-pagination> -->
+      </div>
+   
+  </div>
+  <div class="text-center pb-0" >
+    <!-- <button class="btn btn-gradient-primary" style="margin-right: 78px !important;" (click)="scrollLeft()">
+        <i class=" feather icon-chevron-left "></i>
+    </button> -->
+    <button type="button" class="btn btn-icon rounded-circle btn-outline-primary" style="margin-right: 10px !important;" rippleEffect (click)="scrollLeft()">
+        <span></span><i class=" feather icon-chevron-left "></i></button>
+    <!-- <button class="btn btn-gradient-primary" (click)="scrollRight()">
+        <i class=" feather icon-chevron-right "></i>
+    </button> -->
+    <button type="button" class="btn btn-icon rounded-circle btn-outline-primary" rippleEffect (click)="scrollRight()">
+        <span></span><i class=" feather icon-chevron-right"></i></button>
+</div>
+</div>

@@ -1,0 +1,1268 @@
+<div class="container">
+    <div class="row">
+
+        <div class="col-sm-6 pl-0" style="margin-bottom: 15px;">
+            <div class="pills">
+                <ul class="nav nav-pills">
+                    <li routerLinkActive="active" routerLink="/portfolio/snapshots">
+                        <a mat-raised-button class="navtabWidth">
+                            Snapshots (45)
+                        </a>
+                    </li>
+                    <li routerLinkActive="active" routerLink="/portfolio/projects">
+                        <a mat-raised-button class="navtabWidth">
+                            Projects (7)
+                        </a>
+                    </li>
+                    <li routerLinkActive="active" routerLink="/portfolio/prototypes">
+                        <a mat-raised-button class="navtabWidth">
+                            Prototypes (7)
+                        </a>
+                    </li>
+                    <li routerLinkActive="active" routerLink="/portfolio/documents">
+                        <a mat-raised-button class="navtabWidth">
+                            Documents (21)
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-sm-6 pr-0">
+
+            <button class="btn btn-gradient-dark float-right"
+                (click)="openn(addOpportunityModal)">
+                <i class="fa fa-plus"></i> Add Project
+            </button>
+            
+            <button class="btn btn-gradient-secondary float-right" style="margin-right: 10px;"
+             (click)="filterToggle = !filterToggle">
+                <i class="fa fa-align-justify"></i> Filter
+            </button>
+            <h3 class="float-right" style="margin-right: 27px; margin-top: 7px;"><input type="checkbox" checked /> Mask Empty
+                Categories</h3>
+        </div>
+
+    </div>
+
+
+    <!-- Filter -->
+    <div class="row" fxLayout="row wrap" *ngIf="filterToggle">
+        <div class="col-12 m-0 p-0">
+            <div class="card">
+                <form class="form-horizontal r-separator">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group row">
+                                    <label for="inputEmail3"
+                                        class="col-sm-3 text-left control-label col-form-label">Search
+                                        by Title:</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="inputEmail3"
+                                            placeholder="Search by Lead">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group row">
+                                    <label for="inputEmail3"
+                                        class="col-sm-3 text-left control-label col-form-label">Search
+                                        by Category:</label>
+                                    <div class="col-sm-8">
+                                        <ng-multiselect-dropdown [placeholder]="'--Search by Category--'"
+                                            [data]="Category" [(ngModel)]="selectedItems" [settings]="dropdownSettings"
+                                            (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+                                        </ng-multiselect-dropdown>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group m-b-0 text-right" style="margin-right: 0px;">
+                                <button type="submit" class="btn btn-gradient-info waves-effect waves-light"
+                                    style="margin-right: 10px;">Save</button>
+                                <button type="submit"
+                                    class="btn btn-gradient-dark waves-effect waves-light"
+                                    (click)="filterToggle = !filterToggle">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Opportunity Modal -->
+    <ng-template #addOpportunityModal let-modal>
+        <div class="">
+            <div class="modal-header">
+                <div class="col-sm-10 d-flex text-left m-0 p-0">
+                    <h3 class="modal-title m-0 p-0" id="modal-basic-title" style="font-weight: 500;">Add Project</h3>
+                </div>
+                <div class="col-sm-2 pr-1">
+                    <button class="float-right" type="button" class="close ml-0" aria-label="Close"
+                        (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+            <form class="form-horizontal r-separator">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3"
+                                    class="col-sm-4 mt-0 text-left control-label col-form-label">Artifact
+                                    Type:</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="inputEmail3"
+                                        placeholder="Enter Artifact Type">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-4 mt-0   text-left control-label col-form-label">Select
+                                    Category:</label>
+                                <div class="col-sm-8">
+                                    <ng-multiselect-dropdown [placeholder]="'--Select Category--'" [data]="Category"
+                                        [(ngModel)]="selectedItems" [settings]="dropdownSettings"
+                                        (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+                                    </ng-multiselect-dropdown>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-4 mt-0 text-left control-label col-form-label">Select
+                                    Industry:</label>
+                                <div class="col-sm-8" for="status" style="color: gray;">
+                                    <select name="status" style="width: 300px;height: 33px; color: gray; ">
+                                        <option value="volvo">-- Select Industry --</option>
+                                        <option value="0">Chemicals</option>
+                                        <option value="1">Logistics & Supply chain</option>
+                                        <option value="2">Digital Marketing Agencies</option>
+                                        <option value="3">Software Product development</option>
+                                        <option value="4">Import & Export</option>
+                                        <option value="5">Financial Services</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-4 mt-0 text-left control-label col-form-label">Select
+                                    Tag:</label>
+                                <div class="col-sm-8">
+                                    <ng-multiselect-dropdown [placeholder]="'--Select Tag--'" [data]="Tag"
+                                        [(ngModel)]="selectedItems" [settings]="dropdownSettings"
+                                        (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+                                    </ng-multiselect-dropdown>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-4 mt-0 text-left control-label col-form-label">Enter
+                                    Project Title:</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="inputEmail3" style=" color: gray;"
+                                        placeholder="Enter Project Title">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-4 mt-0 text-left control-label col-form-label">Project
+                                    Type:</label>
+                                <div class="col-sm-8" for="status">
+                                    <select name="status" style="width: 300px;height: 33px; color: gray;">
+                                        <option value="volvo">-- Select Project --</option>
+                                        <option value="0">Demo</option>
+                                        <option value="1">IP</option>
+                                        <option value="1">CC</option>
+                                        <option value="1">CP</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3"
+                                    class="col-sm-4 mt-0 text-left control-label col-form-label">Document
+                                    Type:</label>
+                                <div class="col-sm-8" for="status">
+                                    <select name="status" style="width: 300px;height: 33px; color: gray;">
+                                        <option value="volvo">-- Select Document --</option>
+                                        <option value="0">Construction Quals</option>
+                                        <option value="1">Logistics Quals</option>
+                                        <option value="2">Mining Quals</option>
+                                        <option value="3">Manufacturing Quals</option>
+                                        <option value="4">Company Profile</option>
+                                        <option value="5">Audit Automation</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="form-group m-b-0 float-right" style="margin-top: -30px;">
+                        <button type="submit" class="btn btn-info waves-effect waves-light"
+                            style="margin-right:10px">Save</button>
+                        <button type="submit" class="btn btn-dark waves-effect waves-light"
+                        (click)="modal.close('Accept click')">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </ng-template>
+
+
+    <ng-template #updateOpportunityModal let-modal>
+        <div class="">
+            <div class="modal-header">
+                <div class="col-sm-10 d-flex text-left m-0 p-0">
+                    <h3 class="modal-title m-0 p-0" id="modal-basic-title" style="font-weight: 500;">Update Project</h3>
+                </div>
+                <div class="col-sm-2 pr-1">
+                    <button class="float-right" type="button" class="close ml-0" aria-label="Close"
+                        (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+            <form class="form-horizontal r-separator">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3"
+                                    class="col-sm-4 mt-0 text-left control-label col-form-label">Artifact
+                                    Type:</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="inputEmail3"
+                                        placeholder="Enter Artifact Type">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-4 mt-0  text-left control-label col-form-label">Select
+                                    Category:</label>
+                                <div class="col-sm-8">
+                                    <ng-multiselect-dropdown [placeholder]="'--Select Category--'" [data]="Category"
+                                        [(ngModel)]="selectedItems" [settings]="dropdownSettings"
+                                        (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+                                    </ng-multiselect-dropdown>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-4 mt-0  text-left control-label col-form-label">Select
+                                    Industry:</label>
+                                <div class="col-sm-8" for="status">
+                                    <select name="status" style="width: 300px;height: 31px;">
+                                        <option value="volvo">-- Select Industry --</option>
+                                        <option value="0">Chemicals</option>
+                                        <option value="1">Logistics & Supply chain</option>
+                                        <option value="2">Digital Marketing Agencies</option>
+                                        <option value="3">Software Product development</option>
+                                        <option value="4">Import & Export</option>
+                                        <option value="5">Financial Services</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-4 mt-0  text-left control-label col-form-label">Select
+                                    Tag:</label>
+                                <div class="col-sm-8">
+                                    <ng-multiselect-dropdown [placeholder]="'--Select Tag--'" [data]="Tag"
+                                        [(ngModel)]="selectedItems" [settings]="dropdownSettings"
+                                        (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+                                    </ng-multiselect-dropdown>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-4 mt-0  text-left control-label col-form-label">Enter
+                                    Project Title:</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="inputEmail3"
+                                        placeholder="Enter Project Title">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-4 mt-0  text-left control-label col-form-label">Project
+                                    Type:</label>
+                                <div class="col-sm-8" for="status">
+                                    <select name="status" style="width: 300px;height: 31px;">
+                                        <option value="volvo">-- Select Project --</option>
+                                        <option value="0">Demo</option>
+                                        <option value="1">IP</option>
+                                        <option value="1">CC</option>
+                                        <option value="1">CP</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3"
+                                    class="col-sm-4 mt-0  text-left control-label col-form-label">Document
+                                    Type:</label>
+                                <div class="col-sm-8" for="status">
+                                    <select name="status" style="width: 300px;height: 31px;">
+                                        <option value="volvo">-- Select Document --</option>
+                                        <option value="0">Construction Quals</option>
+                                        <option value="1">Logistics Quals</option>
+                                        <option value="2">Mining Quals</option>
+                                        <option value="3">Manufacturing Quals</option>
+                                        <option value="4">Company Profile</option>
+                                        <option value="5">Audit Automation</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="form-group m-b-0 float-right" style="margin-top: -30px;">
+                        <button type="submit" class="btn btn-info waves-effect waves-light"
+                            style="margin-right:10px">Save</button>
+                        <button type="submit" class="btn btn-dark waves-effect waves-light"
+                        (click)="modal.close('Accept click')">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </ng-template>
+
+
+    <!-- Credentials Modal -->
+    <ng-template #addCredentialsModal let-modal>
+        <div>
+            <div class="modal-header">
+                <div class="col-sm-10 d-flex text-left m-0 p-0">
+                    <h3 class="modal-title m-0 p-0" id="modal-basic-title">Add Credentials</h3>
+                </div>
+                <div class="col-sm-2 pr-1">
+                    <button class="float-right" type="button" class="close ml-0" aria-label="Close"
+                        (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+            <form class="form-horizontal r-separator">
+                <div class="card-body">
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-4 mt-0 text-left control-label col-form-label">Role
+                                    :</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="inputEmail3" placeholder="Enter Role">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-4 mt-0  text-left control-label col-form-label">URL
+                                    :</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="inputEmail3" placeholder="Enter URL">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3"
+                                    class="col-sm-4 mt-0  text-left control-label col-form-label">Username
+                                    :</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="inputEmail3"
+                                        placeholder="Enter Username">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3"
+                                    class="col-sm-4 mt-0  text-left control-label col-form-label">Password
+                                    :</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="inputEmail3"
+                                        placeholder="Enter Password">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-body pr-0">
+                        <div class="form-group m-b-0 float-right">
+                            <button type="submit" class="btn btn-info waves-effect waves-light">Save</button>
+                        </div>
+                    </div>
+
+                    <p class="mt-4" style="font-weight: bolder; color: red;">Note: Click on the text to copy.</p>
+
+
+
+                    <div class="table-responsive table-bordered">
+                        <table class="table table-striped mb-0 no-wrap v-middle">
+                            <thead class="bg-info">
+                                <tr style="max-width: 200px !important;">
+                                    <th>Role</th>
+                                    <th>URL</th>
+                                    <th>Username</th>
+                                    <th>Password</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="max-width: 300px !important;">
+                                    <td>Admin</td>
+                                    <td style="cursor: pointer; color: cornflowerblue; ">View</td>
+                                    <td style="cursor: pointer; color: cornflowerblue;max-width: 130px !important;">Copy
+                                        Username</td>
+                                    <td style="cursor: pointer; color: cornflowerblue;max-width: 130px !important;">Copy
+                                        Password</td>
+                                    <td>
+                                        <a><i class="fa fa-edit" ngbTooltip="Edit"
+                                                style="cursor: pointer;margin-right:10px;color: cornflowerblue"></i>
+                                        </a>
+
+                                        <a><i class="fa fa-trash red" ngbTooltip="Delete"
+                                                style="cursor: pointer;color: rgb(241, 44, 44)"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <div class="card-body mb-4 pr-0">
+                        <div class="form-group m-b-0 float-right">
+                            <button type="submit" class="btn btn-gradient-dark waves-effect waves-light"
+                            (click)="modal.close('Accept click')">Cancel</button>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </ng-template>
+
+
+    <ng-template #viewdemoModal let-modal>
+        <div>
+            <div class="modal-header">
+                <div class="col-sm-10 d-flex text-left m-0 p-0">
+                    <h3 class="modal-title m-0 p-0" id="modal-basic-title" style="font-weight:500;">Demo Url's</h3>
+                </div>
+                <div class="col-sm-2 pr-1">
+                    <button class="float-right" type="button" class="close ml-0" aria-label="Close"
+                        (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+            <form class="form-horizontal r-separator">
+                <div class="card-body">
+
+                    <p class="mt-0" style="font-weight: bolder; color: red;">Note: Click on the text to copy.</p>
+
+
+
+                    <div class="table-responsive table-bordered">
+                        <table class="table table-striped mb-0 no-wrap v-middle">
+                            <thead class="bg-info">
+                                <tr style="max-width: 200px !important;">
+                                    <th>Role</th>
+                                    <th>URL</th>
+                                    <th>Username</th>
+                                    <th>Password</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="max-width: 300px !important;">
+                                    <td>Admin</td>
+                                    <td style="cursor: pointer; color: cornflowerblue; ">View</td>
+                                    <td style="cursor: pointer; color: cornflowerblue;max-width: 130px !important;">Copy
+                                        Username</td>
+                                    <td style="cursor: pointer; color: cornflowerblue;max-width: 130px !important;">Copy
+                                        Password</td>
+                                    
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <div class="card-body pr-0">
+                        <div class="form-group m-b-0 float-right">
+                            <button type="submit" class="btn btn-gradient-dark waves-effect waves-light"
+                            (click)="modal.close('Accept click')">Cancel</button>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </ng-template>
+
+    <ng-template #tagsModal let-modal>
+        <div>
+            <div class="modal-header">
+                <div class="col-sm-10 d-flex text-left m-0 p-0">
+                    <h3 class="modal-title m-0 p-0" id="modal-basic-title" style="font-weight:500;">Tag(s) List</h3>
+                </div>
+                <div class="col-sm-2 pr-1">
+                    <button class="float-right" type="button" class="close ml-0" aria-label="Close"
+                        (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+            <form class="form-horizontal r-separator">
+                <div class="card-body">
+                    <div class="table-responsive table-bordered">
+                        <table class="table table-striped mb-0 no-wrap v-middle">
+                            <thead class="">
+                                <tr>
+                                    <th class="text-center" style="max-width:100px !important;">Dashboard</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+
+
+                    <div class="card-body pr-0">
+                        <div class="form-group m-b-0 float-right">
+                            <button type="submit" class="btn btn-gradient-dark waves-effect waves-light"
+                            (click)="modal.close('Accept click')">Cancel</button>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </ng-template>
+
+    <ng-template #textModal1 let-modal>
+        <div>
+            <div class="modal-header">
+                <div class="col-sm-10 d-flex text-left m-0 p-0">
+                    <h3 class="modal-title m-0 p-0" id="modal-basic-title" style="font-weight:500;">Update Text</h3>
+                </div>
+                <div class="col-sm-2 pr-1">
+                    <button class="float-right" type="button" class="close ml-0" aria-label="Close"
+                        (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+            <form class="form-horizontal r-separator">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3"
+                                    class="col-sm-2 mt-0  text-left control-label col-form-label">Subject:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputEmail3" placeholder="Enter Vision" value="Activity Hub">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-2 mt-0  text-left control-label col-form-label">Text:</label>
+                                <div class="col-sm-10" for="status" style="color: gray;">
+                                    <fieldset class="form-group">
+                                      <textarea class="form-control" id="basicTextarea" rows="10" placeholder="Textarea">All functions are treated as a series of projects and allocated teams work as per deliverables with scorecard for productivity, predictability, process compliance and client feedback scores (Pulse).</textarea>
+                                    </fieldset>                              
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body pr-0">
+                        <div class="form-group m-b-0 float-right">
+                            <button type="submit" class="btn btn-gradient-dark ml-1 waves-effect waves-light"
+                            (click)="modal.close('Accept click')">Cancel</button>
+                        </div>
+                        <div class="form-group m-b-0 float-right">
+                            <button type="submit" class="btn btn-gradient-danger ml-1 waves-effect waves-light"
+                            (click)="modal.close('Accept click')">Delete</button>
+                        </div>
+                        <div class="form-group m-b-0 float-right">
+                            <button type="submit" class="btn btn-gradient-primary waves-effect waves-light"
+                            (click)="modal.close('Accept click')">Update</button>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </ng-template>
+  
+    <ng-template #textModal2 let-modal>
+        <div>
+            <div class="modal-header">
+                <div class="col-sm-10 d-flex text-left m-0 p-0">
+                    <h3 class="modal-title m-0 p-0" id="modal-basic-title" style="font-weight:500;">Update Text</h3>
+                </div>
+                <div class="col-sm-2 pr-1">
+                    <button class="float-right" type="button" class="close ml-0" aria-label="Close"
+                        (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+            <form class="form-horizontal r-separator">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3"
+                                    class="col-sm-2 mt-0  text-left control-label col-form-label">Subject:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputEmail3" placeholder="Enter Vision" value="CEO Dashboard">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-2 mt-0  text-left control-label col-form-label">Text:</label>
+                                <div class="col-sm-10" for="status" style="color: gray;">
+                                    <fieldset class="form-group">
+                                      <textarea class="form-control" id="basicTextarea" rows="10" placeholder="Textarea">Balanced scorecard implementation with key result areas and KPI are setup and the radar screen has the distribution and trend graphs</textarea>
+                                    </fieldset>                              
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body pr-0">
+                        <div class="form-group m-b-0 float-right">
+                            <button type="submit" class="btn btn-gradient-dark ml-1 waves-effect waves-light"
+                            (click)="modal.close('Accept click')">Cancel</button>
+                        </div>
+                        <div class="form-group m-b-0 float-right">
+                            <button type="submit" class="btn btn-gradient-danger ml-1 waves-effect waves-light"
+                            (click)="modal.close('Accept click')">Delete</button>
+                        </div>
+                        <div class="form-group m-b-0 float-right">
+                            <button type="submit" class="btn btn-gradient-primary waves-effect waves-light"
+                            (click)="modal.close('Accept click')">Update</button>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </ng-template>
+  
+    <ng-template #textModal3 let-modal>
+        <div>
+            <div class="modal-header">
+                <div class="col-sm-10 d-flex text-left m-0 p-0">
+                    <h3 class="modal-title m-0 p-0" id="modal-basic-title" style="font-weight:500;">Update Text</h3>
+                </div>
+                <div class="col-sm-2 pr-1">
+                    <button class="float-right" type="button" class="close ml-0" aria-label="Close"
+                        (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+            <form class="form-horizontal r-separator">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3"
+                                    class="col-sm-2 mt-0  text-left control-label col-form-label">Subject:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputEmail3" placeholder="Enter Vision" value="OVERVIEW">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-2 mt-0  text-left control-label col-form-label">Text:</label>
+                                <div class="col-sm-10" for="status" style="color: gray;">
+                                    <fieldset class="form-group">
+                                      <textarea class="form-control" id="basicTextarea" rows="10" placeholder="Textarea">This system is an audit automation developed for the consultancy company for immigration across all locations, departments and subdivisions.</textarea>
+                                    </fieldset>                              
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body pr-0">
+                        <div class="form-group m-b-0 float-right">
+                            <button type="submit" class="btn btn-gradient-dark ml-1 waves-effect waves-light"
+                            (click)="modal.close('Accept click')">Cancel</button>
+                        </div>
+                        <div class="form-group m-b-0 float-right">
+                            <button type="submit" class="btn btn-gradient-danger ml-1 waves-effect waves-light"
+                            (click)="modal.close('Accept click')">Delete</button>
+                        </div>
+                        <div class="form-group m-b-0 float-right">
+                            <button type="submit" class="btn btn-gradient-primary waves-effect waves-light"
+                            (click)="modal.close('Accept click')">Update</button>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </ng-template>
+  
+    <ng-template #textModal4 let-modal>
+        <div>
+            <div class="modal-header">
+                <div class="col-sm-10 d-flex text-left m-0 p-0">
+                    <h3 class="modal-title m-0 p-0" id="modal-basic-title" style="font-weight:500;">Update Text</h3>
+                </div>
+                <div class="col-sm-2 pr-1">
+                    <button class="float-right" type="button" class="close ml-0" aria-label="Close"
+                        (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+            <form class="form-horizontal r-separator">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3"
+                                    class="col-sm-2 mt-0  text-left control-label col-form-label">Subject:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputEmail3" placeholder="Enter Vision" value="DASHBOARD">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-2 mt-0  text-left control-label col-form-label">Text:</label>
+                                <div class="col-sm-10" for="status" style="color: gray;">
+                                    <fieldset class="form-group">
+                                      <textarea class="form-control" id="basicTextarea" rows="10" placeholder="Textarea">Provides an overview of jobs, activities and claims. Summary of various upcoming and overdue orders can be viewed from this section along with the graphical representation.</textarea>
+                                    </fieldset>                              
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body pr-0">
+                        <div class="form-group m-b-0 float-right">
+                            <button type="submit" class="btn btn-gradient-dark ml-1 waves-effect waves-light"
+                            (click)="modal.close('Accept click')">Cancel</button>
+                        </div>
+                        <div class="form-group m-b-0 float-right">
+                            <button type="submit" class="btn btn-gradient-danger ml-1 waves-effect waves-light"
+                            (click)="modal.close('Accept click')">Delete</button>
+                        </div>
+                        <div class="form-group m-b-0 float-right">
+                            <button type="submit" class="btn btn-gradient-primary waves-effect waves-light"
+                            (click)="modal.close('Accept click')">Update</button>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </ng-template>
+  
+    <ng-template #textModal5 let-modal>
+        <div>
+            <div class="modal-header">
+                <div class="col-sm-10 d-flex text-left m-0 p-0">
+                    <h3 class="modal-title m-0 p-0" id="modal-basic-title" style="font-weight:500;">Update Text</h3>
+                </div>
+                <div class="col-sm-2 pr-1">
+                    <button class="float-right" type="button" class="close ml-0" aria-label="Close"
+                        (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+            <form class="form-horizontal r-separator">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3"
+                                    class="col-sm-2 mt-0  text-left control-label col-form-label">Subject:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputEmail3" placeholder="Enter Vision" value="OVERVIEW">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-2 mt-0  text-left control-label col-form-label">Text:</label>
+                                <div class="col-sm-10" for="status" style="color: gray;">
+                                    <fieldset class="form-group">
+                                      <textarea class="form-control" id="basicTextarea" rows="10" placeholder="Textarea">This is a solution designed mainly for a mining industry platform. Designed to automate data for the whole mining process according to the requirements and current process. There is an equipment-related process occurring behind each action</textarea>
+                                    </fieldset>                              
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body pr-0">
+                        <div class="form-group m-b-0 float-right">
+                            <button type="submit" class="btn btn-gradient-dark ml-1 waves-effect waves-light"
+                            (click)="modal.close('Accept click')">Cancel</button>
+                        </div>
+                        <div class="form-group m-b-0 float-right">
+                            <button type="submit" class="btn btn-gradient-danger ml-1 waves-effect waves-light"
+                            (click)="modal.close('Accept click')">Delete</button>
+                        </div>
+                        <div class="form-group m-b-0 float-right">
+                            <button type="submit" class="btn btn-gradient-primary waves-effect waves-light"
+                            (click)="modal.close('Accept click')">Update</button>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </ng-template>
+  
+
+
+    <!-- Row -->
+    <div class="row mt-2">
+
+        <div class="col-sm-2">
+
+            <div class="col-md-12" style="padding: 0;margin-left: -10px !important;">
+                <h3 style="margin-top: 0px !important;">Categories:</h3>
+            </div>
+
+            <div class="pills" style="margin-top: 0px; margin-left: -10px;">
+                <ul class="nav nav-pills" style="width: 100%;">
+                    <li class="ml-0 mb-2" routerLinkActive="active"style="width: 100%;">
+                        <a mat-raised-button (click)="changeDisplayValue(1)"
+                            [ngClass]="{'linkSelected': displayValue == 1}" class="navtabWidth">
+                            Global (7)
+                        </a>
+                    </li>
+                    <li class="ml-0 mb-2" routerLinkActive="active" style="width: 100%;">
+                        <a mat-raised-button (click)="changeDisplayValue(2)"
+                            [ngClass]="{'linkSelected': displayValue == 2}" class="navtabWidth">
+                            GEO India (5)
+                        </a>
+                    </li>
+                    <li class="ml-0 mb-2" routerLinkActive="active" style="width: 100%;">
+                        <a mat-raised-button (click)="changeDisplayValue(3)"
+                            [ngClass]="{'linkSelected': displayValue == 3}" class="navtabWidth">
+                            IND Mining (1)
+                        </a>
+                    </li>
+                    <li class="ml-0 mb-2" routerLinkActive="active" style="width: 100%;">
+                        <a mat-raised-button (click)="changeDisplayValue(4)"
+                            [ngClass]="{'linkSelected': displayValue == 4}" class="navtabWidth">
+                            IND Construction (1)
+                        </a>
+                    </li>
+                    <li class="ml-0 mb-2" routerLinkActive="active" style="width: 100%;">
+                        <a mat-raised-button (click)="changeDisplayValue(5)"
+                            [ngClass]="{'linkSelected': displayValue == 5}" class="navtabWidth">
+                            GEO Canada (1)
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+
+        <div class="col-md-10 mt-3 mr-0 pr-0" *ngIf=" displayValue==1 || 2 || 3 ||4 || 5">
+            <div class="row">
+
+                <div class="col-md-4">
+                    <div class="card" style="height: 500px;">
+                        <div class="row p-0 m-0 btn-gradient-primary">
+                            <div class="col">
+                                <h3 class="mt-1 ml-1 text-white" matTooltip="People First" style="font-weight: 500;">CP &nbsp; | People FIR (2)</h3>
+                            </div>
+                            <h2 class="mr-2 mt-1 text-white">
+                                <i class="data feather icon-file"></i>&nbsp;
+                                <i class="data feather icon-user" title="Add Credentials"
+                                    (click)="openCredentials(addCredentialsModal)"></i>&nbsp;
+                                <i class="data feather icon-edit-2" title="Edit Artefact"
+                                    (click)="openn(updateOpportunityModal)"></i>&nbsp;
+                                <i class="data feather icon-trash" mwlConfirmationPopover type="button"
+                                    popoverTitle="Confirm Delete" popoverMessage="Are you sure you want to Delete?"
+                                    placement="left" confirm="cancelClicked = true"
+                                    cancel="cancelClicked = true"></i>&nbsp;
+                            </h2>
+                        </div>
+                        <img class="img-fluid"
+                            src="assets/images/Activity Hub.jpg"
+                            alt="Card image cap" />
+                        <div class="card-body">
+                            <h3 class="font-normal text-dark" style="font-weight: 500;" (click)="openCredentials(textModal1)">ACTIVITY HUB</h3>
+                            <p class="card-text" (click)="openCredentials(textModal1)">All functions are treated as a series of projects and allocated teams
+                                work as per deliverables with scorecard for productivity, predictability, process
+                                compliance
+                                and client feedback scores (Pulse).</p>
+                            <div class="row mt-2">
+                                <div class="col p-0 pl-1">
+                                    <button type="button" class="btn btn-icon btn-outline-primary" rippleEffect>
+                                        <span [data-feather]="'chevrons-left'"></span></button>&nbsp;
+                                    <button type="button" class="btn btn-icon btn-outline-primary" rippleEffect>
+                                        <span [data-feather]="'plus'"></span></button>&nbsp;
+                                    <button type="button" class="btn btn-icon btn-outline-primary" rippleEffect>
+                                        <span [data-feather]="'chevrons-right'"></span></button>
+                                </div>
+                                <div class="col p-0">
+                                    <button type="button" class="btn btn-primary btn-sm"(click)="openCredentials(viewdemoModal)"
+                                     style="padding: 11px;"
+                                        rippleEffect>View Demo</button>&nbsp;
+                                    <button type="button" class="btn btn-primary btn-sm" style="padding: 11px;"
+                                    (click)="modal(tagsModal)"
+                                        rippleEffect>Tag(1)</button>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- Column -->
+                <!-- Column -->
+                <div class="col-md-4">
+
+                    <div class="card" style="height: 500px;">
+                        <div class="row p-0 m-0 bg-gradient-success">
+                            <div class="col">
+                                <h3 class="m-1 text-white" matTooltip="People First" style="font-weight: 500;">IP &nbsp; | Fast Company (1)</h3>
+                            </div>
+                            <h2 class="mr-2 mt-1 text-white">
+                                <i class="data feather icon-file"></i>&nbsp;
+                                <i class="data feather icon-user" title="Add Credentials"
+                                    (click)="openCredentials(addCredentialsModal)"></i>&nbsp;
+                                <i class="data feather icon-edit-2" title="Edit Artefact"
+                                    (click)="openn(updateOpportunityModal)"></i>&nbsp;
+                                <i class="data feather icon-trash" mwlConfirmationPopover type="button"
+                                    popoverTitle="Confirm Delete" popoverMessage="Are you sure you want to Delete?"
+                                    placement="left" confirm="cancelClicked = true"
+                                    cancel="cancelClicked = true"></i>&nbsp;
+                            </h2>
+                        </div>
+                        <img class="img-fluid"
+                            src="https://previews.123rf.com/images/everythingpossible/everythingpossible1805/everythingpossible180501261/102402927-investor-analyzing-stock-market-report-and-financial-dashboard-with-business-intelligence-bi-with-ke.jpg"
+                               style="overflow-x: hidden; max-height: 207px !important;"
+                            alt="Card image cap" >
+                        <div class="card-body">
+                            <h3 class="font-normal text-dark" style="font-weight: 500;" (click)="openCredentials(textModal2)">CEO DASHBOARD</h3>
+                            <p class="card-text" (click)="openCredentials(textModal2)">Balanced scorecard implementation with key result areas and KPI are
+                                setup and the radar screen has the distribution and trend graphs</p>
+                            <div class="row mt-3">
+                                <div class="col p-0 pl-1">
+                                    <button type="button" class="btn btn-icon btn-outline-primary" rippleEffect>
+                                        <span [data-feather]="'chevrons-left'"></span></button>&nbsp;
+                                    <button type="button" class="btn btn-icon btn-outline-primary" rippleEffect>
+                                        <span [data-feather]="'plus'"></span></button>&nbsp;
+                                    <button type="button" class="btn btn-icon btn-outline-primary" rippleEffect>
+                                        <span [data-feather]="'chevrons-right'"></span></button>
+                                </div>
+                                <div class="col p-0">
+                                    <button type="button" class="btn btn-primary btn-sm" style="padding: 11px;"(click)="openCredentials(viewdemoModal)"
+                                        rippleEffect>View Demo</button>&nbsp;
+                                    <button type="button" class="btn btn-primary btn-sm" style="padding: 11px;"
+                                        rippleEffect (click)="modal(tagsModal)">Tag(1)</button>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- Column -->
+                <!-- Column -->
+                <div class="col-md-4">
+
+                    <div class="card" style="height: 500px;">
+                        <div class="row m-0 p-0 bg-gradient-success">
+                            <div class="col">
+                                <h3 class="m-1 text-white" matTooltip="People First" style="font-weight: 500;">IP &nbsp; | Audit IC (14)</h3>
+                            </div>
+                            <h2 class="mr-2 mt-1 text-white">
+                                <i class="data feather icon-file"></i>&nbsp;
+                                <i class="data feather icon-user" title="Add Credentials"
+                                    (click)="openCredentials(addCredentialsModal)"></i>&nbsp;
+                                <i class="data feather icon-edit-2" title="Edit Artefact"
+                                    (click)="openn(updateOpportunityModal)"></i>&nbsp;
+                                <i class="data feather icon-trash" mwlConfirmationPopover type="button"
+                                    popoverTitle="Confirm Delete" popoverMessage="Are you sure you want to Delete?"
+                                    placement="left" confirm="cancelClicked = true"
+                                    cancel="cancelClicked = true"></i>&nbsp;
+                            </h2>
+                        </div>
+                        <img class="img-fluid"
+                            src="https://internalaudit360.com/wp-content/uploads/2020/04/RPA-image-e1613709292389.jpg" 
+                            style="overflow-x: hidden; min-height: 207px !important; max-height: 207px !important;"
+                            alt="Card image cap" />
+                        <div class="card-body">
+                            <h3 class="font-normal text-dark" style="font-weight: 500;"(click)="openCredentials(textModal3)">OVERVIEW</h3>
+                            <p class="card-text"(click)="openCredentials(textModal3)">This system is an audit automation developed for the consultancy
+                                company
+                                for immigration across all
+                                locations,
+                                departments and subdivisions.</p>
+                            <div class="row mt-3">
+                                <div class="col p-0 pl-1">
+                                    <button type="button" class="btn btn-icon btn-outline-primary" rippleEffect>
+                                        <span [data-feather]="'chevrons-left'"></span></button>&nbsp;
+                                    <button type="button" class="btn btn-icon btn-outline-primary" rippleEffect>
+                                        <span [data-feather]="'plus'"></span></button>&nbsp;
+                                    <button type="button" class="btn btn-icon btn-outline-primary" rippleEffect>
+                                        <span [data-feather]="'chevrons-right'"></span></button>
+                                </div>
+                                <div class="col p-0">
+                                    <button type="button" class="btn btn-primary btn-sm" style="padding: 11px;"(click)="openCredentials(viewdemoModal)"
+                                        rippleEffect>View Demo</button>&nbsp;
+                                    <button type="button" class="btn btn-primary btn-sm" style="padding: 11px;"
+                                        rippleEffect (click)="modal(tagsModal)">Tag(1)</button>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="card" style="height: 525px;">
+                        <div class="row m-0 p-0 bg-gradient-success ">
+                            <div class="col">
+                                <h3 class="m-1 text-white" matTooltip="People First" style="font-weight: 500;">IP &nbsp; | F20 (11)</h3>
+                            </div>
+                            <h2 class="mr-2 mt-1 text-white">
+                                <i class="data feather icon-file"></i>&nbsp;
+                                <i class="data feather icon-user" title="Add Credentials"
+                                    (click)="openCredentials(addCredentialsModal)"></i>&nbsp;
+                                <i class="data feather icon-edit-2" title="Edit Artefact"
+                                    (click)="openn(updateOpportunityModal)"></i>&nbsp;
+                                <i class="data feather icon-trash" mwlConfirmationPopover type="button"
+                                    popoverTitle="Confirm Delete" popoverMessage="Are you sure you want to Delete?"
+                                    placement="left" confirm="cancelClicked = true"
+                                    cancel="cancelClicked = true"></i>&nbsp;
+                            </h2>
+                        </div>
+                        <img class="img-fluid"
+                            src="https://www.itarian.com/images/dashboard-system-monitor.png"
+                            style="overflow-x: hidden; min-height: 218px !important; max-height: 218px !important;" 
+                            alt="Card image cap" />
+                        <div class="card-body">
+                            <h3 class="font-normal text-dark" style="font-weight: 500;" (click)="openCredentials(textModal4)">DASHBOARD</h3>
+                            <p class="card-text" (click)="openCredentials(textModal4)">Provides an overview of jobs, activities and claims. Summary of
+                                various
+                                upcoming and overdue orders can be viewed from this section along with the graphical
+                                representation.</p>
+                            <div class="row mt-3">
+                                <div class="col p-0 pl-1">
+                                    <button type="button" class="btn btn-icon btn-outline-primary" rippleEffect>
+                                        <span [data-feather]="'chevrons-left'"></span></button>&nbsp;
+                                    <button type="button" class="btn btn-icon btn-outline-primary" rippleEffect>
+                                        <span [data-feather]="'plus'"></span></button>&nbsp;
+                                    <button type="button" class="btn btn-icon btn-outline-primary" rippleEffect>
+                                        <span [data-feather]="'chevrons-right'"></span></button>
+                                </div>
+                                <div class="col p-0">
+                                    <button type="button" class="btn btn-primary btn-sm" style="padding: 11px;"(click)="openCredentials(viewdemoModal)"
+                                        rippleEffect>View Demo</button>&nbsp;
+                                    <button type="button" class="btn btn-primary btn-sm" style="padding: 11px;"
+                                        rippleEffect (click)="modal(tagsModal)">Tag(1)</button>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="card" style="height: 525px;">
+                        <div class="row m-0 p-0 btn-gradient-primary">
+                            <div class="col">
+                                <h3 class="m-1 text-white" matTooltip="People First" style="font-weight: 500;">CP &nbsp; | PA (11)</h3>
+                            </div>
+                            <h2 class="mr-2 mt-1 text-white">
+                                <i class="data feather icon-file"></i>&nbsp;
+                                <i class="data feather icon-user" title="Add Credentials"
+                                    (click)="openCredentials(addCredentialsModal)"></i>&nbsp;
+                                <i class="data feather icon-edit-2" title="Edit Artefact"
+                                    (click)="openn(updateOpportunityModal)"></i>&nbsp;
+                                <i class="data feather icon-trash" mwlConfirmationPopover type="button"
+                                    popoverTitle="Confirm Delete" popoverMessage="Are you sure you want to Delete?"
+                                    placement="left" confirm="cancelClicked = true"
+                                    cancel="cancelClicked = true"></i>&nbsp;
+                            </h2>
+                        </div>
+                        <img class="img-fluid"
+                            src="https://www.mining-technology.com/wp-content/uploads/sites/8/2020/10/Feature-Image-top-ten-metals-and-mining-companies.jpg"
+                            style="overflow-x: hidden; min-height: 218px !important; max-height: 218px !important;" 
+                            alt="Card image cap" />
+                        <div class="card-body">
+                            <h3 class="font-normal text-dark" style="font-weight: 500;"(click)="openCredentials(textModal5)">OVERVIEW</h3>
+                            <p class="card-text"(click)="openCredentials(textModal5)">This is a solution designed mainly for a mining industry
+                                platform.
+                                Designed to automate data for the whole mining process according to the requirements
+                                and
+                                current process. There is an equipment-related process occurring behind each action</p>
+                            <div class="row mt-2">
+                                <div class="col p-0 pl-1">
+                                    <button type="button" class="btn btn-icon btn-outline-primary" rippleEffect>
+                                        <span [data-feather]="'chevrons-left'"></span></button>&nbsp;
+                                    <button type="button" class="btn btn-icon btn-outline-primary" rippleEffect>
+                                        <span [data-feather]="'plus'"></span></button>&nbsp;
+                                    <button type="button" class="btn btn-icon btn-outline-primary" rippleEffect>
+                                        <span [data-feather]="'chevrons-right'"></span></button>
+                                </div>
+                                <div class="col p-0">
+                                    <button type="button" class="btn btn-primary btn-sm" style="padding: 11px;"(click)="openCredentials(viewdemoModal)"
+                                        rippleEffect>View Demo</button>&nbsp;
+                                    <button type="button" class="btn btn-primary btn-sm" style="padding: 11px;"
+                                        rippleEffect (click)="modal(tagsModal)">Tag(1)</button>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <!--                          
+                        <div class="card"  style="height: 525px;">
+                            <div class="row">
+                                <div class="col">
+                                    <h2 class="mt-1 ml-1" matTooltip="People First">CP | PM Auto (11)</h2>
+                                </div>
+                                <h2 class="mr-1 mt-1">
+                                    <i class="data feather icon-file"></i>&nbsp;
+                                    <i class="data feather icon-user" title="Add Credentials"
+                                        (click)="openCredentials(addCredentialsModal)"></i>&nbsp;
+                                    <i class="data feather icon-edit" title="Edit Artefact"
+                                        (click)="openn(updateOpportunityModal)"></i>&nbsp;
+                                    <i class="data feather icon-trash-2" mwlConfirmationPopover type="button"
+                                        popoverTitle="Confirm Delete" popoverMessage="Are you sure you want to Delete?"
+                                        placement="left" confirm="cancelClicked = true"
+                                        cancel="cancelClicked = true"></i>&nbsp;
+                                </h2>
+                            </div>
+                            <img class="img-fluid"
+                                src="https://salesglobal.s3.ap-south-1.amazonaws.com/library/Manage_Image.png"
+                                alt="Card image cap" />
+                            <div class="card-body">
+                                <h3 class="font-normal text-dark" style="font-weight: 500;">OVERVIEW</h3>
+                                <p class="card-text">This Solution is for service providers who do fieldwork and need
+                                    to
+                                    schedule project activities and actions. These activities can be carried out in the
+                                    office
+                                    or in the field. Resources and staff may be allocated to activities.</p>
+                                <div class="row mt-5 pt-2">
+                                    <div class="col p-0 pl-1">
+                                        <button type="button" class="btn btn-icon btn-outline-primary" rippleEffect>
+                                            <span [data-feather]="'chevrons-left'"></span></button>&nbsp;
+                                        <button type="button" class="btn btn-icon btn-outline-primary" rippleEffect>
+                                            <span [data-feather]="'plus'"></span></button>&nbsp;
+                                        <button type="button" class="btn btn-icon btn-outline-primary" rippleEffect>
+                                            <span [data-feather]="'chevrons-right'"></span></button>
+                                    </div>
+                                    <div class="col p-0">
+                                        <button type="button" class="btn btn-outline-primary btn-sm" style="padding: 11px;"
+                                            rippleEffect>View Demo</button>&nbsp;
+                                        <button type="button" class="btn btn-outline-primary btn-sm" style="padding: 11px;"
+                                            rippleEffect>Tag(1)</button>
+        
+                                    </div>
+        
+                                </div>
+                            </div>
+        
+                        </div> -->
+
+                </div>
+                <!-- Column -->
+            </div>
+        </div>
+
+       
+    </div>
+    </div>

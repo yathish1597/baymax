@@ -1,0 +1,152 @@
+.main-section {
+	margin-top: 100px;
+	font-family: "Abel", sans-serif;
+}
+
+/* .card-header {
+	box-shadow: 1px 5px 15px #a2a2a2;
+} */
+
+.card-header:hover {
+	box-shadow: 1px 5px 15px #a2a2a2;
+}
+
+.card-header-add {
+	background: #e6dada;
+}
+
+.card-header-first {
+	background: #cccccc;
+	color: black;
+}
+
+.card-header-second {
+	background: linear-gradient(to right, #4b6cb7, #1c3058);
+	color: white;
+}
+
+.card-header-third {
+	background-image: radial-gradient(
+		circle farthest-corner at 22.4% 21.7%,
+		rgba(4, 189, 228, 1) 0%,
+		rgba(2, 83, 185, 1) 100.2%
+	);
+	color: white;
+}
+
+.card-header-four {
+	background: linear-gradient(to right, #11998e, #38ef7d);
+}
+
+.card-header-five {
+	background: linear-gradient(-90deg, #f9d56e, #f9d56e);
+	color: black;
+}
+
+.card-header-six {
+	background: linear-gradient(to right, #f12711, #f5af19);
+	color: white;
+}
+
+.card-header-seven {
+	background: linear-gradient(to right, #cb2d3e, #ef473a);
+	color: white;
+}
+
+.card-section:hover {
+	box-shadow: 5px 5px 25px #d2d2d2;
+}
+
+h2 {
+	margin-top: 0px !important;
+	font-size: 20px !important;
+	padding: 0.5rem !important;
+}
+.circle {
+	width: 25px;
+	height: 25px;
+	background: red;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+	margin-top: 0px;
+	margin-left: -5px;
+}
+.circle-brown {
+	width: 25px;
+	height: 25px;
+	background: #b99c63;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+	margin-top: 0px;
+	margin-left: -5px;
+}
+.circle-steel {
+	width: 25px;
+	height: 25px;
+	background: #7b9095;
+	color: white !important;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+	margin-top: 0px;
+	margin-left: -5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.circle-black {
+	width: 25px;
+	height: 25px;
+	background: black;
+	color: white !important;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+	margin-top: 0px;
+	margin-left: -5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.square-black {
+	width: 25px;
+	height: 25px;
+	background-color: black;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.square-steel {
+	width: 25px;
+	height: 25px;
+	background-color: #7b9095;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.colouring {
+	background-color: red !important;
+	color: white;
+}
+
+.table-width {
+	width: 19vw !important;
+	margin-left: 0.5vw !important;
+	margin-right: 0.5vw !important;
+	overflow: hidden !important;
+}
+
+.card-header {
+	padding: 5px !important;
+}
+
+.tbl-head {
+  background-color: #286ba5;
+  color: #fff;
+}

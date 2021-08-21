@@ -1,0 +1,240 @@
+
+<app-content-header [contentHeader]="contentHeader"></app-content-header>
+
+<div class="container-fluid">
+
+  <div class="row">
+      <div class="col-xs-12" style="margin-bottom: 15px;">
+          <div class="pills">
+              <ul class="nav nav-pills">
+                  <li routerLinkActive="active" routerLink="/analytics/dashboard">
+                    <a mat-raised-button class="navtabWidth">
+                        Dashboard
+                    </a>
+                  </li>
+                  <li routerLinkActive="active" routerLink="/analytics/constcontact">
+                    <a mat-raised-button class="navtabWidth">
+                      Constant Contact
+                    </a>
+                  </li>
+                  <li routerLinkActive="active" routerLink="/analytics/leadsources">
+                    <a mat-raised-button class="navtabWidth">
+                      Lead Sources
+                    </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </div>
+  </div>
+
+<div class="row mt-1 pills2">
+
+    <div class="col-sm-2 pl-1 ">
+      <div class="pills ">
+        <ul class="nav nav-pills" style="width: 100%;">
+            <li class="ml-0 mb-2" routerLinkActive="active" routerLink="/analytics/dashboard/digital" style="width: 100%;">
+              <a mat-raised-button class="navtabWidth">
+                Digital
+              </a>
+            </li>
+            <li class="ml-0 mb-2" routerLinkActive="active" routerLink="/analytics/dashboard/conversations" style="width: 100%;">
+              <a mat-raised-button class="navtabWidth">
+                Conversations
+              </a>
+            </li>
+            <li class="ml-0 mb-2" routerLinkActive="active" routerLink="/analytics/dashboard/possibilites" style="width: 100%;">
+              <a mat-raised-button class="navtabWidth">
+                Possibilities
+              </a>
+            </li>
+            <li class="ml-0 mb-2" routerLinkActive="active" routerLink="/analytics/dashboard/opportunities" style="width: 100%;">
+              <a mat-raised-button class="navtabWidth">
+                Opportunities
+              </a>
+            </li>
+            <li class="ml-0 mb-2" routerLinkActive="active" routerLink="/analytics/dashboard/parallelprojects" style="width: 100%;">
+              <a mat-raised-button class="navtabWidth">
+                Parallel Projects
+              </a>
+            </li>
+            <li class="ml-0 mb-2" routerLinkActive="active" routerLink="/analytics/dashboard/ppm" style="width: 100%;">
+              <a mat-raised-button class="navtabWidth">
+                PPM
+              </a>
+            </li>
+            <li class="ml-0 mb-2" routerLinkActive="active" routerLink="/analytics/dashboard/repeat" style="width: 100%;">
+              <a mat-raised-button class="navtabWidth">
+                Repeat
+              </a>
+            </li>
+            <li class="ml-0 mb-2" routerLinkActive="active" routerLink="/analytics/dashboard/priority" style="width: 100%;">
+              <a mat-raised-button class="navtabWidth">
+                Priority
+              </a>
+            </li>
+            <li class="ml-0 mb-2" routerLinkActive="active" routerLink="/analytics/dashboard/ip" style="width: 100%;">
+              <a mat-raised-button class="navtabWidth">
+                IP
+              </a>
+            </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="col-sm-10">
+      <!-- <router-outlet></router-outlet> -->
+
+      <div class="row main">
+
+        <div class="col-sm-4">
+          <!-- <div class="card">
+              <div class="card-body text-center" style="overflow: hidden;">
+                  <h4 class="card-title text-center">Distribution by Industry</h4>
+                  <ngx-charts-pie-chart class="chart-container" [scheme]="colorScheme" [results]="one" [legend]="showLegend" [explodeSlices]="explodeSlices"
+                      [labels]="showLabels" [doughnut]="doughnut" [arcWidth]="arcWidth" (legendLabelClick)="onLegendLabelClick($event)"
+                      [gradient]="gradient" [tooltipDisabled]="tooltipDisabled" (select)="select($event)">
+                  </ngx-charts-pie-chart>
+              </div>
+          </div> -->
+          <div class="col-12">
+            <div class="card card-developer-meetup">
+              <div class="bg-light-primary rounded-top text-center">
+                <img src="assets/images/illustration/email.svg" alt="Meeting Pic" height="170" />
+              </div>
+              <div class="card-body">
+                <div class="meetup-header d-flex align-items-center">
+                  <div class="meetup-day">
+                    <h6 class="mb-0">THU</h6>
+                    <h3 class="mb-0">24</h3>
+                  </div>
+                  <div class="my-auto">
+                    <h4 class="card-title mb-25">Developer Meetup</h4>
+                    <p class="card-text mb-0">Meet world popular developers</p>
+                  </div>
+                </div>
+                <div class="media">
+                  <div class="avatar bg-light-primary rounded mr-1">
+                    <div class="avatar-content">
+                      <i data-feather="calendar" class="avatar-icon font-medium-3"></i>
+                    </div>
+                  </div>
+                  <div class="media-body">
+                    <h6 class="mb-0">Sat, May 25, 2020</h6>
+                    <small>10:AM to 6:PM</small>
+                  </div>
+                </div>
+                <div class="media">
+                  <div class="avatar bg-light-primary rounded mr-1">
+                    <div class="avatar-content">
+                      <i data-feather="map-pin" class="avatar-icon font-medium-3"></i>
+                    </div>
+                  </div>
+                  <div class="media-body">
+                    <h6 class="mb-0">Central Park</h6>
+                    <small>Manhattan, New york City</small>
+                  </div>
+                </div>
+                <div class="avatar-group">
+                  <div placement="bottom" ngbTooltip="Billy Hopkins" class="avatar pull-up">
+                    <img src="assets/images/portrait/small/avatar-s-9.jpg" alt="Avatar" width="33" height="33" />
+                  </div>
+                  <div placement="bottom" ngbTooltip="Amy Carson" class="avatar pull-up">
+                    <img src="assets/images/portrait/small/avatar-s-6.jpg" alt="Avatar" width="33" height="33" />
+                  </div>
+                  <div placement="bottom" ngbTooltip="Brandon Miles" class="avatar pull-up">
+                    <img src="assets/images/portrait/small/avatar-s-8.jpg" alt="Avatar" width="33" height="33" />
+                  </div>
+                  <div placement="bottom" ngbTooltip="Daisy Weber" class="avatar pull-up">
+                    <img src="assets/images/portrait/small/avatar-s-7.jpg" alt="Avatar" width="33" height="33" />
+                  </div>
+                  <div placement="bottom" ngbTooltip="Jenny Looper" class="avatar pull-up">
+                    <img src="assets/images/portrait/small/avatar-s-20.jpg" alt="Avatar" width="33" height="33" />
+                  </div>
+                  <h6 class="align-self-center cursor-pointer ml-50 mb-0">+42</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="col-sm-4">
+          <!-- <div class="card">
+              <div class="card-body text-center" style="overflow: hidden;">
+                  <h4 class="card-title text-center">Distribution by Country</h4>
+                  <ngx-charts-pie-chart class="chart-container" [scheme]="colorScheme" [results]="two" [legend]="showLegend" [explodeSlices]="explodeSlices"
+                      [labels]="showLabels" [doughnut]="doughnut" [arcWidth]="arcWidth" (legendLabelClick)="onLegendLabelClick($event)"
+                      [gradient]="gradient" [tooltipDisabled]="tooltipDisabled" (select)="select($event)">
+                  </ngx-charts-pie-chart>
+              </div>
+          </div> -->
+
+          
+
+        </div>
+      
+        <div class="col-sm-4">
+          <div class="card">
+              <div class="card-body text-center" style="overflow: hidden;">
+                  <h4 class="card-title text-center">Distribution by Solutions</h4>
+                  <ngx-charts-pie-chart class="chart-container" [scheme]="colorScheme" [results]="three" [legend]="showLegend" [explodeSlices]="explodeSlices"
+                      [labels]="showLabels" [doughnut]="doughnut" [arcWidth]="arcWidth" (legendLabelClick)="onLegendLabelClick($event)"
+                      [gradient]="gradient" [tooltipDisabled]="tooltipDisabled" (select)="select($event)">
+                  </ngx-charts-pie-chart>
+              </div>
+          </div>
+        </div>
+      
+        <div class="col-sm-4">
+          <div class="card">
+              <div class="card-body text-center" style="overflow: hidden;">
+                  <h4 class="card-title text-center">Distribution by Potential</h4>
+                  <ngx-charts-pie-chart class="chart-container" [scheme]="colorScheme" [results]="four" [legend]="showLegend" [explodeSlices]="explodeSlices"
+                      [labels]="showLabels" [doughnut]="doughnut" [arcWidth]="arcWidth" (legendLabelClick)="onLegendLabelClick($event)"
+                      [gradient]="gradient" [tooltipDisabled]="tooltipDisabled" (select)="select($event)">
+                  </ngx-charts-pie-chart>
+              </div>
+          </div>
+        </div>
+      
+        <div class="col-sm-4">
+          <div class="card">
+              <div class="card-body text-center" style="overflow: hidden;">
+                  <h4 class="card-title text-center">Distribution by Head Count</h4>
+                  <ngx-charts-pie-chart class="chart-container" [scheme]="colorScheme" [results]="five" [legend]="showLegend" [explodeSlices]="explodeSlices"
+                      [labels]="showLabels" [doughnut]="doughnut" [arcWidth]="arcWidth" (legendLabelClick)="onLegendLabelClick($event)"
+                      [gradient]="gradient" [tooltipDisabled]="tooltipDisabled" (select)="select($event)">
+                  </ngx-charts-pie-chart>
+              </div>
+          </div>
+        </div>
+      
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body text-center" style="overflow: hidden;">
+                    <h4 class="card-title text-center">Distribution by Head Count</h4>
+                    <ngx-charts-pie-chart class="chart-container" [scheme]="colorScheme" [results]="five" [legend]="showLegend" [explodeSlices]="explodeSlices"
+                        [labels]="showLabels" [doughnut]="doughnut" [arcWidth]="arcWidth" (legendLabelClick)="onLegendLabelClick($event)"
+                        [gradient]="gradient" [tooltipDisabled]="tooltipDisabled" (select)="select($event)">
+                    </ngx-charts-pie-chart>
+                </div>
+            </div>
+          </div>
+        <div class="col-md-12">
+              <div class="card">
+                  <div class="card-body">
+                      <h4 class="card-title text-center">Yearly Data</h4>
+                      <ngx-charts-bar-vertical class="chart-container" [scheme]="colorScheme" [schemeType]="schemeType" [results]="seven" [gradient]="gradient"
+                          [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel"
+                          [tooltipDisabled]="tooltipDisabled" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" [showGridLines]="showGridLines"
+                          [barPadding]="40" [view]="view" [roundDomains]="roundDomains" (select)="select($event)" (legendLabelClick)="onLegendLabelClick($event)">
+                      </ngx-charts-bar-vertical>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+    </div>
+  </div>
+

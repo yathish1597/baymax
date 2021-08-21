@@ -1,0 +1,232 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 pr-0 mr-0">
+            <div class="float-right">
+                <!-- <button type="button" class="btn btn-gradient-secondary ">Dashboard</button>&nbsp;
+                <button type="button" class="btn btn-gradient-secondary ">Setup</button>&nbsp; -->
+                <div *ngIf="fbtn == false">
+                  
+                <button type="button" class="btn btn-icon btn-gradient-primary" (click)='togglefbtn()' style="height: 38px;font-size: 25px; padding-top: 5px;">
+                        <i class="fa fa-expand" ></i>  </button>
+                            
+                </div> 
+                    <div  *ngIf="fbtn == true">
+                        <button type="button" class="btn btn-icon btn-gradient-primary" (click)='togglefbtn()' style="height: 38px;font-size: 25px; padding-top: 5px;">
+                            <i class="fa fa-compress" ></i>  </button>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-2" style="margin-top :0px">
+        <div class="col-sm-3 pl-0">
+            <div class="row" id="table-head">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="table-borderless table-hover">
+                            <table class="table">
+                                <thead class="thead round">
+                                    <tr>
+                                        <th class="text-center p-2 bg-gradient-secondary ">
+                                            <span class="h5 text-white"> Agile Core (4) </span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="">
+                                    <tr>
+                                        <td class="text-center p-1">
+                                            <div class="p-1 table-success">
+                                                <span class="font-weight-bold h4">Growth Strategy</span>
+                                                <div class="badge badge-primary ml-2 float-right">4</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center p-1">
+                                            <div class="p-1 table-info">
+                                                <span class="font-weight-bold h4">Product Development</span>
+                                                <div class="badge badge-primary ml-2 round float-right">4</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center p-1">
+                                            <div class="p-1 table-info">
+                                                <span class="font-weight-bold h4">Research</span>
+                                                <div class="badge badge-primary ml-2 round float-right">4</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center p-1">
+                                            <div class="p-1 table-info">
+                                                <span class="font-weight-bold h4">Engineering</span>
+                                                <div class=" badge badge-primary ml-2 round float-right">4
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="row" id="table-head">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="table-borderless table-hover">
+                            <table class="table">
+                                <thead class="thead">
+                                    <tr>
+                                        <th class="text-center p-2 bg-gradient-secondary ">
+                                            <span class="h5 text-white"> Fast Company (5) </span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="">
+                                    <tr>
+                                        <td class="text-center p-1">
+                                            <div class="p-1 table-success">
+                                                <span class="font-weight-bold h4">Portfolio</span>
+                                                <div class="badge badge-primary ml-2 float-right round">6</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center p-1">
+                                            <div class="p-1 table-info">
+                                                <span class="font-weight-bold h4">Global Lead Gen</span>
+                                                <div class="badge badge-primary ml-2 float-right">4</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center p-1">
+                                            <div class="p-1 table-info">
+                                                <span class="font-weight-bold h4">Digital Marketing</span>
+                                                <div class="badge badge-primary ml-2 round float-right">3</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center p-1">
+                                            <div class="p-1 table-info">
+                                                <span class="font-weight-bold h4">Creative Design</span>
+                                                <div class="badge badge-primary ml-2 float-right">5</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center p-1">
+                                            <div class="p-1 table-warning">
+                                                <span class="font-weight-bold h4">Solution Design</span>
+                                                <div class="badge badge-primary ml-2 round float-right">5</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="row" id="table-head">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="table-borderless table-hover">
+                            <table class="table">
+                                <thead class="thead">
+                                    <tr>
+                                        <th class="text-center p-2 bg-gradient-secondary ">
+                                            <span class="h5 text-white">Organisation (4) </span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="">
+                                    <tr>
+                                        <td class="text-center p-1">
+                                            <div class="p-1 table-info">
+                                                <span class="font-weight-bold h4">Financial Discipline</span>
+                                                <div class="badge badge-primary ml-2 round float-right">2</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center p-1">
+                                            <div class="p-1 table-info">
+                                                <span class="font-weight-bold h4">Recruitment</span>
+                                                <div class="badge badge-primary ml-2 float-right">7</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center p-1">
+                                            <div class="p-1 table-success">
+                                                <span class="font-weight-bold h4">People First</span>
+                                                <div class="badge badge-primary ml-2 round float-right">7</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center p-1">
+                                            <div class="p-1 table-warning">
+                                                <span class="font-weight-bold h4">Administration</span>
+                                                <div class="badge badge-primary ml-2 round float-right">7</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 pr-0">
+            <div class="row" id="table-head">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="table-borderless table-hover">
+                            <table class="table">
+                                <thead class="thead">
+                                    <tr>
+                                        <th class="text-center p-2 bg-gradient-secondary ">
+                                            <span class="h5 text-white">Auto Pilot (2)</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="">
+                                    <tr>
+                                        <td class="text-center p-1">
+                                            <div class="p-1 table-info">
+                                                <span class="font-weight-bold h4">Enterprise Architecture</span>
+                                                <div class="badge badge-primary round ml-2 float-right">7</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center p-1">
+                                            <div class="p-1 table-info">
+                                                <span class="font-weight-bold h4">Digital Transformation</span>
+                                                <div class="badge badge-primary ml-2 float-right">7</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+
+        </div>
+    </div>
+</div>

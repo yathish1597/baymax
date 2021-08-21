@@ -1,0 +1,163 @@
+<div class="container">
+    <!-- <div class="row">
+        <div class="col">
+            <h2>KPI Metrics</h2>
+        </div>
+    </div> -->
+    <div class=" mt-2 ">
+        <div class="row">
+            <div class="col-sm-3 mt-0 pt-2 pr-2 pl-0 pb-2">
+                <div class="card">
+                    <div id="chart" >
+                        <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart"
+                            [plotOptions]="chartOptions.plotOptions" [labels]="chartOptions.labels"
+                            [fill]="chartOptions.fill" [stroke]="chartOptions.stroke"></apx-chart>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-sm-3 mt-0 pl-0 p-2">
+                <div class="card">
+                    <div id="chart">
+                        <apx-chart [series]="chartOptions2.series" [chart]="chartOptions2.chart"
+                            [plotOptions]="chartOptions2.plotOptions" [labels]="chartOptions2.labels" [colors]="chartOptions2.colors"
+                            [fill]="chartOptions2.fill" [stroke]="chartOptions2.stroke"></apx-chart>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-sm-3 mt-0 pl-0 p-2">
+                <div class="card">
+                    <div id="chart">
+                        <apx-chart [series]="chartOptions3.series" [chart]="chartOptions3.chart"
+                            [plotOptions]="chartOptions3.plotOptions" [labels]="chartOptions3.labels" [colors]="chartOptions3.colors"
+                            [fill]="chartOptions3.fill" [stroke]="chartOptions3.stroke"></apx-chart>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-sm-3 mt-0 pt-2 pr-0 pl-2 pb-2">
+                <div class="card">
+                    <div id="chart">
+                        <apx-chart [series]="chartOptions4.series" [chart]="chartOptions4.chart"
+                            [plotOptions]="chartOptions4.plotOptions" [labels]="chartOptions4.labels" [colors]="chartOptions4.colors"
+                            [fill]="chartOptions4.fill" [stroke]="chartOptions4.stroke"></apx-chart>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+<div class="row">
+    <div class="col-sm-3 mb-2 card p-0 ">
+        <table class="table  table-bordered">
+            <thead>
+                <tr>
+                    <th class="text-center" style="background: white;">Period</th>
+                    <th class="text-center" style="background: white;">Percentage</th>
+                    <th class="text-center" style="background: white;">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-center">Jan</td>
+                    <td class="text-center">40%
+                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                    </td>
+                    <td class="text-center">2</td>
+                </tr>
+                <tr>
+                    <td class="text-center">Feb</td>
+                    <td class="text-center">100%
+                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                    </td>
+                    <td class="text-center">1</td>
+                </tr>
+                <tr>
+                    <td class="text-center">Mar</td>
+                    <td class="text-center">35%
+                        <i class="fa fa-arrow-down" style="margin-left: 5px; color: red;"></i>
+                    </td>
+                    <td class="text-center">1</td>
+                </tr>
+                <tr>
+                    <td class="text-center">Apr</td>
+                    <td class="text-center">100%
+                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                    </td>
+                    <td class="text-center">4</td>
+                </tr>
+                <tr>
+                    <td class="text-center">May</td>
+                    <td class="text-center">55%
+                        <i class="fa fa-arrow-down" style="margin-left: 5px; color: red;"></i>
+                    </td>
+                    <td class="text-center">1</td>
+                </tr>
+                <tr>
+                    <td class="text-center">Jun</td>
+                    <td class="text-center">28%
+                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                    </td>
+                    <td class="text-center">3</td>
+                </tr>
+                <tr>
+                    <td class="text-center">Jul</td>
+                    <td class="text-center">56%
+                        <i class="fa fa-arrow-down" style="margin-left: 5px; color: red;"></i>
+                    </td>
+                    <td class="text-center">2</td>
+                </tr>
+                <tr>
+                    <td class="text-center">Aug</td>
+                    <td class="text-center">75%
+                        <i class="fa fa-arrow-down" style="margin-left: 5px; color: red;"></i>
+                    </td>
+                    <td class="text-center">1</td>
+                </tr>
+                <tr>
+                    <td class="text-center">Sep</td>
+                    <td class="text-center">65%
+                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                    </td>
+                    <td class="text-center">0</td>
+                </tr>
+                <tr>
+                    <td class="text-center">Oct</td>
+                    <td class="text-center">87%
+                        <i class="fa fa-arrow-down" style="margin-left: 5px; color: red;"></i>
+                    </td>
+                    <td class="text-center">0</td>
+                </tr>
+                <tr>
+                    <td class="text-center">Nov</td>
+                    <td class="text-center">95%
+                        <i class="fa fa-arrow-down" style="margin-left: 5px; color: red;"></i>
+                    </td>
+                    <td class="text-center">1</td>
+                </tr>
+                <tr>
+                    <td class="text-center">Dec</td>
+                    <td class="text-center">100%
+                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                    </td>
+                    <td class="text-center">1</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-sm-9 pr-0 pl-2 mb-2">
+        <div class="card p-1 pt-2" id="chart">
+            <apx-chart [series]="chartOptions1.series" [chart]="chartOptions1.chart"
+                [xaxis]="chartOptions1.xaxis" [dataLabels]="chartOptions1.dataLabels"
+                [colors]="chartOptions1.colors" [grid]="chartOptions1.grid" [stroke]="chartOptions1.stroke"
+                [title]="chartOptions1.title"></apx-chart>
+        </div>
+    </div>
+</div>
+    </div>
+</div>

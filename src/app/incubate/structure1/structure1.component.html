@@ -1,0 +1,819 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 pr-0 mr-0 ml-0 pl-0">
+            <div class="float-left ">
+                <div class="pills ">
+                    <ul class="nav nav-pills">
+                        <li routerLinkActive="active" routerLink="/ceo-agenda/structure">
+                            <!-- <button type="button" class="btn btn-secondary" style="padding-inline: 5px;margin-right: 5px;"
+                                rippleEffect>Conversations</button> -->
+                            <a mat-raised-button class="navtabWidth">
+                                Dashboard
+                            </a>
+                        </li>
+                        <li routerLinkActive="active" routerLink="/ceo-agenda/setup">
+                            <!-- <button type="button" class="btn btn-secondary" style="padding-inline: 5px;margin-right: 5px;"
+                                rippleEffect>Possibilities</button> -->
+                            <a mat-raised-button class="navtabWidth">
+                                Setup
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="float-right">
+                <div class="row mr-0 ">
+                    <div class="custom-control custom-checkbox col-sm-8" style="margin-top: 10px;">
+                        <input type="checkbox" class="custom-control-input" id="customCheck2" />
+                        <label class="custom-control-label" for="customCheck2">Show Priority</label>
+                    </div>
+                    <div class="col-sm-4 mt-0 pt-0">
+                        <button *ngIf="fbtn == false" type="button" class="btn btn-icon btn-gradient-primary"
+                            (click)='togglefbtn()' style="height: 38px;font-size: 25px; padding-top: 5px;">
+                            <i class="fa fa-expand"></i> </button>
+                        <button *ngIf="fbtn == true" type="button" class="btn btn-icon btn-gradient-primary"
+                            (click)='togglefbtn()' style="height: 38px;font-size: 25px; padding-top: 5px;">
+                            <i class="fa fa-compress"></i> </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ng-template #modalBasic1 let-modal>
+        <div class="modal-d">
+
+            <div class="modal-header">
+                <h2 class="modal-title p-1 m-0" id="myModalLabel1">Update Structure</h2>
+                <button type="button" class="close m-1" (click)="modal.dismiss('Cross click')" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" tabindex="0" ngbAutofocus>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group row">
+                            <label for="inputEmail3"
+                                class="col-sm-4 mt-0  text-left control-label col-form-label">Horizon:</label>
+                            <div class="col-sm-8" for="status" style="color: gray;">
+                                <select name="status" style="width: 300px;height: 33px; color: gray; ">
+                                    <option value="volvo">-- Structure --</option>
+                                    <option value="0">Fast Company</option>
+                                    <option value="1">Porfolio</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group row">
+                            <label for="inputEmail3"
+                                class="col-sm-4 mt-0  text-left control-label col-form-label">Division:</label>
+                            <div class="col-sm-8" for="status" style="color: gray;">
+                                <select name="status" style="width: 300px;height: 33px; color: gray; ">
+                                    <option value="volvo">-- Fast Company --</option>
+                                    <option value="0">Fast Company</option>
+                                    <option value="1">Porfolio</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group row">
+                            <label for="inputEmail3"
+                                class="col-sm-4 mt-0  text-left control-label col-form-label">Function Code:</label>
+                            <div class="col-sm-8" for="status" style="color: gray;">
+                                <select name="status" style="width: 300px;height: 33px; color: gray; ">
+                                    <option value="volvo">-- Select Function code --</option>
+                                    <option value="0">EA</option>
+                                    <option value="1">RC</option>
+                                    <option value="2">LG </option>
+                                    <option value="3"> SD</option>
+                                    <option value="4">MARK </option>
+                                    <option value="5">DT </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group row">
+                            <label for="inputEmail3"
+                                class="col-sm-4 mt-0  text-left control-label col-form-label">Function Role:</label>
+                            <div class="col-sm-8" for="status" style="color: gray;">
+                                <select name="status" style="width: 300px;height: 33px; color: gray; ">
+                                    <option value="volvo"></option>
+                                    <option value="0"></option>
+                                    <option value="1"></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group row">
+                            <label for="inputEmail3"
+                                class="col-sm-4 mt-0  text-left control-label col-form-label">Structure:</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="inputEmail3" placeholder="Enter Vision">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group row">
+                            <label for="inputEmail3"
+                                class="col-sm-4 mt-0  text-left control-label col-form-label">Structure Status:</label>
+                            <div class="col-sm-8" for="status" style="color: gray;">
+                                <select name="status" style="width: 300px;height: 33px; color: gray; ">
+                                    <option value="volvo">-- Select Vision Status --</option>
+                                    <option value="0"></option>
+                                    <option value="1"></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group row">
+                            <label for="inputEmail3"
+                                class="col-sm-4 mt-0  text-left control-label col-form-label">Initials:</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="inputEmail3" placeholder="Enter Initial">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group row">
+                            <label for="inputEmail3"
+                                class="col-sm-4 mt-0  text-left control-label col-form-label">Priority:</label>
+                            <div class="col-sm-8">
+                                <!-- <input type="checkbox" class="form-control" id="inputEmail"> -->
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" style="margin-top: 5px;"
+                                        id="customCheck1" />
+                                    <label class="custom-control-label" for="customCheck1"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-gradient-info" (click)="modal.close('Accept click')" rippleEffect>
+                    Save
+                </button>
+                <button type="button" class="btn btn-gradient-dark" (click)="modal.close('Accept click')" rippleEffect>
+                    Cancel
+                </button>
+            </div>
+
+        </div>
+    </ng-template>
+    <ng-template #modalBasic2 let-modal>
+        <div class="">
+
+            <div class="modal-header">
+                <h2 class="modal-title p-1 m-0" id="myModalLabel1">Update Gap Analysis</h2>
+                <button type="button" class="close m-1" (click)="modal.dismiss('Cross click')" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" tabindex="0" ngbAutofocus>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-2 mt-0  text-left control-label col-form-label">Gap:</label>
+                            <div class="col-sm-10" for="status" style="color: gray;">
+                                <fieldset class="form-group">
+                                  <textarea class="form-control" id="basicTextarea" rows="10" placeholder="Textarea">Fast Company & Innovation: Till 5pm. Drive Lead Generation and Solution Design. Drive Allocation. Do EA with smart goals. Drive Specializtion and Product Development through IP projects and cross Pollination. Multiple framework sales with Digital Marketing , Portfolio and Research.
+                                  </textarea>
+                                </fieldset>                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-gradient-info" (click)="modal.close('Accept click')" rippleEffect>
+                    Save
+                </button>
+                <button type="button" class="btn btn-gradient-dark" (click)="modal.close('Accept click')" rippleEffect>
+                    Cancel
+                </button>
+            </div>
+
+        </div>
+    </ng-template>
+
+
+
+ 
+    <div class="row mt-2" *ngIf="fbtn==false" style="margin-top :0px">
+        <div class="col-sm-3 pl-0">
+            <div class="row" id="table-head">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="table-borderless table-hover">
+                            <table class="table">
+                                <thead class="thead round">
+                                    <tr>
+                                        <th class="text-center p-1 bg-gradient-secondary ">
+                                            <span class="h5 text-white"> Agile Core (4) </span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="">
+                                    <tr>
+                                        <td class="text-center p-1">
+                                            <div class="p-1 table-success">
+                                                <span class="font-weight-bold h4"
+                                                (click)="modalOpen(modalBasic1)">Growth Strategy</span>
+                                                <div class="badge badge-primary ml-2 float-right" (click)="modalOpen(modalBasic2)"
+                                                    style="font-weight:500;">4</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center p-1">
+                                            <div class="p-1 table-info">
+                                                <span class="font-weight-bold h4"
+                                                (click)="modalOpen(modalBasic1)">Product Development</span>
+                                                <div class="badge badge-primary ml-2 round float-right" (click)="modalOpen(modalBasic2)"
+                                                    style="font-weight:500;">4</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center p-1">
+                                            <div class="p-1 table-info">
+                                                <span class="font-weight-bold h4"
+                                                (click)="modalOpen(modalBasic1)">Research</span>
+                                                <div class="badge badge-primary ml-2 round float-right" (click)="modalOpen(modalBasic2)"
+                                                    style="font-weight:500;">4</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center p-1">
+                                            <div class="p-1 table-info">
+                                                <span class="font-weight-bold h4"
+                                                (click)="modalOpen(modalBasic1)">Engineering</span>
+                                                <div class=" badge badge-primary ml-2 round float-right" (click)="modalOpen(modalBasic2)"
+                                                    style="font-weight:500;">4
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="row" id="table-head">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="table-borderless table-hover">
+                            <table class="table">
+                                <thead class="thead">
+                                    <tr>
+                                        <th class="text-center p-1 bg-gradient-secondary ">
+                                            <span class="h5 text-white"> Fast Company (5) </span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="">
+                                    <tr>
+                                        <td class="text-center p-1">
+                                            <div class="p-1 table-success">
+                                                <span class="font-weight-bold h4"
+                                                (click)="modalOpen(modalBasic1)">Portfolio</span>
+                                                <div class="badge badge-primary ml-2 float-right round" (click)="modalOpen(modalBasic2)"
+                                                    style="font-weight:500;">6</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center p-1">
+                                            <div class="p-1 table-warning">
+                                                <span class="font-weight-bold h4"
+                                                (click)="modalOpen(modalBasic1)">Solution Design</span>
+                                                <div class="badge badge-primary ml-2 round float-right" (click)="modalOpen(modalBasic2)"
+                                                    style="font-weight:500;">5</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center p-1">
+                                            <div class="p-1 table-info">
+                                                <span class="font-weight-bold h4"
+                                                (click)="modalOpen(modalBasic1)">Global Lead Gen</span>
+                                                <div class="badge badge-primary ml-2 float-right" (click)="modalOpen(modalBasic2)"
+                                                    style="font-weight:500;">4</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center p-1">
+                                            <div class="p-1 table-info">
+                                                <span class="font-weight-bold h4"
+                                                (click)="modalOpen(modalBasic1)">Digital Marketing</span>
+                                                <div class="badge badge-primary ml-2 round float-right" (click)="modalOpen(modalBasic2)"
+                                                    style="font-weight:500;">3</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center p-1">
+                                            <div class="p-1 table-info">
+                                                <span class="font-weight-bold h4"
+                                                (click)="modalOpen(modalBasic1)">Creative Design</span>
+                                                <div class="badge badge-primary ml-2 float-right" (click)="modalOpen(modalBasic2)"
+                                                    style="font-weight:500;">5</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="row" id="table-head">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="table-borderless table-hover">
+                            <table class="table">
+                                <thead class="thead">
+                                    <tr>
+                                        <th class="text-center p-1 bg-gradient-secondary ">
+                                            <span class="h5 text-white">Organisation (4) </span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="">
+                                    <tr>
+                                        <td class="text-center p-1">
+                                            <div class="p-1 table-info">
+                                                <span class="font-weight-bold h4"
+                                                (click)="modalOpen(modalBasic1)">Financial Discipline</span>
+                                                <div class="badge badge-primary ml-2 round float-right" (click)="modalOpen(modalBasic2)"
+                                                    style="font-weight:500;">2</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center p-1">
+                                            <div class="p-1 table-warning">
+                                                <span class="font-weight-bold h4"
+                                                (click)="modalOpen(modalBasic1)">Administration</span>
+                                                <div class="badge badge-primary ml-2 round float-right" (click)="modalOpen(modalBasic2)"
+                                                    style="font-weight:500;">7</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center p-1">
+                                            <div class="p-1 table-info">
+                                                <span class="font-weight-bold h4"
+                                                (click)="modalOpen(modalBasic1)">Recruitment</span>
+                                                <div class="badge badge-primary ml-2 float-right" (click)="modalOpen(modalBasic2)"
+                                                    style="font-weight:500;">7</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center p-1">
+                                            <div class="p-1 table-success">
+                                                <span class="font-weight-bold h4"
+                                                (click)="modalOpen(modalBasic1)">People First</span>
+                                                <div class="badge badge-primary ml-2 round float-right" (click)="modalOpen(modalBasic2)"
+                                                    style="font-weight:500;">7</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 pr-0">
+            <div class="row" id="table-head">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="table-borderless table-hover">
+                            <table class="table">
+                                <thead class="thead">
+                                    <tr>
+                                        <th class="text-center p-1 bg-gradient-secondary ">
+                                            <span class="h5 text-white">Auto Pilot (2)</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="">
+                                    <tr>
+                                        <td class="text-center p-1">
+                                            <div class="p-1 table-info">
+                                                <span class="font-weight-bold h4"
+                                                (click)="modalOpen(modalBasic1)">Enterprise Architecture</span>
+                                                <div class="badge badge-primary round ml-2 float-right" (click)="modalOpen(modalBasic2)"
+                                                    style="font-weight:500;">7</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center p-1">
+                                            <div class="p-1 table-info">
+                                                <span class="font-weight-bold h4"
+                                                (click)="modalOpen(modalBasic1)">Digital Transformation</span>
+                                                <div class="badge badge-primary ml-2 float-right" (click)="modalOpen(modalBasic2)"
+                                                    style="font-weight:500;">7</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-2" *ngIf="fbtn==true" style="margin-top :0px">
+        <div class="col-sm-3 pl-0">
+            <div class="row" id="table-head">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="table-borderless table-hover">
+                            <table class="table">
+                                <thead class="thead round">
+                                    <tr>
+                                        <th class="text-center p-1 bg-gradient-secondary ">
+                                            <span class="h5 text-white"> Agile Core (4) </span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="">
+                                    <tr>
+                                        <td class=" p-1">
+                                            <div class="p-1 table-success">
+                                                <div>
+                                                    <span class="font-weight-bold ml-1  h4"
+                                                    (click)="modalOpen(modalBasic1)">Growth Strategy</span>
+                                                    <div class="badge badge-primary ml-2 float-right" (click)="modalOpen(modalBasic2)"
+                                                        style="font-weight:500;">4</div>
+                                                </div>
+                                                <div class="m-1 mt-3">
+                                                    <button
+                                                        class="btn btn-gradient-primary ml-0 float-left">GROW</button>&nbsp;
+                                                    <button
+                                                        class="btn btn-gradient-secondary ml-1 float-left">NM</button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class=" p-1">
+                                            <div class="p-1 table-info">
+                                                <div>
+                                                    <span class="font-weight-bold ml-1 h4"
+                                                    (click)="modalOpen(modalBasic1)">Product Development</span>
+                                                    <div class="badge badge-primary ml-2 round float-right" (click)="modalOpen(modalBasic2)"
+                                                        style="font-weight:500;">4</div>
+                                                </div>
+                                                <div class="m-1 mt-3">
+                                                    <button
+                                                        class="btn btn-gradient-primary ml-0 float-left">PROD</button>&nbsp;
+                                                    <button
+                                                        class="btn btn-gradient-secondary ml-1 float-left">SRV</button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-1">
+                                            <div class="p-1 table-info">
+                                                <div>
+                                                    <span class="font-weight-bold ml-1 h4"
+                                                    (click)="modalOpen(modalBasic1)">Research</span>
+                                                    <div class="badge badge-primary ml-2 round float-right" (click)="modalOpen(modalBasic2)"
+                                                        style="font-weight:500;">4</div>
+                                                </div>
+                                                <div class="m-1 mt-3">
+                                                    <button
+                                                        class="btn btn-gradient-primary ml-0 float-left">ENG</button>&nbsp;
+                                                    <button
+                                                        class="btn btn-gradient-secondary ml-1 float-left">AV</button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class=" p-1">
+                                            <div class="p-1 table-info">
+                                                <div>
+                                                    <span class="font-weight-bold ml-1 h4"
+                                                    (click)="modalOpen(modalBasic1)">Engineering</span>
+                                                    <div class=" badge badge-primary ml-2 round float-right" (click)="modalOpen(modalBasic2)"
+                                                        style="font-weight:500;">4
+                                                    </div>
+                                                </div>
+                                                <div class="m-1 mt-3">
+                                                    <button
+                                                        class="btn btn-gradient-primary ml-0 float-left">RES</button>&nbsp;
+                                                    <button
+                                                        class="btn btn-gradient-secondary ml-1 float-left">KR</button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="row" id="table-head">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="table-borderless table-hover">
+                            <table class="table">
+                                <thead class="thead">
+                                    <tr>
+                                        <th class="text-center p-1 bg-gradient-secondary ">
+                                            <span class="h5 text-white"> Fast Company (5) </span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="">
+                                    <tr>
+                                        <td class="p-1">
+                                            <div class="p-1 table-success">
+                                                <div>
+                                                    <span class="font-weight-bold h4 ml-1"
+                                                    (click)="modalOpen(modalBasic1)">Portfolio</span>
+                                                    <div class="badge badge-primary ml-2 float-right round"
+                                                        style="font-weight:500;"
+                                                        (click)="modalOpen(modalBasic2)">6</div>
+                                                </div>
+                                                <div class="m-1 mt-3">
+                                                    <button
+                                                        class="btn btn-gradient-primary ml-0 float-left">LG</button>&nbsp;
+                                                    <button
+                                                        class="btn btn-gradient-secondary ml-1 float-left">AM</button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class=" p-1">
+                                            <div class="p-1 table-warning">
+                                                <div>
+                                                    <span class="font-weight-bold ml-1 h4"
+                                                    (click)="modalOpen(modalBasic1)">Solution Design</span>
+                                                    <div class="badge badge-primary ml-2 round float-right" (click)="modalOpen(modalBasic2)"
+                                                        style="font-weight:500;">5</div>
+                                                </div>
+                                                <div class="m-1 mt-3">
+                                                    <button
+                                                        class="btn btn-gradient-primary ml-0 float-left">DM</button>&nbsp;
+                                                    <button
+                                                        class="btn btn-gradient-secondary ml-1 float-left">NM</button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-1">
+                                            <div class="p-1 table-info">
+                                                <div>
+                                                    <span class="font-weight-bold ml-1 h4"
+                                                    (click)="modalOpen(modalBasic1)">Global Lead Gen</span>
+                                                    <div class="badge badge-primary ml-2 float-right" (click)="modalOpen(modalBasic2)"
+                                                        style="font-weight:500;">4</div>
+                                                </div>
+                                                <div class="m-1 mt-3">
+                                                    <button
+                                                        class="btn btn-gradient-primary ml-0 float-left">Sd</button>&nbsp;
+                                                    <button
+                                                        class="btn btn-gradient-secondary ml-1 float-left">LT</button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class=" p-1">
+                                            <div class="p-1 table-info">
+                                                <div>
+                                                    <span class="font-weight-bold ml-1 h4"
+                                                    (click)="modalOpen(modalBasic1)">Digital Marketing</span>
+                                                    <div class="badge badge-primary ml-2 round float-right" (click)="modalOpen(modalBasic2)"
+                                                        style="font-weight:500;">3</div>
+                                                </div>
+                                                <div class="m-1 mt-3">
+                                                    <button
+                                                        class="btn btn-gradient-primary ml-0 float-left">SD</button>&nbsp;
+                                                    <button
+                                                        class="btn btn-gradient-secondary ml-1 float-left">LT</button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-1">
+                                            <div class="p-1 table-info">
+                                                <div>
+                                                    <span class="font-weight-bold ml-1 h4"
+                                                    (click)="modalOpen(modalBasic1)">Creative Design</span>
+                                                    <div class="badge badge-primary ml-2 float-right" (click)="modalOpen(modalBasic2)"
+                                                        style="font-weight:500;">5</div>
+                                                </div>
+                                                <div class="m-1 mt-3">
+                                                    <button
+                                                        class="btn btn-gradient-primary ml-0 float-left">DES</button>&nbsp;
+                                                    <button
+                                                        class="btn btn-gradient-secondary ml-1 float-left">MA</button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="row" id="table-head">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="table-borderless table-hover">
+                            <table class="table">
+                                <thead class="thead">
+                                    <tr>
+                                        <th class="text-center p-1 bg-gradient-secondary ">
+                                            <span class="h5 text-white">Organisation (4) </span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="">
+                                    <tr>
+                                        <td class="p-1">
+                                            <div class="p-1 table-info">
+                                                <div>
+                                                    <span class="font-weight-bold ml-1 h4"
+                                                    (click)="modalOpen(modalBasic1)">Financial Discipline</span>
+                                                    <div class="badge badge-primary ml-2 round float-right" (click)="modalOpen(modalBasic2)"
+                                                        style="font-weight:500;">2</div>
+                                                </div>
+                                                <div class="m-1 mt-3">
+                                                    <button
+                                                        class="btn btn-gradient-primary ml-0 float-left">FACL</button>&nbsp;
+                                                    <button
+                                                        class="btn btn-gradient-secondary ml-1 float-left">PK</button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class=" p-1">
+                                            <div class="p-1 table-warning">
+                                                <div>
+                                                    <span class="font-weight-bold ml-1 h4"
+                                                    (click)="modalOpen(modalBasic1)">Administration</span>
+                                                    <div class="badge badge-primary ml-2 round float-right" (click)="modalOpen(modalBasic2)"
+                                                        style="font-weight:500;">7</div>
+                                                </div>
+                                                <div class="m-1 mt-3">
+                                                    <button
+                                                        class="btn btn-gradient-primary ml-0 float-left">ADM</button>&nbsp;
+                                                    <button
+                                                        class="btn btn-gradient-secondary ml-1 float-left">PK</button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-1">
+                                            <div class="p-1 table-info">
+                                                <div>
+                                                    <span class="font-weight-bold ml-1 h4"
+                                                    (click)="modalOpen(modalBasic1)">Recruitment</span>
+                                                    <div class="badge badge-primary ml-2 float-right" (click)="modalOpen(modalBasic2)"
+                                                        style="font-weight:500;">7</div>
+                                                </div>
+                                                <div class="m-1 mt-3">
+                                                    <button
+                                                        class="btn btn-gradient-primary ml-0 float-left">REC</button>&nbsp;
+                                                    <button
+                                                        class="btn btn-gradient-secondary ml-1 float-left">RK</button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-1">
+                                            <div class="p-1 table-success">
+                                                <div>
+                                                    <span class="font-weight-bold ml-1 h4"
+                                                    (click)="modalOpen(modalBasic1)">People First</span>
+                                                    <div class="badge badge-primary ml-2 round float-right" (click)="modalOpen(modalBasic2)"
+                                                        style="font-weight:500;">7</div>
+                                                </div>
+                                                <div class="m-1 mt-3">
+                                                    <button
+                                                        class="btn btn-gradient-primary ml-0 float-left">ERM</button>&nbsp;
+                                                    <button
+                                                        class="btn btn-gradient-secondary ml-1 float-left">RK</button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 pr-0">
+            <div class="row" id="table-head">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="table-borderless table-hover">
+                            <table class="table">
+                                <thead class="thead">
+                                    <tr>
+                                        <th class="text-center p-1 bg-gradient-secondary ">
+                                            <span class="h5 text-white">Auto Pilot (2)</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="">
+                                    <tr>
+                                        <td class="p-1">
+                                            <div class="p-1 table-info">
+                                                <div>
+                                                    <span class="font-weight-bold ml-1 h4"
+                                                    (click)="modalOpen(modalBasic1)">Enterprise Architecture</span>
+                                                    <div class="badge badge-primary round ml-2 float-right" (click)="modalOpen(modalBasic2)"
+                                                        style="font-weight:500;">7</div>
+                                                </div>
+                                                <div class="m-1 mt-3">
+                                                    <button
+                                                        class="btn btn-gradient-primary ml-0 float-left">EA</button>&nbsp;
+                                                    <button
+                                                        class="btn btn-gradient-secondary ml-1 float-left">NM</button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class=" p-1">
+                                            <div class="p-1 table-info">
+                                                <div>
+                                                    <span class="font-weight-bold ml-1 h4"
+                                                    (click)="modalOpen(modalBasic1)">Digital Transformation</span>
+                                                    <div class="badge badge-primary ml-2 float-right" (click)="modalOpen(modalBasic2)"
+                                                        style="font-weight:500;">7</div>
+                                                </div>
+                                                <div class="m-1 mt-3">
+                                                    <button
+                                                        class="btn btn-gradient-primary ml-0 float-left">DT</button>&nbsp;
+                                                    <button
+                                                        class="btn btn-gradient-secondary ml-1 float-left">DT</button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

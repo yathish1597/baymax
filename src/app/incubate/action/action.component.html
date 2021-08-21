@@ -1,0 +1,1856 @@
+<div class="container">
+    <div class="row ">
+        <div class="col-sm-12 pr-0 mr-0 ml-0 pl-0">
+            <button class="btn btn-gradient-dark float-right  ml-1" (click)="modalOpen(modalBasic)">
+                <i class="fa fa-plus"></i>&nbsp; Add Agenda</button>
+            &nbsp; <button *ngIf="displayValue==false" class="btn btn-gradient-primary" (click)="changeDisplayValue()">
+                Back</button> &nbsp;
+            <button class="btn btn-gradient-primary float-right ml-1" (click)="changeDisplayValue()">
+                <i class="data feather icon-bar-chart"></i>&nbsp;Analytics</button> &nbsp;
+
+
+            <button class="btn btn-gradient-primary float-right" (click)="modalOpenVC(modalVC)">
+                <i class="data feather icon-clock"></i>&nbsp;Time Allocation</button> &nbsp;
+            <button *ngIf="expanded == false" type="button" class="btn btn-icon btn-gradient-primary float-right mr-1"
+                title="Expanded View" (click)='expand()' style="height: 38px;font-size: 25px; padding-top: 5px;">
+                <i class="fa fa-expand"></i> </button>
+            <button *ngIf="expanded == true" type="button" class="btn btn-icon btn-gradient-primary float-right mr-1"
+                title="Compressed View" (click)='expand()' style="height: 38px;font-size: 25px; padding-top: 5px;">
+                <i class="fa fa-compress"></i> </button>
+        </div>
+    </div>
+    <!-- Modal -->
+    <ng-template #modalVC let-modal>
+        <div class="modal-v">
+            <div class="modal-header">
+                <h2 class="modal-title p-0 m-0" id="myModalLabel1">Time Allocation</h2>
+                <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-label="Close"
+                    style="margin-right: 5px; margin-top: 3px;">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" tabindex="0" ngbAutofocus>
+                <div class="row">
+                    <div class="col-sm-6 p-1">
+                        <div class="">
+                            <table class="table table-striped table-bordered">
+                                <thead class="">
+                                    <tr class="text-center">
+                                        <th scope="col" style="background: white;">Select</th>
+                                        <th scope="col" style="background: white;">Category</th>
+                                        <th scope="col" style="background: white;">Hours</th>
+                                        <th scope="col" style="background: white;">Activities</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="text-center">
+                                        <td> <input type="checkbox"> </td>
+                                        <td>Body Positive</td>
+                                        <td>17:55</td>
+                                        <td>34</td>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td> <input type="checkbox"> </td>
+                                        <td>Innovation</td>
+                                        <td>7:10</td>
+                                        <td>12</td>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td> <input type="checkbox"> </td>
+                                        <td>Fast Company</td>
+                                        <td>5:50</td>
+                                        <td>5</td>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td> <input type="checkbox"> </td>
+                                        <td>Operations</td>
+                                        <td>6:15</td>
+                                        <td>12</td>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td> <input type="checkbox"> </td>
+                                        <td>Yoga & Music</td>
+                                        <td>2:20</td>
+                                        <td>5</td>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td> <input type="checkbox"> </td>
+                                        <td>Family</td>
+                                        <td>1:30</td>
+                                        <td>3</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-1">
+                        <div id="chart">
+                            <apx-chart [series]="chartOptions2.series" [chart]="chartOptions2.chart"
+                                [xaxis]="chartOptions2.xaxis" [title]="chartOptions2.title"></apx-chart>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-gradient-dark" (click)="modal.close('Accept click')" rippleEffect>
+                    Close
+                </button>
+            </div>
+        </div>
+    </ng-template>
+    <!-- / Modal -->
+    <!-- Modal -->
+    <ng-template #modalBasic let-modal>
+        <div class="modal-d">
+            <div class="modal-header">
+                <h2 class="modal-title p-0 m-0" id="myModalLabel1">Add Agenda</h2>
+                <button type="button" class="close" style="margin-right: 5px; margin-top: 3px;"
+                    (click)="modal.dismiss('Cross click')" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body pr-0 pl-0" tabindex="0" ngbAutofocus style="width: 100%;">
+                <mat-stepper [linear]="isLinear" #stepper>
+                    <mat-step [stepControl]="firstFormGroup">
+                        <form [formGroup]="firstFormGroup">
+                            <ng-template matStepLabel>Agenda</ng-template>
+
+                            <div class="row mt-1 pr-1 pl-2">
+                                <div class="col-sm-6">
+                                    <div class="form-group row">
+                                        <label for="inputEmail3"
+                                            class="col-sm-4  mt-0 text-left control-label col-form-label">Context:</label>
+                                        <div class="col-sm-8" for="status" style="color: gray;">
+                                            <select name="status" style="width: 100%; height: 33px; color: gray; ">
+                                                <option value="volvo">-- Select Context --</option>
+                                                <option value="0">Self Expression</option>
+                                                <option value="1">Progress</option>
+                                                <option value="2">Inspiration</option>
+                                                <option value="3">Plural Sight</option>
+                                                <option value="4">Consolidation</option>
+                                                <option value="5">Fast Company</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group row">
+                                        <label for="inputEmail3"
+                                            class="col-sm-4 mt-0  text-left control-label col-form-label">Pillar:</label>
+                                        <div class="col-sm-8" for="status" style="color: gray;">
+                                            <select name="status" style="width: 100%; height: 33px; color: gray; ">
+                                                <option value="volvo">-- Select Pillar --</option>
+                                                <!-- <option value="0">Fast Company</option>
+                                    <option value="1">Porfolio</option> -->
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row pr-1 pl-2">
+                                <div class="col-sm-6">
+                                    <div class="form-group row">
+                                        <label for="inputEmail3"
+                                            class="col-sm-4  mt-0 text-left control-label col-form-label">Agenda:</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" id="inputEmail3"
+                                                placeholder="Enter Agenda" style="height: 33px;width: 100%;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group row">
+                                        <label for="inputEmail3"
+                                            class="col-sm-4 mt-0  text-left control-label col-form-label">Category:</label>
+                                        <div class="col-sm-8" for="status" style="color: gray;">
+                                            <select name="status" style="width: 100%; height: 33px; color: gray; ">
+                                                <option value="volvo">-- Select Category --</option>
+                                                <option value="0">Body Positive</option>
+                                                <option value="1">Innovation</option>
+                                                <option value="2">Fast Company</option>
+                                                <option value="3">Operations</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row   pr-1 pl-2">
+                                <div class="col-sm-12">
+
+                                    <div class="form-group row">
+                                        <label for="inputEmail3"
+                                            class="col-sm-2 text-left control-label col-form-label">Narration:</label>
+                                        <fieldset class="form-label-group col-sm-10">
+                                            <textarea class="form-control" id="label-textarea" rows="3"
+                                                placeholder="Enter Narration"></textarea>
+                                            <label for="label-textarea">Enter Narration</label>
+                                        </fieldset>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row pr-1 pl-2">
+                                <div class="col-sm-12">
+                                    <div class="form-group row">
+                                        <label for="inputEmail3"
+                                            class="col-sm-2 text-left control-label col-form-label">Mode:</label>
+                                        <div class="col-sm-10 " style="margin-top: 5px;">
+                                            <div class="row">
+                                                <div class="col-sm-4 mt-0 ">
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            id="customCheck1" />
+                                                        <label class="custom-control-label"
+                                                            for="customCheck1">Priority</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4 mt-0 ">
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            id="customCheck2" />
+                                                        <label class="custom-control-label"
+                                                            for="customCheck2">Progress</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4 mt-0 ">
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            id="customCheck3" />
+                                                        <label class="custom-control-label"
+                                                            for="customCheck3">Highlight</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row pr-1 pl-2">
+                                <div class="col-sm-6">
+                                    <div class="form-group row">
+                                        <label for="inputEmail3"
+                                            class="col-sm-4 text-left control-label col-form-label">Start Time:</label>
+                                        <div class="col-sm-8">
+                                            <!-- <input type="text" class="form-control" id="inputEmail3"
+                                    placeholder="Enter Agenda" style="height: 33px;width: 200px;"> -->
+                                            <div class="row pr-0 mr-0">
+                                                <div class="col-sm-5 pr-0">
+                                                    <input type="number" class="form-control" id="inputEmail3"
+                                                        placeholder="HH" style="height: 33px;width: 100%;">
+                                                </div>
+                                                <div class="col-sm-1 h2">
+                                                    :
+                                                </div>
+                                                <div class="col-sm-5 ml-0 pl-0">
+                                                    <input type="number" class="form-control" id="inputEmail3"
+                                                        placeholder="MM" style="height: 33px;width: 100%;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group row">
+                                        <label for="inputEmail3"
+                                            class="col-sm-4 mt-0 text-left control-label col-form-label">Status:</label>
+                                        <div class="col-sm-8" for="status" style="color: gray;">
+                                            <select name="status" style="width: 100%; height: 33px; color: gray; ">
+                                                <option value="volvo">-- Select Status --</option>
+                                                <option value="0">Pending</option>
+                                                <option value="1">WIP</option>
+                                                <option value="2">Completed</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row pr-1 pl-2">
+                                <div class="col-sm-6">
+                                    <div class="form-group row">
+                                        <label for="inputEmail3"
+                                            class="col-sm-5 pr-0 text-left control-label col-form-label">Plan Duration
+                                            (Minutes):</label>
+                                        <div class="col-sm-7">
+                                            <input type="text" class="form-control" id="inputEmail3"
+                                                placeholder="Enter Plan Duration" style="height: 33px;width: 100%;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group row">
+                                        <label for="inputEmail3"
+                                            class="col-sm-6 pr-0 text-left control-label col-form-label">Actual Duration
+                                            (Minutes):</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control ml-0" id="inputEmail3"
+                                                placeholder="Enter Actual Duration" style="height: 33px;width: 100%;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row pr-1 pl-2">
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <label for="inputEmail3"
+                                            class="col-sm-2 text-left control-label col-form-label">Score:</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="inputEmail3"
+                                                placeholder="Enter Agenda" style="height: 33px;width: 100%;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row pr-2 pl-2 mt-3">
+                                <div class="col-sm-12">
+                                    <button class="float-right btn btn-gradient-dark"
+                                        (click)="modal.close('Accept click')">Cancel</button>
+                                    <button class="float-right btn btn-gradient-info mr-1">Save</button>
+                                    <button matStepperNext
+                                        class="float-right btn btn-gradient-primary mr-1">Proceed</button>
+                                </div>
+                            </div>
+                            <!-- <div class="row pr-2 pl-2 mt-3">
+                                <div class="col-sm-12">
+                                    <button class="float-right btn btn-gradient-dark"
+                                        (click)="modal.close('Accept click')">Cancel</button>
+                                    <button  matStepperNext class="float-right btn btn-gradient-primary mr-1">Proceed</button>
+                                </div>
+                            </div> -->
+                            <!-- <div>
+                          <button mat-button>Next</button>
+                        </div> -->
+                        </form>
+                    </mat-step>
+
+                    <mat-step [stepControl]="secondFormGroup" label="Description">
+                        <form [formGroup]="secondFormGroup">
+                            <div class="row mt-1 pr-1 pl-2">
+                                <div class="col-sm-12">
+                                    <div class="form-group row">
+                                        <label for="inputEmail3"
+                                            class="col-sm-2 text-left control-label col-form-label">Remarks:</label>
+                                        <fieldset class="form-label-group col-sm-10">
+                                            <textarea class="form-control" id="label-textarea" rows="3"
+                                                placeholder="Enter Remarks"></textarea>
+                                            <label for="label-textarea">Enter Narration</label>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row pr-2 pl-2 mt-3">
+                                <div class="col-sm-12">
+                                    <button class="float-right btn btn-gradient-dark"
+                                        (click)="modal.close('Accept click')">Cancel</button>
+                                    <button matStepperPrevious
+                                        class="float-right btn btn-gradient-secondary mr-1">Back</button>
+                                    <button class="float-right btn btn-gradient-info mr-1">Save</button>
+                                    <button matStepperNext
+                                        class="float-right btn btn-gradient-primary mr-1">Proceed</button>
+                                </div>
+                            </div>
+                            <!-- <div>
+                                <button mat-button matStepperPrevious>Back</button>
+                                <button mat-button matStepperNext>Next</button>
+                            </div> -->
+                        </form>
+                    </mat-step>
+
+                    <mat-step [stepControl]="thirdFormGroup" label="Preparation">
+                        <form [formGroup]="thirdFormGroup">
+                            <div class="row mt-1 pr-1 pl-2">
+                                <div class="col-sm-12">
+                                    <div class="form-group row">
+                                        <label for="inputEmail3"
+                                            class="col-sm-2 text-left control-label col-form-label">Notes:</label>
+                                        <fieldset class="form-label-group col-sm-10">
+                                            <textarea class="form-control" id="label-textarea" rows="3"
+                                                placeholder="Enter Notes"></textarea>
+                                            <label for="label-textarea">Enter Notes</label>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row pr-2 pl-2 mt-3">
+                                <div class="col-sm-12">
+                                    <button class="float-right btn btn-gradient-dark"
+                                        (click)="modal.close('Accept click')">Cancel</button>
+                                    <button matStepperPrevious
+                                        class="float-right btn btn-gradient-secondary mr-1">Back</button>
+                                    <button class="float-right btn btn-gradient-info mr-1">Save</button>
+                                    <button matStepperNext
+                                        class="float-right btn btn-gradient-primary mr-1">Proceed</button>
+                                </div>
+                            </div>
+                            <!-- <div>
+                                <button mat-button matStepperPrevious>Back</button>
+                                <button mat-button matStepperNext>Next</button>
+                            </div> -->
+                        </form>
+                    </mat-step>
+
+
+                    <mat-step>
+                        <ng-template matStepLabel>Consolidation</ng-template>
+                        <div class="row mt-1 pr-1 pl-2">
+                            <div class="col-sm-12">
+                                <div class="form-group row">
+                                    <label for="inputEmail3"
+                                        class="col-sm-2 text-left control-label col-form-label">Comments:</label>
+                                    <fieldset class="form-label-group col-sm-10">
+                                        <textarea class="form-control" id="label-textarea" rows="3"
+                                            placeholder="Enter Comments"></textarea>
+                                        <label for="label-textarea">Enter Comments</label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row pr-2 pl-2 mt-3">
+                            <div class="col-sm-12">
+                                <button class="float-right btn btn-gradient-dark"
+                                    (click)="modal.close('Accept click')">Cancel</button>
+                                <button matStepperPrevious
+                                    class="float-right btn btn-gradient-secondary mr-1">Back</button>
+                                <button class="float-right btn btn-gradient-info mr-1">Save</button>
+                            </div>
+                        </div>
+
+                        <!-- <div>
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-button (click)="stepper.reset()">Reset</button>
+                      </div> -->
+                    </mat-step>
+                </mat-stepper>
+
+
+            </div>
+            <!-- <div class="modal-footer">
+            <button type="button" class="btn btn-primary" (click)="modal.close('Accept click')" rippleEffect>
+                Accept
+            </button>
+        </div> -->
+        </div>
+    </ng-template>
+    <!-- / Modal -->
+
+    <div *ngIf="displayValue==true" class="row mt-3">
+        <div class="col-sm-3 pl-0 ml-0">
+            <div class="">
+                <div class="table-borderless">
+                    <table class="table">
+                        <tbody class="">
+                            <tr class="">
+                                <td class="pl-1 p-0 m-0  td" style=" background: white;" (click)="btmDisplayValue(1)"
+                                    [ngClass]="{'linkSelected': btmdisplayValue == 1}">
+                                    <div class="row">
+                                        <div class="col-sm-2 pb-0 mb-0"
+                                            style=" background: rgb(190, 255, 190); padding-top: 10px;">
+                                            <!-- <div class="avatar bg-light avatar-lg">
+                                                <span class="avatar-content" style="color: gray;">0</span>
+                                            </div> -->
+                                            <h1 class="m-0 p-0 text-center">0</h1>
+
+                                        </div>
+                                        <div class="col-sm-7 p-1 h4 text-center pb-0 mb-0" style="margin-top: 0px;">
+                                            All (187)
+                                        </div>
+                                        <div class="col-sm-2 p-1 pb-0 mb-0">
+                                            <div style="margin-top: 0px;"
+                                                class="custom-control ml-2  text-right custom-control-danger custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="colorCheck1" />
+                                                <label class="custom-control-label" for="colorCheck1"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="">
+                <div class="table-borderless">
+                    <table class="table">
+                        <tbody class="">
+                            <tr class="">
+                                <td class="pl-1 p-0 m-0 td" style=" background: white;" (click)="btmDisplayValue(2)"
+                                    [ngClass]="{'linkSelected': btmdisplayValue == 2}">
+                                    <div class="row">
+                                        <div class="col-sm-2 pb-0 mb-0"
+                                            style=" background: rgb(255, 240, 190); padding-top: 10px;">
+                                            <!-- <div class="avatar bg-light avatar-lg">
+                                                <span class="avatar-content" style="color: gray;">0</span>
+                                            </div> -->
+                                            <h1 class="m-0 p-0 text-center">1</h1>
+
+                                        </div>
+                                        <div class="col-sm-7 p-1 h4 text-center pb-0 mb-0" style="margin-top: 0px;">
+                                            Today (3)
+                                        </div>
+                                        <div class="col-sm-2 p-1 pb-0 mb-0">
+                                            <div
+                                                class="custom-control ml-2 text-right custom-control-danger custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="colorCheck2" />
+                                                <label class="custom-control-label" for="colorCheck2"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="">
+                <div class="table-borderless">
+                    <table class="table">
+                        <tbody class="">
+                            <tr class="">
+                                <td class="pl-1 p-0 m-0 td" style=" background: white;" (click)="btmDisplayValue(3)"
+                                    [ngClass]="{'linkSelected': btmdisplayValue == 3}">
+                                    <div class="row">
+                                        <div class="col-sm-2 pb-0 mb-0"
+                                            style=" background: rgb(255, 240, 190); padding-top: 10px;">
+                                            <!-- <div class="avatar bg-light avatar-lg">
+                                                <span class="avatar-content" style="color: gray;">0</span>
+                                            </div> -->
+                                            <h1 class="m-0 p-0 text-center">1</h1>
+
+                                        </div>
+                                        <div class="col-sm-7 p-1 h4 text-center pb-0 mb-0" style="margin-top: 0px;">
+                                            Zero Hour (1)
+                                        </div>
+                                        <div class="col-sm-2 p-1 pb-0 mb-0">
+                                            <div
+                                                class="custom-control ml-2 text-right custom-control-danger custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="colorCheck3" />
+                                                <label class="custom-control-label" for="colorCheck3"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="">
+                <div class="table-borderless">
+                    <table class="table">
+                        <tbody class="">
+                            <tr class="">
+                                <td class="pl-1 p-0 m-0 td" style=" background: white;" (click)="btmDisplayValue(4)"
+                                    [ngClass]="{'linkSelected': btmdisplayValue == 4}">
+                                    <div class="row">
+                                        <div class="col-sm-2 pb-0 mb-0"
+                                            style=" background: rgb(190, 255, 246); padding-top: 10px;">
+                                            <!-- <div class="avatar bg-light avatar-lg">
+                                                <span class="avatar-content" style="color: gray;">0</span>
+                                            </div> -->
+                                            <h1 class="m-0 p-0 text-center">2</h1>
+
+                                        </div>
+                                        <div class="col-sm-7 p-1 h4 text-center pb-0 mb-0" style="margin-top: 0px;">
+                                            Organization(20)
+                                        </div>
+                                        <div class="col-sm-2 p-1 pb-0 mb-0">
+                                            <div
+                                                class="custom-control ml-2 text-right custom-control-danger custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="colorCheck4" />
+                                                <label class="custom-control-label" for="colorCheck4"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="">
+                <div class="table-borderless">
+                    <table class="table">
+                        <tbody class="">
+                            <tr class="">
+                                <td class="pl-1 p-0 m-0 td" style=" background: white;" (click)="btmDisplayValue(5)"
+                                    [ngClass]="{'linkSelected': btmdisplayValue == 5}">
+                                    <div class="row">
+                                        <div class="col-sm-2 pb-0 mb-0"
+                                            style=" background: rgb(190, 255, 246); padding-top: 10px;">
+                                            <!-- <div class="avatar bg-light avatar-lg">
+                                                <span class="avatar-content" style="color: gray;">0</span>
+                                            </div> -->
+                                            <h1 class="m-0 p-0 text-center">2</h1>
+
+                                        </div>
+                                        <div class="col-sm-7 p-1 h4 text-center pb-0 mb-0" style="margin-top: 0px;">
+                                            Progress(7)
+                                        </div>
+                                        <div class="col-sm-2 p-1 pb-0 mb-0">
+                                            <div
+                                                class="custom-control ml-2 text-right custom-control-danger custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="colorCheck5" />
+                                                <label class="custom-control-label" for="colorCheck5"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="">
+                <div class="table-borderless">
+                    <table class="table">
+                        <tbody class="">
+                            <tr class="">
+                                <td class="pl-1 p-0 m-0 td" style=" background: white;" (click)="btmDisplayValue(6)"
+                                    [ngClass]="{'linkSelected': btmdisplayValue == 6}">
+                                    <div class="row">
+                                        <div class="col-sm-2 pb-0 mb-0"
+                                            style=" background: rgb(190, 255, 190); padding-top: 10px;">
+                                            <!-- <div class="avatar bg-light avatar-lg">
+                                                <span class="avatar-content" style="color: gray;">0</span>
+                                            </div> -->
+                                            <h1 class="m-0 p-0 text-center">4</h1>
+
+                                        </div>
+                                        <div class="col-sm-7 p-1 h4 text-center pb-0 mb-0" style="margin-top: 0px;">
+                                            Family(5)
+                                        </div>
+                                        <div class="col-sm-2 p-1 pb-0 mb-0">
+                                            <div
+                                                class="custom-control ml-2 text-right custom-control-danger custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="colorCheck6" />
+                                                <label class="custom-control-label" for="colorCheck6"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="">
+                <div class="table-borderless">
+                    <table class="table">
+                        <tbody class="">
+                            <tr class="">
+                                <td class="pl-1 p-0 m-0 td" style=" background: white;" (click)="btmDisplayValue(7)"
+                                    [ngClass]="{'linkSelected': btmdisplayValue == 7}">
+                                    <div class="row">
+                                        <div class="col-sm-2 pb-0 mb-0"
+                                            style=" background: rgb(190, 255, 190); padding-top: 10px;">
+                                            <!-- <div class="avatar bg-light avatar-lg">
+                                                <span class="avatar-content" style="color: gray;">0</span>
+                                            </div> -->
+                                            <h1 class="m-0 p-0 text-center">5</h1>
+
+                                        </div>
+                                        <div class="col-sm-7 p-1 h4 text-center pb-0 mb-0" style="margin-top: 0px;">
+                                            Checklist(14)
+                                        </div>
+                                        <div class="col-sm-2 p-1 pb-0 mb-0">
+                                            <div
+                                                class="custom-control ml-2  text-right custom-control-danger custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="colorCheck7" />
+                                                <label class="custom-control-label" for="colorCheck7"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9 m-0 pr-0" *ngIf="btmdisplayValue == 1 || 2 ||3||4||5||6||7||8">
+            <div class="row mt-0" *ngIf="expanded == true">
+                <div class="col-sm-4 crd mt-0">
+                    <div class="card">
+                        <div class="row m-0" style="background: white;">
+                            <div class="col-sm-9">
+                                <h1 class=" mt-2" style="padding-left: 10px;">
+                                    Auto Pilot
+                                </h1>
+                            </div>
+                            <div class="col-sm-3 m-0 p-0">
+                                <div class=" m-0 pt-2 pl-1 pb-1">
+                                    <!-- <i class="fa fa-circle mt-1 mr-0 " style="font-size: 50px; color: rgb(81, 197, 139);
+                                cursor: pointer;" title="status"></i> -->
+                                <div class=" " title="status">
+                                    <!-- <i class="fa fa-adjust pt-2" style="font-size: 70px; color: rgb(81, 197, 139);
+                                cursor: pointer; margin-right: 0px;" title="status"></i> -->
+                                    <!-- <img src="assets/1649208.png" height="50px" alt="" style="margin-top:30px"> -->
+                                    <div *ngIf="inst1 == 1" class="css-bar css-bar-25 bg-danger mb-0"
+                                        (click)="changeColor1(1)">
+                                        <div class="data-text">
+                                            <!-- <small class="success-rate text-warning font-light" style="font-size: small; font-weight: bold;">35
+                                            <span class="icon">%</span>
+                                        </small> -->
+                                        </div>
+                                    </div>
+                                    <div *ngIf="inst1 == 2" class="css-bar css-bar-50 bg-warning mb-0"
+                                        (click)="changeColor1(2)">
+                                        <div class="data-text">
+                                        </div>
+                                    </div>
+                                    <div *ngIf="inst1 == 3" class="css-bar css-bar-75 bg-primary mb-0"
+                                        (click)="changeColor1(3)">
+                                        <div class="data-text">
+                                        </div>
+                                    </div>
+                                    <div *ngIf="inst1 == 4" class="css-bar css-bar-100 bg-success mb-0"
+                                        (click)="changeColor1(4)">
+                                        <div class="data-text">
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-0" style="background: white; padding-left: 5px;">
+                            <div class="col-sm-3 mt-0">
+
+                                <div class="row" style="width: fit-content; padding-left: 10px; padding-bottom: 10px;">
+                                    <div class="col-sm-6 p-0">
+                                        <div class="avatar bg-light-primary rounded" title="Mark as Progress" style="margin: 5px;">
+                                            <div class="avatar-content">
+                                                <i class="data feather icon-file  avatar-icon font-medium-3"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 p-0">
+                                        <div class="avatar bg-light-warning rounded" title="Priority"
+                                            style="margin: 5px; margin-right: 2px;">
+                                            <div class="avatar-content">
+                                                <i class="data feather icon-star  avatar-icon font-medium-3"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-9  " style="padding-top: 3px; padding-left: 30px;">
+                                <button type="button" class="btn btn-flat-secondary "
+                                    style="background: rgb(243, 243, 243); padding: 10px;"
+                                    rippleEffect>00:00</button>&nbsp;
+                                <button type="button" class="btn btn-flat-secondary "
+                                    style="background: rgb(243, 243, 243);; padding: 10px;"
+                                    rippleEffect>00/60</button>&nbsp;
+                                <button type="button" class="btn btn-flat-danger  "  *ngIf="ins1 == 1"  (click)="changeColorb1(1)"
+                                    style="background: rgb(243, 243, 243); width: 73px; padding: 10px;" rippleEffect>Bad</button>
+                                <button type="button" class="btn btn-flat-warning  " *ngIf="ins1 == 2" (click)="changeColorb1(2)"
+                                    style="background: rgb(243, 243, 243); padding: 10px;" rippleEffect>Average</button>
+                                <button type="button" class="btn btn-flat-primary  " *ngIf="ins1 == 3" (click)="changeColorb1(3)"
+                                    style="background: rgb(243, 243, 243); width: 73px; padding: 10px;"
+                                    rippleEffect>Priority</button>
+                                <button type="button" class="btn btn-flat-success  " *ngIf="ins1 == 4" (click)="changeColorb1(4)"
+                                    style="background: rgb(243, 243, 243); width: 73px; padding: 10px;" rippleEffect>Good</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-sm-4 crd mt-0">
+                    <div class="card">
+                        <div class="row m-0" style="background: white;">
+                            <div class="col-sm-9">
+                                <h1 class=" mt-2" style="padding-left: 10px;">
+                                    First Things
+                                </h1>
+                            </div>
+                            <div class="col-sm-3 m-0 p-0">
+                                <!-- <div class=" m-0 p-0 pl-2 pb-1">
+                                    <i class="fa fa-circle mt-1 mr-0 " style="font-size: 50px; color: rgb(197, 197, 197);
+                                cursor: pointer;" title="status"></i>
+                                </div> -->
+                                <div class=" m-0 pt-2 pl-1 pb-1">
+                                    <!-- <i class="fa fa-circle mt-1 mr-0 " style="font-size: 50px; color: rgb(81, 197, 139);
+                                cursor: pointer;" title="status"></i> -->
+                                <div class=" " title="status">
+                                    <!-- <i class="fa fa-adjust pt-2" style="font-size: 70px; color: rgb(81, 197, 139);
+                                cursor: pointer; margin-right: 0px;" title="status"></i> -->
+                                    <!-- <img src="assets/1649208.png" height="50px" alt="" style="margin-top:30px"> -->
+                                    <div *ngIf="inst2 == 1" class="css-bar css-bar-25 bg-danger mb-0"
+                                        (click)="changeColor2(1)">
+                                        <div class="data-text">
+                                            <!-- <small class="success-rate text-warning font-light" style="font-size: small; font-weight: bold;">35
+                                            <span class="icon">%</span>
+                                        </small> -->
+                                        </div>
+                                    </div>
+                                    <div *ngIf="inst2 == 2" class="css-bar css-bar-50 bg-warning mb-0"
+                                        (click)="changeColor2(2)">
+                                        <div class="data-text">
+                                        </div>
+                                    </div>
+                                    <div *ngIf="inst2 == 3" class="css-bar css-bar-75 bg-primary mb-0"
+                                        (click)="changeColor2(3)">
+                                        <div class="data-text">
+                                        </div>
+                                    </div>
+                                    <div *ngIf="inst2 == 4" class="css-bar css-bar-100 bg-success mb-0"
+                                        (click)="changeColor2(4)">
+                                        <div class="data-text">
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-0" style="background: white; padding-left: 5px;">
+                            <div class="col-sm-3 mt-0">
+
+                                <div class="row" style="width: fit-content; padding-left: 10px; padding-bottom: 10px;">
+                                    <div class="col-sm-6 p-0">
+                                        <div class="avatar bg-light-primary rounded" style="margin: 5px;" title="Mark as Progress">
+                                            <div class="avatar-content">
+                                                <i class="data feather icon-file  avatar-icon font-medium-3"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 p-0">
+                                        <div class="avatar bg-light-warning rounded" title="Priority"
+                                            style="margin: 5px; margin-right: 2px;">
+                                            <div class="avatar-content">
+                                                <i class="data feather icon-star  avatar-icon font-medium-3"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-9 " style="padding-top: 3px;  padding-left: 30px;">
+                                <button type="button" class="btn btn-flat-secondary "
+                                    style="background: rgb(243, 243, 243); padding: 10px;"
+                                    rippleEffect>00:00</button>&nbsp;
+                                <button type="button" class="btn btn-flat-secondary "
+                                    style="background: rgb(243, 243, 243);; padding: 10px;"
+                                    rippleEffect>15/60</button>&nbsp;
+                                <!-- <button type="button" class="btn btn-flat-secondary  "
+                                    style="background: rgb(243, 243, 243);; padding: 10px;" rippleEffect>Done</button> -->
+                                    <button type="button" class="btn btn-flat-danger  "  *ngIf="ins2 == 1" (click)="changeColorb2(1)"
+                                    style="background: rgb(243, 243, 243);; width: 73px; padding: 10px;" rippleEffect>Bad</button>
+                                <button type="button" class="btn btn-flat-warning  " *ngIf="ins2 == 2" (click)="changeColorb2(2)"
+                                    style="background: rgb(243, 243, 243);; padding: 10px;" rippleEffect>Average</button>
+                                <button type="button" class="btn btn-flat-primary  " *ngIf="ins2 == 3" (click)="changeColorb2(3)"
+                                    style="background: rgb(243, 243, 243);; width: 73px; padding: 10px;"
+                                    rippleEffect>Priority</button>
+                                <button type="button" class="btn btn-flat-success  " *ngIf="ins2 == 4" (click)="changeColorb2(4)"
+                                    style="background: rgb(243, 243, 243);; width: 73px; padding: 10px;" rippleEffect>Good</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-sm-4 crd mt-0">
+                    <div class="card">
+                        <div class="row m-0" style="background: white;">
+                            <div class="col-sm-9">
+                                <h1 class=" mt-2" style="padding-left: 10px;">
+                                    Everyday Progress
+                                </h1>
+                            </div>
+                            <div class="col-sm-3 m-0 p-0">
+                                <!-- <div class=" m-0 p-0 pl-2 pb-1">
+                                    <i class="fa fa-circle mt-1 mr-0 " style="font-size: 50px; color: rgb(81, 197, 139);
+                                cursor: pointer;" title="status"></i>
+                                </div> -->
+                                <div class=" m-0 pt-2 pl-1 pb-1">
+                                    <!-- <i class="fa fa-circle mt-1 mr-0 " style="font-size: 50px; color: rgb(81, 197, 139);
+                                cursor: pointer;" title="status"></i> -->
+                                <div class=" " title="status">
+                                    <!-- <i class="fa fa-adjust pt-2" style="font-size: 70px; color: rgb(81, 197, 139);
+                                cursor: pointer; margin-right: 0px;" title="status"></i> -->
+                                    <!-- <img src="assets/1649208.png" height="50px" alt="" style="margin-top:30px"> -->
+                                    <div *ngIf="inst3 == 1" class="css-bar css-bar-25 bg-danger mb-0"
+                                        (click)="changeColor3(1)">
+                                        <div class="data-text">
+                                            <!-- <small class="success-rate text-warning font-light" style="font-size: small; font-weight: bold;">35
+                                            <span class="icon">%</span>
+                                        </small> -->
+                                        </div>
+                                    </div>
+                                    <div *ngIf="inst3 == 2" class="css-bar css-bar-50 bg-warning mb-0"
+                                        (click)="changeColor3(2)">
+                                        <div class="data-text">
+                                        </div>
+                                    </div>
+                                    <div *ngIf="inst3 == 3" class="css-bar css-bar-75 bg-primary mb-0"
+                                        (click)="changeColor3(3)">
+                                        <div class="data-text">
+                                        </div>
+                                    </div>
+                                    <div *ngIf="inst3 == 4" class="css-bar css-bar-100 bg-success mb-0"
+                                        (click)="changeColor3(4)">
+                                        <div class="data-text">
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-0" style="background: white; padding-left: 5px;">
+                            <div class="col-sm-3 mt-0">
+
+                                <div class="row" style="width: fit-content; padding-left: 10px; padding-bottom: 10px;">
+                                    <div class="col-sm-6 p-0">
+                                        <div class="avatar bg-light-primary rounded" style="margin: 5px;" title="Mark as Progress">
+                                            <div class="avatar-content">
+                                                <i class="data feather icon-file  avatar-icon font-medium-3"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 p-0">
+                                        <div class="avatar bg-light-warning rounded" title="Priority"
+                                            style="margin: 5px; margin-right: 2px;">
+                                            <div class="avatar-content">
+                                                <i class="data feather icon-star  avatar-icon font-medium-3"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-9 " style="padding-top: 3px; padding-left: 30px;">
+                                <button type="button" class="btn btn-flat-secondary "
+                                    style="background: rgb(243, 243, 243); padding: 10px;"
+                                    rippleEffect>00:00</button>&nbsp;
+                                <button type="button" class="btn btn-flat-secondary "
+                                    style="background: rgb(243, 243, 243);; padding: 10px;"
+                                    rippleEffect>15/60</button>&nbsp;
+                                <!-- <button type="button" class="btn btn-flat-success  "
+                                    style="background: rgb(243, 243, 243);; padding: 10px;" rippleEffect>Good</button> -->
+                                    <button type="button" class="btn btn-flat-danger  "  *ngIf="ins3 == 1" (click)="changeColorb3(1)"
+                                    style="background: rgb(243, 243, 243);; width: 73px; padding: 10px;" rippleEffect>Bad</button>
+                                <button type="button" class="btn btn-flat-warning  " *ngIf="ins3 == 2" (click)="changeColorb3(2)"
+                                    style="background: rgb(243, 243, 243);; padding: 10px;" rippleEffect>Average</button>
+                                <button type="button" class="btn btn-flat-primary  " *ngIf="ins3 == 3" (click)="changeColorb3(3)"
+                                    style="background: rgb(243, 243, 243);; width: 73px; padding: 10px;"
+                                    rippleEffect>Priority</button>
+                                <button type="button" class="btn btn-flat-success  " *ngIf="ins3 == 4" (click)="changeColorb3(4)"
+                                    style="background: rgb(243, 243, 243);; width: 73px; padding: 10px;" rippleEffect>Good</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-sm-4 crd mt-0">
+                    <div class="card">
+                        <div class="row m-0" style="background: white;">
+                            <div class="col-sm-9">
+                                <h1 class=" mt-2" style="padding-left: 10px;">
+                                    EA Review
+                                </h1>
+                            </div>
+                            <div class="col-sm-3 m-0 p-0">
+                                <!-- <div class=" m-0 p-0 pl-2 pb-1">
+                                    <i class="fa fa-circle mt-1 mr-0 " style="font-size: 50px; color: rgb(255, 124, 124);
+                                cursor: pointer;" title="status"></i>
+                                </div> -->
+                                <div class=" m-0 pt-2 pl-1 pb-1">
+                                    <!-- <i class="fa fa-circle mt-1 mr-0 " style="font-size: 50px; color: rgb(81, 197, 139);
+                                cursor: pointer;" title="status"></i> -->
+                                <div class=" " title="status">
+                                    <!-- <i class="fa fa-adjust pt-2" style="font-size: 70px; color: rgb(81, 197, 139);
+                                cursor: pointer; margin-right: 0px;" title="status"></i> -->
+                                    <!-- <img src="assets/1649208.png" height="50px" alt="" style="margin-top:30px"> -->
+                                    <div *ngIf="inst4 == 1" class="css-bar css-bar-25 bg-danger mb-0"
+                                        (click)="changeColor4(1)">
+                                        <div class="data-text">
+                                            <!-- <small class="success-rate text-warning font-light" style="font-size: small; font-weight: bold;">35
+                                            <span class="icon">%</span>
+                                        </small> -->
+                                        </div>
+                                    </div>
+                                    <div *ngIf="inst4 == 2" class="css-bar css-bar-50 bg-warning mb-0"
+                                        (click)="changeColor4(2)">
+                                        <div class="data-text">
+                                        </div>
+                                    </div>
+                                    <div *ngIf="inst4 == 3" class="css-bar css-bar-75 bg-primary mb-0"
+                                        (click)="changeColor4(3)">
+                                        <div class="data-text">
+                                        </div>
+                                    </div>
+                                    <div *ngIf="inst4 == 4" class="css-bar css-bar-100 bg-success mb-0"
+                                        (click)="changeColor4(4)">
+                                        <div class="data-text">
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-0" style="background: white; padding-left: 5px;">
+                            <div class="col-sm-3 mt-0">
+
+                                <div class="row" style="width: fit-content; padding-left: 10px; padding-bottom: 10px;">
+                                    <div class="col-sm-6 p-0">
+                                        <div class="avatar bg-light-primary rounded" style="margin: 5px;" title="Mark as Progress">
+                                            <div class="avatar-content">
+                                                <i class="data feather icon-file  avatar-icon font-medium-3"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 p-0">
+                                        <div class="avatar bg-light-warning rounded" title="Priority"
+                                            style="margin: 5px; margin-right: 2px;">
+                                            <div class="avatar-content">
+                                                <i class="data feather icon-star  avatar-icon font-medium-3"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-9 " style="padding-top: 3px; padding-left: 30px;">
+                                <button type="button" class="btn btn-flat-secondary "
+                                    style="background: rgb(243, 243, 243); padding: 10px;"
+                                    rippleEffect>00:00</button>&nbsp;
+                                <button type="button" class="btn btn-flat-secondary "
+                                    style="background: rgb(243, 243, 243);; padding: 10px;"
+                                    rippleEffect>15/60</button>&nbsp;
+                                <!-- <button type="button" class="btn btn-flat-danger  "
+                                    style="background: rgb(243, 243, 243);; padding: 10px;"
+                                    rippleEffect>Priority</button> -->
+                                    <button type="button" class="btn btn-flat-danger  "  *ngIf="ins4 == 1" (click)="changeColorb4(1)"
+                                    style="background: rgb(243, 243, 243);; width: 73px; padding: 10px;" rippleEffect>Bad</button>
+                                <button type="button" class="btn btn-flat-warning  " *ngIf="ins4 == 2" (click)="changeColorb4(2)"
+                                    style="background: rgb(243, 243, 243);; padding: 10px;" rippleEffect>Average</button>
+                                <button type="button" class="btn btn-flat-primary  " *ngIf="ins4 == 3" (click)="changeColorb4(3)"
+                                    style="background: rgb(243, 243, 243);; width: 73px; padding: 10px;"
+                                    rippleEffect>Priority</button>
+                                <button type="button" class="btn btn-flat-success  " *ngIf="ins4 == 4" (click)="changeColorb4(4)"
+                                    style="background: rgb(243, 243, 243);; width: 73px; padding: 10px;" rippleEffect>Good</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-sm-4 crd mt-0">
+                    <div class="card">
+                        <div class="row m-0" style="background: white;">
+                            <div class="col-sm-9">
+                                <h1 class=" mt-2" style="padding-left: 10px;">
+                                    Fast Company
+                                </h1>
+                            </div>
+                            <div class="col-sm-3 m-0 p-0">
+                                <!-- <div class=" m-0 p-0 pl-2 pb-1">
+                                    <i class="fa fa-circle mt-1 mr-0 " style="font-size: 50px; color: rgb(81, 197, 139);
+                                cursor: pointer;" title="status"></i>
+                                </div> -->
+                                <div class=" m-0 pt-2 pl-1 pb-1">
+                                    <!-- <i class="fa fa-circle mt-1 mr-0 " style="font-size: 50px; color: rgb(81, 197, 139);
+                                cursor: pointer;" title="status"></i> -->
+                                <div class=" " title="status">
+                                    <!-- <i class="fa fa-adjust pt-2" style="font-size: 70px; color: rgb(81, 197, 139);
+                                cursor: pointer; margin-right: 0px;" title="status"></i> -->
+                                    <!-- <img src="assets/1649208.png" height="50px" alt="" style="margin-top:30px"> -->
+                                    <div *ngIf="inst5 == 1" class="css-bar css-bar-25 bg-danger mb-0"
+                                        (click)="changeColor5(1)">
+                                        <div class="data-text">
+                                            <!-- <small class="success-rate text-warning font-light" style="font-size: small; font-weight: bold;">35
+                                            <span class="icon">%</span>
+                                        </small> -->
+                                        </div>
+                                    </div>
+                                    <div *ngIf="inst5 == 2" class="css-bar css-bar-50 bg-warning mb-0"
+                                        (click)="changeColor5(2)">
+                                        <div class="data-text">
+                                        </div>
+                                    </div>
+                                    <div *ngIf="inst5 == 3" class="css-bar css-bar-75 bg-primary mb-0"
+                                        (click)="changeColor5(3)">
+                                        <div class="data-text">
+                                        </div>
+                                    </div>
+                                    <div *ngIf="inst5 == 4" class="css-bar css-bar-100 bg-success mb-0"
+                                        (click)="changeColor5(4)">
+                                        <div class="data-text">
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-0" style="background: white; padding-left: 5px;">
+                            <div class="col-sm-3 mt-0">
+
+                                <div class="row" style="width: fit-content; padding-left: 10px; padding-bottom: 10px;">
+                                    <div class="col-sm-6 p-0">
+                                        <div class="avatar bg-light-primary rounded" style="margin: 5px;" title="Mark as Progress">
+                                            <div class="avatar-content">
+                                                <i class="data feather icon-file  avatar-icon font-medium-3"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 p-0">
+                                        <div class="avatar bg-light-warning rounded" title="Priority"
+                                            style="margin: 5px; margin-right: 2px;">
+                                            <div class="avatar-content">
+                                                <i class="data feather icon-star  avatar-icon font-medium-3"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-9 " style="padding-top: 3px; padding-left: 30px;">
+                                <button type="button" class="btn btn-flat-secondary "
+                                    style="background: rgb(243, 243, 243); padding: 10px;"
+                                    rippleEffect>00:00</button>&nbsp;
+                                <button type="button" class="btn btn-flat-secondary "
+                                    style="background: rgb(243, 243, 243);; padding: 10px;"
+                                    rippleEffect>15/60</button>&nbsp;
+                                <!-- <button type="button" class="btn btn-flat-success  "
+                                    style="background: rgb(243, 243, 243);; padding: 10px;" rippleEffect>Good</button> -->
+                                    <button type="button" class="btn btn-flat-danger  "  *ngIf="ins5 == 1" (click)="changeColorb5(1)"
+                                    style="background: rgb(243, 243, 243);; width: 73px; padding: 10px;" rippleEffect>Bad</button>
+                                <button type="button" class="btn btn-flat-warning  " *ngIf="ins5 == 2" (click)="changeColorb5(2)"
+                                    style="background: rgb(243, 243, 243);; padding: 10px;" rippleEffect>Average</button>
+                                <button type="button" class="btn btn-flat-primary  " *ngIf="ins5 == 3" (click)="changeColorb5(3)"
+                                    style="background: rgb(243, 243, 243);; width: 73px; padding: 10px;"
+                                    rippleEffect>Priority</button>
+                                <button type="button" class="btn btn-flat-success  " *ngIf="ins5 == 4" (click)="changeColorb5(4)"
+                                    style="background: rgb(243, 243, 243);; width: 73px; padding: 10px;" rippleEffect>Good</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-sm-4 crd mt-0">
+                    <div class="card">
+                        <div class="row m-0" style="background: white;">
+                            <div class="col-sm-9">
+                                <h1 class=" mt-2" style="padding-left: 10px;">
+                                    Pulse Call
+                                </h1>
+                            </div>
+                            <div class="col-sm-3 m-0 p-0">
+                                <!-- <div class=" m-0 p-0 pl-2 pb-1">
+                                    <i class="fa fa-circle mt-1 mr-0 " style="font-size: 50px; color: rgb(201, 201, 201);
+                                cursor: pointer;" title="status"></i>
+                                </div> -->
+                                <div class=" m-0 pt-2 pl-1 pb-1">
+                                    <!-- <i class="fa fa-circle mt-1 mr-0 " style="font-size: 50px; color: rgb(81, 197, 139);
+                                cursor: pointer;" title="status"></i> -->
+                                <div class=" " title="status">
+                                    <!-- <i class="fa fa-adjust pt-2" style="font-size: 70px; color: rgb(81, 197, 139);
+                                cursor: pointer; margin-right: 0px;" title="status"></i> -->
+                                    <!-- <img src="assets/1649208.png" height="50px" alt="" style="margin-top:30px"> -->
+                                    <div *ngIf="inst6 == 1" class="css-bar css-bar-25 bg-danger mb-0"
+                                        (click)="changeColor6(1)">
+                                        <div class="data-text">
+                                            <!-- <small class="success-rate text-warning font-light" style="font-size: small; font-weight: bold;">35
+                                            <span class="icon">%</span>
+                                        </small> -->
+                                        </div>
+                                    </div>
+                                    <div *ngIf="inst6 == 2" class="css-bar css-bar-50 bg-warning mb-0"
+                                        (click)="changeColor6(2)">
+                                        <div class="data-text">
+                                        </div>
+                                    </div>
+                                    <div *ngIf="inst6 == 3" class="css-bar css-bar-75 bg-primary mb-0"
+                                        (click)="changeColor6(3)">
+                                        <div class="data-text">
+                                        </div>
+                                    </div>
+                                    <div *ngIf="inst6 == 4" class="css-bar css-bar-100 bg-success mb-0"
+                                        (click)="changeColor6(4)">
+                                        <div class="data-text">
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-0" style="background: white; padding-left: 5px;">
+                            <div class="col-sm-3 mt-0">
+
+                                <div class="row" style="width: fit-content; padding-left: 10px; padding-bottom: 10px;" title="Mark as Progress">
+                                    <div class="col-sm-6 p-0">
+                                        <div class="avatar bg-light-primary rounded" style="margin: 5px;">
+                                            <div class="avatar-content">
+                                                <i class="data feather icon-file  avatar-icon font-medium-3"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 p-0">
+                                        <div class="avatar bg-light-warning rounded" title="Priority"
+                                            style="margin: 5px; margin-right: 2px;">
+                                            <div class="avatar-content">
+                                                <i class="data feather icon-star  avatar-icon font-medium-3"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-9" style="padding-top: 3px; padding-left: 30px;">
+                                <button type="button" class="btn btn-flat-secondary "
+                                    style="background: rgb(243, 243, 243); padding: 10px;"
+                                    rippleEffect>00:00</button>&nbsp;
+                                <button type="button" class="btn btn-flat-secondary "
+                                    style="background: rgb(243, 243, 243);; padding: 10px;"
+                                    rippleEffect>15/60</button>&nbsp;
+                                <!-- <button type="button" class="btn btn-flat-secondary  "
+                                    style="background: rgb(243, 243, 243);; padding: 10px;" rippleEffect>Done</button> -->
+                                    <button type="button" class="btn btn-flat-danger  "  *ngIf="ins6 == 1" (click)="changeColorb6(1)"
+                                    style="background: rgb(243, 243, 243);; width: 73px; padding: 10px;" rippleEffect>Bad</button>
+                                <button type="button" class="btn btn-flat-warning  " *ngIf="ins6 == 2" (click)="changeColorb6(2)"
+                                    style="background: rgb(243, 243, 243);; padding: 10px;" rippleEffect>Average</button>
+                                <button type="button" class="btn btn-flat-primary  " *ngIf="ins6 == 3" (click)="changeColorb6(3)"
+                                    style="background: rgb(243, 243, 243);; width: 73px; padding: 10px;"
+                                    rippleEffect>Priority</button>
+                                <button type="button" class="btn btn-flat-success  " *ngIf="ins6 == 4" (click)="changeColorb6(4)"
+                                    style="background: rgb(243, 243, 243);; width: 73px; padding: 10px;" rippleEffect>Good</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="row mt-0" *ngIf="expanded == false">
+                <div class="col-sm-4 crd mt-0">
+                    <div class="card">
+                        <div class="row m-0" style="background: white;">
+                            <div class="col-sm-9">
+                                <div class="row p-0 m-0">
+                                    <div class="col-sm-12 p-0 m-0">
+                                        <h1 class="ml-0 pt-1 pl-0 pb-0">
+                                            Auto Pilot
+                                        </h1>
+                                    </div>
+
+                                </div>
+                                <div class="row pb-0 mb-0 p-0 m-0">
+                                    <div class="row" style="padding-left: 10px; padding-bottom: 10px;">
+                                        <div class="col-sm-3 p-0">
+                                            <div class="avatar bg-light-warning rounded" style="margin: 5px;"
+                                            (click)="changeColor1(2)" title="Mark as Progress">
+                                                <div class="avatar-content">
+                                                    <i class="data feather icon-file  avatar-icon font-medium-3"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 p-0">
+                                            <div class="avatar bg-light-primary rounded" title="Priority" (click)="changeColor1(3)"
+                                                style="margin: 5px; margin-right: 2px;">
+                                                <div class="avatar-content">
+                                                    <i class="data feather icon-star  avatar-icon font-medium-3"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 p-0">
+                                            <div class="avatar bg-light-success rounded" title="Completed"  (click)="changeColor1(4)"
+                                            style="margin: 5px;">
+                                                <div class="avatar-content">
+                                                    <i class="data feather icon-check  avatar-icon font-medium-3"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 p-0">
+                                            <div class="avatar bg-light-danger rounded" title="Delete" (click)="changeColor1(1)"        
+                                                style="margin: 5px; margin-right: 2px;">
+                                                <div class="avatar-content">
+                                                    <i class="data feather icon-trash  avatar-icon font-medium-3"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mt-0 m-0 p-0">
+                                <div class=" " title="status" style="margin-top: 30px;">
+                                    <!-- <i class="fa fa-adjust pt-2" style="font-size: 70px; color: rgb(81, 197, 139);
+                                cursor: pointer; margin-right: 0px;" title="status"></i> -->
+                                    <!-- <img src="assets/1649208.png" height="50px" alt="" style="margin-top:30px"> -->
+                                    <div *ngIf="inst1 == 1" class="css-bar css-bar-25 bg-danger mb-0"
+                                       >
+                                        <div class="data-text">
+                                            <!-- <small class="success-rate text-warning font-light" style="font-size: small; font-weight: bold;">35
+                                            <span class="icon">%</span>
+                                        </small> -->
+                                        </div>
+                                    </div>
+                                    <div *ngIf="inst1 == 2" class="css-bar css-bar-50 bg-warning mb-0"
+                                       >
+                                        <div class="data-text">
+                                        </div>
+                                    </div>
+                                    <div *ngIf="inst1 == 3" class="css-bar css-bar-75 bg-primary mb-0"
+                                       >
+                                        <div class="data-text">
+                                        </div>
+                                    </div>
+                                    <div *ngIf="inst1 == 4" class="css-bar css-bar-100 bg-success mb-0"
+                                       >
+                                        <div class="data-text">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="row m-0" style="background: white; padding-left: 5px;">
+                            <div class="col-sm-4 mt-0">
+
+                                <div class="row" style="width: fit-content; padding-left: 10px; padding-bottom: 10px;">
+                                    <div class="col-sm-6 p-0">
+                                        <div class="avatar bg-light-primary rounded" style="margin: 5px;">
+                                            <div class="avatar-content">
+                                                <i class="data feather icon-file  avatar-icon font-medium-3"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 p-0">
+                                        <div class="avatar bg-light-warning rounded"
+                                            style="margin: 5px; margin-right: 2px;">
+                                            <div class="avatar-content">
+                                                <i class="data feather icon-star  avatar-icon font-medium-3"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-8 " style="padding-top: 3px;">
+                                <button type="button" class="btn btn-flat-secondary "
+                                    style="background: rgb(243, 243, 243); padding: 10px;"
+                                    rippleEffect>00:00</button>&nbsp;
+                                <button type="button" class="btn btn-flat-secondary "
+                                    style="background: rgb(243, 243, 243);; padding: 10px;"
+                                    rippleEffect>00/60</button>&nbsp;
+                                <button type="button" class="btn btn-flat-success  "
+                                    style="background: rgb(243, 243, 243);; padding: 10px;" rippleEffect>Good</button>
+                            </div>
+                        </div> -->
+
+                    </div>
+
+                </div>
+                <div class="col-sm-4 crd mt-0">
+                    <div class="card">
+                        <div class="row m-0" style="background: white;">
+                            <div class="col-sm-9">
+                                <div class="row p-0 m-0">
+                                    <div class="col-sm-12 p-0 m-0">
+                                        <h1 class="ml-0 pt-1 pl-0 pb-0">
+                                            First Things
+                                        </h1>
+                                    </div>
+
+                                </div>
+                                <div class="row pb-0 mb-0 p-0 m-0">
+                                    <div class="row" style="padding-left: 10px; padding-bottom: 10px;">
+                                        <div class="col-sm-3 p-0">
+                                            <div class="avatar bg-light-warning rounded" title="Mark as Progress" (click)="changeColor2(2)"
+                                             style="margin: 5px;">
+                                                <div class="avatar-content">
+                                                    <i class="data feather icon-file  avatar-icon font-medium-3"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 p-0">
+                                            <div class="avatar bg-light-primary rounded" (click)="changeColor2(3)" title="Priority"
+                                                style="margin: 5px; margin-right: 2px;">
+                                                <div class="avatar-content">
+                                                    <i class="data feather icon-star  avatar-icon font-medium-3"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 p-0">
+                                            <div class="avatar bg-light-success rounded" (click)="changeColor2(4)" title="Completed" style="margin: 5px;">
+                                                <div class="avatar-content">
+                                                    <i class="data feather icon-check  avatar-icon font-medium-3"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 p-0">
+                                            <div class="avatar bg-light-danger rounded" title="Delete" (click)="changeColor2(1)"
+                                                style="margin: 5px; margin-right: 2px;">
+                                                <div class="avatar-content">
+                                                    <i class="data feather icon-trash  avatar-icon font-medium-3"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mt-0 m-0 p-0">
+                                <!-- <div class=" m-0 p-0">
+                                    <i class="fa fa-circle pt-2" style="font-size: 70px; color: rgb(201, 201, 201);
+                                cursor: pointer; margin-right: 0px;" title="status"></i>
+                                </div> -->
+                                <div class=" " title="status" style="margin-top: 30px;">
+                                    <!-- <i class="fa fa-adjust pt-2" style="font-size: 70px; color: rgb(81, 197, 139);
+                                cursor: pointer; margin-right: 0px;" title="status"></i> -->
+                                    <!-- <img src="assets/1649208.png" height="50px" alt="" style="margin-top:30px"> -->
+                                    <div *ngIf="inst2 == 1" class="css-bar css-bar-25 bg-danger mb-0"
+                                       >
+                                        <div class="data-text">
+                                            <!-- <small class="success-rate text-warning font-light" style="font-size: small; font-weight: bold;">35
+                                            <span class="icon">%</span>
+                                        </small> -->
+                                        </div>
+                                    </div>
+                                    <div *ngIf="inst2 == 2" class="css-bar css-bar-50 bg-warning mb-0"
+                                       >
+                                        <div class="data-text">
+                                        </div>
+                                    </div>
+                                    <div *ngIf="inst2 == 3" class="css-bar css-bar-75 bg-primary mb-0"
+                                       >
+                                        <div class="data-text">
+                                        </div>
+                                    </div>
+                                    <div *ngIf="inst2 == 4" class="css-bar css-bar-100 bg-success mb-0"
+                                       >
+                                        <div class="data-text">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-sm-4 crd mt-0">
+                    <div class="card">
+                        <div class="row m-0" style="background: white;">
+                            <div class="col-sm-9">
+                                <div class="row p-0 m-0">
+                                    <div class="col-sm-12 p-0 m-0">
+                                        <h1 class="ml-0 pt-1 pl-0 pb-0">
+                                            Everyday Progress
+                                        </h1>
+                                    </div>
+
+                                </div>
+                                <div class="row pb-0 mb-0 p-0 m-0">
+                                    <div class="row" style="padding-left: 10px; padding-bottom: 10px;">
+                                        <div class="col-sm-3 p-0">
+                                            <div class="avatar bg-light-warning rounded"  (click)="changeColor3(2)" title="Mark as Progress" style="margin: 5px;">
+                                                <div class="avatar-content">
+                                                    <i class="data feather icon-file  avatar-icon font-medium-3"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 p-0">
+                                            <div class="avatar bg-light-primary rounded" title="Priority" (click)="changeColor3(3)"
+                                                style="margin: 5px; margin-right: 2px;">
+                                                <div class="avatar-content">
+                                                    <i class="data feather icon-star  avatar-icon font-medium-3"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 p-0">
+                                            <div class="avatar bg-light-success rounded" title="Completed"   (click)="changeColor3(4)"
+                                            style="margin: 5px;">
+                                                <div class="avatar-content">
+                                                    <i class="data feather icon-check  avatar-icon font-medium-3"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 p-0">
+                                            <div class="avatar bg-light-danger rounded" title="Delete" (click)="changeColor3(1)"
+                                                style="margin: 5px; margin-right: 2px;">
+                                                <div class="avatar-content">
+                                                    <i class="data feather icon-trash  avatar-icon font-medium-3"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mt-0 m-0 p-0">
+                                <div class=" " title="status" style="margin-top: 30px;">
+                                    <!-- <i class="fa fa-adjust pt-2" style="font-size: 70px; color: rgb(81, 197, 139);
+                                cursor: pointer; margin-right: 0px;" title="status"></i> -->
+                                    <!-- <img src="assets/1649208.png" height="50px" alt="" style="margin-top:30px"> -->
+                                    <div *ngIf="inst3 == 1" class="css-bar css-bar-25 bg-danger mb-0"
+                                       >
+                                        <div class="data-text">
+                                            <!-- <small class="success-rate text-warning font-light" style="font-size: small; font-weight: bold;">35
+                                            <span class="icon">%</span>
+                                        </small> -->
+                                        </div>
+                                    </div>
+                                    <div *ngIf="inst3 == 2" class="css-bar css-bar-50 bg-warning mb-0"
+                                      >
+                                        <div class="data-text">
+                                        </div>
+                                    </div>
+                                    <div *ngIf="inst3 == 3" class="css-bar css-bar-75 bg-primary mb-0"
+                                       >
+                                        <div class="data-text">
+                                        </div>
+                                    </div>
+                                    <div *ngIf="inst3 == 4" class="css-bar css-bar-100 bg-success mb-0"
+                                      >
+                                        <div class="data-text">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-sm-4 crd mt-0">
+                    <div class="card">
+                        <div class="row m-0" style="background: white;">
+                            <div class="col-sm-9">
+                                <div class="row p-0 m-0">
+                                    <div class="col-sm-12 p-0 m-0">
+                                        <h1 class="ml-0 pt-1 pl-0 pb-0">
+                                            EA Review
+                                        </h1>
+                                    </div>
+
+                                </div>
+                                <div class="row pb-0 mb-0 p-0 m-0">
+                                    <div class="row" style="padding-left: 10px; padding-bottom: 10px;">
+                                        <div class="col-sm-3 p-0">
+                                            <div class="avatar bg-light-warning rounded" title="Mark as Progress"  (click)="changeColor4(2)"
+                                             style="margin: 5px;">
+                                                <div class="avatar-content">
+                                                    <i class="data feather icon-file  avatar-icon font-medium-3"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 p-0">
+                                            <div class="avatar bg-light-primary rounded" title="Priority"  (click)="changeColor4(3)"
+                                                style="margin: 5px; margin-right: 2px;">
+                                                <div class="avatar-content">
+                                                    <i class="data feather icon-star  avatar-icon font-medium-3"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 p-0">
+                                            <div class="avatar bg-light-success rounded" title="Completed" (click)="changeColor4(4)"
+                                             style="margin: 5px;">
+                                                <div class="avatar-content">
+                                                    <i class="data feather icon-check  avatar-icon font-medium-3"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 p-0">
+                                            <div class="avatar bg-light-danger rounded" title="Delete" (click)="changeColor4(1)"
+                                                style="margin: 5px; margin-right: 2px;">
+                                                <div class="avatar-content">
+                                                    <i class="data feather icon-trash  avatar-icon font-medium-3"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mt-0 m-0 p-0">
+                                <div class=" " title="status" style="margin-top: 30px;">
+                                    <!-- <i class="fa fa-adjust pt-2" style="font-size: 70px; color: rgb(81, 197, 139);
+                                cursor: pointer; margin-right: 0px;" title="status"></i> -->
+                                    <!-- <img src="assets/1649208.png" height="50px" alt="" style="margin-top:30px"> -->
+                                    <div *ngIf="inst4 == 1" class="css-bar css-bar-25 bg-danger mb-0"
+                                       >
+                                        <div class="data-text">
+                                            <!-- <small class="success-rate text-warning font-light" style="font-size: small; font-weight: bold;">35
+                                            <span class="icon">%</span>
+                                        </small> -->
+                                        </div>
+                                    </div>
+                                    <div *ngIf="inst4 == 2" class="css-bar css-bar-50 bg-warning mb-0"
+                                      >
+                                        <div class="data-text">
+                                        </div>
+                                    </div>
+                                    <div *ngIf="inst4 == 3" class="css-bar css-bar-75 bg-primary mb-0"
+                                      >
+                                        <div class="data-text">
+                                        </div>
+                                    </div>
+                                    <div *ngIf="inst4 == 4" class="css-bar css-bar-100 bg-success mb-0"
+                                       >
+                                        <div class="data-text">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-sm-4 crd mt-0">
+                    <div class="card">
+                        <div class="row m-0" style="background: white;">
+                            <div class="col-sm-9">
+                                <div class="row p-0 m-0">
+                                    <div class="col-sm-12 p-0 m-0">
+                                        <h1 class="ml-0 pt-1 pl-0 pb-0">
+                                            Fast Company
+                                        </h1>
+                                    </div>
+
+                                </div>
+                                <div class="row pb-0 mb-0 p-0 m-0">
+                                    <div class="row" style="padding-left: 10px; padding-bottom: 10px;">
+                                        <div class="col-sm-3 p-0">
+                                            <div class="avatar bg-light-warning rounded" title="Mark as Progress" (click)="changeColor5(2)"
+                                             style="margin: 5px;">
+                                                <div class="avatar-content">
+                                                    <i class="data feather icon-file  avatar-icon font-medium-3"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 p-0">
+                                            <div class="avatar bg-light-primary rounded" title="Priority"  (click)="changeColor5(3)"
+                                                style="margin: 5px; margin-right: 2px;">
+                                                <div class="avatar-content">
+                                                    <i class="data feather icon-star  avatar-icon font-medium-3"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 p-0">
+                                            <div class="avatar bg-light-success rounded" title="Completed" style="margin: 5px;" 
+                                             (click)="changeColor5(4)">
+                                                <div class="avatar-content">
+                                                    <i class="data feather icon-check  avatar-icon font-medium-3"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 p-0">
+                                            <div class="avatar bg-light-danger rounded" title="Delete" (click)="changeColor5(1)"
+                                                style="margin: 5px; margin-right: 2px;">
+                                                <div class="avatar-content">
+                                                    <i class="data feather icon-trash  avatar-icon font-medium-3"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mt-0 m-0 p-0">
+                                <div class=" " title="status" style="margin-top: 30px;">
+                                    <!-- <i class="fa fa-adjust pt-2" style="font-size: 70px; color: rgb(81, 197, 139);
+                                cursor: pointer; margin-right: 0px;" title="status"></i> -->
+                                    <!-- <img src="assets/1649208.png" height="50px" alt="" style="margin-top:30px"> -->
+                                    <div *ngIf="inst5 == 1" class="css-bar css-bar-25 bg-danger mb-0"
+                                       >
+                                        <div class="data-text">
+                                            <!-- <small class="success-rate text-warning font-light" style="font-size: small; font-weight: bold;">35
+                                            <span class="icon">%</span>
+                                        </small> -->
+                                        </div>
+                                    </div>
+                                    <div *ngIf="inst5 == 2" class="css-bar css-bar-50 bg-warning mb-0"
+                                       >
+                                        <div class="data-text">
+                                        </div>
+                                    </div>
+                                    <div *ngIf="inst5 == 3" class="css-bar css-bar-75 bg-primary mb-0"
+                                      >
+                                        <div class="data-text">
+                                        </div>
+                                    </div>
+                                    <div *ngIf="inst5 == 4" class="css-bar css-bar-100 bg-success mb-0"
+                                      >
+                                        <div class="data-text">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-sm-4 crd mt-0">
+                    <div class="card">
+                        <div class="row m-0" style="background: white;">
+                            <div class="col-sm-9">
+                                <div class="row p-0 m-0">
+                                    <div class="col-sm-12 p-0 m-0">
+                                        <h1 class="ml-0 pt-1 pl-0 pb-0">
+                                            Pulse Call
+                                        </h1>
+                                    </div>
+
+                                </div>
+                                <div class="row pb-0 mb-0 p-0 m-0">
+                                    <div class="row" style="padding-left: 10px; padding-bottom: 10px;">
+                                        <div class="col-sm-3 p-0">
+                                            <div class="avatar bg-light-warning rounded" title="Mark as Progress"  (click)="changeColor6(2)"
+                                             style="margin: 5px;">
+                                                <div class="avatar-content">
+                                                    <i class="data feather icon-file  avatar-icon font-medium-3"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 p-0">
+                                            <div class="avatar bg-light-primary rounded" (click)="changeColor6(3)" title="Completed"
+                                                style="margin: 5px; margin-right: 2px;">
+                                                <div class="avatar-content">
+                                                    <i class="data feather icon-star  avatar-icon font-medium-3"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 p-0">
+                                            <div class="avatar bg-light-success rounded" title="Completed"  (click)="changeColor6(4)"
+                                             style="margin: 5px;">
+                                                <div class="avatar-content">
+                                                    <i class="data feather icon-check  avatar-icon font-medium-3"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 p-0">
+                                            <div class="avatar bg-light-danger rounded" title="Delete"  (click)="changeColor6(1)"
+                                                style="margin: 5px; margin-right: 2px;">
+                                                <div class="avatar-content">
+                                                    <i class="data feather icon-trash  avatar-icon font-medium-3"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mt-0 m-0 p-0">
+                                <div class=" " title="status" style="margin-top: 30px;">
+                                    <!-- <i class="fa fa-adjust pt-2" style="font-size: 70px; color: rgb(81, 197, 139);
+                                cursor: pointer; margin-right: 0px;" title="status"></i> -->
+                                    <!-- <img src="assets/1649208.png" height="50px" alt="" style="margin-top:30px"> -->
+                                    <div *ngIf="inst6 == 1" class="css-bar css-bar-25 bg-danger mb-0"
+                                      >
+                                        <div class="data-text">
+                                            <!-- <small class="success-rate text-warning font-light" style="font-size: small; font-weight: bold;">35
+                                            <span class="icon">%</span>
+                                        </small> -->
+                                        </div>
+                                    </div>
+                                    <div *ngIf="inst6 == 2" class="css-bar css-bar-50 bg-warning mb-0"
+                                      >
+                                        <div class="data-text">
+                                        </div>
+                                    </div>
+                                    <div *ngIf="inst6 == 3" class="css-bar css-bar-75 bg-primary mb-0"
+                                       >
+                                        <div class="data-text">
+                                        </div>
+                                    </div>
+                                    <div *ngIf="inst6 == 4" class="css-bar css-bar-100 bg-success mb-0"
+                                      >
+                                        <div class="data-text">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+    <div *ngIf="displayValue==false">
+        <div class="row mt-3">
+            <div class="col-sm-6 pl-0">
+                <div class="card p-1 pt-2" id="chart">
+                    <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis"
+                        [dataLabels]="chartOptions.dataLabels" [grid]="chartOptions.grid" [stroke]="chartOptions.stroke"
+                        [title]="chartOptions.title"></apx-chart>
+                </div>
+            </div>
+            <div class="col-sm-6 pr-0">
+                <div class="card p-1 pt-2" id="chart">
+                    <apx-chart [series]="chartOptions1.series" [chart]="chartOptions1.chart"
+                        [xaxis]="chartOptions1.xaxis" [dataLabels]="chartOptions1.dataLabels"
+                        [colors]="chartOptions1.colors" [grid]="chartOptions1.grid" [stroke]="chartOptions1.stroke"
+                        [title]="chartOptions1.title"></apx-chart>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 p-0">
+                <div class="card">
+                    <table class="table table-striped table-bordered">
+                        <thead class="">
+                            <tr class="text-center">
+                                <th scope="col" style="background: white;">Date</th>
+                                <th scope="col" style="background: white;">Jul 26</th>
+                                <th scope="col" style="background: white;">Jul 27</th>
+                                <th scope="col" style="background: white;">Jul 28</th>
+                                <th scope="col" style="background: white;">Jul 29</th>
+                                <th scope="col" style="background: white;">Jul 30</th>
+                                <th scope="col" style="background: white;">Jul 31</th>
+                                <th scope="col" style="background: white;">Aug 01</th>
+                                <th scope="col" style="background: white;">Aug 02</th>
+                                <th scope="col" style="background: white;">Aug 03</th>
+                                <th scope="col" style="background: white;">Aug 04</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="text-center">
+                                <td>Hours</td>
+                                <td>3:00</td>
+                                <td>5:00</td>
+                                <td>4:00</td>
+                                <td>5:00</td>
+                                <td>4:00</td>
+                                <td>6:00</td>
+                                <td>5:00</td>
+                                <td>7:00</td>
+                                <td>6:00</td>
+                                <td>8:00</td>
+                            </tr>
+                            <tr class="text-center">
+                                <td>Items</td>
+                                <td>10</td>
+                                <td>41</td>
+                                <td>35</td>
+                                <td>51</td>
+                                <td>49</td>
+                                <td>62</td>
+                                <td>69</td>
+                                <td>91</td>
+                                <td>130</td>
+                                <td>150</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- <tr style="margin-top: 5px;">
+    <td class=" pl-1" style="margin-top: 5px; border-bottom: 1px solid rgb(206, 206, 206);border-left: 4px solid rgb(255, 186, 58);"
+        (click)="btmDisplayValue(2)" [ngClass]="{'linkSelected': btmdisplayValue == 2}">
+        <div class="row">
+            <div class="col-sm-3 pb-0 mb-0 text-center">
+                <div class="avatar bg-light-secondary avatar-lg">
+                    <span class="avatar-content">1</span>
+                </div>
+            </div>
+            <div class="col-sm-7 p-1 h4 pb-0 mb-0">
+                Today (3)
+            </div>
+            <div class="col-sm-2 p-1 pb-0 mb-0">
+                <div
+                    class="custom-control  text-right custom-control-danger custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="colorCheck2" />
+                    <label class="custom-control-label" for="colorCheck2"></label>
+                </div>
+            </div>
+        </div>
+    </td>
+</tr> -->

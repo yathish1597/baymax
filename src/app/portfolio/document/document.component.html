@@ -1,0 +1,1349 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-6 pl-0" style="margin-bottom: 15px;">
+      <div class="pills">
+        <ul class="nav nav-pills">
+          <li routerLinkActive="active" routerLink="/portfolio/snapshots">
+            <a mat-raised-button class="navtabWidth">
+              Snapshots (45)
+            </a>
+          </li>
+          <li routerLinkActive="active" routerLink="/portfolio/projects">
+            <a mat-raised-button class="navtabWidth">
+              Projects (7)
+            </a>
+          </li>
+          <li routerLinkActive="active" routerLink="/portfolio/prototypes">
+            <a mat-raised-button class="navtabWidth">
+              Prototypes (7)
+            </a>
+          </li>
+          <li routerLinkActive="active" routerLink="/portfolio/documents">
+            <a mat-raised-button class="navtabWidth">
+              Documents (21)
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-sm-6 pr-0">
+
+
+      <button class="btn btn-gradient-dark float-right" (click)="openn(addOpportunityModal)">
+        <i class="fa fa-plus"></i> Add Document
+      </button>
+
+      <button class="btn btn-gradient-secondary float-right" style="margin-right: 10px;"
+        (click)="filterToggle = !filterToggle">
+        <i class="fa fa-align-justify"></i> Filter
+      </button>
+      <h3 class="float-right" style="margin-right: 27px; margin-top: 7px;"><input type="checkbox" checked /> Mask Empty
+        Categories</h3>
+    </div>
+
+  </div>
+
+
+  <!-- Filter -->
+  <div class="row" fxLayout="row wrap" *ngIf="filterToggle">
+    <div class="col-12 m-0 p-0">
+      <div class="card">
+        <form class="form-horizontal r-separator">
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <div class="form-group row">
+                  <label for="inputEmail3" class="col-sm-3 text-left control-label col-form-label">Search
+                    by Title:</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" id="inputEmail3" placeholder="Search by Lead">
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group row">
+                  <label for="inputEmail3" class="col-sm-3 text-left control-label col-form-label">Search
+                    by Category:</label>
+                  <div class="col-sm-8">
+                    <ng-multiselect-dropdown [placeholder]="'--Search by Category--'" [data]="Category"
+                      [(ngModel)]="selectedItems" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+                      (onSelectAll)="onSelectAll($event)">
+                    </ng-multiselect-dropdown>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group m-b-0 text-right" style="margin-right: 0px;">
+                <button type="submit" class="btn btn-gradient-info waves-effect waves-light"
+                  style="margin-right: 10px;">Save</button>
+                <button type="submit" class="btn btn-gradient-dark waves-effect waves-light"
+                  (click)="filterToggle = !filterToggle">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Opportunity Modal -->
+  <ng-template #addOpportunityModal let-modal>
+    <div class="">
+      <div class="modal-header">
+        <div class="col-sm-10 d-flex text-left p-0 m-0">
+          <h3 class="modal-title p-0 m-0" id="modal-basic-title" style="font-weight: 500;">Add Document</h3>
+        </div>
+        <div class="col-sm-2 pr-1">
+          <button class="float-right" type="button" class="close ml-0" aria-label="Close"
+            (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+      <form class="form-horizontal r-separator">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 mt-0 text-left control-label col-form-label">Artifact
+                  Type:</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="inputEmail3" placeholder="Enter Artifact Type">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 mt-0  text-left control-label col-form-label">Select
+                  Category:</label>
+                <div class="col-sm-8">
+                  <ng-multiselect-dropdown [placeholder]="'--Select Category--'" [data]="Category"
+                    [(ngModel)]="selectedItems" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+                    (onSelectAll)="onSelectAll($event)">
+                  </ng-multiselect-dropdown>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 mt-0  text-left control-label col-form-label">Select
+                  Tag:</label>
+                <div class="col-sm-8">
+                  <ng-multiselect-dropdown [placeholder]="'--Select Tag--'" [data]="Tag" [(ngModel)]="selectedItems"
+                    [settings]="dropdownSettings" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+                  </ng-multiselect-dropdown>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 mt-0  text-left control-label col-form-label">Enter Document
+                  Title:</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="inputEmail3" placeholder="Enter Prototype Title">
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 mt-0  text-left control-label col-form-label">Enter Document
+                  URL:</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="inputEmail3" placeholder="Enter Document URL">
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 mt-0  text-left control-label col-form-label">Document
+                  Type:</label>
+                <div class="col-sm-8" for="status">
+                  <select name="status" style="width: 300px;height: 33px; color: gray;">
+                    <option value="volvo">-- Select Document Type --</option>
+                    <option value="0">Case Studies</option>
+                    <option value="1">Whitepapers</option>
+                    <option value="2">Templates</option>
+                    <option value="3">Qualifications</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="card-body">
+          <div class="form-group m-b-0 float-right" style="margin-top: -30px;">
+            <button type="submit" class="btn btn-info waves-effect waves-light" style="margin-right:10px">Save</button>
+            <button type="submit" class="btn btn-dark waves-effect waves-light"
+              (click)="modal.close('Accept click')">Cancel</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+
+
+  <ng-template #updateOpportunityModal let-modal>
+    <div>
+      <div class="modal-header">
+        <div class="col-sm-10 d-flex text-left p-0 m-0">
+          <h3 class="modal-title p-0 m-0" id="modal-basic-title" style="font-weight: 500;">Update Document</h3>
+        </div>
+        <div class="col-sm-2 pr-1">
+          <button class="float-right" type="button" class="close ml-0" aria-label="Close"
+            (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+      <form class="form-horizontal r-separator">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 mt-0  text-left control-label col-form-label">Artifact
+                  Type:</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="inputEmail3" placeholder="Enter Artifact Type">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 mt-0  text-left control-label col-form-label">Select
+                  Category:</label>
+                <div class="col-sm-8">
+                  <ng-multiselect-dropdown [placeholder]="'--Select Category--'" [data]="Category"
+                    [(ngModel)]="selectedItems" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+                    (onSelectAll)="onSelectAll($event)">
+                  </ng-multiselect-dropdown>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4  mt-0 text-left control-label col-form-label">Select
+                  Tag:</label>
+                <div class="col-sm-8">
+                  <ng-multiselect-dropdown [placeholder]="'--Select Tag--'" [data]="Tag" [(ngModel)]="selectedItems"
+                    [settings]="dropdownSettings" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+                  </ng-multiselect-dropdown>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 mt-0  text-left control-label col-form-label">Enter Document
+                  Title:</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="inputEmail3" placeholder="Enter Prototype Title">
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 mt-0  text-left control-label col-form-label">Enter Document
+                  URL:</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="inputEmail3" placeholder="Enter Document URL">
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 mt-0  text-left control-label col-form-label">Document
+                  Type:</label>
+                <div class="col-sm-8" for="status">
+                  <select name="status" style="width: 300px;height: 31px;">
+                    <option value="volvo">-- Select Document Type --</option>
+                    <option value="0">Case Studies</option>
+                    <option value="1">Whitepapers</option>
+                    <option value="2">Templates</option>
+                    <option value="3">Qualifications</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="card-body">
+          <div class="form-group m-b-0 float-right" style="margin-top: -30px;">
+            <button type="submit" class="btn btn-info waves-effect waves-light" style="margin-right:10px">Save</button>
+            <button type="submit" class="btn btn-dark waves-effect waves-light"
+              (click)="modal.close('Accept click')">Cancel</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+
+  <ng-template #viewdemoModal let-modal>
+    <div>
+      <div class="modal-header">
+        <div class="col-sm-10 d-flex text-left m-0 p-0">
+          <h3 class="modal-title m-0 p-0" id="modal-basic-title" style="font-weight:500;">Demo Url's</h3>
+        </div>
+        <div class="col-sm-2 pr-1">
+          <button class="float-right" type="button" class="close ml-0" aria-label="Close"
+            (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+      <form class="form-horizontal r-separator">
+        <div class="card-body">
+
+          <p class="mt-0" style="font-weight: bolder; color: red;">Note: Click on the text to copy.</p>
+
+
+
+          <div class="table-responsive table-bordered">
+            <table class="table table-striped mb-0 no-wrap v-middle">
+              <thead class="bg-info">
+                <tr style="max-width: 200px !important;">
+                  <th>Role</th>
+                  <th>URL</th>
+                  <th>Username</th>
+                  <th>Password</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="max-width: 300px !important;">
+                  <td>Admin</td>
+                  <td style="cursor: pointer; color: cornflowerblue; ">View</td>
+                  <td style="cursor: pointer; color: cornflowerblue;max-width: 130px !important;">Copy
+                    Username</td>
+                  <td style="cursor: pointer; color: cornflowerblue;max-width: 130px !important;">Copy
+                    Password</td>
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+
+          <div class="card-body pr-0">
+            <div class="form-group m-b-0 float-right">
+              <button type="submit" class="btn btn-gradient-dark waves-effect waves-light"
+                (click)="modal.close('Accept click')">Cancel</button>
+            </div>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </ng-template>
+  <ng-template #tagsModal let-modal>
+    <div>
+        <div class="modal-header">
+            <div class="col-sm-10 d-flex text-left m-0 p-0">
+                <h3 class="modal-title m-0 p-0" id="modal-basic-title" style="font-weight:500;">Tag(s) List</h3>
+            </div>
+            <div class="col-sm-2 pr-1">
+                <button class="float-right" type="button" class="close ml-0" aria-label="Close"
+                    (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+        <form class="form-horizontal r-separator">
+            <div class="card-body">
+                <div class="table-responsive table-bordered">
+                    <table class="table table-striped mb-0 no-wrap v-middle">
+                        <thead class="">
+                            <tr>
+                                <th class="text-center" style="max-width:100px !important;">Dashboard</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+
+
+                <div class="card-body pr-0">
+                    <div class="form-group m-b-0 float-right">
+                        <button type="submit" class="btn btn-gradient-dark waves-effect waves-light"
+                        (click)="modal.close('Accept click')">Cancel</button>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</ng-template>
+
+<ng-template #textModal1 let-modal>
+  <div>
+      <div class="modal-header">
+          <div class="col-sm-10 d-flex text-left m-0 p-0">
+              <h3 class="modal-title m-0 p-0" id="modal-basic-title" style="font-weight:500;">Update Text</h3>
+          </div>
+          <div class="col-sm-2 pr-1">
+              <button class="float-right" type="button" class="close ml-0" aria-label="Close"
+                  (click)="modal.dismiss('Cross click')">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+      </div>
+      <form class="form-horizontal r-separator">
+          <div class="card-body">
+              <div class="row">
+                  <div class="col">
+                      <div class="form-group row">
+                          <label for="inputEmail3"
+                              class="col-sm-2 mt-0  text-left control-label col-form-label">Subject:</label>
+                          <div class="col-sm-10">
+                              <input type="text" class="form-control" id="inputEmail3" placeholder="Enter Vision" value="OVERVIEW">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col">
+                      <div class="form-group row">
+                          <label for="inputEmail3" class="col-sm-2 mt-0  text-left control-label col-form-label">Text:</label>
+                          <div class="col-sm-10" for="status" style="color: gray;">
+                              <fieldset class="form-group">
+                                <textarea class="form-control" id="basicTextarea" rows="10" placeholder="Textarea">All functions are treated as a series of projects and allocated teams work as per deliverables with scorecard for productivity, predictability, process compliance and client feedback scores (Pulse).</textarea>
+                              </fieldset>                              
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="card-body pr-0">
+                  <div class="form-group m-b-0 float-right">
+                      <button type="submit" class="btn btn-gradient-dark ml-1 waves-effect waves-light"
+                      (click)="modal.close('Accept click')">Cancel</button>
+                  </div>
+                  <div class="form-group m-b-0 float-right">
+                      <button type="submit" class="btn btn-gradient-danger ml-1 waves-effect waves-light"
+                      (click)="modal.close('Accept click')">Delete</button>
+                  </div>
+                  <div class="form-group m-b-0 float-right">
+                      <button type="submit" class="btn btn-gradient-primary waves-effect waves-light"
+                      (click)="modal.close('Accept click')">Update</button>
+                  </div>
+              </div>
+
+          </div>
+      </form>
+  </div>
+</ng-template>
+<ng-template #textModal2 let-modal>
+  <div>
+      <div class="modal-header">
+          <div class="col-sm-10 d-flex text-left m-0 p-0">
+              <h3 class="modal-title m-0 p-0" id="modal-basic-title" style="font-weight:500;">Update Text</h3>
+          </div>
+          <div class="col-sm-2 pr-1">
+              <button class="float-right" type="button" class="close ml-0" aria-label="Close"
+                  (click)="modal.dismiss('Cross click')">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+      </div>
+      <form class="form-horizontal r-separator">
+          <div class="card-body">
+              <div class="row">
+                  <div class="col">
+                      <div class="form-group row">
+                          <label for="inputEmail3"
+                              class="col-sm-2 mt-0  text-left control-label col-form-label">Subject:</label>
+                          <div class="col-sm-10">
+                              <input type="text" class="form-control" id="inputEmail3" placeholder="Enter Vision" value="OVERVIEW">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col">
+                      <div class="form-group row">
+                          <label for="inputEmail3" class="col-sm-2 mt-0  text-left control-label col-form-label">Text:</label>
+                          <div class="col-sm-10" for="status" style="color: gray;">
+                              <fieldset class="form-group">
+                                <textarea class="form-control" id="basicTextarea" rows="10" placeholder="Textarea">Balanced scorecard implementation with key result areas and KPI are setup and the radar screen has the distribution and trend graphs</textarea>
+                              </fieldset>                              
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="card-body pr-0">
+                  <div class="form-group m-b-0 float-right">
+                      <button type="submit" class="btn btn-gradient-dark ml-1 waves-effect waves-light"
+                      (click)="modal.close('Accept click')">Cancel</button>
+                  </div>
+                  <div class="form-group m-b-0 float-right">
+                      <button type="submit" class="btn btn-gradient-danger ml-1 waves-effect waves-light"
+                      (click)="modal.close('Accept click')">Delete</button>
+                  </div>
+                  <div class="form-group m-b-0 float-right">
+                      <button type="submit" class="btn btn-gradient-primary waves-effect waves-light"
+                      (click)="modal.close('Accept click')">Update</button>
+                  </div>
+              </div>
+
+          </div>
+      </form>
+  </div>
+</ng-template>
+<ng-template #textModal3 let-modal>
+  <div>
+      <div class="modal-header">
+          <div class="col-sm-10 d-flex text-left m-0 p-0">
+              <h3 class="modal-title m-0 p-0" id="modal-basic-title" style="font-weight:500;">Update Text</h3>
+          </div>
+          <div class="col-sm-2 pr-1">
+              <button class="float-right" type="button" class="close ml-0" aria-label="Close"
+                  (click)="modal.dismiss('Cross click')">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+      </div>
+      <form class="form-horizontal r-separator">
+          <div class="card-body">
+              <div class="row">
+                  <div class="col">
+                      <div class="form-group row">
+                          <label for="inputEmail3"
+                              class="col-sm-2 mt-0  text-left control-label col-form-label">Subject:</label>
+                          <div class="col-sm-10">
+                              <input type="text" class="form-control" id="inputEmail3" placeholder="Enter Vision" value="OVERVIEW">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col">
+                      <div class="form-group row">
+                          <label for="inputEmail3" class="col-sm-2 mt-0  text-left control-label col-form-label">Text:</label>
+                          <div class="col-sm-10" for="status" style="color: gray;">
+                              <fieldset class="form-group">
+                                <textarea class="form-control" id="basicTextarea" rows="10" placeholder="Textarea">This system is an audit automation developed for the consultancy company for immigration across all the immigration consultancy firm's locations, departments and subdivisions.</textarea>
+                              </fieldset>                              
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="card-body pr-0">
+                  <div class="form-group m-b-0 float-right">
+                      <button type="submit" class="btn btn-gradient-dark ml-1 waves-effect waves-light"
+                      (click)="modal.close('Accept click')">Cancel</button>
+                  </div>
+                  <div class="form-group m-b-0 float-right">
+                      <button type="submit" class="btn btn-gradient-danger ml-1 waves-effect waves-light"
+                      (click)="modal.close('Accept click')">Delete</button>
+                  </div>
+                  <div class="form-group m-b-0 float-right">
+                      <button type="submit" class="btn btn-gradient-primary waves-effect waves-light"
+                      (click)="modal.close('Accept click')">Update</button>
+                  </div>
+              </div>
+
+          </div>
+      </form>
+  </div>
+</ng-template>
+<ng-template #textModal4 let-modal>
+  <div>
+      <div class="modal-header">
+          <div class="col-sm-10 d-flex text-left m-0 p-0">
+              <h3 class="modal-title m-0 p-0" id="modal-basic-title" style="font-weight:500;">Update Text</h3>
+          </div>
+          <div class="col-sm-2 pr-1">
+              <button class="float-right" type="button" class="close ml-0" aria-label="Close"
+                  (click)="modal.dismiss('Cross click')">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+      </div>
+      <form class="form-horizontal r-separator">
+          <div class="card-body">
+              <div class="row">
+                  <div class="col">
+                      <div class="form-group row">
+                          <label for="inputEmail3"
+                              class="col-sm-2 mt-0  text-left control-label col-form-label">Subject:</label>
+                          <div class="col-sm-10">
+                              <input type="text" class="form-control" id="inputEmail3" placeholder="Enter Vision" value="OVERVIEW">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col">
+                      <div class="form-group row">
+                          <label for="inputEmail3" class="col-sm-2 mt-0  text-left control-label col-form-label">Text:</label>
+                          <div class="col-sm-10" for="status" style="color: gray;">
+                              <fieldset class="form-group">
+                                <textarea class="form-control" id="basicTextarea" rows="10" placeholder="Textarea">Provides an overview of jobs, activities and claims. Summary of various upcoming and overdue orders can be viewed from this section along with the graphical representation.</textarea>
+                              </fieldset>                              
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="card-body pr-0">
+                  <div class="form-group m-b-0 float-right">
+                      <button type="submit" class="btn btn-gradient-dark ml-1 waves-effect waves-light"
+                      (click)="modal.close('Accept click')">Cancel</button>
+                  </div>
+                  <div class="form-group m-b-0 float-right">
+                      <button type="submit" class="btn btn-gradient-danger ml-1 waves-effect waves-light"
+                      (click)="modal.close('Accept click')">Delete</button>
+                  </div>
+                  <div class="form-group m-b-0 float-right">
+                      <button type="submit" class="btn btn-gradient-primary waves-effect waves-light"
+                      (click)="modal.close('Accept click')">Update</button>
+                  </div>
+              </div>
+
+          </div>
+      </form>
+  </div>
+</ng-template>
+<ng-template #textModal5 let-modal>
+  <div>
+      <div class="modal-header">
+          <div class="col-sm-10 d-flex text-left m-0 p-0">
+              <h3 class="modal-title m-0 p-0" id="modal-basic-title" style="font-weight:500;">Update Text</h3>
+          </div>
+          <div class="col-sm-2 pr-1">
+              <button class="float-right" type="button" class="close ml-0" aria-label="Close"
+                  (click)="modal.dismiss('Cross click')">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+      </div>
+      <form class="form-horizontal r-separator">
+          <div class="card-body">
+              <div class="row">
+                  <div class="col">
+                      <div class="form-group row">
+                          <label for="inputEmail3"
+                              class="col-sm-2 mt-0  text-left control-label col-form-label">Subject:</label>
+                          <div class="col-sm-10">
+                              <input type="text" class="form-control" id="inputEmail3" placeholder="Enter Vision" value="OVERVIEW">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col">
+                      <div class="form-group row">
+                          <label for="inputEmail3" class="col-sm-2 mt-0  text-left control-label col-form-label">Text:</label>
+                          <div class="col-sm-10" for="status" style="color: gray;">
+                              <fieldset class="form-group">
+                                <textarea class="form-control" id="basicTextarea" rows="10" placeholder="Textarea">This is a solution designed mainly for a mining industry platform.Designed to automate data for the whole mining process according to the requirements and current process. There is an equipment-related process occurring behind each action</textarea>
+                              </fieldset>                              
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="card-body pr-0">
+                  <div class="form-group m-b-0 float-right">
+                      <button type="submit" class="btn btn-gradient-dark ml-1 waves-effect waves-light"
+                      (click)="modal.close('Accept click')">Cancel</button>
+                  </div>
+                  <div class="form-group m-b-0 float-right">
+                      <button type="submit" class="btn btn-gradient-danger ml-1 waves-effect waves-light"
+                      (click)="modal.close('Accept click')">Delete</button>
+                  </div>
+                  <div class="form-group m-b-0 float-right">
+                      <button type="submit" class="btn btn-gradient-primary waves-effect waves-light"
+                      (click)="modal.close('Accept click')">Update</button>
+                  </div>
+              </div>
+
+          </div>
+      </form>
+  </div>
+</ng-template>
+<ng-template #textModal6 let-modal>
+  <div>
+      <div class="modal-header">
+          <div class="col-sm-10 d-flex text-left m-0 p-0">
+              <h3 class="modal-title m-0 p-0" id="modal-basic-title" style="font-weight:500;">Update Text</h3>
+          </div>
+          <div class="col-sm-2 pr-1">
+              <button class="float-right" type="button" class="close ml-0" aria-label="Close"
+                  (click)="modal.dismiss('Cross click')">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+      </div>
+      <form class="form-horizontal r-separator">
+          <div class="card-body">
+              <div class="row">
+                  <div class="col">
+                      <div class="form-group row">
+                          <label for="inputEmail3"
+                              class="col-sm-2 mt-0  text-left control-label col-form-label">Subject:</label>
+                          <div class="col-sm-10">
+                              <input type="text" class="form-control" id="inputEmail3" placeholder="Enter Vision" value="OVERVIEW">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col">
+                      <div class="form-group row">
+                          <label for="inputEmail3" class="col-sm-2 mt-0  text-left control-label col-form-label">Text:</label>
+                          <div class="col-sm-10" for="status" style="color: gray;">
+                              <fieldset class="form-group">
+                                <textarea class="form-control" id="basicTextarea" rows="10" placeholder="Textarea">This Solution is for service providers who do fieldwork and need to schedule project activities and actions. These activities can be carried out in the office or in the field. Resources and staff may be allocated to activities.</textarea>
+                              </fieldset>                              
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="card-body pr-0">
+                  <div class="form-group m-b-0 float-right">
+                      <button type="submit" class="btn btn-gradient-dark ml-1 waves-effect waves-light"
+                      (click)="modal.close('Accept click')">Cancel</button>
+                  </div>
+                  <div class="form-group m-b-0 float-right">
+                      <button type="submit" class="btn btn-gradient-danger ml-1 waves-effect waves-light"
+                      (click)="modal.close('Accept click')">Delete</button>
+                  </div>
+                  <div class="form-group m-b-0 float-right">
+                      <button type="submit" class="btn btn-gradient-primary waves-effect waves-light"
+                      (click)="modal.close('Accept click')">Update</button>
+                  </div>
+              </div>
+
+          </div>
+      </form>
+  </div>
+</ng-template>
+
+
+
+
+
+
+  <!-- Row -->
+  <div class="row mt-2" style="margin-top:0px">
+
+    <div class="col-sm-2">
+
+      <div class="col-md-12" style="padding: 0; margin-left: -10px; margin-top: 0px !important;">
+        <h3 style="margin-top: 0px !important;">Categories:</h3>
+      </div>
+
+      <div class="pills" style="margin-top: 0px;  margin-left: -10px;">
+        <ul class="nav nav-pills" style="width: 100%;">
+          <li class="ml-0 mb-2" style="width: 100%;">
+            <a mat-raised-button (click)="changeDisplayValue(1)" [ngClass]="{'linkSelected': displayValue == 1}"
+              class="navtabWidth">
+              Global (17)
+            </a>
+          </li>
+          <li class="ml-0 mb-2" style="width: 100%;">
+            <a mat-raised-button (click)="changeDisplayValue(2)" [ngClass]="{'linkSelected': displayValue == 2}"
+              class="navtabWidth">
+              GEO India (10)
+            </a>
+          </li>
+          <li class="ml-0 mb-2" style="width: 100%;">
+            <a mat-raised-button (click)="changeDisplayValue(3)" [ngClass]="{'linkSelected': displayValue == 3}"
+              class="navtabWidth">
+              GEO USA (8)
+            </a>
+          </li>
+          <li class="ml-0 mb-2" style="width: 100%;">
+            <a mat-raised-button (click)="changeDisplayValue(4)" [ngClass]="{'linkSelected': displayValue == 4}"
+              class="navtabWidth">
+              IND Construction (3)
+            </a>
+          </li>
+          <li class="ml-0 mb-2" style="width: 100%;">
+            <a mat-raised-button (click)="changeDisplayValue(5)" [ngClass]="{'linkSelected': displayValue == 5}"
+              class="navtabWidth">
+              IND Manufacturing (1)
+            </a>
+          </li>
+          <li class="ml-0 mb-2" style="width: 100%;">
+            <a mat-raised-button (click)="changeDisplayValue(6)" [ngClass]="{'linkSelected': displayValue == 6}"
+              class="navtabWidth">
+              IND Logistics (1)
+            </a>
+          </li>
+          <li class="ml-0 mb-2" style="width: 100%;">
+            <a mat-raised-button (click)="changeDisplayValue(7)" [ngClass]="{'linkSelected': displayValue == 7}"
+              class="navtabWidth">
+              GEO Canada (3)
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-10 mt-3 mr-0 pr-0" *ngIf=" displayValue==1||2||3||4||5||6||7||8 ">
+      <div class="row">
+
+        <div class="col-md-4">
+          <div class="card" style="height: 500px;">
+            <div class="row">
+              <div class="col">
+                <h3 class="mt-1 ml-2" matTooltip="People First" style="font-weight: 500;">Genetic Testing (1)</h3>
+              </div>
+              <h2 class="mr-2 mt-1">
+                <i class="data feather icon-edit-2" title="Edit Artefact"
+                  (click)="openn(updateOpportunityModal)"></i>&nbsp;
+                <i class="data feather icon-trash" mwlConfirmationPopover type="button" popoverTitle="Confirm Delete"
+                  popoverMessage="Are you sure you want to Delete?" placement="left" confirm="cancelClicked = true"
+                  cancel="cancelClicked = true"></i>&nbsp;
+              </h2>
+            </div>
+            <img class="img-fluid"
+              src="https://cdn.technologynetworks.com/tn/images/thumbs/jpeg/640_360/genetic-testing-not-causing-undue-worry-about-cancer-risk-313577.jpg"
+              style="overflow-x: hidden; min-height: 207px !important; max-height: 207px !important;"
+              alt="Card image cap" />
+            <div class="card-body">
+              <h3 class="font-normal text-dark" style="font-weight: 500;" (click)="openn(textModal1)">OVERVIEW</h3>
+              <p class="card-text" (click)="openn(textModal1)">Overview of Construction industry segments & software solution possibilities
+                available in market.</p>
+              <div class="row mt-5">
+                <div class="col p-0 pl-1">
+                  <button type="button" class="btn btn-icon btn-outline-primary" rippleEffect>
+                    <span [data-feather]="'chevrons-left'"></span></button>&nbsp;
+                  <button type="button" class="btn btn-icon btn-outline-primary" rippleEffect>
+                    <span [data-feather]="'plus'"></span></button>&nbsp;
+                  <button type="button" class="btn btn-icon btn-outline-primary" rippleEffect>
+                    <span [data-feather]="'chevrons-right'"></span></button>
+                </div>
+                <div class="col p-0">
+                  <button type="button" class="btn btn-primary btn-sm" style="padding: 11px;"
+                  (click)="openn(viewdemoModal)" rippleEffect>View
+                    Demo</button>&nbsp;
+                  <button type="button" class="btn btn-primary btn-sm" style="padding: 11px;"
+                    rippleEffect (click)="modal(tagsModal)" >Tag(1)</button>
+
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+
+        </div>
+
+        <div class="col-md-4">
+
+          <!-- <div class="row" style="margin-top: 62px; padding-left: 10px;padding-right: 10px;">
+                  <div class="col-sm-12">
+                    <div class="row bg-primary">
+  
+                      <div class="col-sm-7 pull-left text-left d-flex align-items-center" style="padding: 0px !important;height: 38px;">
+                          <h4 class="text-white pt-1" style="color: black; font-size: 15px;margin-left: 10px;" matTooltip="People First">MDS (9)
+                          </h4>
+                      </div>
+  
+                      <div class="col-sm-5 pull-right text-right" style="margin-top:7px;padding:0px;">
+  
+                          <a class="mr-1"> <i
+                                  style="cursor: pointer;background-color:white;color: black;border-radius: 3px;padding: 6px !important;"
+                                  title="Edit Artefact" (click)="openn(updateOpportunityModal)" class="fas fa-pencil-alt"></i>
+                          </a>
+                          <a class="mr-1" mwlConfirmationPopover
+                      type="button"
+                      popoverTitle="Confirm Delete"
+                      popoverMessage="Are you sure you want to Delete?"
+                      placement="left"
+                      confirm="cancelClicked = true"
+                      cancel="cancelClicked = true"> <i
+                          style="cursor: pointer;background-color:white;color: black;border-radius: 3px; padding: 6px !important;"
+                          title="Delete Artefact" class="fas fa-trash"></i>
+                  </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="card" style="height: 440px;">
+                    <img class="card-img-top img-responsive" src="https://salesglobal.s3.ap-south-1.amazonaws.com/library/Cart_Image.png" alt="Card image cap" style="height: 200px;">
+                    <div class="card-body">
+                        <div class="d-flex no-block align-items-center m-b-15">
+                        </div>
+                        <h3 class="font-normal">OVERVIEW</h3>
+                        <p class="m-b-0 m-t-10">Overview on software solution opportunities available in global market for Logistics industry.</p>
+                        <div style="margin-top: 68px;">
+                        <span _ngcontent-c21="" class="material-icons" style="color: black;width:35px;font-weight: 500;cursor: pointer;background-color: #337ab7;color: white;;padding: 5px;border-radius: 5px; margin-right: 5px;"> fast_rewind </span>
+                        <span _ngcontent-c21="" class="material-icons ng-star-inserted" style="color: black;width:35px;font-weight: 500;cursor: pointer;background-color: #337ab7;color: white;;padding: 5px;border-radius: 5px;margin-right: 5px;"> add </span>
+                        <span _ngcontent-c21="" class="material-icons" style="color: black;width:35px;font-weight: 500;cursor: pointer;background-color: #337ab7;color: white;;padding: 5px;border-radius: 5px;"> fast_forward </span>
+                        <a _ngcontent-c21="" class="btn btn-primary margin-right-10" style="cursor: pointer;background-color: #337ab7;color: white;padding: 6px !important;margin-right: 5px !important;margin-left: 20px;margin-top: -17px;">View Demo</a>
+                        <a _ngcontent-c21="" class="btn btn-primary margin-right-10" style="cursor: pointer;background-color: #337ab7;color: white;padding: 6px !important;margin-right: 0px !important;margin-top: -17px;">Tag (1)</a>
+                    </div>
+                    </div>
+                </div> -->
+
+          <div class="card" style="height: 500px;">
+            <div class="row">
+              <div class="col">
+                <h3 class="mt-1 ml-2" matTooltip="People First" style="font-weight: 500;">MDS (9)</h3>
+              </div>
+              <h2 class="mr-2 mt-1">
+                <i class="data feather icon-edit-2" title="Edit Artefact"
+                  (click)="openn(updateOpportunityModal)"></i>&nbsp;
+                <i class="data feather icon-trash" mwlConfirmationPopover type="button" popoverTitle="Confirm Delete"
+                  popoverMessage="Are you sure you want to Delete?" placement="left" confirm="cancelClicked = true"
+                  cancel="cancelClicked = true"></i>&nbsp;
+              </h2>
+            </div>
+            <img class="img-fluid"
+              src="https://beyondvela.com/wp-content/uploads/2021/04/Logistics-Software-Industry-Trends-and-Future-1.jpeg"
+              style="overflow-x: hidden; min-height: 207px !important;  max-height: 207px !important;"
+              alt="Card image cap" />
+            <div class="card-body">
+              <h3 class="font-normal text-dark" style="font-weight: 500;" (click)="openn(textModal2)">OVERVIEW</h3>
+              <p class="card-text" (click)="openn(textModal2)">Overview on software solution opportunities available in global market for Logistics
+                industry.</p>
+              <div class="row mt-5">
+                <div class="col p-0 pl-1">
+                  <button type="button" class="btn btn-icon btn-outline-primary" rippleEffect>
+                    <span [data-feather]="'chevrons-left'"></span></button>&nbsp;
+                  <button type="button" class="btn btn-icon btn-outline-primary" rippleEffect>
+                    <span [data-feather]="'plus'"></span></button>&nbsp;
+                  <button type="button" class="btn btn-icon btn-outline-primary" rippleEffect>
+                    <span [data-feather]="'chevrons-right'"></span></button>
+                </div>
+                <div class="col p-0">
+                  <button type="button" class="btn btn-primary btn-sm" style="padding: 11px;" rippleEffect
+                    (click)="openn(viewdemoModal)">View
+                    Demo</button>&nbsp;
+                  <button type="button" class="btn btn-primary btn-sm" style="padding: 11px;"
+                    rippleEffect (click)="modal(tagsModal)" >Tag(1)</button>
+
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+          <!-- <div class="row" style="margin-top: 62px; padding-left: 10px;padding-right: 10px;">
+                <div class="col-sm-12">
+                  <div class="row bg-primary">
+  
+                    <div class="col-sm-7 pull-left text-left d-flex align-items-center" style="padding: 0px !important;height: 38px;">
+                        <h4 class="text-white pt-1" style="color: black; font-size: 15px;margin-left: 10px;" matTooltip="People First">OFO (1)
+                        </h4>
+                    </div>
+  
+                    <div class="col-sm-5 pull-right text-right" style="margin-top:7px;padding:0px;">
+  
+                        <a class="mr-1"> <i
+                                style="cursor: pointer;background-color:white;color: black;border-radius: 3px;padding: 6px !important;"
+                                title="Edit Artefact" (click)="openn(updateOpportunityModal)" class="fas fa-pencil-alt"></i>
+                        </a>
+                        <a class="mr-1" mwlConfirmationPopover
+                      type="button"
+                      popoverTitle="Confirm Delete"
+                      popoverMessage="Are you sure you want to Delete?"
+                      placement="left"
+                      confirm="cancelClicked = true"
+                      cancel="cancelClicked = true"> <i
+                          style="cursor: pointer;background-color:white;color: black;border-radius: 3px; padding: 6px !important;"
+                          title="Delete Artefact" class="fas fa-trash"></i>
+                  </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="card" style="height: 440px;">
+                  <img class="card-img-top img-responsive" src="https://salesglobal.s3.ap-south-1.amazonaws.com/library/SKU_Image.png" alt="Card image cap" style="height: 200px;">
+                  <div class="card-body">
+                      <div class="d-flex no-block align-items-center m-b-15">
+  
+                      </div>
+                      <h3 class="font-normal">OVERVIEW</h3>
+                      <p class="m-b-0 m-t-10">Overview on Manufacturing Industry processes, segments coverage & software solution possibilities available in market.</p>
+                  <div style="margin-top: 47px;">
+                      <span _ngcontent-c21="" class="material-icons" style="color: black;width:35px;font-weight: 500;cursor: pointer;background-color: #337ab7;color: white;;padding: 5px;border-radius: 5px; margin-right: 5px;"> fast_rewind </span>
+                      <span _ngcontent-c21="" class="material-icons ng-star-inserted" style="color: black;width:35px;font-weight: 500;cursor: pointer;background-color: #337ab7;color: white;;padding: 5px;border-radius: 5px;margin-right: 5px;"> add </span>
+                      <span _ngcontent-c21="" class="material-icons" style="color: black;width:35px;font-weight: 500;cursor: pointer;background-color: #337ab7;color: white;;padding: 5px;border-radius: 5px;"> fast_forward </span>
+                      <a _ngcontent-c21="" class="btn btn-primary margin-right-10" style="cursor: pointer;background-color: #337ab7;color: white;padding: 6px !important;margin-right: 5px !important;margin-left: 17px;margin-top: -16px;">View Demo</a>
+                      <a _ngcontent-c21="" class="btn btn-primary margin-right-10" style="cursor: pointer;background-color: #337ab7;color: white;padding: 6px !important;margin-right: 0px !important;margin-top: -16px;">Tag (1)</a>
+                  </div>
+              </div>
+              </div> -->
+
+          <div class="card" style="height: 500px;">
+            <div class="row">
+              <div class="col">
+                <h3 class="mt-1 ml-2" matTooltip="People First" style="font-weight: 500;">OFO (1)</h3>
+              </div>
+              <h2 class="mr-2 mt-1">
+                <i class="data feather icon-edit-2" title="Edit Artefact"
+                  (click)="openn(updateOpportunityModal)"></i>&nbsp;
+                <i class="data feather icon-trash" mwlConfirmationPopover type="button" popoverTitle="Confirm Delete"
+                  popoverMessage="Are you sure you want to Delete?" placement="left" confirm="cancelClicked = true"
+                  cancel="cancelClicked = true"></i>&nbsp;
+              </h2>
+            </div>
+            <img class="img-fluid" src="assets/images/DM.jpg"
+              style="overflow-x: hidden; min-height: 207px !important;  max-height: 207px !important;"
+              alt="Card image cap" />
+            <div class="card-body">
+              <h3 class="font-normal text-dark" style="font-weight: 500;" (click)="openn(textModal3)">OVERVIEW</h3>
+              <p class="card-text" (click)="openn(textModal3)">Overview on Manufacturing Industry processes, segments coverage &
+                software solution possibilities available in market.</p>
+              <div class="row mt-3">
+                <div class="col p-0 pl-1">
+                  <button type="button" class="btn btn-icon btn-outline-primary" rippleEffect>
+                    <span [data-feather]="'chevrons-left'"></span></button>&nbsp;
+                  <button type="button" class="btn btn-icon btn-outline-primary" rippleEffect>
+                    <span [data-feather]="'plus'"></span></button>&nbsp;
+                  <button type="button" class="btn btn-icon btn-outline-primary" rippleEffect>
+                    <span [data-feather]="'chevrons-right'"></span></button>
+                </div>
+                <div class="col p-0">
+                  <button type="button" class="btn btn-primary btn-sm" style="padding: 11px;" rippleEffect
+                  (click)="openn(viewdemoModal)">View
+                    Demo</button>&nbsp;
+                  <button type="button" class="btn btn-primary btn-sm" style="padding: 11px;"
+                    rippleEffect (click)="modal(tagsModal)" >Tag(1)</button>
+
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+
+        </div>
+
+        <div class="col-md-4">
+
+          <!-- <div class="row" style="margin-top: 62px; padding-left: 10px;padding-right: 10px;">
+                <div class="col-sm-12">
+                  <div class="row bg-primary">
+  
+                    <div class="col-sm-7 pull-left text-left d-flex align-items-center" style="padding: 0px !important;height: 38px;">
+                        <h4 class="text-white pt-1" style="color: black; font-size: 15px;margin-left: 10px;" matTooltip="People First">Flooring Contractor (1)
+                        </h4>
+                    </div>
+  
+                    <div class="col-sm-5 pull-right text-right" style="margin-top:7px;padding:0px;">
+  
+                        <a class="mr-1"> <i
+                                style="cursor: pointer;background-color:white;color: black;border-radius: 3px;padding: 6px !important;"
+                                title="Edit Artefact" (click)="openn(updateOpportunityModal)" class="fas fa-pencil-alt"></i>
+                        </a>
+                        <a class="mr-1" mwlConfirmationPopover
+                      type="button"
+                      popoverTitle="Confirm Delete"
+                      popoverMessage="Are you sure you want to Delete?"
+                      placement="left"
+                      confirm="cancelClicked = true"
+                      cancel="cancelClicked = true"> <i
+                          style="cursor: pointer;background-color:white;color: black;border-radius: 3px; padding: 6px !important;"
+                          title="Delete Artefact" class="fas fa-trash"></i>
+                  </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="card" style="height: 440px;">
+                  <img class="card-img-top img-responsive" src="https://salesglobal.s3.ap-south-1.amazonaws.com/library/RCA_Image.png" alt="Card image cap" style="height: 200px;">
+                  <div class="card-body">
+                      <div class="d-flex no-block align-items-center m-b-15">
+                      </div>
+                      <h3 class="font-normal">OVERVIEW</h3>
+                      <p class="m-b-0 m-t-10">Overview of Mining industry segments & software solution opportunities available in market</p>
+                      <div style="margin-top:47px">
+                      <span _ngcontent-c21="" class="material-icons" style="color: black;width:35px;font-weight: 500;cursor: pointer;background-color: #337ab7;color: white;;padding: 5px;border-radius: 5px; margin-right: 5px;"> fast_rewind </span>
+                      <span _ngcontent-c21="" class="material-icons ng-star-inserted" style="color: black;width:35px;font-weight: 500;cursor: pointer;background-color: #337ab7;color: white;;padding: 5px;border-radius: 5px;margin-right: 5px;"> add </span>
+                      <span _ngcontent-c21="" class="material-icons" style="color: black;width:35px;font-weight: 500;cursor: pointer;background-color: #337ab7;color: white;;padding: 5px;border-radius: 5px;"> fast_forward </span>
+                      <a _ngcontent-c21="" class="btn btn-primary margin-right-10" style="cursor: pointer;background-color: #337ab7;color: white;padding: 6px !important;margin-right: 5px !important;margin-left:10px;margin-top:-15px">View Demo</a>
+                      <a _ngcontent-c21="" class="btn btn-primary margin-right-10" style="cursor: pointer;background-color: #337ab7;color: white;padding: 6px !important;margin-right: 0px !important;margin-top:-15px">Tag (1)</a>
+                  </div>
+                  </div>
+              </div> -->
+          <div class="card" style="height: 500px;">
+            <div class="row">
+              <div class="col">
+                <h3 class="mt-1 ml-2" matTooltip="People First" style="font-weight: 500;">Flooring Contractor (1)</h3>
+              </div>
+              <h2 class="mr-2 mt-1">
+                <i class="data feather icon-edit-2" title="Edit Artefact"
+                  (click)="openn(updateOpportunityModal)"></i>&nbsp;
+                <i class="data feather icon-trash" mwlConfirmationPopover type="button" popoverTitle="Confirm Delete"
+                  popoverMessage="Are you sure you want to Delete?" placement="left" confirm="cancelClicked = true"
+                  cancel="cancelClicked = true"></i>&nbsp;
+              </h2>
+            </div>
+            <img class="img-fluid"
+              src="https://www.logomaker.com/wp-content/uploads/2018/07/12-Questions-to-Ask-When-Designing-a-Logo.jpeg"
+              style="overflow-x: hidden; min-height: 207px !important;  max-height: 207px !important;"
+              alt="Card image cap" />
+            <div class="card-body">
+              <h3 class="font-normal text-dark" style="font-weight: 500;" (click)="openn(textModal4)">OVERVIEW</h3>
+              <p class="card-text" (click)="openn(textModal4)">Overview of Mining industry segments & software solution opportunities available in
+                market</p>
+              <div class="row mt-5">
+                <div class="col p-0 pl-1">
+                  <button type="button" class="btn btn-icon btn-outline-primary" rippleEffect>
+                    <span [data-feather]="'chevrons-left'"></span></button>&nbsp;
+                  <button type="button" class="btn btn-icon btn-outline-primary" rippleEffect>
+                    <span [data-feather]="'plus'"></span></button>&nbsp;
+                  <button type="button" class="btn btn-icon btn-outline-primary" rippleEffect>
+                    <span [data-feather]="'chevrons-right'"></span></button>
+                </div>
+                <div class="col p-0">
+                  <button type="button" class="btn btn-primary btn-sm" style="padding: 11px;"
+                  (click)="openn(viewdemoModal)" rippleEffect>View
+                    Demo</button>&nbsp;
+                  <button type="button" class="btn btn-primary btn-sm" style="padding: 11px;"
+                    rippleEffect (click)="modal(tagsModal)" >Tag(1)</button>
+
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+
+
+        </div>
+
+        <div class="col-md-4">
+
+          <!-- <div class="row" style="margin-top: 62px; padding-left: 10px;padding-right: 10px;">
+              <div class="col-sm-12">
+                <div class="row bg-primary">
+  
+                  <div class="col-sm-7 pull-left text-left d-flex align-items-center" style="padding: 0px !important;height: 38px;">
+                      <h4 class="text-white pt-1" style="color: black; font-size: 15px;margin-left: 10px;" matTooltip="People First">Telemedicine (1)
+                      </h4>
+                  </div>
+  
+                  <div class="col-sm-5 pull-right text-right" style="margin-top:7px;padding:0px;">
+  
+                      <a class="mr-1"> <i
+                              style="cursor: pointer;background-color:white;color: black;border-radius: 3px;padding: 6px !important;"
+                              title="Edit Artefact" (click)="openn(updateOpportunityModal)" class="fas fa-pencil-alt"></i>
+                      </a>
+                      <a class="mr-1" mwlConfirmationPopover
+                      type="button"
+                      popoverTitle="Confirm Delete"
+                      popoverMessage="Are you sure you want to Delete?"
+                      placement="left"
+                      confirm="cancelClicked = true"
+                      cancel="cancelClicked = true"> <i
+                          style="cursor: pointer;background-color:white;color: black;border-radius: 3px; padding: 6px !important;"
+                          title="Delete Artefact" class="fas fa-trash"></i>
+                  </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="card" style="height: 440px;">
+                <img class="card-img-top img-responsive" src="https://salesglobal.s3.ap-south-1.amazonaws.com/library/Gate_Passes_Image.png" alt="Card image cap" style="height: 200px;">
+                <div class="card-body">
+                    <div class="d-flex no-block align-items-center m-b-15">
+                    </div>
+                    <h3 class="font-normal">OVERVIEW</h3>
+                    <p class="m-b-0 m-t-10">This solution is for genetic research laboratories where patient samples are collected for records. A genetic mapping system provides raw data on the sample.</p>
+                    <div style="margin-top: 30px;">
+                    <span _ngcontent-c21="" class="material-icons" style="color: black;width:35px;font-weight: 500;cursor: pointer;background-color: #337ab7;color: white;;padding: 5px;border-radius: 5px; margin-right: 5px;"> fast_rewind </span>
+                    <span _ngcontent-c21="" class="material-icons ng-star-inserted" style="color: black;width:35px;font-weight: 500;cursor: pointer;background-color: #337ab7;color: white;;padding: 5px;border-radius: 5px;margin-right: 5px;"> add </span>
+                    <span _ngcontent-c21="" class="material-icons" style="color: black;width:35px;font-weight: 500;cursor: pointer;background-color: #337ab7;color: white;;padding: 5px;border-radius: 5px;"> fast_forward </span>
+                    <a _ngcontent-c21="" class="btn btn-primary margin-right-10" style="cursor: pointer;background-color: #337ab7;color: white;padding: 6px !important;margin-right: 5px !important;margin-left: 20px;margin-top: -17px;">View Demo</a>
+                    <a _ngcontent-c21="" class="btn btn-primary margin-right-10" style="cursor: pointer;background-color: #337ab7;color: white;padding: 6px !important;margin-right: 0px !important;margin-top: -17px;">Tag (1)</a>
+                </div>
+                </div>
+            </div> -->
+          <div class="card" style="height: 500px;">
+            <div class="row">
+              <div class="col">
+                <h3 class="mt-1 ml-2" matTooltip="People First" style="font-weight: 500;">Telemedicine (1)</h3>
+              </div>
+              <h2 class="mr-2 mt-1">
+                <i class="data feather icon-edit-2" title="Edit Artefact"
+                  (click)="openn(updateOpportunityModal)"></i>&nbsp;
+                <i class="data feather icon-trash" mwlConfirmationPopover type="button" popoverTitle="Confirm Delete"
+                  popoverMessage="Are you sure you want to Delete?" placement="left" confirm="cancelClicked = true"
+                  cancel="cancelClicked = true"></i>&nbsp;
+              </h2>
+            </div>
+            <img class="img-fluid" src="assets/images/Telemedicine.jpg"
+              style="overflow-x: hidden; min-height: 207px !important;  max-height: 207px !important;"
+              alt="Card image cap" />
+            <div class="card-body">
+              <h3 class="font-normal text-dark" style="font-weight: 500;" (click)="openn(textModal5)">OVERVIEW</h3>
+              <p class="card-text" (click)="openn(textModal5)">This solution is for genetic research laboratories where patient samples are
+                collected for records.
+                A genetic mapping system provides raw data on the sample.</p>
+              <div class="row mt-2">
+                <div class="col p-0 pl-1">
+                  <button type="button" class="btn btn-icon btn-outline-primary" rippleEffect>
+                    <span [data-feather]="'chevrons-left'"></span></button>&nbsp;
+                  <button type="button" class="btn btn-icon btn-outline-primary" rippleEffect>
+                    <span [data-feather]="'plus'"></span></button>&nbsp;
+                  <button type="button" class="btn btn-icon btn-outline-primary" rippleEffect>
+                    <span [data-feather]="'chevrons-right'"></span></button>
+                </div>
+                <div class="col p-0">
+                  <button type="button" class="btn btn-primary btn-sm" style="padding: 11px;"
+                  (click)="openn(viewdemoModal)" rippleEffect>View
+                    Demo</button>&nbsp;
+                  <button type="button" class="btn btn-primary btn-sm" style="padding: 11px;"
+                    rippleEffect (click)="modal(tagsModal)" >Tag(1)</button>
+
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+
+
+
+        </div>
+
+        <div class="col-md-4">
+
+          <!-- <div class="row" style="margin-top: 62px; padding-left: 10px;padding-right: 10px;">
+              <div class="col-sm-12">
+                <div class="row bg-primary">
+  
+                  <div class="col-sm-7 pull-left text-left d-flex align-items-center" style="padding: 0px !important;height: 38px;">
+                      <h4 class="text-white pt-1" style="color: black; font-size: 15px;margin-left: 10px;" matTooltip="People First">DMS (1)
+                      </h4>
+                  </div>
+  
+                  <div class="col-sm-5 pull-right text-right" style="margin-top:7px;padding:0px;">
+  
+                      <a class="mr-1"> <i
+                              style="cursor: pointer;background-color:white;color: black;border-radius: 3px;padding: 6px !important;"
+                              title="Edit Artefact" (click)="openn(updateOpportunityModal)" class="fas fa-pencil-alt"></i>
+                      </a>
+                      <a class="mr-1" mwlConfirmationPopover
+                      type="button"
+                      popoverTitle="Confirm Delete"
+                      popoverMessage="Are you sure you want to Delete?"
+                      placement="left"
+                      confirm="cancelClicked = true"
+                      cancel="cancelClicked = true"> <i
+                          style="cursor: pointer;background-color:white;color: black;border-radius: 3px; padding: 6px !important;"
+                          title="Delete Artefact" class="fas fa-trash"></i>
+                  </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="card" style="height: 440px;">
+                <img class="card-img-top img-responsive" src="	https://salesglobal.s3.ap-south-1.amazonaws.com/library/SKU_Image.png" alt="Card image cap" style="height: 200px;">
+                <div class="card-body">
+                    <div class="d-flex no-block align-items-center m-b-15">
+  
+                    </div>
+                    <h3 class="font-normal">OVERVIEW</h3>
+                    <p class="m-b-0 m-t-10">This is a Medical Marketing & Consultancy solution that offers top-quality 'in-office' medical care and laboratory tests for health facilities.</p>
+                <div style="margin-top: 47px;">
+                    <span _ngcontent-c21="" class="material-icons" style="color: black;width:35px;font-weight: 500;cursor: pointer;background-color: #337ab7;color: white;;padding: 5px;border-radius: 5px; margin-right: 5px;"> fast_rewind </span>
+                    <span _ngcontent-c21="" class="material-icons ng-star-inserted" style="color: black;width:35px;font-weight: 500;cursor: pointer;background-color: #337ab7;color: white;;padding: 5px;border-radius: 5px;margin-right: 5px;"> add </span>
+                    <span _ngcontent-c21="" class="material-icons" style="color: black;width:35px;font-weight: 500;cursor: pointer;background-color: #337ab7;color: white;;padding: 5px;border-radius: 5px;"> fast_forward </span>
+                    <a _ngcontent-c21="" class="btn btn-primary margin-right-10" style="cursor: pointer;background-color: #337ab7;color: white;padding: 6px !important;margin-right: 5px !important;margin-left: 17px;margin-top: -16px;">View Demo</a>
+                    <a _ngcontent-c21="" class="btn btn-primary margin-right-10" style="cursor: pointer;background-color: #337ab7;color: white;padding: 6px !important;margin-right: 0px !important;margin-top: -16px;">Tag (1)</a>
+                </div>
+            </div>
+            </div>
+              -->
+          <div class="card" style="height: 500px;">
+            <div class="row">
+              <div class="col">
+                <h3 class="mt-1 ml-2" matTooltip="People First" style="font-weight: 500;">DMS (1)</h3>
+              </div>
+              <h2 class="mr-2 mt-1">
+                <i class="data feather icon-edit-2" title="Edit Artefact"
+                  (click)="openn(updateOpportunityModal)"></i>&nbsp;
+                <i class="data feather icon-trash" mwlConfirmationPopover type="button" popoverTitle="Confirm Delete"
+                  popoverMessage="Are you sure you want to Delete?" placement="left" confirm="cancelClicked = true"
+                  cancel="cancelClicked = true"></i>&nbsp;
+              </h2>
+            </div>
+            <img class="img-fluid" src="assets/images/DWF.jpg"
+              style="overflow-x: hidden; min-height: 207px !important;  max-height: 207px !important;"
+              alt="Card image cap" />
+            <div class="card-body">
+              <h3 class="font-normal text-dark" style="font-weight: 500;" (click)="openn(textModal6)">OVERVIEW</h3>
+              <p class="card-text" (click)="openn(textModal6)">This is a Medical Marketing & Consultancy solution that offers top-quality
+                'in-office' medical care and laboratory tests for health facilities.</p>
+              <div class="row mt-3">
+                <div class="col p-0 pl-1">
+                  <button type="button" class="btn btn-icon btn-outline-primary" rippleEffect>
+                    <span [data-feather]="'chevrons-left'"></span></button>&nbsp;
+                  <button type="button" class="btn btn-icon btn-outline-primary" rippleEffect>
+                    <span [data-feather]="'plus'"></span></button>&nbsp;
+                  <button type="button" class="btn btn-icon btn-outline-primary" rippleEffect>
+                    <span [data-feather]="'chevrons-right'"></span></button>
+                </div>
+                <div class="col p-0">
+                  <button type="button" class="btn btn-primary btn-sm" style="padding: 11px;"
+                  (click)="openn(viewdemoModal)" rippleEffect>View
+                    Demo</button>&nbsp;
+                  <button type="button" class="btn btn-primary btn-sm" style="padding: 11px;"
+                    rippleEffect (click)="modal(tagsModal)" >Tag(1)</button>
+
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Column -->
+    <!-- Column -->
+
+    <!-- Column -->
+    <!-- Column -->
+
+    <!-- Column -->
+  </div>
+</div>

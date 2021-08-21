@@ -1,0 +1,634 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5 m-0 p-0">
+      <div class="pills">
+        <ul class="nav nav-pills">
+          <li routerLinkActive="active" routerLink="/analytics/dashboard">
+            <a mat-raised-button class="navtabWidth">
+              <span [data-feather]="'home'" [class]="'mr-25'"></span>Dashboard
+            </a>
+            <!-- <button type="button" class="btn btn-outline-primary" rippleEffect>
+            <span [data-feather]="'home'" [class]="'mr-25'"></span>Dashboard</button> -->
+          </li>&nbsp;
+          <li routerLinkActive="active" routerLink="/analytics/constcontact">
+            <a mat-raised-button class="navtabWidth">
+              <span [data-feather]="'users'" [class]="'mr-25'"></span> Constant Contact
+            </a>
+            <!-- <button type="button" class="btn btn-outline-primary" rippleEffect>
+            <span [data-feather]="'users'" [class]="'mr-25'"></span>Constant Contact</button> -->
+          </li>&nbsp;
+          <li routerLinkActive="active" routerLink="/analytics/leadsources">
+            <a mat-raised-button class="navtabWidth">
+              <span [data-feather]="'bookmark'" [class]="'mr-25'"></span> Lead Sources
+            </a>
+            <!-- <button type="button" class="btn btn-outline-primary" rippleEffect>
+            <span [data-feather]="'bookmark'" [class]="'mr-25'"></span>Lead Sources</button> -->
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-sm-7 p-0 m-0">
+      <div class="row float-right ">
+        <div class="col p-0" style="margin-right: 10px;">
+          <!-- <div class="form-group">
+            <select class="custom-select">
+              <option value="0" selected disabled>Month</option>
+              <option value="0">Jan</option>
+              <option value="1">Feb</option>
+              <option value="2">Mar</option>
+              <option value="0">Apr</option>
+              <option value="1">May</option>
+              <option value="2">Jun</option>
+              <option value="0">Jul</option>
+              <option value="1">Aug</option>
+              <option value="2">Sep</option>
+              <option value="0">Oct</option>
+              <option value="1">Nov</option>
+              <option value="2">Dec</option>
+            </select>
+          </div> -->
+          <div ngbDropdown class="btn-group">
+            <button type="button" class="btn btn-outline-primary" rippleEffect>Month</button>
+            <button ngbDropdownToggle type="button" class="btn btn-outline-primary dropdown-toggle-split" rippleEffect>
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div ngbDropdownMenu>
+              <a ngbDropdownItem href="javascript:void(0)">January</a>
+              <a ngbDropdownItem href="javascript:void(0)">February</a>
+              <a ngbDropdownItem href="javascript:void(0)">March</a>
+              <a ngbDropdownItem href="javascript:void(0)">April</a>
+              <a ngbDropdownItem href="javascript:void(0)">May</a>
+              <a ngbDropdownItem href="javascript:void(0)">June</a>
+              <a ngbDropdownItem href="javascript:void(0)">July</a>
+              <a ngbDropdownItem href="javascript:void(0)">August</a>
+              <a ngbDropdownItem href="javascript:void(0)">September</a>
+              <a ngbDropdownItem href="javascript:void(0)">October</a>
+              <a ngbDropdownItem href="javascript:void(0)">November</a>
+              <a ngbDropdownItem href="javascript:void(0)">December</a>
+            </div>
+          </div>
+        </div>
+        <div class="col p-0 mr-2">
+          <!-- <select class="custom-select">
+            <option value="2" selected disabled>Year</option>
+            <option value="0">2019</option>
+            <option value="1">2020</option>
+            <option value="2">2021</option>
+          </select> -->
+          <div ngbDropdown class="btn-group">
+            <button type="button" class="btn btn-outline-primary" rippleEffect>Year</button>
+            <button ngbDropdownToggle type="button" class="btn btn-outline-primary dropdown-toggle-split" rippleEffect>
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div ngbDropdownMenu>
+              <a ngbDropdownItem href="javascript:void(0)">2019</a>
+              <a ngbDropdownItem href="javascript:void(0)">2020</a>
+              <a ngbDropdownItem href="javascript:void(0)">2021</a>
+            </div>
+          </div>
+        </div>
+        <div class="col p-0 ml-3" style="margin-right: 10px;">
+          <button type="submit" class="btn btn-gradient-secondary bg-darken-2">Search</button>
+        </div>
+        <div class="col p-0 mr-1">
+          <button type="submit" class="btn btn-gradient-dark">Clear</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="row mt-1">
+    <div class="col-sm-8 pl-0">
+      <!-- Responsive tables -->
+      <div class="row mt-2" id="table-responsive">
+        <div class="col-12">
+          <div class="card">
+            <div class="table-responsive">
+              <table class="table mb-0 table-bordered table-striped ">
+                <thead class="">
+                  <tr>
+                    <th scope="col" class="text-nowrap" style="background: white;">Select</th>
+                    <th scope="col" class="text-nowrap" style="background: white;">Month</th>
+                    <th scope="col" class="text-nowrap" style="background: white;">Partner Code</th>
+                    <th scope="col" class="text-nowrap" style="background: white;">Country</th>
+                    <th scope="col" class="text-nowrap" style="background: white;">Industry</th>
+                    <th scope="col" class="text-nowrap" style="background: white;">CPM</th>
+                    <th scope="col" class="text-nowrap" style="background: white;">P1</th>
+                    <th scope="col" class="text-nowrap" style="background: white;">P2</th>
+                    <th scope="col" class="text-nowrap" style="background: white;">p3</th>
+                    <th scope="col" class="text-nowrap" style="background: white;">p4</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-nowrap text-center"> <input type="checkbox" name="" id=""> </td>
+                    <td class="text-nowrap">June-21</td>
+                    <td class="text-nowrap text-center">AI</td>
+                    <td class="text-nowrap">India</td>
+                    <td class="text-nowrap">Others</td>
+                    <td class="text-nowrap">1</td>
+                    <td class="text-nowrap">1</td>
+                    <td class="text-nowrap">1</td>
+                    <td class="text-nowrap">1</td>
+                    <td class="text-nowrap">-</td>
+
+                  </tr>
+                  <tr>
+                    <td class="text-center" > <input type="checkbox" name="" id=""> </td>
+                    <td>April-21</td>
+                    <td class="text-center" >IM</td>
+                    <td>Australia</td>
+                    <td>Construction</td>
+                    <td>2</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>1</td>
+                    <td>-</td>
+
+                  </tr>
+                  <tr>
+                    <td class="text-center" > <input type="checkbox" name="" id=""> </td>
+                    <td>May-21</td>
+                    <td class="text-center" >IS</td>
+                    <td>Australia</td>
+                    <td>Mining</td>
+                    <td>1</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>1</td>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <td class="text-center" > <input type="checkbox" name="" id=""> </td>
+                    <td>July-21</td>
+                    <td class="text-center" >IS</td>
+                    <td>India</td>
+                    <td>Manufacturing</td>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <td class="text-nowrap text-center"> <input type="checkbox" name="" id=""> </td>
+                    <td class="text-nowrap">June-21</td>
+                    <td class="text-nowrap text-center">AI</td>
+                    <td class="text-nowrap">India</td>
+                    <td class="text-nowrap">Others</td>
+                    <td class="text-nowrap">1</td>
+                    <td class="text-nowrap">1</td>
+                    <td class="text-nowrap">1</td>
+                    <td class="text-nowrap">1</td>
+                    <td class="text-nowrap">-</td>
+                  </tr>
+                  <tr>
+                    <td class="text-center" > <input type="checkbox" name="" id=""> </td>
+                    <td>April-21</td>
+                    <td class="text-center" >IM</td>
+                    <td>Australia</td>
+                    <td>Construction</td>
+                    <td>2</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>1</td>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <td class="text-center" > <input type="checkbox" name="" id=""> </td>
+                    <td>May-21</td>
+                    <td class="text-center" >IS</td>
+                    <td>Australia</td>
+                    <td>Mining</td>
+                    <td>1</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>1</td>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <td class="text-center" > <input type="checkbox" name="" id=""> </td>
+                    <td>July-21</td>
+                    <td class="text-center" >IS</td>
+                    <td>India</td>
+                    <td>Manufacturing</td>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <td class="text-nowrap text-center"> <input type="checkbox" name="" id=""> </td>
+                    <td class="text-nowrap">June-21</td>
+                    <td class="text-nowrap text-center">AI</td>
+                    <td class="text-nowrap">India</td>
+                    <td class="text-nowrap">Others</td>
+                    <td class="text-nowrap">1</td>
+                    <td class="text-nowrap">1</td>
+                    <td class="text-nowrap">1</td>
+                    <td class="text-nowrap">1</td>
+                    <td class="text-nowrap">-</td>
+                  </tr>
+                  <tr>
+                    <td class="text-center" > <input type="checkbox" name="" id=""> </td>
+                    <td>April-21</td>
+                    <td class="text-center" >IM</td>
+                    <td>Australia</td>
+                    <td>Construction</td>
+                    <td>2</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>1</td>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                      <td style="font-weight: bold;"> Total </td>
+                    <td class="text-center" >-</td>
+                    <td class="text-center" >-</td>
+                    <td class="text-center" >-</td>
+                    <td class="text-center" >-</td>
+                    <td>20</td>
+                    <td>13</td>
+                    <td>12</td>
+                    <td>8</td>
+                    <td>2 </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4 mt-2">
+
+      <div class="row bg-white pl-4 p-2 btns text-center pt-5 pb-4">
+        <!-- <div class="pills text-center ml-2">
+          <ul class="nav nav-pills">
+            <li routerLinkActive="active">
+              <button type="button" class="btn btn-gradient-primary" rippleEffect (click)="changeDisplayValue(1)"
+                [ngClass]="{'linkSelected': displayValue == 1}">Distribution</button>
+            </li>&nbsp;
+            <li routerLinkActive="active">
+              <button type="button" class="btn btn-gradient-primary" rippleEffect (click)="changeDisplayValue(2)"
+                [ngClass]="{'linkSelected': displayValue == 2}">CONV</button>
+
+            </li>&nbsp;
+            <li routerLinkActive="active">
+              <button type="button" class="btn btn-gradient-primary" rippleEffect (click)="changeDisplayValue(3)"
+                [ngClass]="{'linkSelected': displayValue == 3}">Monthly Trend</button>
+            </li>
+          </ul>
+        </div> -->
+
+        <div class=" pills text-center ml-2">
+          <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic">
+            <label ngbButtonLabel class="btn-outline-primary" rippleEffect (click)="changeDisplayValue(1)"
+              [ngClass]="{'linkSelected': displayValue == 1}"><input ngbButton type="radio"
+                [value]="1" />Distribution</label>
+            <label ngbButtonLabel class="btn-outline-primary" rippleEffect (click)="changeDisplayValue(2)"
+              [ngClass]="{'linkSelected': displayValue == 2}"><input ngbButton type="radio"
+                value="middle" />CONV</label>
+            <label ngbButtonLabel class="btn-outline-primary" rippleEffect (click)="changeDisplayValue(3)"
+              [ngClass]="{'linkSelected': displayValue == 3}"><input ngbButton type="radio" [value]="false" />Monthly
+              Trend
+            </label>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="row" *ngIf="displayValue == 1">
+        <div class="col-sm-12">
+          <div class="row bg-white pl-5 pt-0">
+            <div class="pills ml-2">
+              <ul class="nav nav-pills pl-1">
+                <li routerLinkActive="active" (click)="changeBottomDisplayValue(1)"
+                  [ngClass]="{'linkSelected': bottomDisplayValue == 1}">
+                  <!-- <a mat-raised-button class="navtabWidth" (click)="changeBottomDisplayValue(1)" [ngClass]="{'linkSelected': bottomDisplayValue == 1}">
+                    CPM
+                </a> -->
+                  <!-- <button class="btn round btn-gradient-primary">CPM</button> -->
+                  <div class="custom-control custom-radio mr-1">
+                    <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked />
+                    <label class="custom-control-label" for="customRadio1">CPM</label>
+                  </div>
+                </li> &nbsp;
+                <li routerLinkActive="active" (click)="changeBottomDisplayValue(2)"
+                  [ngClass]="{'linkSelected': bottomDisplayValue == 2}">
+                  <!-- <a mat-raised-button class="navtabWidth" (click)="changeBottomDisplayValue(2)" [ngClass]="{'linkSelected': bottomDisplayValue == 2}">
+                  P1
+                </a> -->
+                  <!-- <button class="btn round btn-gradient-primary">P1</button> -->
+                  <div class="custom-control custom-radio mr-1">
+                    <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" />
+                    <label class="custom-control-label" for="customRadio2">P1</label>
+                  </div>
+                </li>&nbsp;
+                <li routerLinkActive="active" (click)="changeBottomDisplayValue(3)"
+                  [ngClass]="{'linkSelected': bottomDisplayValue == 3}">
+                  <!-- <a mat-raised-button class="navtabWidth" (click)="changeBottomDisplayValue(3)" [ngClass]="{'linkSelected': bottomDisplayValue == 3}">
+                  P2
+                </a> -->
+                  <!-- <button class="btn round btn-gradient-primary">P2</button> -->
+                  <div class="custom-control custom-radio mr-1">
+                    <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input" />
+                    <label class="custom-control-label" for="customRadio3">P2</label>
+                  </div>
+                </li>&nbsp;
+                <li routerLinkActive="active" (click)="changeBottomDisplayValue(4)"
+                  [ngClass]="{'linkSelected': bottomDisplayValue == 4}">
+                  <!-- <a mat-raised-button class="navtabWidth" (click)="changeBottomDisplayValue(4)" [ngClass]="{'linkSelected': bottomDisplayValue == 4}">
+                  P3
+                </a> -->
+                  <!-- <button class="btn round btn-gradient-primary">P3</button> -->
+                  <div class="custom-control custom-radio mr-1">
+                    <input type="radio" id="customRadio4" name="customRadio" class="custom-control-input" />
+                    <label class="custom-control-label" for="customRadio4">P3</label>
+                  </div>
+                </li>&nbsp;
+                <li routerLinkActive="active" (click)="changeBottomDisplayValue(5)"
+                  [ngClass]="{'linkSelected': bottomDisplayValue == 5}">
+                  <!-- <a mat-raised-button class="navtabWidth" (click)="changeBottomDisplayValue(5)" [ngClass]="{'linkSelected': bottomDisplayValue == 5}">
+                  P4
+                </a> -->
+                  <!-- <button class="btn round btn-gradient-primary">P4</button> -->
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio5" name="customRadio" class="custom-control-input" />
+                    <label class="custom-control-label" for="customRadio5">P4</label>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 bg-white">
+          <!-- <div class="card"> -->
+          <div class="card-body" *ngIf="bottomDisplayValue == 1">
+            <!-- <h4 class="card-title text-center">Distribution by Country</h4> -->
+            <!-- <ngx-charts-pie-chart class="chart-container" [scheme]="colorScheme" [results]="eight" [legend]="showLegend" [explodeSlices]="explodeSlices"
+                  [labels]="showLabels" [doughnut]="doughnut" [arcWidth]="arcWidth" (legendLabelClick)="onLegendLabelClick($event)"
+                  [gradient]="gradient" [tooltipDisabled]="tooltipDisabled" (select)="select($event)">
+              </ngx-charts-pie-chart> -->
+            <!-- <div id="chart">
+              <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart"
+                [plotOptions]="chartOptions.plotOptions" [labels]="chartOptions.labels" [legend]="chartOptions.legend"
+                [colors]="chartOptions.colors" [responsive]="chartOptions.responsive"></apx-chart>
+            </div> -->
+
+            <!-- <div class="card"> -->
+            <div class="card-body pl-0 pr-0 ">
+              <!-- <h3 class="card-title text-center">Distribution by Industry</h3> -->
+              <div class="m-t-20 d-flex flex-column m-auto">
+                <apx-chart [series]="DeviceSalesChartOptions.series" [chart]="DeviceSalesChartOptions.chart"
+                  [dataLabels]="DeviceSalesChartOptions.dataLabels" [legend]="DeviceSalesChartOptions.legends"
+                  [colors]="DeviceSalesChartOptions.colors" [stroke]="DeviceSalesChartOptions.stroke"
+                  [labels]="DeviceSalesChartOptions.labels" [tooltip]="DeviceSalesChartOptions.tooltip"
+                  [plotOptions]="DeviceSalesChartOptions.plotOptions"></apx-chart>
+              </div>
+              <ul class="list-inline text-center mt-3">
+                <li class="list-inline-item">
+                  <i class="fa fa-circle" style="color: rgb(79, 195, 247);"></i> AI
+                </li>
+                <!-- <li class="list-inline-item">
+                  <i class="fa fa-circle" style="color: rgb(251, 140, 0);"></i> IM
+                </li> -->
+                <li class="list-inline-item">
+                  <i class="fa fa-circle" style="color: rgb(116, 96, 238);"></i> IS
+                </li>
+                <li class="list-inline-item">
+                  <i class="fa fa-circle" style="color: rgb(246, 45, 81);"></i> TM
+                </li>
+                <!-- <li class="list-inline-item">
+                  <i class="fa fa-circle" style="color: rgb(32, 201, 151);"></i> ZT
+                </li> -->
+              </ul>
+            </div>
+            <!-- <div class="card">
+                <div
+                  class="card-header d-flex flex-sm-row flex-column justify-content-md-between align-items-start justify-content-start"
+                >
+                  <h4 class="card-title mb-sm-0 mb-1">Statistics</h4>
+                </div>
+                <div class="card-body">
+                  <div id="radialbar-chart" #apexRadialChartRef>
+                    <apx-chart
+                      [series]="apexRadialChart.series"
+                      [chart]="{
+                        height: 400,
+                        width: isMenuToggled === false ? apexRadialChartRef.offsetWidth : apexRadialChart.chart.width,
+                        type: 'radialBar'
+                      }"
+                      [plotOptions]="apexRadialChart.plotOptions"
+                      [labels]="apexRadialChart.labels"
+                      [colors]="apexRadialChart.colors"
+                      [stroke]="apexRadialChart.stroke"
+                      [legend]="apexRadialChart.legend"
+                    ></apx-chart>
+                  </div>
+                </div>
+              </div> -->
+          </div>
+          <!-- </div> -->
+          <div class="card-body" *ngIf="bottomDisplayValue == 2">
+            <!-- <h4 class="card-title text-center">Distribution by Country</h4> -->
+            <!-- <ngx-charts-pie-chart class="chart-container" [scheme]="colorScheme" [results]="eight" [legend]="showLegend" [explodeSlices]="explodeSlices"
+            [labels]="showLabels" [doughnut]="doughnut" [arcWidth]="arcWidth" (legendLabelClick)="onLegendLabelClick($event)"
+            [gradient]="gradient" [tooltipDisabled]="tooltipDisabled" (select)="select($event)">
+        </ngx-charts-pie-chart> -->
+            <!-- <div id="chart">
+              <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart"
+                [plotOptions]="chartOptions.plotOptions" [labels]="chartOptions.labels" [legend]="chartOptions.legend"
+                [colors]="chartOptions.colors" [responsive]="chartOptions.responsive"></apx-chart>
+            </div> -->
+            <div class="card-body pl-0 pr-0">
+              <!-- <h3 class="card-title text-center">Distribution by Industry</h3> -->
+              <div class="m-t-20 d-flex flex-column m-auto">
+                <apx-chart [series]="DeviceSalesChartOptions.series" [chart]="DeviceSalesChartOptions.chart"
+                  [dataLabels]="DeviceSalesChartOptions.dataLabels" [legend]="DeviceSalesChartOptions.legends"
+                  [colors]="DeviceSalesChartOptions.colors" [stroke]="DeviceSalesChartOptions.stroke"
+                  [labels]="DeviceSalesChartOptions.labels" [tooltip]="DeviceSalesChartOptions.tooltip"
+                  [plotOptions]="DeviceSalesChartOptions.plotOptions"></apx-chart>
+              </div>
+              <ul class="list-inline text-center mt-3">
+                <li class="list-inline-item">
+                  <i class="fa fa-circle" style="color: rgb(79, 195, 247);"></i> AI
+                </li>
+                <!-- <li class="list-inline-item">
+                  <i class="fa fa-circle" style="color: rgb(251, 140, 0);"></i> IM
+                </li> -->
+                <li class="list-inline-item">
+                  <i class="fa fa-circle" style="color: rgb(116, 96, 238);"></i> IS
+                </li>
+                <li class="list-inline-item">
+                  <i class="fa fa-circle" style="color: rgb(246, 45, 81);"></i> TM
+                </li>
+                <!-- <li class="list-inline-item">
+                  <i class="fa fa-circle" style="color: rgb(32, 201, 151);"></i> ZT
+                </li> -->
+              </ul>
+            </div>
+          </div>
+
+          <div class="card-body" *ngIf="bottomDisplayValue == 3">
+            <!-- <h4 class="card-title text-center">Distribution by Country</h4> -->
+            <!-- <ngx-charts-pie-chart class="chart-container" [scheme]="colorScheme" [results]="eight" [legend]="showLegend" [explodeSlices]="explodeSlices"
+          [labels]="showLabels" [doughnut]="doughnut" [arcWidth]="arcWidth" (legendLabelClick)="onLegendLabelClick($event)"
+          [gradient]="gradient" [tooltipDisabled]="tooltipDisabled" (select)="select($event)">
+      </ngx-charts-pie-chart> -->
+            <!-- <div id="chart">
+              <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart"
+                [plotOptions]="chartOptions.plotOptions" [labels]="chartOptions.labels" [legend]="chartOptions.legend"
+                [colors]="chartOptions.colors" [responsive]="chartOptions.responsive"></apx-chart>
+            </div> -->
+            <div class="card-body pl-0 pr-0">
+              <!-- <h3 class="card-title text-center">Distribution by Industry</h3> -->
+              <div class="m-t-20 d-flex flex-column m-auto">
+                <apx-chart [series]="DeviceSalesChartOptions.series" [chart]="DeviceSalesChartOptions.chart"
+                  [dataLabels]="DeviceSalesChartOptions.dataLabels" [legend]="DeviceSalesChartOptions.legends"
+                  [colors]="DeviceSalesChartOptions.colors" [stroke]="DeviceSalesChartOptions.stroke"
+                  [labels]="DeviceSalesChartOptions.labels" [tooltip]="DeviceSalesChartOptions.tooltip"
+                  [plotOptions]="DeviceSalesChartOptions.plotOptions"></apx-chart>
+              </div>
+              <ul class="list-inline text-center mt-3">
+                <li class="list-inline-item">
+                  <i class="fa fa-circle" style="color: rgb(79, 195, 247);"></i> AI
+                </li>
+                <!-- <li class="list-inline-item">
+                  <i class="fa fa-circle" style="color: rgb(251, 140, 0);"></i> IM
+                </li> -->
+                <li class="list-inline-item">
+                  <i class="fa fa-circle" style="color: rgb(116, 96, 238);"></i> IS
+                </li>
+                <li class="list-inline-item">
+                  <i class="fa fa-circle" style="color: rgb(246, 45, 81);"></i> TM
+                </li>
+                <!-- <li class="list-inline-item">
+                  <i class="fa fa-circle" style="color: rgb(32, 201, 151);"></i> ZT
+                </li> -->
+              </ul>
+            </div>
+          </div>
+
+          <div class="card-body" *ngIf="bottomDisplayValue == 4">
+            <!-- <h4 class="card-title text-center">Distribution by Country</h4> -->
+            <!-- <ngx-charts-pie-chart class="chart-container" [scheme]="colorScheme" [results]="eight" [legend]="showLegend" [explodeSlices]="explodeSlices"
+        [labels]="showLabels" [doughnut]="doughnut" [arcWidth]="arcWidth" (legendLabelClick)="onLegendLabelClick($event)"
+        [gradient]="gradient" [tooltipDisabled]="tooltipDisabled" (select)="select($event)">
+    </ngx-charts-pie-chart> -->
+            <div class="card-body pl-0 pr-0">
+              <h3 class="card-title text-center">Distribution by Industry</h3>
+              <div class="m-t-20 d-flex flex-column m-auto">
+                <apx-chart [series]="DeviceSalesChartOptions.series" [chart]="DeviceSalesChartOptions.chart"
+                  [dataLabels]="DeviceSalesChartOptions.dataLabels" [legend]="DeviceSalesChartOptions.legends"
+                  [colors]="DeviceSalesChartOptions.colors" [stroke]="DeviceSalesChartOptions.stroke"
+                  [labels]="DeviceSalesChartOptions.labels" [tooltip]="DeviceSalesChartOptions.tooltip"
+                  [plotOptions]="DeviceSalesChartOptions.plotOptions"></apx-chart>
+              </div>
+              <ul class="list-inline text-center mt-3">
+                <li class="list-inline-item">
+                  <i class="fa fa-circle" style="color: rgb(79, 195, 247);"></i> AI
+                </li>
+                <!-- <li class="list-inline-item">
+                  <i class="fa fa-circle" style="color: rgb(251, 140, 0);"></i> IM
+                </li> -->
+                <li class="list-inline-item">
+                  <i class="fa fa-circle" style="color: rgb(116, 96, 238);"></i> IS
+                </li>
+                <li class="list-inline-item">
+                  <i class="fa fa-circle" style="color: rgb(246, 45, 81);"></i> TM
+                </li>
+                <!-- <li class="list-inline-item">
+                  <i class="fa fa-circle" style="color: rgb(32, 201, 151);"></i> ZT
+                </li> -->
+              </ul>
+            </div>
+          </div>
+
+          <div class="card-body" *ngIf="bottomDisplayValue == 5">
+            <!-- <h4 class="card-title text-center">Distribution by Country</h4> -->
+            <!-- <ngx-charts-pie-chart class="chart-container" [scheme]="colorScheme" [results]="eight" [legend]="showLegend" [explodeSlices]="explodeSlices"
+      [labels]="showLabels" [doughnut]="doughnut" [arcWidth]="arcWidth" (legendLabelClick)="onLegendLabelClick($event)"
+      [gradient]="gradient" [tooltipDisabled]="tooltipDisabled" (select)="select($event)">
+  </ngx-charts-pie-chart> -->
+            <div class="card-body pl-0 pr-0">
+              <h3 class="card-title text-center">Distribution by Industry</h3>
+              <div class="m-t-20 d-flex flex-column m-auto">
+                <apx-chart [series]="DeviceSalesChartOptions.series" [chart]="DeviceSalesChartOptions.chart"
+                  [dataLabels]="DeviceSalesChartOptions.dataLabels" [legend]="DeviceSalesChartOptions.legends"
+                  [colors]="DeviceSalesChartOptions.colors" [stroke]="DeviceSalesChartOptions.stroke"
+                  [labels]="DeviceSalesChartOptions.labels" [tooltip]="DeviceSalesChartOptions.tooltip"
+                  [plotOptions]="DeviceSalesChartOptions.plotOptions"></apx-chart>
+              </div>
+              <ul class="list-inline text-center mt-3">
+                <li class="list-inline-item">
+                  <i class="fa fa-circle" style="color: rgb(79, 195, 247);"></i> AI
+                </li>
+                <!-- <li class="list-inline-item">
+                  <i class="fa fa-circle" style="color: rgb(251, 140, 0);"></i> IM
+                </li> -->
+                <li class="list-inline-item">
+                  <i class="fa fa-circle" style="color: rgb(116, 96, 238);"></i> IS
+                </li>
+                <li class="list-inline-item">
+                  <i class="fa fa-circle" style="color: rgb(246, 45, 81);"></i> TM
+                </li>
+                <!-- <li class="list-inline-item">
+                  <i class="fa fa-circle" style="color: rgb(32, 201, 151);"></i> ZT
+                </li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" *ngIf="displayValue == 2">
+        <div class="col-md-12 bg-white">
+          <!-- <div class="card"> -->
+          <!-- <div class="card-body"> -->
+          <!-- <h4 class="card-title text-center">Yearly Data</h4> -->
+          <!-- <ngx-charts-bar-vertical class="chart-container" [scheme]="colorScheme" [schemeType]="schemeType" [results]="nine" [gradient]="gradient"
+                  [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel"
+                  [tooltipDisabled]="tooltipDisabled" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" [showGridLines]="showGridLines"
+                  [barPadding]="40" [view]="view" [roundDomains]="roundDomains" (select)="select($event)" (legendLabelClick)="onLegendLabelClick($event)">
+              </ngx-charts-bar-vertical> -->
+          <!-- </div> -->
+          <!-- </div> -->
+          <div id="chart">
+            <apx-chart [series]="chartOptions1.series" [chart]="chartOptions1.chart"
+              [dataLabels]="chartOptions1.dataLabels" [plotOptions]="chartOptions1.plotOptions"
+              [yaxis]="chartOptions1.yaxis" [legend]="chartOptions1.legend" [fill]="chartOptions1.fill"
+              [stroke]="chartOptions1.stroke" [tooltip]="chartOptions1.tooltip" [xaxis]="chartOptions1.xaxis">
+            </apx-chart>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="row" *ngIf="displayValue == 3">
+        <div class="col-sm-12 bg-white">
+          <!-- <div class="card"> -->
+          <!-- <div class="card-body"> -->
+          <!-- <h4 class="card-title text-center">Distribution by Country</h4> -->
+          <!-- <h6 class="card-subtitle">This is the simple example of Polar Line Chart</h6> -->
+          <!-- <canvas baseChart height="180" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors"
+                [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+            </canvas> -->
+          <!-- </div> -->
+          <div id="chart">
+            <apx-chart [series]="chartOptions2.series" [chart]="chartOptions2.chart" [xaxis]="chartOptions2.xaxis"
+              [dataLabels]="chartOptions2.dataLabels" [yaxis]="chartOptions2.yaxis" [colors]="chartOptions2.colors"
+              [legend]="chartOptions2.legend" [fill]="chartOptions2.fill"></apx-chart>
+          </div>
+
+          <!-- </div> -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!--/ Responsive tables -->
+</div>

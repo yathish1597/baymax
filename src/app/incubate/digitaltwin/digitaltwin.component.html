@@ -1,0 +1,2409 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 pl-0">
+            <div class="pills">
+                <ul class="nav nav-pills">
+                    <li routerLinkActive="active" (click)=" changeDisplayValue(1)">
+                        <a mat-raised-button class="navtabWidth" [ngClass]="{'linkSelected': displayValue == 1}">
+                            All
+                        </a>
+
+                    </li>&nbsp;
+                    <li routerLinkActive="active" (click)=" changeDisplayValue(2)">
+                        <a mat-raised-button class="navtabWidth" [ngClass]="{'linkSelected': displayValue == 2}">
+                            Agile
+                        </a>
+
+                    </li>&nbsp;
+                    <li routerLinkActive="active" (click)=" changeDisplayValue(3)">
+                        <a mat-raised-button class="navtabWidth" [ngClass]="{'linkSelected': displayValue == 3}">
+                            FAST
+                        </a>
+
+                    </li>&nbsp;
+                    <li routerLinkActive="active" (click)=" changeDisplayValue(4)">
+                        <a mat-raised-button class="navtabWidth" [ngClass]="{'linkSelected': displayValue == 4}">
+                            ORG
+                        </a>
+
+                    </li>&nbsp; <li routerLinkActive="active" (click)=" changeDisplayValue(5)">
+                        <a mat-raised-button class="navtabWidth" [ngClass]="{'linkSelected': displayValue == 5}">
+                            AUTO
+                        </a>
+
+                    </li>&nbsp;
+                    <li routerLinkActive="active" (click)=" changeDisplayValue(6)">
+                        <a mat-raised-button class="navtabWidth" [ngClass]="{'linkSelected': displayValue == 6}">
+                            PRO
+                        </a>
+
+                    </li>&nbsp;
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="displayValue==1" class="row mt-3">
+        <div class="col-sm-3 ml-0 pl-0">
+            <div class="card bg-gradient-warning" style="cursor: pointer;">
+                <!-- <h1 class="mt-2 ml-2">Global Lead Gen
+                    <i class="fa fa-star float-right mr-2" style="margin-top: 3px; color: rgb(221, 150, 83);"></i>
+                </h1>
+                <div class="m-2 mt-3">
+                    <button class="btn btn-warning">AM</button>&nbsp;&nbsp;
+                    <button class="btn btn-primary">LG</button>
+                </div> -->
+                <div class="row m-1">
+                    <div class="col-sm-6 " style="font-weight: 500;">
+                        ADM(PK)
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        <span class=""
+                            style="padding: 5px;font-weight: 500; color: black; padding-inline: 10px; background:yellow;">
+                            IP:1
+                        </span>
+                        <i class="fa fa-arrow-up" style="margin-left: 13px; color: green;"></i>
+                    </div>
+                </div>
+                <div class="row m-1 mb-2">
+                    <div class="col-sm-6">
+                        <span class="" style="padding: 5px;font-weight: 500;">
+                            DT:2
+                        </span>
+                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        <span class="" style="padding: 5px;font-weight: 500;">
+                            PROD:2
+                        </span>
+                        <i class="fa fa-arrow-down" style=" color: red;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3  ml-0 pl-0">
+            <div class="card bg-gradient-success" style="cursor: pointer;">
+                <!-- <h1 class="mt-2 ml-2">Global Lead Gen
+                    <i class="fa fa-star float-right mr-2" style="margin-top: 3px; color: rgb(221, 150, 83);"></i>
+                </h1>
+                <div class="m-2 mt-3">
+                    <button class="btn btn-warning">AM</button>&nbsp;&nbsp;
+                    <button class="btn btn-primary">LG</button>
+                </div> -->
+                <div class="row m-1">
+                    <div class="col-sm-6" style="font-weight: 500;">
+                        LG(AM)
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        <span class=""
+                            style="padding: 5px;font-weight: 500; color: black; padding-inline: 10px; background:yellow;">
+                            IP:1
+                        </span>
+                        <i class="fa fa-arrow-up" style="margin-left: 13px; color: green;"></i>
+                    </div>
+                </div>
+                <div class="row m-1 mb-2">
+                    <div class="col-sm-6">
+                        <span class="" style="padding: 5px;font-weight: 500;">
+                            DT:2
+                        </span>
+                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        <span class="" style="padding: 5px;font-weight: 500;">
+                            PROD:2
+                        </span>
+                        <i class="fa fa-arrow-down" style="margin-left: 0px; color: red;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3  ml-0 pl-0">
+            <div class="card bg-gradient-secondary" style="cursor: pointer;">
+                <!-- <h1 class="mt-2 ml-2">Global Lead Gen
+                    <i class="fa fa-star float-right mr-2" style="margin-top: 3px; color: rgb(221, 150, 83);"></i>
+                </h1>
+                <div class="m-2 mt-3">
+                    <button class="btn btn-warning">AM</button>&nbsp;&nbsp;
+                    <button class="btn btn-primary">LG</button>
+                </div> -->
+                <div class="row m-1">
+                    <div class="col-sm-6" style="font-weight: 500; ">
+                        SD(LT)
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        <span class=""
+                            style="padding: 5px;font-weight: 500; color: black; padding-inline: 10px; background:yellow;">
+                            IP:1
+                        </span>
+                        <i class="fa fa-arrow-up" style="margin-left: 13px; color: green;"></i>
+                    </div>
+                </div>
+                <div class="row m-1 mb-2">
+                    <div class="col-sm-6">
+                        <span class="" style="padding: 5px; font-weight: 500;">
+                            DT:2
+                        </span>
+                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        <span class="" style="padding: 5px; font-weight: 500;">
+                            PROD:2
+                        </span>
+                        <i class="fa fa-arrow-down" style="margin-left: 0px; color: red;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3  ml-0 pl-0 pr-0">
+            <div class="card bg-gradient-primary" style="cursor: pointer;">
+                <!-- <h1 class="mt-2 ml-2">Global Lead Gen
+                    <i class="fa fa-star float-right mr-2" style="margin-top: 3px; color: rgb(221, 150, 83);"></i>
+                </h1>
+                <div class="m-2 mt-3">
+                    <button class="btn btn-warning">AM</button>&nbsp;&nbsp;
+                    <button class="btn btn-primary">LG</button>
+                </div> -->
+                <div class="row m-1">
+                    <div class="col-sm-6" style="font-weight: 500; ">
+                        DES(MA)
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        <span class=""
+                            style="padding: 5px;font-weight: 500; color: black; padding-inline: 10px; background:yellow;">
+                            IP:1
+                        </span>
+                        <i class="fa fa-arrow-up" style="margin-left: 13px; color: green;"></i>
+                    </div>
+                </div>
+                <div class="row m-1 mb-2">
+                    <div class="col-sm-6">
+                        <span class="" style="padding: 5px; font-weight: 500;">
+                            DT:2
+                        </span>
+                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        <span class="" style="padding: 5px; font-weight: 500;">
+                            PROD:2
+                        </span>
+                        <i class="fa fa-arrow-down" style="margin-left: 0px; color: red;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3  ml-0 pl-0">
+            <div class="card bg-gradient-secondary" style="cursor: pointer;">
+                <!-- <h1 class="mt-2 ml-2">Global Lead Gen
+                    <i class="fa fa-star float-right mr-2" style="margin-top: 3px; color: rgb(221, 150, 83);"></i>
+                </h1>
+                <div class="m-2 mt-3">
+                    <button class="btn btn-warning">AM</button>&nbsp;&nbsp;
+                    <button class="btn btn-primary">LG</button>
+                </div> -->
+                <div class="row m-1">
+                    <div class="col-sm-6" style="font-weight: 500; ">
+                        REC(RK)
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        <span class=""
+                            style="padding: 5px;font-weight: 500; color: black; padding-inline: 10px; background:yellow;">
+                            IP:1
+                        </span>
+                        <i class="fa fa-arrow-up" style="margin-left: 13px; color: green;"></i>
+                    </div>
+                </div>
+                <div class="row m-1 mb-2">
+                    <div class="col-sm-6">
+                        <span class="" style="padding: 5px; font-weight: 500;">
+                            DT:2
+                        </span>
+                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        <span class="" style="padding: 5px; font-weight: 500;">
+                            PROD:2
+                        </span>
+                        <i class="fa fa-arrow-down" style="margin-left: 0px; color: red;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3  ml-0 pl-0">
+            <div class="card bg-gradient-primary" style="cursor: pointer;">
+                <!-- <h1 class="mt-2 ml-2">Global Lead Gen
+                   <i class="fa fa-star float-right mr-2" style="margin-top: 3px; color: rgb(221, 150, 83);"></i>
+               </h1>
+               <div class="m-2 mt-3">
+                   <button class="btn btn-warning">AM</button>&nbsp;&nbsp;
+                   <button class="btn btn-primary">LG</button>
+               </div> -->
+                <div class="row m-1">
+                    <div class="col-sm-6" style="font-weight: 500; ">
+                        ERM(RK)
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        <span class=""
+                            style="padding: 5px;font-weight: 500; color: black; padding-inline: 10px; background:yellow;">
+                            IP:1
+                        </span>
+                        <i class="fa fa-arrow-up" style="margin-left: 13px; color: green;"></i>
+                    </div>
+                </div>
+                <div class="row m-1 mb-2">
+                    <div class="col-sm-6">
+                        <span class="" style="padding: 5px; font-weight: 500;">
+                            DT:2
+                        </span>
+                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        <span class="" style="padding: 5px; font-weight: 500;">
+                            PROD:2
+                        </span>
+                        <i class="fa fa-arrow-down" style="margin-left: 0px; color: red;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3  ml-0 pl-0">
+            <div class="card bg-gradient-warning" style="cursor: pointer;">
+                <!-- <h1 class="mt-2 ml-2">Global Lead Gen
+               <i class="fa fa-star float-right mr-2" style="margin-top: 3px; color: rgb(221, 150, 83);"></i>
+           </h1>
+           <div class="m-2 mt-3">
+               <button class="btn btn-warning">AM</button>&nbsp;&nbsp;
+               <button class="btn btn-primary">LG</button>
+           </div> -->
+                <div class="row m-1">
+                    <div class="col-sm-6" style="font-weight: 500; ">
+                        EA(NM)
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        <span class=""
+                            style="padding: 5px;font-weight: 500; color: black; padding-inline: 10px; background:yellow;">
+                            IP:1
+                        </span>
+                        <i class="fa fa-arrow-up" style="margin-left: 13px; color: green;"></i>
+                    </div>
+                </div>
+                <div class="row m-1 mb-2">
+                    <div class="col-sm-6">
+                        <span class="" style="padding: 5px; font-weight: 500;">
+                            DT:2
+                        </span>
+                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        <span class="" style="padding: 5px; font-weight: 500;">
+                            PROD:2
+                        </span>
+                        <i class="fa fa-arrow-down" style="margin-left: 0px; color: red;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3  ml-0 pl-0 pr-0">
+            <div class="card bg-gradient-success" style="cursor: pointer;">
+                <!-- <h1 class="mt-2 ml-2">Global Lead Gen
+           <i class="fa fa-star float-right mr-2" style="margin-top: 3px; color: rgb(221, 150, 83);"></i>
+       </h1>
+       <div class="m-2 mt-3">
+           <button class="btn btn-warning">AM</button>&nbsp;&nbsp;
+           <button class="btn btn-primary">LG</button>
+       </div> -->
+                <div class="row m-1">
+                    <div class="col-sm-6" style="font-weight: 500; ">
+                        DT(RR)
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        <span class=""
+                            style="padding: 5px;font-weight: 500; color: black; padding-inline: 10px; background:yellow;">
+                            IP:1
+                        </span>
+                        <i class="fa fa-arrow-up" style="margin-left: 13px; color: green;"></i>
+                    </div>
+                </div>
+                <div class="row m-1 mb-2">
+                    <div class="col-sm-6">
+                        <span class="" style="padding: 5px; font-weight: 500;">
+                            DT:2
+                        </span>
+                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        <span class="" style="padding: 5px; font-weight: 500;">
+                            PROD:2
+                        </span>
+                        <i class="fa fa-arrow-down" style="margin-left: 0px; color: red;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3  ml-0 pl-0">
+            <div class="card bg-gradient-primary" style="cursor: pointer;">
+                <!-- <h1 class="mt-2 ml-2">Global Lead Gen
+           <i class="fa fa-star float-right mr-2" style="margin-top: 3px; color: rgb(221, 150, 83);"></i>
+       </h1>
+       <div class="m-2 mt-3">
+           <button class="btn btn-warning">AM</button>&nbsp;&nbsp;
+           <button class="btn btn-primary">LG</button>
+       </div> -->
+                <div class="row m-1">
+                    <div class="col-sm-6" style="font-weight: 500; ">
+                        PRO(SP)
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        <span class=""
+                            style="padding: 5px;font-weight: 500; color: black; padding-inline: 10px; background:yellow;">
+                            IP:1
+                        </span>
+                        <i class="fa fa-arrow-up" style="margin-left: 13px; color: green;"></i>
+                    </div>
+                </div>
+                <div class="row m-1 mb-2">
+                    <div class="col-sm-6">
+                        <span class="" style="padding: 5px; font-weight: 500;">
+                            DT:2
+                        </span>
+                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        <span class="" style="padding: 5px; font-weight: 500;">
+                            PROD:2
+                        </span>
+                        <i class="fa fa-arrow-down" style="margin-left: 0px; color: red;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div *ngIf="displayValue==2" class=" mt-3 ">
+        <div class="row">
+            <div class="col-sm-3 ml-0 pl-0">
+                <div class="card bg-gradient-warning" style="cursor: pointer;"
+                [ngClass]="{'crd': card == 1}" (click)=" changeDisplayValuec(1)">
+                    <!-- <h1 class="mt-2 ml-2">Global Lead Gen
+                        <i class="fa fa-star float-right mr-2" style="margin-top: 3px; color: rgb(221, 150, 83);"></i>
+                    </h1>
+                    <div class="m-2 mt-3">
+                        <button class="btn btn-warning">AM</button>&nbsp;&nbsp;
+                        <button class="btn btn-primary">LG</button>
+                    </div> -->
+                    <div class="row m-1">
+                        <div class="col-sm-6 " style="font-weight: 500;">
+                            ADM(PK)
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class=""
+                                style="padding: 5px;font-weight: 500; color: black; padding-inline: 10px; background:yellow;">
+                                IP:1
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 13px; color: green;"></i>
+                        </div>
+                    </div>
+                    <div class="row m-1 mb-2">
+                        <div class="col-sm-6">
+                            <span class="" style="padding: 5px;font-weight: 500;">
+                                DT:2
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class="" style="padding: 5px;font-weight: 500;">
+                                PROD:2
+                            </span>
+                            <i class="fa fa-arrow-down" style=" color: red;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3  ml-0 pl-0">
+                <div class="card bg-gradient-success" style="cursor: pointer;"
+                [ngClass]="{'crd': card == 2}" (click)=" changeDisplayValuec(2)">
+                    <!-- <h1 class="mt-2 ml-2">Global Lead Gen
+                        <i class="fa fa-star float-right mr-2" style="margin-top: 3px; color: rgb(221, 150, 83);"></i>
+                    </h1>
+                    <div class="m-2 mt-3">
+                        <button class="btn btn-warning">AM</button>&nbsp;&nbsp;
+                        <button class="btn btn-primary">LG</button>
+                    </div> -->
+                    <div class="row m-1">
+                        <div class="col-sm-6" style="font-weight: 500;">
+                            LG(AM)
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class=""
+                                style="padding: 5px;font-weight: 500; color: black; padding-inline: 10px; background:yellow;">
+                                IP:1
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 13px; color: green;"></i>
+                        </div>
+                    </div>
+                    <div class="row m-1 mb-2">
+                        <div class="col-sm-6">
+                            <span class="" style="padding: 5px;font-weight: 500;">
+                                DT:2
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class="" style="padding: 5px;font-weight: 500;">
+                                PROD:2
+                            </span>
+                            <i class="fa fa-arrow-down" style="margin-left: 0px; color: red;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3  ml-0 pl-0">
+                <div class="card bg-gradient-secondary" style="cursor: pointer;"
+                [ngClass]="{'crd': card == 3}" (click)=" changeDisplayValuec(3)">
+                    <!-- <h1 class="mt-2 ml-2">Global Lead Gen
+                        <i class="fa fa-star float-right mr-2" style="margin-top: 3px; color: rgb(221, 150, 83);"></i>
+                    </h1>
+                    <div class="m-2 mt-3">
+                        <button class="btn btn-warning">AM</button>&nbsp;&nbsp;
+                        <button class="btn btn-primary">LG</button>
+                    </div> -->
+                    <div class="row m-1">
+                        <div class="col-sm-6" style="font-weight: 500; ">
+                            SD(LT)
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class=""
+                                style="padding: 5px;font-weight: 500; color: black; padding-inline: 10px; background:yellow;">
+                                IP:1
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 13px; color: green;"></i>
+                        </div>
+                    </div>
+                    <div class="row m-1 mb-2">
+                        <div class="col-sm-6">
+                            <span class="" style="padding: 5px; font-weight: 500;">
+                                DT:2
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class="" style="padding: 5px; font-weight: 500;">
+                                PROD:2
+                            </span>
+                            <i class="fa fa-arrow-down" style="margin-left: 0px; color: red;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3  ml-0 pl-0 pr-0">
+                <div class="card bg-gradient-primary" style="cursor: pointer;"
+                [ngClass]="{'crd': card == 4}" (click)=" changeDisplayValuec(4)">
+                    <!-- <h1 class="mt-2 ml-2">Global Lead Gen
+                        <i class="fa fa-star float-right mr-2" style="margin-top: 3px; color: rgb(221, 150, 83);"></i>
+                    </h1>
+                    <div class="m-2 mt-3">
+                        <button class="btn btn-warning">AM</button>&nbsp;&nbsp;
+                        <button class="btn btn-primary">LG</button>
+                    </div> -->
+                    <div class="row m-1">
+                        <div class="col-sm-6" style="font-weight: 500; ">
+                            DES(MA)
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class=""
+                                style="padding: 5px;font-weight: 500; color: black; padding-inline: 10px; background:yellow;">
+                                IP:1
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 13px; color: green;"></i>
+                        </div>
+                    </div>
+                    <div class="row m-1 mb-2">
+                        <div class="col-sm-6">
+                            <span class="" style="padding: 5px; font-weight: 500;">
+                                DT:2
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class="" style="padding: 5px; font-weight: 500;">
+                                PROD:2
+                            </span>
+                            <i class="fa fa-arrow-down" style="margin-left: 0px; color: red;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 pl-0 ml-0">
+                <h2>Product Development (SRV)</h2>
+            </div>
+            <div class="col-sm-12 p-1" style="background: yellow; color: black;">
+                <p style="font-size: larger;">
+                    Drive Product innovation through digital transformation via Fast Company and People First.
+                    Add CEO Agenda as a Digital Twin. Audit Automation will merge with CEO Agenda. Field Automation
+                    and Audit Automation are the key initiatives. Recruit & Assign talent Do Pulse IP Project for Pharma
+                    CRM. Do CPM with inputs from PA & PM frameworks. Maybe Wise Working will bolster CPM framework.
+                </p>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-sm-2 ml-0 pl-0">
+                <div class="pills">
+                    <ul class="nav nav-pills" style="width: 100%;">
+                        <li routerLinkActive="active" (click)=" changebDisplayValue(1)"
+                            style="width: 100%; margin-bottom: 10px;">
+                            <a mat-raised-button class="navtabWidth" [ngClass]="{'linkSelected': bdisplayValue == 1}">
+                                Current
+                            </a>
+
+                        </li>
+                        <li routerLinkActive="active" (click)=" changebDisplayValue(2)"
+                            style="width: 100%; margin-bottom: 10px;">
+                            <a mat-raised-button class="navtabWidth" [ngClass]="{'linkSelected': bdisplayValue == 2}">
+                                Action Plan
+                            </a>
+
+                        </li>
+                        <li routerLinkActive="active" (click)=" changebDisplayValue(3)"
+                            style="width: 100%; margin-bottom: 10px;">
+                            <a mat-raised-button class="navtabWidth" [ngClass]="{'linkSelected': bdisplayValue == 3}">
+                                Monitor
+                            </a>
+
+                        </li>
+                        <li routerLinkActive="active" (click)=" changebDisplayValue(4)"
+                            style="width: 100%; margin-bottom: 10px;">
+                            <a mat-raised-button class="navtabWidth" [ngClass]="{'linkSelected': bdisplayValue == 4}">
+                                KPI Metrics
+                            </a>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div *ngIf="bdisplayValue == 1" class="col-sm-10 pr-0 mt-1 mb-2">
+                <p style="font-size: x-large;">Current Situation : PROD(SRV)</p>
+                <hr>
+
+                <fieldset class="form-label-group">
+                    <textarea class="form-control" id="label-textarea" rows="15"
+                        placeholder="Enter Current Situation"></textarea>
+                    <label for="label-textarea">Enter Current Situation</label>
+                </fieldset>
+                <button class="btn btn-gradient-dark float-right">save</button>
+            </div>
+            <div *ngIf="bdisplayValue == 2" class="col-sm-10  pr-0 mt-1 mb-2">
+                <p style="font-size: x-large;">Action Plan : SRV (31/Mar/2021)</p>
+                <hr>
+                <fieldset class="form-label-group">
+                    <textarea class="form-control" id="label-textarea" rows="15"
+                        placeholder="Enter Target Scenario"></textarea>
+                    <label for="label-textarea">Enter Target Scenario</label>
+                </fieldset>
+                <button class="btn btn-gradient-dark float-right">save</button>
+
+            </div>
+            <div *ngIf="bdisplayValue == 3" class="col-sm-10  pr-0 mt-1 mb-2">
+                <p style="font-size: x-large;">Road Map : PROD(SRV)</p>
+                <hr>
+                <fieldset class="form-label-group">
+                    <textarea class="form-control" id="label-textarea" rows="15"
+                        placeholder="Enter Text"></textarea>
+                    <label for="label-textarea">Enter Text</label>
+                </fieldset>
+                <button class="btn btn-gradient-dark float-right">save</button>
+
+            </div>
+
+
+            <div *ngIf="bdisplayValue == 4" class="col-sm-10  pr-0">
+                <div class="row">
+                    <div class="col-sm-3 mt-0 pl-0">
+                        <div class="card">
+                            <div id="chart  p-1">
+                                <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart"
+                                    [plotOptions]="chartOptions.plotOptions" [labels]="chartOptions.labels"
+                                    [fill]="chartOptions.fill" [stroke]="chartOptions.stroke"></apx-chart>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-sm-3 mt-0">
+                        <div class="card">
+                            <div id="chart  p-1">
+                                <apx-chart [series]="chartOptions2.series" [chart]="chartOptions2.chart"
+                                    [plotOptions]="chartOptions2.plotOptions" [labels]="chartOptions2.labels"
+                                    [colors]="chartOptions2.colors" [fill]="chartOptions2.fill"
+                                    [stroke]="chartOptions2.stroke">
+                                </apx-chart>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-sm-3 mt-0">
+                        <div class="card">
+                            <div id="chart  p-1">
+                                <apx-chart [series]="chartOptions3.series" [chart]="chartOptions3.chart"
+                                    [plotOptions]="chartOptions3.plotOptions" [labels]="chartOptions3.labels"
+                                    [colors]="chartOptions3.colors" [fill]="chartOptions3.fill"
+                                    [stroke]="chartOptions3.stroke">
+                                </apx-chart>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-sm-3 mt-0">
+                        <div class="card">
+                            <div id="chart p-1">
+                                <apx-chart [series]="chartOptions4.series" [chart]="chartOptions4.chart"
+                                    [plotOptions]="chartOptions4.plotOptions" [labels]="chartOptions4.labels"
+                                    [colors]="chartOptions4.colors" [fill]="chartOptions4.fill"
+                                    [stroke]="chartOptions4.stroke">
+                                </apx-chart>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 mb-2 p-0 card">
+                        <table class="table  table-bordered" style="width: 100% !important ;">
+                            <thead>
+                                <tr>
+                                    <th class="text-center pl-0 pr-0" style="background: white;">Period</th>
+                                    <th class="text-center pl-0 pr-0" style="background: white;">Percentage</th>
+                                    <th class="text-center pl-0 pr-0" style="background: white;">Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center">Jan</td>
+                                    <td class="text-center">40%
+                                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                                    </td>
+                                    <td class="text-center">2</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Feb</td>
+                                    <td class="text-center">100%
+                                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                                    </td>
+                                    <td class="text-center">1</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Mar</td>
+                                    <td class="text-center">35%
+                                        <i class="fa fa-arrow-down" style="margin-left: 5px; color: red;"></i>
+                                    </td>
+                                    <td class="text-center">1</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Apr</td>
+                                    <td class="text-center">100%
+                                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                                    </td>
+                                    <td class="text-center">4</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">May</td>
+                                    <td class="text-center">55%
+                                        <i class="fa fa-arrow-down" style="margin-left: 5px; color: red;"></i>
+                                    </td>
+                                    <td class="text-center">1</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Jun</td>
+                                    <td class="text-center">28%
+                                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                                    </td>
+                                    <td class="text-center">3</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Jul</td>
+                                    <td class="text-center">56%
+                                        <i class="fa fa-arrow-down" style="margin-left: 5px; color: red;"></i>
+                                    </td>
+                                    <td class="text-center">2</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Aug</td>
+                                    <td class="text-center">75%
+                                        <i class="fa fa-arrow-down" style="margin-left: 5px; color: red;"></i>
+                                    </td>
+                                    <td class="text-center">1</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Sep</td>
+                                    <td class="text-center">65%
+                                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                                    </td>
+                                    <td class="text-center">0</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Oct</td>
+                                    <td class="text-center">87%
+                                        <i class="fa fa-arrow-down" style="margin-left: 5px; color: red;"></i>
+                                    </td>
+                                    <td class="text-center">0</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Nov</td>
+                                    <td class="text-center">95%
+                                        <i class="fa fa-arrow-down" style="margin-left: 5px; color: red;"></i>
+                                    </td>
+                                    <td class="text-center">1</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Dec</td>
+                                    <td class="text-center">100%
+                                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                                    </td>
+                                    <td class="text-center">1</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-sm-9 pl-2 mb-2">
+                        <div class="card p-1 pt-2" id="chart">
+                            <apx-chart [series]="chartOptions1.series" [chart]="chartOptions1.chart"
+                                [xaxis]="chartOptions1.xaxis" [dataLabels]="chartOptions1.dataLabels"
+                                [colors]="chartOptions1.colors" [grid]="chartOptions1.grid"
+                                [stroke]="chartOptions1.stroke" [title]="chartOptions1.title"></apx-chart>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div *ngIf="displayValue==3" class=" mt-3 ">
+        <div class="row">
+            <div class="col-sm-3 ml-0 pl-0">
+                <div class="card bg-gradient-warning" style="cursor: pointer;"
+                [ngClass]="{'crd': card == 1}" (click)=" changeDisplayValuec(1)">
+                    <!-- <h1 class="mt-2 ml-2">Global Lead Gen
+                        <i class="fa fa-star float-right mr-2" style="margin-top: 3px; color: rgb(221, 150, 83);"></i>
+                    </h1>
+                    <div class="m-2 mt-3">
+                        <button class="btn btn-warning">AM</button>&nbsp;&nbsp;
+                        <button class="btn btn-primary">LG</button>
+                    </div> -->
+                    <div class="row m-1">
+                        <div class="col-sm-6 " style="font-weight: 500;">
+                            ADM(PK)
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class=""
+                                style="padding: 5px;font-weight: 500; color: black; padding-inline: 10px; background:yellow;">
+                                IP:1
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 13px; color: green;"></i>
+                        </div>
+                    </div>
+                    <div class="row m-1 mb-2">
+                        <div class="col-sm-6">
+                            <span class="" style="padding: 5px;font-weight: 500;">
+                                DT:2
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class="" style="padding: 5px;font-weight: 500;">
+                                PROD:2
+                            </span>
+                            <i class="fa fa-arrow-down" style=" color: red;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3  ml-0 pl-0">
+                <div class="card bg-gradient-success" style="cursor: pointer;"
+                [ngClass]="{'crd': card == 2}" (click)=" changeDisplayValuec(2)">
+                    <!-- <h1 class="mt-2 ml-2">Global Lead Gen
+                        <i class="fa fa-star float-right mr-2" style="margin-top: 3px; color: rgb(221, 150, 83);"></i>
+                    </h1>
+                    <div class="m-2 mt-3">
+                        <button class="btn btn-warning">AM</button>&nbsp;&nbsp;
+                        <button class="btn btn-primary">LG</button>
+                    </div> -->
+                    <div class="row m-1">
+                        <div class="col-sm-6" style="font-weight: 500;">
+                            LG(AM)
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class=""
+                                style="padding: 5px;font-weight: 500; color: black; padding-inline: 10px; background:yellow;">
+                                IP:1
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 13px; color: green;"></i>
+                        </div>
+                    </div>
+                    <div class="row m-1 mb-2">
+                        <div class="col-sm-6">
+                            <span class="" style="padding: 5px;font-weight: 500;">
+                                DT:2
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class="" style="padding: 5px;font-weight: 500;">
+                                PROD:2
+                            </span>
+                            <i class="fa fa-arrow-down" style="margin-left: 0px; color: red;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3  ml-0 pl-0">
+                <div class="card bg-gradient-secondary" style="cursor: pointer;"
+                [ngClass]="{'crd': card == 3}" (click)=" changeDisplayValuec(3)">
+                    <!-- <h1 class="mt-2 ml-2">Global Lead Gen
+                        <i class="fa fa-star float-right mr-2" style="margin-top: 3px; color: rgb(221, 150, 83);"></i>
+                    </h1>
+                    <div class="m-2 mt-3">
+                        <button class="btn btn-warning">AM</button>&nbsp;&nbsp;
+                        <button class="btn btn-primary">LG</button>
+                    </div> -->
+                    <div class="row m-1">
+                        <div class="col-sm-6" style="font-weight: 500; ">
+                            SD(LT)
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class=""
+                                style="padding: 5px;font-weight: 500; color: black; padding-inline: 10px; background:yellow;">
+                                IP:1
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 13px; color: green;"></i>
+                        </div>
+                    </div>
+                    <div class="row m-1 mb-2">
+                        <div class="col-sm-6">
+                            <span class="" style="padding: 5px; font-weight: 500;">
+                                DT:2
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class="" style="padding: 5px; font-weight: 500;">
+                                PROD:2
+                            </span>
+                            <i class="fa fa-arrow-down" style="margin-left: 0px; color: red;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3  ml-0 pl-0 pr-0">
+                <div class="card bg-gradient-primary" style="cursor: pointer;"
+                [ngClass]="{'crd': card == 4}" (click)=" changeDisplayValuec(4)">
+                    <!-- <h1 class="mt-2 ml-2">Global Lead Gen
+                        <i class="fa fa-star float-right mr-2" style="margin-top: 3px; color: rgb(221, 150, 83);"></i>
+                    </h1>
+                    <div class="m-2 mt-3">
+                        <button class="btn btn-warning">AM</button>&nbsp;&nbsp;
+                        <button class="btn btn-primary">LG</button>
+                    </div> -->
+                    <div class="row m-1">
+                        <div class="col-sm-6" style="font-weight: 500; ">
+                            DES(MA)
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class=""
+                                style="padding: 5px;font-weight: 500; color: black; padding-inline: 10px; background:yellow;">
+                                IP:1
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 13px; color: green;"></i>
+                        </div>
+                    </div>
+                    <div class="row m-1 mb-2">
+                        <div class="col-sm-6">
+                            <span class="" style="padding: 5px; font-weight: 500;">
+                                DT:2
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class="" style="padding: 5px; font-weight: 500;">
+                                PROD:2
+                            </span>
+                            <i class="fa fa-arrow-down" style="margin-left: 0px; color: red;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 pl-0 ml-0">
+                <h2>Product Development (SRV)</h2>
+            </div>
+            <div class="col-sm-12 p-1" style="background: yellow; color: black;">
+                <p style="font-size: larger;">
+                    Drive Product innovation through digital transformation via Fast Company and People First.
+                    Add CEO Agenda as a Digital Twin. Audit Automation will merge with CEO Agenda. Field Automation
+                    and Audit Automation are the key initiatives. Recruit & Assign talent Do Pulse IP Project for Pharma
+                    CRM. Do CPM with inputs from PA & PM frameworks. Maybe Wise Working will bolster CPM framework.
+                </p>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-sm-2 ml-0 pl-0">
+                <div class="pills">
+                    <ul class="nav nav-pills" style="width: 100%;">
+                        <li routerLinkActive="active" (click)=" changebDisplayValue(1)"
+                            style="width: 100%; margin-bottom: 10px;">
+                            <a mat-raised-button class="navtabWidth" [ngClass]="{'linkSelected': bdisplayValue == 1}">
+                                Current
+                            </a>
+
+                        </li>
+                        <li routerLinkActive="active" (click)=" changebDisplayValue(2)"
+                            style="width: 100%; margin-bottom: 10px;">
+                            <a mat-raised-button class="navtabWidth" [ngClass]="{'linkSelected': bdisplayValue == 2}">
+                                Action Plan
+                            </a>
+
+                        </li>
+                        <li routerLinkActive="active" (click)=" changebDisplayValue(3)"
+                            style="width: 100%; margin-bottom: 10px;">
+                            <a mat-raised-button class="navtabWidth" [ngClass]="{'linkSelected': bdisplayValue == 3}">
+                                Monitor
+                            </a>
+
+                        </li>
+                        <li routerLinkActive="active" (click)=" changebDisplayValue(4)"
+                            style="width: 100%; margin-bottom: 10px;">
+                            <a mat-raised-button class="navtabWidth" [ngClass]="{'linkSelected': bdisplayValue == 4}">
+                                KPI Metrics
+                            </a>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div *ngIf="bdisplayValue == 1" class="col-sm-10 pr-0 mt-1 mb-2">
+                <p style="font-size: x-large;">Current Situation : PROD(SRV)</p>
+                <hr>
+
+                <fieldset class="form-label-group">
+                    <textarea class="form-control" id="label-textarea" rows="15"
+                        placeholder="Enter Current Situation"></textarea>
+                    <label for="label-textarea">Enter Current Situation</label>
+                </fieldset>
+                <button class="btn btn-gradient-dark float-right">save</button>
+            </div>
+            <div *ngIf="bdisplayValue == 2" class="col-sm-10  pr-0 mt-1 mb-2">
+                <p style="font-size: x-large;">Action Plan : SRV (31/Mar/2021)</p>
+                <hr>
+                <fieldset class="form-label-group">
+                    <textarea class="form-control" id="label-textarea" rows="15"
+                        placeholder="Enter Target Scenario"></textarea>
+                    <label for="label-textarea">Enter Target Scenario</label>
+                </fieldset>
+                <button class="btn btn-gradient-dark float-right">save</button>
+
+            </div>
+            <div *ngIf="bdisplayValue == 3" class="col-sm-10  pr-0 mt-1 mb-2">
+                <p style="font-size: x-large;">Road Map : PROD(SRV)</p>
+                <hr>
+                <fieldset class="form-label-group">
+                    <textarea class="form-control" id="label-textarea" rows="15"
+                        placeholder="Enter Text"></textarea>
+                    <label for="label-textarea">Enter Text</label>
+                </fieldset>
+                <button class="btn btn-gradient-dark float-right">save</button>
+
+            </div>
+
+
+            <div *ngIf="bdisplayValue == 4" class="col-sm-10  pr-0">
+                <div class="row">
+                    <div class="col-sm-3 mt-0 pl-0">
+                        <div class="card">
+                            <div id="chart  p-1">
+                                <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart"
+                                    [plotOptions]="chartOptions.plotOptions" [labels]="chartOptions.labels"
+                                    [fill]="chartOptions.fill" [stroke]="chartOptions.stroke"></apx-chart>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-sm-3 mt-0">
+                        <div class="card">
+                            <div id="chart  p-1">
+                                <apx-chart [series]="chartOptions2.series" [chart]="chartOptions2.chart"
+                                    [plotOptions]="chartOptions2.plotOptions" [labels]="chartOptions2.labels"
+                                    [colors]="chartOptions2.colors" [fill]="chartOptions2.fill"
+                                    [stroke]="chartOptions2.stroke">
+                                </apx-chart>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-sm-3 mt-0">
+                        <div class="card">
+                            <div id="chart  p-1">
+                                <apx-chart [series]="chartOptions3.series" [chart]="chartOptions3.chart"
+                                    [plotOptions]="chartOptions3.plotOptions" [labels]="chartOptions3.labels"
+                                    [colors]="chartOptions3.colors" [fill]="chartOptions3.fill"
+                                    [stroke]="chartOptions3.stroke">
+                                </apx-chart>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-sm-3 mt-0">
+                        <div class="card">
+                            <div id="chart p-1">
+                                <apx-chart [series]="chartOptions4.series" [chart]="chartOptions4.chart"
+                                    [plotOptions]="chartOptions4.plotOptions" [labels]="chartOptions4.labels"
+                                    [colors]="chartOptions4.colors" [fill]="chartOptions4.fill"
+                                    [stroke]="chartOptions4.stroke">
+                                </apx-chart>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 mb-2 p-0 card">
+                        <table class="table  table-bordered" style="width: 100% !important ;">
+                            <thead>
+                                <tr>
+                                    <th class="text-center pl-0 pr-0" style="background: white;">Period</th>
+                                    <th class="text-center pl-0 pr-0" style="background: white;">Percentage</th>
+                                    <th class="text-center pl-0 pr-0" style="background: white;">Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center">Jan</td>
+                                    <td class="text-center">40%
+                                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                                    </td>
+                                    <td class="text-center">2</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Feb</td>
+                                    <td class="text-center">100%
+                                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                                    </td>
+                                    <td class="text-center">1</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Mar</td>
+                                    <td class="text-center">35%
+                                        <i class="fa fa-arrow-down" style="margin-left: 5px; color: red;"></i>
+                                    </td>
+                                    <td class="text-center">1</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Apr</td>
+                                    <td class="text-center">100%
+                                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                                    </td>
+                                    <td class="text-center">4</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">May</td>
+                                    <td class="text-center">55%
+                                        <i class="fa fa-arrow-down" style="margin-left: 5px; color: red;"></i>
+                                    </td>
+                                    <td class="text-center">1</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Jun</td>
+                                    <td class="text-center">28%
+                                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                                    </td>
+                                    <td class="text-center">3</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Jul</td>
+                                    <td class="text-center">56%
+                                        <i class="fa fa-arrow-down" style="margin-left: 5px; color: red;"></i>
+                                    </td>
+                                    <td class="text-center">2</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Aug</td>
+                                    <td class="text-center">75%
+                                        <i class="fa fa-arrow-down" style="margin-left: 5px; color: red;"></i>
+                                    </td>
+                                    <td class="text-center">1</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Sep</td>
+                                    <td class="text-center">65%
+                                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                                    </td>
+                                    <td class="text-center">0</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Oct</td>
+                                    <td class="text-center">87%
+                                        <i class="fa fa-arrow-down" style="margin-left: 5px; color: red;"></i>
+                                    </td>
+                                    <td class="text-center">0</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Nov</td>
+                                    <td class="text-center">95%
+                                        <i class="fa fa-arrow-down" style="margin-left: 5px; color: red;"></i>
+                                    </td>
+                                    <td class="text-center">1</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Dec</td>
+                                    <td class="text-center">100%
+                                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                                    </td>
+                                    <td class="text-center">1</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-sm-9 pl-2 mb-2">
+                        <div class="card p-1 pt-2" id="chart">
+                            <apx-chart [series]="chartOptions1.series" [chart]="chartOptions1.chart"
+                                [xaxis]="chartOptions1.xaxis" [dataLabels]="chartOptions1.dataLabels"
+                                [colors]="chartOptions1.colors" [grid]="chartOptions1.grid"
+                                [stroke]="chartOptions1.stroke" [title]="chartOptions1.title"></apx-chart>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div *ngIf="displayValue==4" class=" mt-3 ">
+        <div class="row">
+            <div class="col-sm-3 ml-0 pl-0">
+                <div class="card bg-gradient-warning" style="cursor: pointer;"
+                [ngClass]="{'crd': card == 1}" (click)=" changeDisplayValuec(1)">
+                    <!-- <h1 class="mt-2 ml-2">Global Lead Gen
+                        <i class="fa fa-star float-right mr-2" style="margin-top: 3px; color: rgb(221, 150, 83);"></i>
+                    </h1>
+                    <div class="m-2 mt-3">
+                        <button class="btn btn-warning">AM</button>&nbsp;&nbsp;
+                        <button class="btn btn-primary">LG</button>
+                    </div> -->
+                    <div class="row m-1">
+                        <div class="col-sm-6 " style="font-weight: 500;">
+                            ADM(PK)
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class=""
+                                style="padding: 5px;font-weight: 500; color: black; padding-inline: 10px; background:yellow;">
+                                IP:1
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 13px; color: green;"></i>
+                        </div>
+                    </div>
+                    <div class="row m-1 mb-2">
+                        <div class="col-sm-6">
+                            <span class="" style="padding: 5px;font-weight: 500;">
+                                DT:2
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class="" style="padding: 5px;font-weight: 500;">
+                                PROD:2
+                            </span>
+                            <i class="fa fa-arrow-down" style=" color: red;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3  ml-0 pl-0">
+                <div class="card bg-gradient-success" style="cursor: pointer;"
+                [ngClass]="{'crd': card == 2}" (click)=" changeDisplayValuec(2)">
+                    <!-- <h1 class="mt-2 ml-2">Global Lead Gen
+                        <i class="fa fa-star float-right mr-2" style="margin-top: 3px; color: rgb(221, 150, 83);"></i>
+                    </h1>
+                    <div class="m-2 mt-3">
+                        <button class="btn btn-warning">AM</button>&nbsp;&nbsp;
+                        <button class="btn btn-primary">LG</button>
+                    </div> -->
+                    <div class="row m-1">
+                        <div class="col-sm-6" style="font-weight: 500;">
+                            LG(AM)
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class=""
+                                style="padding: 5px;font-weight: 500; color: black; padding-inline: 10px; background:yellow;">
+                                IP:1
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 13px; color: green;"></i>
+                        </div>
+                    </div>
+                    <div class="row m-1 mb-2">
+                        <div class="col-sm-6">
+                            <span class="" style="padding: 5px;font-weight: 500;">
+                                DT:2
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class="" style="padding: 5px;font-weight: 500;">
+                                PROD:2
+                            </span>
+                            <i class="fa fa-arrow-down" style="margin-left: 0px; color: red;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3  ml-0 pl-0">
+                <div class="card bg-gradient-secondary" style="cursor: pointer;"
+                [ngClass]="{'crd': card == 3}" (click)=" changeDisplayValuec(3)">
+                    <!-- <h1 class="mt-2 ml-2">Global Lead Gen
+                        <i class="fa fa-star float-right mr-2" style="margin-top: 3px; color: rgb(221, 150, 83);"></i>
+                    </h1>
+                    <div class="m-2 mt-3">
+                        <button class="btn btn-warning">AM</button>&nbsp;&nbsp;
+                        <button class="btn btn-primary">LG</button>
+                    </div> -->
+                    <div class="row m-1">
+                        <div class="col-sm-6" style="font-weight: 500; ">
+                            SD(LT)
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class=""
+                                style="padding: 5px;font-weight: 500; color: black; padding-inline: 10px; background:yellow;">
+                                IP:1
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 13px; color: green;"></i>
+                        </div>
+                    </div>
+                    <div class="row m-1 mb-2">
+                        <div class="col-sm-6">
+                            <span class="" style="padding: 5px; font-weight: 500;">
+                                DT:2
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class="" style="padding: 5px; font-weight: 500;">
+                                PROD:2
+                            </span>
+                            <i class="fa fa-arrow-down" style="margin-left: 0px; color: red;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3  ml-0 pl-0 pr-0">
+                <div class="card bg-gradient-primary" style="cursor: pointer;"
+                [ngClass]="{'crd': card == 4}" (click)=" changeDisplayValuec(4)">
+                    <!-- <h1 class="mt-2 ml-2">Global Lead Gen
+                        <i class="fa fa-star float-right mr-2" style="margin-top: 3px; color: rgb(221, 150, 83);"></i>
+                    </h1>
+                    <div class="m-2 mt-3">
+                        <button class="btn btn-warning">AM</button>&nbsp;&nbsp;
+                        <button class="btn btn-primary">LG</button>
+                    </div> -->
+                    <div class="row m-1">
+                        <div class="col-sm-6" style="font-weight: 500; ">
+                            DES(MA)
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class=""
+                                style="padding: 5px;font-weight: 500; color: black; padding-inline: 10px; background:yellow;">
+                                IP:1
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 13px; color: green;"></i>
+                        </div>
+                    </div>
+                    <div class="row m-1 mb-2">
+                        <div class="col-sm-6">
+                            <span class="" style="padding: 5px; font-weight: 500;">
+                                DT:2
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class="" style="padding: 5px; font-weight: 500;">
+                                PROD:2
+                            </span>
+                            <i class="fa fa-arrow-down" style="margin-left: 0px; color: red;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 pl-0 ml-0">
+                <h2>Product Development (SRV)</h2>
+            </div>
+            <div class="col-sm-12 p-1" style="background: yellow; color: black;">
+                <p style="font-size: larger;">
+                    Drive Product innovation through digital transformation via Fast Company and People First.
+                    Add CEO Agenda as a Digital Twin. Audit Automation will merge with CEO Agenda. Field Automation
+                    and Audit Automation are the key initiatives. Recruit & Assign talent Do Pulse IP Project for Pharma
+                    CRM. Do CPM with inputs from PA & PM frameworks. Maybe Wise Working will bolster CPM framework.
+                </p>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-sm-2 ml-0 pl-0">
+                <div class="pills">
+                    <ul class="nav nav-pills" style="width: 100%;">
+                        <li routerLinkActive="active" (click)=" changebDisplayValue(1)"
+                            style="width: 100%; margin-bottom: 10px;">
+                            <a mat-raised-button class="navtabWidth" [ngClass]="{'linkSelected': bdisplayValue == 1}">
+                                Current
+                            </a>
+
+                        </li>
+                        <li routerLinkActive="active" (click)=" changebDisplayValue(2)"
+                            style="width: 100%; margin-bottom: 10px;">
+                            <a mat-raised-button class="navtabWidth" [ngClass]="{'linkSelected': bdisplayValue == 2}">
+                                Action Plan
+                            </a>
+
+                        </li>
+                        <li routerLinkActive="active" (click)=" changebDisplayValue(3)"
+                            style="width: 100%; margin-bottom: 10px;">
+                            <a mat-raised-button class="navtabWidth" [ngClass]="{'linkSelected': bdisplayValue == 3}">
+                                Monitor
+                            </a>
+
+                        </li>
+                        <li routerLinkActive="active" (click)=" changebDisplayValue(4)"
+                            style="width: 100%; margin-bottom: 10px;">
+                            <a mat-raised-button class="navtabWidth" [ngClass]="{'linkSelected': bdisplayValue == 4}">
+                                KPI Metrics
+                            </a>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div *ngIf="bdisplayValue == 1" class="col-sm-10 pr-0 mt-1 mb-2">
+                <p style="font-size: x-large;">Current Situation : PROD(SRV)</p>
+                <hr>
+
+                <fieldset class="form-label-group">
+                    <textarea class="form-control" id="label-textarea" rows="15"
+                        placeholder="Enter Current Situation"></textarea>
+                    <label for="label-textarea">Enter Current Situation</label>
+                </fieldset>
+                <button class="btn btn-gradient-dark float-right">save</button>
+            </div>
+            <div *ngIf="bdisplayValue == 2" class="col-sm-10  pr-0 mt-1 mb-2">
+                <p style="font-size: x-large;">Action Plan : SRV (31/Mar/2021)</p>
+                <hr>
+                <fieldset class="form-label-group">
+                    <textarea class="form-control" id="label-textarea" rows="15"
+                        placeholder="Enter Target Scenario"></textarea>
+                    <label for="label-textarea">Enter Target Scenario</label>
+                </fieldset>
+                <button class="btn btn-gradient-dark float-right">save</button>
+
+            </div>
+            <div *ngIf="bdisplayValue == 3" class="col-sm-10  pr-0 mt-1 mb-2">
+                <p style="font-size: x-large;">Road Map : PROD(SRV)</p>
+                <hr>
+                <fieldset class="form-label-group">
+                    <textarea class="form-control" id="label-textarea" rows="15"
+                        placeholder="Enter Text"></textarea>
+                    <label for="label-textarea">Enter Text</label>
+                </fieldset>
+                <button class="btn btn-gradient-dark float-right">save</button>
+
+            </div>
+
+
+            <div *ngIf="bdisplayValue == 4" class="col-sm-10  pr-0">
+                <div class="row">
+                    <div class="col-sm-3 mt-0 pl-0">
+                        <div class="card">
+                            <div id="chart  p-1">
+                                <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart"
+                                    [plotOptions]="chartOptions.plotOptions" [labels]="chartOptions.labels"
+                                    [fill]="chartOptions.fill" [stroke]="chartOptions.stroke"></apx-chart>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-sm-3 mt-0">
+                        <div class="card">
+                            <div id="chart  p-1">
+                                <apx-chart [series]="chartOptions2.series" [chart]="chartOptions2.chart"
+                                    [plotOptions]="chartOptions2.plotOptions" [labels]="chartOptions2.labels"
+                                    [colors]="chartOptions2.colors" [fill]="chartOptions2.fill"
+                                    [stroke]="chartOptions2.stroke">
+                                </apx-chart>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-sm-3 mt-0">
+                        <div class="card">
+                            <div id="chart  p-1">
+                                <apx-chart [series]="chartOptions3.series" [chart]="chartOptions3.chart"
+                                    [plotOptions]="chartOptions3.plotOptions" [labels]="chartOptions3.labels"
+                                    [colors]="chartOptions3.colors" [fill]="chartOptions3.fill"
+                                    [stroke]="chartOptions3.stroke">
+                                </apx-chart>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-sm-3 mt-0">
+                        <div class="card">
+                            <div id="chart p-1">
+                                <apx-chart [series]="chartOptions4.series" [chart]="chartOptions4.chart"
+                                    [plotOptions]="chartOptions4.plotOptions" [labels]="chartOptions4.labels"
+                                    [colors]="chartOptions4.colors" [fill]="chartOptions4.fill"
+                                    [stroke]="chartOptions4.stroke">
+                                </apx-chart>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 mb-2 p-0 card">
+                        <table class="table  table-bordered" style="width: 100% !important ;">
+                            <thead>
+                                <tr>
+                                    <th class="text-center pl-0 pr-0" style="background: white;">Period</th>
+                                    <th class="text-center pl-0 pr-0" style="background: white;">Percentage</th>
+                                    <th class="text-center pl-0 pr-0" style="background: white;">Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center">Jan</td>
+                                    <td class="text-center">40%
+                                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                                    </td>
+                                    <td class="text-center">2</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Feb</td>
+                                    <td class="text-center">100%
+                                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                                    </td>
+                                    <td class="text-center">1</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Mar</td>
+                                    <td class="text-center">35%
+                                        <i class="fa fa-arrow-down" style="margin-left: 5px; color: red;"></i>
+                                    </td>
+                                    <td class="text-center">1</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Apr</td>
+                                    <td class="text-center">100%
+                                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                                    </td>
+                                    <td class="text-center">4</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">May</td>
+                                    <td class="text-center">55%
+                                        <i class="fa fa-arrow-down" style="margin-left: 5px; color: red;"></i>
+                                    </td>
+                                    <td class="text-center">1</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Jun</td>
+                                    <td class="text-center">28%
+                                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                                    </td>
+                                    <td class="text-center">3</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Jul</td>
+                                    <td class="text-center">56%
+                                        <i class="fa fa-arrow-down" style="margin-left: 5px; color: red;"></i>
+                                    </td>
+                                    <td class="text-center">2</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Aug</td>
+                                    <td class="text-center">75%
+                                        <i class="fa fa-arrow-down" style="margin-left: 5px; color: red;"></i>
+                                    </td>
+                                    <td class="text-center">1</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Sep</td>
+                                    <td class="text-center">65%
+                                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                                    </td>
+                                    <td class="text-center">0</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Oct</td>
+                                    <td class="text-center">87%
+                                        <i class="fa fa-arrow-down" style="margin-left: 5px; color: red;"></i>
+                                    </td>
+                                    <td class="text-center">0</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Nov</td>
+                                    <td class="text-center">95%
+                                        <i class="fa fa-arrow-down" style="margin-left: 5px; color: red;"></i>
+                                    </td>
+                                    <td class="text-center">1</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Dec</td>
+                                    <td class="text-center">100%
+                                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                                    </td>
+                                    <td class="text-center">1</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-sm-9 pl-2 mb-2">
+                        <div class="card p-1 pt-2" id="chart">
+                            <apx-chart [series]="chartOptions1.series" [chart]="chartOptions1.chart"
+                                [xaxis]="chartOptions1.xaxis" [dataLabels]="chartOptions1.dataLabels"
+                                [colors]="chartOptions1.colors" [grid]="chartOptions1.grid"
+                                [stroke]="chartOptions1.stroke" [title]="chartOptions1.title"></apx-chart>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div *ngIf="displayValue==5" class=" mt-3 ">
+        <div class="row">
+            <div class="col-sm-3 ml-0 pl-0">
+                <div class="card bg-gradient-warning" style="cursor: pointer;"
+                [ngClass]="{'crd': card == 1}" (click)=" changeDisplayValuec(1)">
+                    <!-- <h1 class="mt-2 ml-2">Global Lead Gen
+                        <i class="fa fa-star float-right mr-2" style="margin-top: 3px; color: rgb(221, 150, 83);"></i>
+                    </h1>
+                    <div class="m-2 mt-3">
+                        <button class="btn btn-warning">AM</button>&nbsp;&nbsp;
+                        <button class="btn btn-primary">LG</button>
+                    </div> -->
+                    <div class="row m-1">
+                        <div class="col-sm-6 " style="font-weight: 500;">
+                            ADM(PK)
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class=""
+                                style="padding: 5px;font-weight: 500; color: black; padding-inline: 10px; background:yellow;">
+                                IP:1
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 13px; color: green;"></i>
+                        </div>
+                    </div>
+                    <div class="row m-1 mb-2">
+                        <div class="col-sm-6">
+                            <span class="" style="padding: 5px;font-weight: 500;">
+                                DT:2
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class="" style="padding: 5px;font-weight: 500;">
+                                PROD:2
+                            </span>
+                            <i class="fa fa-arrow-down" style=" color: red;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3  ml-0 pl-0">
+                <div class="card bg-gradient-success" style="cursor: pointer;"
+                [ngClass]="{'crd': card == 2}" (click)=" changeDisplayValuec(2)">
+                    <!-- <h1 class="mt-2 ml-2">Global Lead Gen
+                        <i class="fa fa-star float-right mr-2" style="margin-top: 3px; color: rgb(221, 150, 83);"></i>
+                    </h1>
+                    <div class="m-2 mt-3">
+                        <button class="btn btn-warning">AM</button>&nbsp;&nbsp;
+                        <button class="btn btn-primary">LG</button>
+                    </div> -->
+                    <div class="row m-1">
+                        <div class="col-sm-6" style="font-weight: 500;">
+                            LG(AM)
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class=""
+                                style="padding: 5px;font-weight: 500; color: black; padding-inline: 10px; background:yellow;">
+                                IP:1
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 13px; color: green;"></i>
+                        </div>
+                    </div>
+                    <div class="row m-1 mb-2">
+                        <div class="col-sm-6">
+                            <span class="" style="padding: 5px;font-weight: 500;">
+                                DT:2
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class="" style="padding: 5px;font-weight: 500;">
+                                PROD:2
+                            </span>
+                            <i class="fa fa-arrow-down" style="margin-left: 0px; color: red;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3  ml-0 pl-0">
+                <div class="card bg-gradient-secondary" style="cursor: pointer;"
+                [ngClass]="{'crd': card == 3}" (click)=" changeDisplayValuec(3)">
+                    <!-- <h1 class="mt-2 ml-2">Global Lead Gen
+                        <i class="fa fa-star float-right mr-2" style="margin-top: 3px; color: rgb(221, 150, 83);"></i>
+                    </h1>
+                    <div class="m-2 mt-3">
+                        <button class="btn btn-warning">AM</button>&nbsp;&nbsp;
+                        <button class="btn btn-primary">LG</button>
+                    </div> -->
+                    <div class="row m-1">
+                        <div class="col-sm-6" style="font-weight: 500; ">
+                            SD(LT)
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class=""
+                                style="padding: 5px;font-weight: 500; color: black; padding-inline: 10px; background:yellow;">
+                                IP:1
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 13px; color: green;"></i>
+                        </div>
+                    </div>
+                    <div class="row m-1 mb-2">
+                        <div class="col-sm-6">
+                            <span class="" style="padding: 5px; font-weight: 500;">
+                                DT:2
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class="" style="padding: 5px; font-weight: 500;">
+                                PROD:2
+                            </span>
+                            <i class="fa fa-arrow-down" style="margin-left: 0px; color: red;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3  ml-0 pl-0 pr-0">
+                <div class="card bg-gradient-primary" style="cursor: pointer;"
+                [ngClass]="{'crd': card == 4}" (click)=" changeDisplayValuec(4)">
+                    <!-- <h1 class="mt-2 ml-2">Global Lead Gen
+                        <i class="fa fa-star float-right mr-2" style="margin-top: 3px; color: rgb(221, 150, 83);"></i>
+                    </h1>
+                    <div class="m-2 mt-3">
+                        <button class="btn btn-warning">AM</button>&nbsp;&nbsp;
+                        <button class="btn btn-primary">LG</button>
+                    </div> -->
+                    <div class="row m-1">
+                        <div class="col-sm-6" style="font-weight: 500; ">
+                            DES(MA)
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class=""
+                                style="padding: 5px;font-weight: 500; color: black; padding-inline: 10px; background:yellow;">
+                                IP:1
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 13px; color: green;"></i>
+                        </div>
+                    </div>
+                    <div class="row m-1 mb-2">
+                        <div class="col-sm-6">
+                            <span class="" style="padding: 5px; font-weight: 500;">
+                                DT:2
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class="" style="padding: 5px; font-weight: 500;">
+                                PROD:2
+                            </span>
+                            <i class="fa fa-arrow-down" style="margin-left: 0px; color: red;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 pl-0 ml-0">
+                <h2>Product Development (SRV)</h2>
+            </div>
+            <div class="col-sm-12 p-1" style="background: yellow; color: black;">
+                <p style="font-size: larger;">
+                    Drive Product innovation through digital transformation via Fast Company and People First.
+                    Add CEO Agenda as a Digital Twin. Audit Automation will merge with CEO Agenda. Field Automation
+                    and Audit Automation are the key initiatives. Recruit & Assign talent Do Pulse IP Project for Pharma
+                    CRM. Do CPM with inputs from PA & PM frameworks. Maybe Wise Working will bolster CPM framework.
+                </p>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-sm-2 ml-0 pl-0">
+                <div class="pills">
+                    <ul class="nav nav-pills" style="width: 100%;">
+                        <li routerLinkActive="active" (click)=" changebDisplayValue(1)"
+                            style="width: 100%; margin-bottom: 10px;">
+                            <a mat-raised-button class="navtabWidth" [ngClass]="{'linkSelected': bdisplayValue == 1}">
+                                Current
+                            </a>
+
+                        </li>
+                        <li routerLinkActive="active" (click)=" changebDisplayValue(2)"
+                            style="width: 100%; margin-bottom: 10px;">
+                            <a mat-raised-button class="navtabWidth" [ngClass]="{'linkSelected': bdisplayValue == 2}">
+                                Action Plan
+                            </a>
+
+                        </li>
+                        <li routerLinkActive="active" (click)=" changebDisplayValue(3)"
+                            style="width: 100%; margin-bottom: 10px;">
+                            <a mat-raised-button class="navtabWidth" [ngClass]="{'linkSelected': bdisplayValue == 3}">
+                                Monitor
+                            </a>
+
+                        </li>
+                        <li routerLinkActive="active" (click)=" changebDisplayValue(4)"
+                            style="width: 100%; margin-bottom: 10px;">
+                            <a mat-raised-button class="navtabWidth" [ngClass]="{'linkSelected': bdisplayValue == 4}">
+                                KPI Metrics
+                            </a>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div *ngIf="bdisplayValue == 1" class="col-sm-10 pr-0 mt-1 mb-2">
+                <p style="font-size: x-large;">Current Situation : PROD(SRV)</p>
+                <hr>
+
+                <fieldset class="form-label-group">
+                    <textarea class="form-control" id="label-textarea" rows="15"
+                        placeholder="Enter Current Situation"></textarea>
+                    <label for="label-textarea">Enter Current Situation</label>
+                </fieldset>
+                <button class="btn btn-gradient-dark float-right">save</button>
+            </div>
+            <div *ngIf="bdisplayValue == 2" class="col-sm-10  pr-0 mt-1 mb-2">
+                <p style="font-size: x-large;">Action Plan : SRV (31/Mar/2021)</p>
+                <hr>
+                <fieldset class="form-label-group">
+                    <textarea class="form-control" id="label-textarea" rows="15"
+                        placeholder="Enter Target Scenario"></textarea>
+                    <label for="label-textarea">Enter Target Scenario</label>
+                </fieldset>
+                <button class="btn btn-gradient-dark float-right">save</button>
+
+            </div>
+            <div *ngIf="bdisplayValue == 3" class="col-sm-10  pr-0 mt-1 mb-2">
+                <p style="font-size: x-large;">Road Map : PROD(SRV)</p>
+                <hr>
+                <fieldset class="form-label-group">
+                    <textarea class="form-control" id="label-textarea" rows="15"
+                        placeholder="Enter Text"></textarea>
+                    <label for="label-textarea">Enter Text</label>
+                </fieldset>
+                <button class="btn btn-gradient-dark float-right">save</button>
+
+            </div>
+
+
+            <div *ngIf="bdisplayValue == 4" class="col-sm-10  pr-0">
+                <div class="row">
+                    <div class="col-sm-3 mt-0 pl-0">
+                        <div class="card">
+                            <div id="chart  p-1">
+                                <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart"
+                                    [plotOptions]="chartOptions.plotOptions" [labels]="chartOptions.labels"
+                                    [fill]="chartOptions.fill" [stroke]="chartOptions.stroke"></apx-chart>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-sm-3 mt-0">
+                        <div class="card">
+                            <div id="chart  p-1">
+                                <apx-chart [series]="chartOptions2.series" [chart]="chartOptions2.chart"
+                                    [plotOptions]="chartOptions2.plotOptions" [labels]="chartOptions2.labels"
+                                    [colors]="chartOptions2.colors" [fill]="chartOptions2.fill"
+                                    [stroke]="chartOptions2.stroke">
+                                </apx-chart>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-sm-3 mt-0">
+                        <div class="card">
+                            <div id="chart  p-1">
+                                <apx-chart [series]="chartOptions3.series" [chart]="chartOptions3.chart"
+                                    [plotOptions]="chartOptions3.plotOptions" [labels]="chartOptions3.labels"
+                                    [colors]="chartOptions3.colors" [fill]="chartOptions3.fill"
+                                    [stroke]="chartOptions3.stroke">
+                                </apx-chart>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-sm-3 mt-0">
+                        <div class="card">
+                            <div id="chart p-1">
+                                <apx-chart [series]="chartOptions4.series" [chart]="chartOptions4.chart"
+                                    [plotOptions]="chartOptions4.plotOptions" [labels]="chartOptions4.labels"
+                                    [colors]="chartOptions4.colors" [fill]="chartOptions4.fill"
+                                    [stroke]="chartOptions4.stroke">
+                                </apx-chart>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 mb-2 p-0 card">
+                        <table class="table  table-bordered" style="width: 100% !important ;">
+                            <thead>
+                                <tr>
+                                    <th class="text-center pl-0 pr-0" style="background: white;">Period</th>
+                                    <th class="text-center pl-0 pr-0" style="background: white;">Percentage</th>
+                                    <th class="text-center pl-0 pr-0" style="background: white;">Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center">Jan</td>
+                                    <td class="text-center">40%
+                                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                                    </td>
+                                    <td class="text-center">2</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Feb</td>
+                                    <td class="text-center">100%
+                                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                                    </td>
+                                    <td class="text-center">1</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Mar</td>
+                                    <td class="text-center">35%
+                                        <i class="fa fa-arrow-down" style="margin-left: 5px; color: red;"></i>
+                                    </td>
+                                    <td class="text-center">1</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Apr</td>
+                                    <td class="text-center">100%
+                                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                                    </td>
+                                    <td class="text-center">4</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">May</td>
+                                    <td class="text-center">55%
+                                        <i class="fa fa-arrow-down" style="margin-left: 5px; color: red;"></i>
+                                    </td>
+                                    <td class="text-center">1</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Jun</td>
+                                    <td class="text-center">28%
+                                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                                    </td>
+                                    <td class="text-center">3</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Jul</td>
+                                    <td class="text-center">56%
+                                        <i class="fa fa-arrow-down" style="margin-left: 5px; color: red;"></i>
+                                    </td>
+                                    <td class="text-center">2</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Aug</td>
+                                    <td class="text-center">75%
+                                        <i class="fa fa-arrow-down" style="margin-left: 5px; color: red;"></i>
+                                    </td>
+                                    <td class="text-center">1</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Sep</td>
+                                    <td class="text-center">65%
+                                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                                    </td>
+                                    <td class="text-center">0</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Oct</td>
+                                    <td class="text-center">87%
+                                        <i class="fa fa-arrow-down" style="margin-left: 5px; color: red;"></i>
+                                    </td>
+                                    <td class="text-center">0</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Nov</td>
+                                    <td class="text-center">95%
+                                        <i class="fa fa-arrow-down" style="margin-left: 5px; color: red;"></i>
+                                    </td>
+                                    <td class="text-center">1</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Dec</td>
+                                    <td class="text-center">100%
+                                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                                    </td>
+                                    <td class="text-center">1</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-sm-9 pl-2 mb-2">
+                        <div class="card p-1 pt-2" id="chart">
+                            <apx-chart [series]="chartOptions1.series" [chart]="chartOptions1.chart"
+                                [xaxis]="chartOptions1.xaxis" [dataLabels]="chartOptions1.dataLabels"
+                                [colors]="chartOptions1.colors" [grid]="chartOptions1.grid"
+                                [stroke]="chartOptions1.stroke" [title]="chartOptions1.title"></apx-chart>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div *ngIf="displayValue==6" class=" mt-3 ">
+        <div class="row">
+            <div class="col-sm-3 ml-0 pl-0">
+                <div class="card bg-gradient-warning" style="cursor: pointer;"
+                [ngClass]="{'crd': card == 1}" (click)=" changeDisplayValuec(1)">
+                    <!-- <h1 class="mt-2 ml-2">Global Lead Gen
+                        <i class="fa fa-star float-right mr-2" style="margin-top: 3px; color: rgb(221, 150, 83);"></i>
+                    </h1>
+                    <div class="m-2 mt-3">
+                        <button class="btn btn-warning">AM</button>&nbsp;&nbsp;
+                        <button class="btn btn-primary">LG</button>
+                    </div> -->
+                    <div class="row m-1">
+                        <div class="col-sm-6 " style="font-weight: 500;">
+                            ADM(PK)
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class=""
+                                style="padding: 5px;font-weight: 500; color: black; padding-inline: 10px; background:yellow;">
+                                IP:1
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 13px; color: green;"></i>
+                        </div>
+                    </div>
+                    <div class="row m-1 mb-2">
+                        <div class="col-sm-6">
+                            <span class="" style="padding: 5px;font-weight: 500;">
+                                DT:2
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class="" style="padding: 5px;font-weight: 500;">
+                                PROD:2
+                            </span>
+                            <i class="fa fa-arrow-down" style=" color: red;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3  ml-0 pl-0">
+                <div class="card bg-gradient-success" style="cursor: pointer;"
+                [ngClass]="{'crd': card == 2}" (click)=" changeDisplayValuec(2)">
+                    <!-- <h1 class="mt-2 ml-2">Global Lead Gen
+                        <i class="fa fa-star float-right mr-2" style="margin-top: 3px; color: rgb(221, 150, 83);"></i>
+                    </h1>
+                    <div class="m-2 mt-3">
+                        <button class="btn btn-warning">AM</button>&nbsp;&nbsp;
+                        <button class="btn btn-primary">LG</button>
+                    </div> -->
+                    <div class="row m-1">
+                        <div class="col-sm-6" style="font-weight: 500;">
+                            LG(AM)
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class=""
+                                style="padding: 5px;font-weight: 500; color: black; padding-inline: 10px; background:yellow;">
+                                IP:1
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 13px; color: green;"></i>
+                        </div>
+                    </div>
+                    <div class="row m-1 mb-2">
+                        <div class="col-sm-6">
+                            <span class="" style="padding: 5px;font-weight: 500;">
+                                DT:2
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class="" style="padding: 5px;font-weight: 500;">
+                                PROD:2
+                            </span>
+                            <i class="fa fa-arrow-down" style="margin-left: 0px; color: red;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3  ml-0 pl-0">
+                <div class="card bg-gradient-secondary" style="cursor: pointer;"
+                [ngClass]="{'crd': card == 3}" (click)=" changeDisplayValuec(3)">
+                    <!-- <h1 class="mt-2 ml-2">Global Lead Gen
+                        <i class="fa fa-star float-right mr-2" style="margin-top: 3px; color: rgb(221, 150, 83);"></i>
+                    </h1>
+                    <div class="m-2 mt-3">
+                        <button class="btn btn-warning">AM</button>&nbsp;&nbsp;
+                        <button class="btn btn-primary">LG</button>
+                    </div> -->
+                    <div class="row m-1">
+                        <div class="col-sm-6" style="font-weight: 500; ">
+                            SD(LT)
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class=""
+                                style="padding: 5px;font-weight: 500; color: black; padding-inline: 10px; background:yellow;">
+                                IP:1
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 13px; color: green;"></i>
+                        </div>
+                    </div>
+                    <div class="row m-1 mb-2">
+                        <div class="col-sm-6">
+                            <span class="" style="padding: 5px; font-weight: 500;">
+                                DT:2
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class="" style="padding: 5px; font-weight: 500;">
+                                PROD:2
+                            </span>
+                            <i class="fa fa-arrow-down" style="margin-left: 0px; color: red;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3  ml-0 pl-0 pr-0">
+                <div class="card bg-gradient-primary" style="cursor: pointer;"
+                [ngClass]="{'crd': card == 4}" (click)=" changeDisplayValuec(4)">
+                    <!-- <h1 class="mt-2 ml-2">Global Lead Gen
+                        <i class="fa fa-star float-right mr-2" style="margin-top: 3px; color: rgb(221, 150, 83);"></i>
+                    </h1>
+                    <div class="m-2 mt-3">
+                        <button class="btn btn-warning">AM</button>&nbsp;&nbsp;
+                        <button class="btn btn-primary">LG</button>
+                    </div> -->
+                    <div class="row m-1">
+                        <div class="col-sm-6" style="font-weight: 500; ">
+                            DES(MA)
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class=""
+                                style="padding: 5px;font-weight: 500; color: black; padding-inline: 10px; background:yellow;">
+                                IP:1
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 13px; color: green;"></i>
+                        </div>
+                    </div>
+                    <div class="row m-1 mb-2">
+                        <div class="col-sm-6">
+                            <span class="" style="padding: 5px; font-weight: 500;">
+                                DT:2
+                            </span>
+                            <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span class="" style="padding: 5px; font-weight: 500;">
+                                PROD:2
+                            </span>
+                            <i class="fa fa-arrow-down" style="margin-left: 0px; color: red;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 pl-0 ml-0">
+                <h2>Product Development (SRV)</h2>
+            </div>
+            <div class="col-sm-12 p-1" style="background: yellow; color: black;">
+                <p style="font-size: larger;">
+                    Drive Product innovation through digital transformation via Fast Company and People First.
+                    Add CEO Agenda as a Digital Twin. Audit Automation will merge with CEO Agenda. Field Automation
+                    and Audit Automation are the key initiatives. Recruit & Assign talent Do Pulse IP Project for Pharma
+                    CRM. Do CPM with inputs from PA & PM frameworks. Maybe Wise Working will bolster CPM framework.
+                </p>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-sm-2 ml-0 pl-0">
+                <div class="pills">
+                    <ul class="nav nav-pills" style="width: 100%;">
+                        <li routerLinkActive="active" (click)=" changebDisplayValue(1)"
+                            style="width: 100%; margin-bottom: 10px;">
+                            <a mat-raised-button class="navtabWidth" [ngClass]="{'linkSelected': bdisplayValue == 1}">
+                                Current
+                            </a>
+
+                        </li>
+                        <li routerLinkActive="active" (click)=" changebDisplayValue(2)"
+                            style="width: 100%; margin-bottom: 10px;">
+                            <a mat-raised-button class="navtabWidth" [ngClass]="{'linkSelected': bdisplayValue == 2}">
+                                Action Plan
+                            </a>
+
+                        </li>
+                        <li routerLinkActive="active" (click)=" changebDisplayValue(3)"
+                            style="width: 100%; margin-bottom: 10px;">
+                            <a mat-raised-button class="navtabWidth" [ngClass]="{'linkSelected': bdisplayValue == 3}">
+                                Monitor
+                            </a>
+
+                        </li>
+                        <li routerLinkActive="active" (click)=" changebDisplayValue(4)"
+                            style="width: 100%; margin-bottom: 10px;">
+                            <a mat-raised-button class="navtabWidth" [ngClass]="{'linkSelected': bdisplayValue == 4}">
+                                KPI Metrics
+                            </a>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div *ngIf="bdisplayValue == 1" class="col-sm-10 pr-0 mt-1 mb-2">
+                <p style="font-size: x-large;">Current Situation : PROD(SRV)</p>
+                <hr>
+
+                <fieldset class="form-label-group">
+                    <textarea class="form-control" id="label-textarea" rows="15"
+                        placeholder="Enter Current Situation"></textarea>
+                    <label for="label-textarea">Enter Current Situation</label>
+                </fieldset>
+                <button class="btn btn-gradient-dark float-right">save</button>
+            </div>
+            <div *ngIf="bdisplayValue == 2" class="col-sm-10  pr-0 mt-1 mb-2">
+                <p style="font-size: x-large;">Action Plan : SRV (31/Mar/2021)</p>
+                <hr>
+                <fieldset class="form-label-group">
+                    <textarea class="form-control" id="label-textarea" rows="15"
+                        placeholder="Enter Target Scenario"></textarea>
+                    <label for="label-textarea">Enter Target Scenario</label>
+                </fieldset>
+                <button class="btn btn-gradient-dark float-right">save</button>
+
+            </div>
+            <div *ngIf="bdisplayValue == 3" class="col-sm-10  pr-0 mt-1 mb-2">
+                <p style="font-size: x-large;">Road Map : PROD(SRV)</p>
+                <hr>
+                <fieldset class="form-label-group">
+                    <textarea class="form-control" id="label-textarea" rows="15"
+                        placeholder="Enter Text"></textarea>
+                    <label for="label-textarea">Enter Text</label>
+                </fieldset>
+                <button class="btn btn-gradient-dark float-right">save</button>
+
+            </div>
+
+
+            <div *ngIf="bdisplayValue == 4" class="col-sm-10  pr-0">
+                <div class="row">
+                    <div class="col-sm-3 mt-0 pl-0">
+                        <div class="card">
+                            <div id="chart  p-1">
+                                <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart"
+                                    [plotOptions]="chartOptions.plotOptions" [labels]="chartOptions.labels"
+                                    [fill]="chartOptions.fill" [stroke]="chartOptions.stroke"></apx-chart>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-sm-3 mt-0">
+                        <div class="card">
+                            <div id="chart  p-1">
+                                <apx-chart [series]="chartOptions2.series" [chart]="chartOptions2.chart"
+                                    [plotOptions]="chartOptions2.plotOptions" [labels]="chartOptions2.labels"
+                                    [colors]="chartOptions2.colors" [fill]="chartOptions2.fill"
+                                    [stroke]="chartOptions2.stroke">
+                                </apx-chart>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-sm-3 mt-0">
+                        <div class="card">
+                            <div id="chart  p-1">
+                                <apx-chart [series]="chartOptions3.series" [chart]="chartOptions3.chart"
+                                    [plotOptions]="chartOptions3.plotOptions" [labels]="chartOptions3.labels"
+                                    [colors]="chartOptions3.colors" [fill]="chartOptions3.fill"
+                                    [stroke]="chartOptions3.stroke">
+                                </apx-chart>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-sm-3 mt-0">
+                        <div class="card">
+                            <div id="chart p-1">
+                                <apx-chart [series]="chartOptions4.series" [chart]="chartOptions4.chart"
+                                    [plotOptions]="chartOptions4.plotOptions" [labels]="chartOptions4.labels"
+                                    [colors]="chartOptions4.colors" [fill]="chartOptions4.fill"
+                                    [stroke]="chartOptions4.stroke">
+                                </apx-chart>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 mb-2 p-0 card">
+                        <table class="table  table-bordered" style="width: 100% !important ;">
+                            <thead>
+                                <tr>
+                                    <th class="text-center pl-0 pr-0" style="background: white;">Period</th>
+                                    <th class="text-center pl-0 pr-0" style="background: white;">Percentage</th>
+                                    <th class="text-center pl-0 pr-0" style="background: white;">Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center">Jan</td>
+                                    <td class="text-center">40%
+                                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                                    </td>
+                                    <td class="text-center">2</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Feb</td>
+                                    <td class="text-center">100%
+                                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                                    </td>
+                                    <td class="text-center">1</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Mar</td>
+                                    <td class="text-center">35%
+                                        <i class="fa fa-arrow-down" style="margin-left: 5px; color: red;"></i>
+                                    </td>
+                                    <td class="text-center">1</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Apr</td>
+                                    <td class="text-center">100%
+                                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                                    </td>
+                                    <td class="text-center">4</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">May</td>
+                                    <td class="text-center">55%
+                                        <i class="fa fa-arrow-down" style="margin-left: 5px; color: red;"></i>
+                                    </td>
+                                    <td class="text-center">1</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Jun</td>
+                                    <td class="text-center">28%
+                                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                                    </td>
+                                    <td class="text-center">3</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Jul</td>
+                                    <td class="text-center">56%
+                                        <i class="fa fa-arrow-down" style="margin-left: 5px; color: red;"></i>
+                                    </td>
+                                    <td class="text-center">2</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Aug</td>
+                                    <td class="text-center">75%
+                                        <i class="fa fa-arrow-down" style="margin-left: 5px; color: red;"></i>
+                                    </td>
+                                    <td class="text-center">1</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Sep</td>
+                                    <td class="text-center">65%
+                                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                                    </td>
+                                    <td class="text-center">0</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Oct</td>
+                                    <td class="text-center">87%
+                                        <i class="fa fa-arrow-down" style="margin-left: 5px; color: red;"></i>
+                                    </td>
+                                    <td class="text-center">0</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Nov</td>
+                                    <td class="text-center">95%
+                                        <i class="fa fa-arrow-down" style="margin-left: 5px; color: red;"></i>
+                                    </td>
+                                    <td class="text-center">1</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Dec</td>
+                                    <td class="text-center">100%
+                                        <i class="fa fa-arrow-up" style="margin-left: 5px; color: green;"></i>
+                                    </td>
+                                    <td class="text-center">1</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-sm-9 pl-2 mb-2">
+                        <div class="card p-1 pt-2" id="chart">
+                            <apx-chart [series]="chartOptions1.series" [chart]="chartOptions1.chart"
+                                [xaxis]="chartOptions1.xaxis" [dataLabels]="chartOptions1.dataLabels"
+                                [colors]="chartOptions1.colors" [grid]="chartOptions1.grid"
+                                [stroke]="chartOptions1.stroke" [title]="chartOptions1.title"></apx-chart>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    
+</div>

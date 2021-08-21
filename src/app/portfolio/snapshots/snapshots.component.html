@@ -1,0 +1,956 @@
+<div class="container">
+  <!-- <div class="content-body"> -->
+  <!-- content-header component -->
+  <!-- <app-content-header [contentHeader]="contentHeader"></app-content-header> -->
+
+  <!-- Analytics card section start -->
+  <!-- <section id="analytics-card">
+        <div class="row match-height">
+          <div class="col-lg-6 col-12">
+            <div class="card">
+              <div class="card-header d-flex justify-content-between pb-0">
+                <h4 class="card-title">Support Tracker</h4>
+                <div ngbDropdown class="chart-dropdown">
+                  <button
+                    class="btn btn-sm border-0 p-50"
+                    ngbDropdownToggle  
+                    type="button"
+                    id="dropdownItem4"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    Last 7 Days
+                  </button>
+                  <div ngbDropdownMenu class="dropdown-menu-right" aria-labelledby="dropdownItem4">
+                    <a ngbDropdownItem href="javascript:void(0);">Last 28 Days</a>
+                    <a ngbDropdownItem href="javascript:void(0);">Last Month</a>
+                    <a ngbDropdownItem href="javascript:void(0);">Last Year</a>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-2 col-12 d-flex flex-column flex-wrap text-center">
+                    <h1 class="font-large-2 font-weight-bolder mt-2 mb-0">
+                      {{ data.supportTracker.analyticsData.tickets }}
+                    </h1>
+                    <p class="card-text">Tickets</p>
+                  </div>
+                  <div class="col-sm-10 col-12 d-flex justify-content-center" #supportChartoptionsRef>
+                    <div id="supportChartoptions">
+                      Apexchart component
+                      <apx-chart
+                        [series]="data.supportTracker.series"
+                        [chart]="{
+                          height: 290,
+                          width:
+                            isMenuToggled === false
+                              ? supportChartoptionsRef.offsetWidth
+                              : supportChartoptions.chart.width,
+                          type: 'radialBar',
+                          sparkline: {
+                            enabled: false
+                          }
+                        }"
+                        [plotOptions]="supportChartoptions.plotOptions"
+                        [colors]="supportChartoptions.colors"
+                        [fill]="supportChartoptions.fill"
+                        [stroke]="supportChartoptions.stroke"
+                        [labels]="supportChartoptions.labels"
+                      ></apx-chart>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <div class="text-center">
+                    <p class="card-text mb-50">New Tickets</p>
+                    <span class="font-large-1 font-weight-bold">{{ data.supportTracker.analyticsData.newTickets }}</span>
+                  </div>
+                  <div class="text-center">
+                    <p class="card-text mb-50">Open Tickets</p>
+                    <span class="font-large-1 font-weight-bold">{{ data.supportTracker.analyticsData.openTickets }}</span>
+                  </div>
+                  <div class="text-center">
+                    <p class="card-text mb-50">Response Time</p>
+                    <span class="font-large-1 font-weight-bold">{{
+                      data.supportTracker.analyticsData.responseTime
+                    }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+      </section> -->
+  <!-- Analytics Card section end-->
+  <!-- </div> -->
+
+  <div class="row">
+
+    <div class="col-sm-6 pl-0" style="margin-bottom: 0px;">
+      <div class="pills">
+        <ul class="nav nav-pills">
+          <li routerLinkActive="active" routerLink="/portfolio/snapshots">
+            <a mat-raised-button class="navtabWidth">
+              Snapshots (45)
+            </a>
+          </li>
+          <li routerLinkActive="active" routerLink="/portfolio/projects">
+            <a mat-raised-button class="navtabWidth">
+              Projects (7)
+            </a>
+          </li>
+          <li routerLinkActive="active" routerLink="/portfolio/prototypes">
+            <a mat-raised-button class="navtabWidth">
+              Prototypes (7)
+            </a>
+          </li>
+          <li routerLinkActive="active" routerLink="/portfolio/documents">
+            <a mat-raised-button class="navtabWidth">
+              Documents (21)
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-sm-6 pr-0">
+      <!-- <button class="btn btn-secondary float-right" style="height: 40px;border-radius: 5px;"
+            (click)="filterToggle = !filterToggle">
+            <i class="fas fa-align-justify"></i> Filter
+        </button> -->
+      <button class="btn btn-gradient-secondary float-right" (click)="filterToggle = !filterToggle"> 
+        <i class="fa fa-align-justify"></i> Filter</button>
+    </div>
+
+  </div>
+
+  <!-- Filter -->
+  <div class="row mt-1" fxLayout="row wrap" *ngIf="filterToggle">
+    <div class="col-12 m-0 p-0">
+      <div class="card">
+        <form class="form-horizontal r-separator">
+          <div class="card-body">
+            <div class="row">
+              <div class="col"> 
+                <div class="form-group row">
+                  <label for="inputEmail3" class="col-sm-3 text-left control-label col-form-label">Search
+                    by Title:</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" id="inputEmail3" placeholder="Search by Lead">
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group row">
+                  <label for="inputEmail3" class="col-sm-3 text-left control-label col-form-label">Search
+                    by Category:</label>
+                  <div class="col-sm-8">
+                    <ng-multiselect-dropdown [placeholder]="'--Search by Category--'" [data]="Category"
+                      [(ngModel)]="selectedItems" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+                      (onSelectAll)="onSelectAll($event)">
+                    </ng-multiselect-dropdown>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group m-b-0 text-right" style="margin-right: 0px;">
+                <button type="submit" class="btn btn-gradient-info waves-effect waves-light"
+                  style="margin-right: 10px;">Save</button>
+                <button type="submit" class="btn btn-gradient-dark waves-effect waves-light"
+                (click)="filterToggle = !filterToggle">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Update Project -->
+  <ng-template #updateProjectModal let-modal>
+    <div>
+      <div class="modal-header">
+        <div class="col-sm-10 m-0 p-0 ">
+          <h2 class="modal-title m-0 p-0 text-left" id="modal-basic-title">Update Project</h2>
+        </div>
+        <div class="col-sm-2 pr-1">
+          <button class="float-right" type="button" class="close ml-0" aria-label="Close"
+            (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+      <form class="form-horizontal r-separator">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 mt-0 text-left control-label col-form-label">Artifact Type:</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="inputEmail3" placeholder="Enter Artifact Type">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 mt-0  text-left control-label col-form-label">Select
+                  Category:</label>
+                <div class="col-sm-8">
+                  <ng-multiselect-dropdown [placeholder]="'--Select Category--'" [data]="Category"
+                    [(ngModel)]="selectedItems" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+                    (onSelectAll)="onSelectAll($event)">
+                  </ng-multiselect-dropdown>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 mt-0  text-left control-label col-form-label">Select
+                  Industry:</label>
+                <div class="col-sm-8" for="status">
+                  <select name="status" style="width: 300px;height: 31px;">
+                    <option value="volvo">-- Select Industry --</option>
+                    <option value="0">Chemicals</option>
+                    <option value="1">Logistics & Supply chain</option>
+                    <option value="2">Digital Marketing Agencies</option>
+                    <option value="3">Software Product development</option>
+                    <option value="4">Import & Export</option>
+                    <option value="5">Financial Services</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 mt-0  text-left control-label col-form-label">Select Tag:</label>
+                <div class="col-sm-8">
+                  <ng-multiselect-dropdown [placeholder]="'--Select Tag--'" [data]="Tag" [(ngModel)]="selectedItems"
+                    [settings]="dropdownSettings" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+                  </ng-multiselect-dropdown>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 mt-0  text-left control-label col-form-label">Enter Project
+                  Title:</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="inputEmail3" placeholder="Enter Project Title">
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 mt-0  text-left control-label col-form-label">Project Type:</label>
+                <div class="col-sm-8" for="status">
+                  <select name="status" style="width: 300px;height: 31px;">
+                    <option value="volvo">-- Select Project --</option>
+                    <option value="0">Demo</option>
+                    <option value="1">IP</option>
+                    <option value="1">CC</option>
+                    <option value="1">CP</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 mt-0  text-left control-label col-form-label">Document Type:</label>
+                <div class="col-sm-8" for="status">
+                  <select name="status" style="width: 300px;height: 31px;">
+                    <option value="volvo">-- Select Document --</option>
+                    <option value="0">Construction Quals</option>
+                    <option value="1">Logistics Quals</option>
+                    <option value="2">Mining Quals</option>
+                    <option value="3">Manufacturing Quals</option>
+                    <option value="4">Company Profile</option>
+                    <option value="5">Audit Automation</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="form-group m-b-0 float-right" style="margin-top: -30px;">
+            <button type="submit" class="btn btn-info waves-effect waves-light" style="margin-right:10px">Save</button>
+            <button type="submit" class="btn btn-dark waves-effect waves-light"
+            (click)="modal.close('Accept click')">Cancel</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+
+
+  <!-- Update Prototype -->
+  <ng-template #updatePrototypeModal let-modal>
+    <div>
+      <div class="modal-header">
+        <div class="col-sm-10 m-0 p-0">
+          <h2 class="modal-title m-0 p-0 text-left" id="modal-basic-title">Update Prototype</h2>
+        </div>
+        <div class="col-sm-2 pr-1">
+          <button class="float-right" type="button" class="close ml-0" aria-label="Close"
+            (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+      <form class="form-horizontal r-separator">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 mt-0 text-left control-label col-form-label">Artifact Type:</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="inputEmail3" placeholder="Enter Artifact Type">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 mt-0  text-left control-label col-form-label">Select
+                  Category:</label>
+                <div class="col-sm-8">
+                  <ng-multiselect-dropdown [placeholder]="'--Select Category--'" [data]="Category"
+                    [(ngModel)]="selectedItems" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+                    (onSelectAll)="onSelectAll($event)">
+                  </ng-multiselect-dropdown>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 mt-0  text-left control-label col-form-label">Select
+                  Industry:</label>
+                <div class="col-sm-8" for="status">
+                  <select name="status" style="width: 300px;height: 31px;">
+                    <option value="volvo">-- Select Industry --</option>
+                    <option value="0">Chemicals</option>
+                    <option value="1">Logistics & Supply chain</option>
+                    <option value="2">Digital Marketing Agencies</option>
+                    <option value="3">Software Product development</option>
+                    <option value="4">Import & Export</option>
+                    <option value="5">Financial Services</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4  mt-0 text-left control-label col-form-label">Select Tag:</label>
+                <div class="col-sm-8">
+                  <ng-multiselect-dropdown [placeholder]="'--Select Tag--'" [data]="Tag" [(ngModel)]="selectedItems"
+                    [settings]="dropdownSettings" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+                  </ng-multiselect-dropdown>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 mt-0  text-left control-label col-form-label">Enter Prototype
+                  Title:</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="inputEmail3" placeholder="Enter Prototype Title">
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+        <div class="card-body">
+          <div class="form-group m-b-0 float-right" style="margin-top: -30px;">
+            <button type="submit" class="btn btn-info waves-effect waves-light" style="margin-right:10px">Save</button>
+            <button type="submit" class="btn btn-dark waves-effect waves-light"
+            (click)="modal.close('Accept click')">Cancel</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+
+
+
+  <!-- Update Document -->
+  <ng-template #updateDocumentModal let-modal>
+    <div>
+      <div class="modal-header">
+        <div class="col-sm-10 m-0 p-0">
+          <h2 class="modal-title m-0 p-0 text-left" id="modal-basic-title">Update Document</h2>
+        </div>
+        <div class="col-sm-2 pr-1">
+          <button class="float-right" type="button" class="close ml-0" aria-label="Close"
+            (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+      <form class="form-horizontal r-separator">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 mt-0 text-left control-label col-form-label">Artifact Type:</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="inputEmail3" placeholder="Enter Artifact Type">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 mt-0  text-left control-label col-form-label">Select
+                  Category:</label>
+                <div class="col-sm-8">
+                  <ng-multiselect-dropdown [placeholder]="'--Select Category--'" [data]="Category"
+                    [(ngModel)]="selectedItems" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+                    (onSelectAll)="onSelectAll($event)">
+                  </ng-multiselect-dropdown>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 mt-0  text-left control-label col-form-label">Select Tag:</label>
+                <div class="col-sm-8">
+                  <ng-multiselect-dropdown [placeholder]="'--Select Tag--'" [data]="Tag" [(ngModel)]="selectedItems"
+                    [settings]="dropdownSettings" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+                  </ng-multiselect-dropdown>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 mt-0  text-left control-label col-form-label">Enter Document
+                  Title:</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="inputEmail3" placeholder="Enter Prototype Title">
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 mt-0  text-left control-label col-form-label">Enter Document
+                  URL:</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="inputEmail3" placeholder="Enter Document URL">
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 mt-0  text-left control-label col-form-label">Document Type:</label>
+                <div class="col-sm-8" for="status">
+                  <select name="status" style="width: 300px;height: 31px;">
+                    <option value="volvo">-- Select Document Type --</option>
+                    <option value="0">Case Studies</option>
+                    <option value="1">Whitepapers</option>
+                    <option value="2">Templates</option>
+                    <option value="3">Qualifications</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="card-body">
+          <div class="form-group m-b-0 float-right" style="margin-top: -30px;">
+            <button type="submit" class="btn btn-info waves-effect waves-light" style="margin-right:10px">Save</button>
+            <button type="submit" class="btn btn-dark waves-effect waves-light"
+            (click)="modal.close('Accept click')">Cancel</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+
+
+
+
+
+  <div class="row mt-3">
+    <div class="col-sm-12 p-0">
+      <div class="card">
+        <ul ngbNav #nav="ngbNav" class="nav-tabs">
+          <li ngbNavItem>
+            <a ngbNavLink class="p-2">Project(7)</a>
+            <ng-template ngbNavContent class="">
+              <table class="table table-striped ">
+                <thead class="">
+                  <tr>
+                    <th scope="col" style="background: white;">Title</th>
+                    <th scope="col" style="background: white;">Category</th>
+                    <th scope="col" style="background: white;">Demo URL's</th>
+                    <th scope="col" style="background: white;">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>People First</td>
+                    <td>GEO India,Global</td>
+                    <td><a href="#">View Demo Urls's</a></td>
+                    <td>
+                      <a><i class="fa fa-edit" ngbTooltip="Edit Project" (click)="openn(updateProjectModal)"
+                          style="cursor: pointer;margin-right:10px;color: cornflowerblue"></i>
+                      </a>
+                      <a mwlConfirmationPopover type="button" popoverTitle="Confirm Delete"
+                        popoverMessage="Are you sure you want to Delete?" placement="left"
+                        (confirm)="cancelClicked = true" (cancel)="cancelClicked = true">
+                        <i class="fa fa-trash red" ngbTooltip="Delete"
+                          style="cursor: pointer;color: rgb(241, 44, 44)"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Fast Comp</td>
+                    <td>GEO India,Global</td>
+                    <td><a href="#">View Demo Urls's</a></td>
+                    <td>
+                      <a><i class="fa fa-edit" ngbTooltip="Edit Project" (click)="openn(updateProjectModal)"
+                          style="cursor: pointer;margin-right:10px;color: cornflowerblue"></i>
+                      </a>
+                      <a mwlConfirmationPopover type="button" popoverTitle="Confirm Delete"
+                        popoverMessage="Are you sure you want to Delete?" placement="left"
+                        (confirm)="cancelClicked = true" (cancel)="cancelClicked = true">
+                        <i class="fa fa-trash red" ngbTooltip="Delete"
+                          style="cursor: pointer;color: rgb(241, 44, 44)"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Audit IC</td>
+                    <td>GEO India,Global</td>
+                    <td><a href="#">View Demo Urls's</a></td>
+                    <td>
+                      <a><i class="fa fa-edit" ngbTooltip="Edit Project" (click)="openn(updateProjectModal)"
+                          style="cursor: pointer;margin-right:10px;color: cornflowerblue"></i>
+                      </a>
+                      <a mwlConfirmationPopover type="button" popoverTitle="Confirm Delete"
+                        popoverMessage="Are you sure you want to Delete?" placement="left"
+                        (confirm)="cancelClicked = true" (cancel)="cancelClicked = true">
+                        <i class="fa fa-trash red" ngbTooltip="Delete"
+                          style="cursor: pointer;color: rgb(241, 44, 44)"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>F20</td>
+                    <td>Global</td>
+                    <td><a href="#">View Demo Urls's</a></td>
+                    <td>
+                      <a><i class="fa fa-edit" ngbTooltip="Edit Project" (click)="openn(updateProjectModal)"
+                          style="cursor: pointer;margin-right:10px;color: cornflowerblue"></i>
+                      </a>
+                      <a mwlConfirmationPopover type="button" popoverTitle="Confirm Delete"
+                        popoverMessage="Are you sure you want to Delete?" placement="left"
+                        (confirm)="cancelClicked = true" (cancel)="cancelClicked = true">
+                        <i class="fa fa-trash red" ngbTooltip="Delete"
+                          style="cursor: pointer;color: rgb(241, 44, 44)"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>PA</td>
+                    <td>IND Mining,GEO India,Global</td>
+                    <td><a href="#">View Demo Urls's</a></td>
+                    <td>
+                      <a><i class="fa fa-edit" ngbTooltip="Edit Project" (click)="openn(updateProjectModal)"
+                          style="cursor: pointer;margin-right:10px;color: cornflowerblue"></i>
+                      </a>
+                      <a mwlConfirmationPopover type="button" popoverTitle="Confirm Delete"
+                        popoverMessage="Are you sure you want to Delete?" placement="left"
+                        (confirm)="cancelClicked = true" (cancel)="cancelClicked = true">
+                        <i class="fa fa-trash red" ngbTooltip="Delete"
+                          style="cursor: pointer;color: rgb(241, 44, 44)"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>PM Auto</td>
+                    <td>IND Mining,GEO India,Global</td>
+                    <td><a href="#">View Demo Urls's</a></td>
+                    <td>
+                      <a><i class="fa fa-edit" ngbTooltip="Edit Project" (click)="openn(updateProjectModal)"
+                          style="cursor: pointer;margin-right:10px;color: cornflowerblue"></i>
+                      </a>
+                      <a mwlConfirmationPopover type="button" popoverTitle="Confirm Delete"
+                        popoverMessage="Are you sure you want to Delete?" placement="left"
+                        (confirm)="cancelClicked = true" (cancel)="cancelClicked = true">
+                        <i class="fa fa-trash red" ngbTooltip="Delete"
+                          style="cursor: pointer;color: rgb(241, 44, 44)"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Audit Hospitality</td>
+                    <td>GEO India,Global</td>
+                    <td><a href="#">View Demo Urls's</a></td>
+                    <td>
+                      <a><i class="fa fa-edit" ngbTooltip="Edit Project" (click)="openn(updateProjectModal)"
+                          style="cursor: pointer;margin-right:10px;color: cornflowerblue"></i>
+                      </a>
+                      <a mwlConfirmationPopover type="button" popoverTitle="Confirm Delete"
+                        popoverMessage="Are you sure you want to Delete?" placement="left"
+                        (confirm)="cancelClicked = true" (cancel)="cancelClicked = true">
+                        <i class="fa fa-trash red" ngbTooltip="Delete"
+                          style="cursor: pointer;color: rgb(241, 44, 44)"></i>
+                      </a>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </ng-template>
+          </li>
+          <li ngbNavItem>
+            <a ngbNavLink class="p-2">Prototype(17)</a>
+            <ng-template ngbNavContent>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col" style="background: white;">Title</th>
+                    <th scope="col" style="background: white;">Category</th>
+                    <th scope="col" style="background: white;">Demo URL's</th>
+                    <th scope="col" style="background: white;">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Event Automation</td>
+                    <td>GEO India,Global</td>
+                    <td><a href="#">View Demo Urls's</a></td>
+                    <td>
+                      <a><i class="fa fa-edit" ngbTooltip="Edit Prototype" (click)="openn(updatePrototypeModal)"
+                          style="cursor: pointer;margin-right:10px;color: cornflowerblue"></i>
+                      </a>
+                      <a mwlConfirmationPopover type="button" popoverTitle="Confirm Delete"
+                        popoverMessage="Are you sure you want to Delete?" placement="left"
+                        (confirm)="cancelClicked = true" (cancel)="cancelClicked = true">
+                        <i class="fa fa-trash red" ngbTooltip="Delete"
+                          style="cursor: pointer;color: rgb(241, 44, 44)"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Gene Test</td>
+                    <td>GEO USA,Global</td>
+                    <td><a href="#">View Demo Urls's</a></td>
+                    <td>
+                      <a><i class="fa fa-edit" ngbTooltip="Edit Prototype" (click)="openn(updatePrototypeModal)"
+                          style="cursor: pointer;margin-right:10px;color: cornflowerblue"></i>
+                      </a>
+                      <a mwlConfirmationPopover type="button" popoverTitle="Confirm Delete"
+                        popoverMessage="Are you sure you want to Delete?" placement="left"
+                        (confirm)="cancelClicked = true" (cancel)="cancelClicked = true">
+                        <i class="fa fa-trash red" ngbTooltip="Delete"
+                          style="cursor: pointer;color: rgb(241, 44, 44)"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Online Food Order</td>
+                    <td>GEO USA,Global</td>
+                    <td><a href="#">View Demo Urls's</a></td>
+                    <td>
+                      <a><i class="fa fa-edit" ngbTooltip="Edit Prototype" (click)="openn(updatePrototypeModal)"
+                          style="cursor: pointer;margin-right:10px;color: cornflowerblue"></i>
+                      </a>
+                      <a mwlConfirmationPopover type="button" popoverTitle="Confirm Delete"
+                        popoverMessage="Are you sure you want to Delete?" placement="left"
+                        (confirm)="cancelClicked = true" (cancel)="cancelClicked = true">
+                        <i class="fa fa-trash red" ngbTooltip="Delete"
+                          style="cursor: pointer;color: rgb(241, 44, 44)"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Medical Diagostics</td>
+                    <td>Global USA,Global</td>
+                    <td><a href="#">View Demo Urls's</a></td>
+                    <td>
+                      <a><i class="fa fa-edit" ngbTooltip="Edit Prototype" (click)="openn(updatePrototypeModal)"
+                          style="cursor: pointer;margin-right:10px;color: cornflowerblue"></i>
+                      </a>
+                      <a mwlConfirmationPopover type="button" popoverTitle="Confirm Delete"
+                        popoverMessage="Are you sure you want to Delete?" placement="left"
+                        (confirm)="cancelClicked = true" (cancel)="cancelClicked = true">
+                        <i class="fa fa-trash red" ngbTooltip="Delete"
+                          style="cursor: pointer;color: rgb(241, 44, 44)"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Flooring Contracts</td>
+                    <td>IND Construction,Global</td>
+                    <td><a href="#">View Demo Urls's</a></td>
+                    <td>
+                      <a><i class="fa fa-edit" ngbTooltip="Edit Prototype" (click)="openn(updatePrototypeModal)"
+                          style="cursor: pointer;margin-right:10px;color: cornflowerblue"></i>
+                      </a>
+                      <a mwlConfirmationPopover type="button" popoverTitle="Confirm Delete"
+                        popoverMessage="Are you sure you want to Delete?" placement="left"
+                        (confirm)="cancelClicked = true" (cancel)="cancelClicked = true">
+                        <i class="fa fa-trash red" ngbTooltip="Delete"
+                          style="cursor: pointer;color: rgb(241, 44, 44)"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Online Telemed</td>
+                    <td>GEO India,GEO USA,GEO Mining,GEO India,Global</td>
+                    <td><a href="#">View Demo Urls's</a></td>
+                    <td>
+                      <a><i class="fa fa-edit" ngbTooltip="Edit Prototype" (click)="openn(updatePrototypeModal)"
+                          style="cursor: pointer;margin-right:10px;color: cornflowerblue"></i>
+                      </a>
+                      <a mwlConfirmationPopover type="button" popoverTitle="Confirm Delete"
+                        popoverMessage="Are you sure you want to Delete?" placement="left"
+                        (confirm)="cancelClicked = true" (cancel)="cancelClicked = true">
+                        <i class="fa fa-trash red" ngbTooltip="Delete"
+                          style="cursor: pointer;color: rgb(241, 44, 44)"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Audit Hospitality</td>
+                    <td>GEO India,Global</td>
+                    <td><a href="#">View Demo Urls's</a></td>
+                    <td>
+                      <a><i class="fa fa-edit" ngbTooltip="Edit Prototype" (click)="openn(updatePrototypeModal)"
+                          style="cursor: pointer;margin-right:10px;color: cornflowerblue"></i>
+                      </a>
+                      <a mwlConfirmationPopover type="button" popoverTitle="Confirm Delete"
+                        popoverMessage="Are you sure you want to Delete?" placement="left"
+                        (confirm)="cancelClicked = true" (cancel)="cancelClicked = true">
+                        <i class="fa fa-trash red" ngbTooltip="Delete"
+                          style="cursor: pointer;color: rgb(241, 44, 44)"></i>
+                      </a>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </ng-template>
+          </li>
+          <li ngbNavItem>
+            <a href="#" ngbNavLink class="p-2">Documents(17)</a>
+            <ng-template ngbNavContent>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col" style="background: white;">Title</th>
+                    <th scope="col" style="background: white;">Category</th>
+                    <th scope="col" style="background: white;">View Link</th>
+                    <th scope="col" style="background: white;">Copy Link</th>
+                    <th scope="col" style="background: white;">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Construction Sol Pos</td>
+                    <td>India Construction,GEO India,GEO USA,GEO Canada,Global</td>
+                    <td><a href="#">View Link</a></td>
+                    <td><a href="#">Copy Link</a></td>
+                    <td>
+                      <a><i class="fa fa-edit" ngbTooltip="Edit Document" (click)="openn(updateDocumentModal)"
+                          style="cursor: pointer;margin-right:10px;color: cornflowerblue"></i>
+                      </a>
+                      <a mwlConfirmationPopover type="button" popoverTitle="Confirm Delete"
+                        popoverMessage="Are you sure you want to Delete?" placement="left"
+                        (confirm)="cancelClicked = true" (cancel)="cancelClicked = true">
+                        <i class="fa fa-trash red" ngbTooltip="Delete"
+                          style="cursor: pointer;color: rgb(241, 44, 44)"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Logistics Sol Pos</td>
+                    <td>GEO India,GEO USA,IND Logistics,GEO Canada</td>
+                    <td><a href="#">View Link</a></td>
+                    <td><a href="#">Copy Link</a></td>
+                    <td>
+                      <a><i class="fa fa-edit" ngbTooltip="Edit Document" (click)="openn(updateDocumentModal)"
+                          style="cursor: pointer;margin-right:10px;color: cornflowerblue"></i>
+                      </a>
+                      <a mwlConfirmationPopover type="button" popoverTitle="Confirm Delete"
+                        popoverMessage="Are you sure you want to Delete?" placement="left"
+                        (confirm)="cancelClicked = true" (cancel)="cancelClicked = true">
+                        <i class="fa fa-trash red" ngbTooltip="Delete"
+                          style="cursor: pointer;color: rgb(241, 44, 44)"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Manufacturing Sol Po</td>
+                    <td>GEO India,GEO USA,IND Logistics,GEO Canada</td>
+                    <td><a href="#">View Link</a></td>
+                    <td><a href="#">Copy Link</a></td>
+                    <td>
+                      <a><i class="fa fa-edit" ngbTooltip="Edit Document" (click)="openn(updateDocumentModal)"
+                          style="cursor: pointer;margin-right:10px;color: cornflowerblue"></i>
+                      </a>
+                      <a mwlConfirmationPopover type="button" popoverTitle="Confirm Delete"
+                        popoverMessage="Are you sure you want to Delete?" placement="left"
+                        (confirm)="cancelClicked = true" (cancel)="cancelClicked = true">
+                        <i class="fa fa-trash red" ngbTooltip="Delete"
+                          style="cursor: pointer;color: rgb(241, 44, 44)"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Mining Sol Pos</td>
+                    <td>GEO India,GEO USA,IND Logistics,GEO Canada</td>
+                    <td><a href="#">View Link</a></td>
+                    <td><a href="#">Copy Link</a></td>
+                    <td>
+                      <a><i class="fa fa-edit" ngbTooltip="Edit Document" (click)="openn(updateDocumentModal)"
+                          style="cursor: pointer;margin-right:10px;color: cornflowerblue"></i>
+                      </a>
+                      <a mwlConfirmationPopover type="button" popoverTitle="Confirm Delete"
+                        popoverMessage="Are you sure you want to Delete?" placement="left"
+                        (confirm)="cancelClicked = true" (cancel)="cancelClicked = true">
+                        <i class="fa fa-trash red" ngbTooltip="Delete"
+                          style="cursor: pointer;color: rgb(241, 44, 44)"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Genetic Testing</td>
+                    <td>Global</td>
+                    <td><a href="#">View Link</a></td>
+                    <td><a href="#">Copy Link</a></td>
+                    <td>
+                      <a><i class="fa fa-edit" ngbTooltip="Edit Document" (click)="openn(updateDocumentModal)"
+                          style="cursor: pointer;margin-right:10px;color: cornflowerblue"></i>
+                      </a>
+                      <a mwlConfirmationPopover type="button" popoverTitle="Confirm Delete"
+                        popoverMessage="Are you sure you want to Delete?" placement="left"
+                        (confirm)="cancelClicked = true" (cancel)="cancelClicked = true">
+                        <i class="fa fa-trash red" ngbTooltip="Delete"
+                          style="cursor: pointer;color: rgb(241, 44, 44)"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>MDS</td>
+                    <td>Global</td>
+                    <td><a href="#">View Link</a></td>
+                    <td><a href="#">Copy Link</a></td>
+                    <td>
+                      <a><i class="fa fa-edit" ngbTooltip="Edit Document" (click)="openn(updateDocumentModal)"
+                          style="cursor: pointer;margin-right:10px;color: cornflowerblue"></i>
+                      </a>
+                      <a mwlConfirmationPopover type="button" popoverTitle="Confirm Delete"
+                        popoverMessage="Are you sure you want to Delete?" placement="left"
+                        (confirm)="cancelClicked = true" (cancel)="cancelClicked = true">
+                        <i class="fa fa-trash red" ngbTooltip="Delete"
+                          style="cursor: pointer;color: rgb(241, 44, 44)"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>OFO</td>
+                    <td>Global</td>
+                    <td><a href="#">View Link</a></td>
+                    <td><a href="#">Copy Link</a></td>
+                    <td>
+                      <a><i class="fa fa-edit" ngbTooltip="Edit Document" (click)="openn(updateDocumentModal)"
+                          style="cursor: pointer;margin-right:10px;color: cornflowerblue"></i>
+                      </a>
+                      <a mwlConfirmationPopover type="button" popoverTitle="Confirm Delete"
+                        popoverMessage="Are you sure you want to Delete?" placement="left"
+                        (confirm)="cancelClicked = true" (cancel)="cancelClicked = true">
+                        <i class="fa fa-trash red" ngbTooltip="Delete"
+                          style="cursor: pointer;color: rgb(241, 44, 44)"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Flooring Contractor</td>
+                    <td>IND Construction,Global</td>
+                    <td><a href="#">View Link</a></td>
+                    <td><a href="#">Copy Link</a></td>
+                    <td>
+                      <a><i class="fa fa-edit" ngbTooltip="Edit Document" (click)="openn(updateDocumentModal)"
+                          style="cursor: pointer;margin-right:10px;color: cornflowerblue"></i>
+                      </a>
+                      <a mwlConfirmationPopover type="button" popoverTitle="Confirm Delete"
+                        popoverMessage="Are you sure you want to Delete?" placement="left"
+                        (confirm)="cancelClicked = true" (cancel)="cancelClicked = true">
+                        <i class="fa fa-trash red" ngbTooltip="Delete"
+                          style="cursor: pointer;color: rgb(241, 44, 44)"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Telemedicine</td>
+                    <td>Global</td>
+                    <td><a href="#">View Link</a></td>
+                    <td><a href="#">Copy Link</a></td>
+                    <td>
+                      <a><i class="fa fa-edit" ngbTooltip="Edit Document" (click)="openn(updateDocumentModal)"
+                          style="cursor: pointer;margin-right:10px;color: cornflowerblue"></i>
+                      </a>
+                      <a mwlConfirmationPopover type="button" popoverTitle="Confirm Delete"
+                        popoverMessage="Are you sure you want to Delete?" placement="left"
+                        (confirm)="cancelClicked = true" (cancel)="cancelClicked = true">
+                        <i class="fa fa-trash red" ngbTooltip="Delete"
+                          style="cursor: pointer;color: rgb(241, 44, 44)"></i>
+                      </a>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </ng-template>
+          </li>
+        </ul>
+        <div [ngbNavOutlet]="nav" class=""></div>
+      </div>
+    </div>
+
+  </div>
+</div>
