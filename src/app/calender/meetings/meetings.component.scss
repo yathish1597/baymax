@@ -43,7 +43,8 @@
   }
   .checkboxes li {
     display:inline-block;
-    width:33.3333%;
-  }
-  
-  
+    width:43%;
+}
+.checkboxes li:last-child{
+    width: auto;
+}

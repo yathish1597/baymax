@@ -144,17 +144,17 @@ export class DigitaltwinComponent implements OnInit {
             name: {
               fontSize: "16px",
               fontWeight:'bolder',
-              color: undefined,
+              color: 'gray',
               offsetY: 120,
             },
             value: {
               offsetY: 76,
               fontSize: "22px",
               fontWeight:'bolder',
-              color: undefined,
-              formatter: function(val) {
-                return val + "%";
-              }
+              color: 'gray',
+              // formatter: function(val) {
+              //   return val + "%";
+              // }
             }
           }
         }
@@ -190,14 +190,14 @@ export class DigitaltwinComponent implements OnInit {
             name: {
               fontSize: "16px",
               fontWeight:'bolder',
-              color: undefined,
+              color: 'gray',
               offsetY: 120
             },
             value: {
               offsetY: 76,
               fontSize: "22px",
               fontWeight:'bolder',
-              color: undefined,
+              color: 'gray',
               formatter: function(val) {
                 return val + "%";
               }
@@ -237,14 +237,14 @@ export class DigitaltwinComponent implements OnInit {
             name: {
               fontSize: "16px",
               fontWeight:'bolder',
-              color: undefined,
+              color:'gray',
               offsetY: 120
             },
             value: {
               offsetY: 76,
               fontSize: "22px",
               fontWeight:'bolder',
-              color: undefined,
+              color:'gray',
               formatter: function(val) {
                 return val + "%";
               }
@@ -284,14 +284,14 @@ export class DigitaltwinComponent implements OnInit {
             name: {
               fontSize: "16px",
               fontWeight:'bolder',
-              color: undefined,
+              color: 'gray',
               offsetY: 120
             },
             value: {
               offsetY: 76,
               fontSize: "22px",
               fontWeight:'bolder',
-              color: undefined,
+              color: 'gray',
               formatter: function(val) {
                 return val + "%";
               }

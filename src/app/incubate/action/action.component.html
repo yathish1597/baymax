@@ -1,20 +1,20 @@
 <div class="container">
     <div class="row ">
         <div class="col-sm-12 pr-0 mr-0 ml-0 pl-0">
-            <button class="btn btn-gradient-dark float-right  ml-1" (click)="modalOpen(modalBasic)">
+            <button class="btn btn-relief-dark float-right  ml-1" (click)="modalOpen(modalBasic)">
                 <i class="fa fa-plus"></i>&nbsp; Add Agenda</button>
-            &nbsp; <button *ngIf="displayValue==false" class="btn btn-gradient-primary" (click)="changeDisplayValue()">
+            &nbsp; <button *ngIf="displayValue==false" class="btn btn-relief-primary" (click)="changeDisplayValue()">
                 Back</button> &nbsp;
-            <button class="btn btn-gradient-primary float-right ml-1" (click)="changeDisplayValue()">
+            <button class="btn btn-relief-primary float-right ml-1" (click)="changeDisplayValue()">
                 <i class="data feather icon-bar-chart"></i>&nbsp;Analytics</button> &nbsp;
 
 
-            <button class="btn btn-gradient-primary float-right" (click)="modalOpenVC(modalVC)">
+            <button class="btn btn-relief-primary float-right" (click)="modalOpenVC(modalVC)">
                 <i class="data feather icon-clock"></i>&nbsp;Time Allocation</button> &nbsp;
-            <button *ngIf="expanded == false" type="button" class="btn btn-icon btn-gradient-primary float-right mr-1"
+            <button *ngIf="expanded == false" type="button" class="btn btn-icon btn-relief-primary float-right mr-1"
                 title="Expanded View" (click)='expand()' style="height: 38px;font-size: 25px; padding-top: 5px;">
                 <i class="fa fa-expand"></i> </button>
-            <button *ngIf="expanded == true" type="button" class="btn btn-icon btn-gradient-primary float-right mr-1"
+            <button *ngIf="expanded == true" type="button" class="btn btn-icon btn-relief-primary float-right mr-1"
                 title="Compressed View" (click)='expand()' style="height: 38px;font-size: 25px; padding-top: 5px;">
                 <i class="fa fa-compress"></i> </button>
         </div>
@@ -93,7 +93,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-gradient-dark" (click)="modal.close('Accept click')" rippleEffect>
+                <button type="button" class="btn btn-relief-dark" (click)="modal.close('Accept click')" rippleEffect>
                     Close
                 </button>
             </div>
@@ -303,11 +303,11 @@
                             </div>
                             <div class="row pr-2 pl-2 mt-3">
                                 <div class="col-sm-12">
-                                    <button class="float-right btn btn-gradient-dark"
+                                    <button class="float-right btn btn-relief-dark"
                                         (click)="modal.close('Accept click')">Cancel</button>
-                                    <button class="float-right btn btn-gradient-info mr-1">Save</button>
+                                    <button class="float-right btn btn-relief-success mr-1">Save</button>
                                     <button matStepperNext
-                                        class="float-right btn btn-gradient-primary mr-1">Proceed</button>
+                                        class="float-right btn btn-relief-primary mr-1">Proceed</button>
                                 </div>
                             </div>
                             <!-- <div class="row pr-2 pl-2 mt-3">
@@ -340,13 +340,13 @@
                             </div>
                             <div class="row pr-2 pl-2 mt-3">
                                 <div class="col-sm-12">
-                                    <button class="float-right btn btn-gradient-dark"
+                                    <button class="float-right btn btn-relief-dark"
                                         (click)="modal.close('Accept click')">Cancel</button>
                                     <button matStepperPrevious
-                                        class="float-right btn btn-gradient-secondary mr-1">Back</button>
-                                    <button class="float-right btn btn-gradient-info mr-1">Save</button>
+                                        class="float-right btn btn-relief-secondary mr-1">Back</button>
+                                    <button class="float-right btn btn-relief-success mr-1">Save</button>
                                     <button matStepperNext
-                                        class="float-right btn btn-gradient-primary mr-1">Proceed</button>
+                                        class="float-right btn btn-relief-primary mr-1">Proceed</button>
                                 </div>
                             </div>
                             <!-- <div>
@@ -373,13 +373,13 @@
                             </div>
                             <div class="row pr-2 pl-2 mt-3">
                                 <div class="col-sm-12">
-                                    <button class="float-right btn btn-gradient-dark"
+                                    <button class="float-right btn btn-relief-dark"
                                         (click)="modal.close('Accept click')">Cancel</button>
                                     <button matStepperPrevious
-                                        class="float-right btn btn-gradient-secondary mr-1">Back</button>
-                                    <button class="float-right btn btn-gradient-info mr-1">Save</button>
+                                        class="float-right btn btn-relief-secondary mr-1">Back</button>
+                                    <button class="float-right btn btn-relief-success mr-1">Save</button>
                                     <button matStepperNext
-                                        class="float-right btn btn-gradient-primary mr-1">Proceed</button>
+                                        class="float-right btn btn-relief-primary mr-1">Proceed</button>
                                 </div>
                             </div>
                             <!-- <div>
@@ -407,11 +407,11 @@
                         </div>
                         <div class="row pr-2 pl-2 mt-3">
                             <div class="col-sm-12">
-                                <button class="float-right btn btn-gradient-dark"
+                                <button class="float-right btn btn-relief-dark"
                                     (click)="modal.close('Accept click')">Cancel</button>
                                 <button matStepperPrevious
-                                    class="float-right btn btn-gradient-secondary mr-1">Back</button>
-                                <button class="float-right btn btn-gradient-info mr-1">Save</button>
+                                    class="float-right btn btn-relief-secondary mr-1">Back</button>
+                                <button class="float-right btn btn-relief-success mr-1">Save</button>
                             </div>
                         </div>
 

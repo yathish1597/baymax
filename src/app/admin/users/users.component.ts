@@ -24,7 +24,7 @@ export class UsersComponent implements OnInit {
   
 
   openn(content: string) {
-    this.modalService.open(content, { size: 'md', centered: false,});
+    this.modalService.open(content, { size: 'md', centered: true,});
   }
   
 }

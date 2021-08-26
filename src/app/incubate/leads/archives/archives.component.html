@@ -44,24 +44,24 @@
             </div>
         </div>
         <div class="col-sm-4 mt-0 pr-0 text-right">
-            <button type="button" class="btn btn-gradient-secondary" style="padding-inline: 10px;margin-right: 7px; "
+            <button type="button" class="btn btn-relief-secondary" style="padding-inline: 10px;margin-right: 7px; "
                 rippleEffect (click)="filterToggle = !filterToggle"> <i class="feather icon-align-justify"></i>
                 Filter</button>
             <!-- <button class="btn btn-secondary float-right" style="height: 40px;border-radius: 5px;margin-right: 15px;"
             (click)="filterToggle = !filterToggle">
             <i class="fas fa-align-justify"></i> Filter
         </button> -->
-            <button type="button" class="btn btn-gradient-warning" style="padding-inline: 10px;margin-right: 7px; "
+            <button type="button" class="btn btn-relief-warning" style="padding-inline: 10px;margin-right: 7px; "
                 rippleEffect (click)="changeTable()"> <i class="feather icon-user"></i> Less is More</button>
             <!-- <button class="btn btn-secondary float-right" type="button" (click)="changeTable()" style="height: 40px;border-radius: 5px;margin-right: 15px;">
           <i class="icon-user"></i> Less is More
         </button> -->
-            <button type="button" class="btn btn-gradient-secondary" style="padding-inline:10px;margin-right: 7px; "
+            <button type="button" class="btn btn-relief-secondary" style="padding-inline:10px;margin-right: 7px; "
                 rippleEffect (click)="opens(addPrimaryModal)"> <i class="feather icon-bookmark"></i> Primary</button>
             <!-- <button class="btn btn-secondary float-right" style="height: 40px;border-radius: 5px;margin-right: 15px;" (click)="opens(addPrimaryModal)">
           <i class="icon-hourglass"></i> Primary
         </button> -->
-            <button type="button" class="btn btn-gradient-secondary" style="padding-inline: 10px;margin-right: 7px; "
+            <button type="button" class="btn btn-relief-secondary" style="padding-inline: 10px;"
                 rippleEffect (click)="open(addContactModal)"> <i class="feather icon-grid"></i> Grid Columns</button>
             <!-- <button class="btn btn-secondary float-right" style="height: 40px;border-radius: 5px;margin-right: 15px;" (click)="open(addContactModal)">
           <i class="fas fa-th"></i> Grid Columns
@@ -267,9 +267,9 @@
   
                       </div>
                   <div class="card-body">
-                      <div class="form-group m-b-0 text-right" style="margin-right: 50px;">
-                          <button type="submit" class="btn btn-info waves-effect waves-light" style="margin-right: 15px;">Save</button>
-                          <button type="submit" class="btn btn-dark waves-effect waves-light"
+                      <div class="form-group m-b-0 text-right" style="margin-right: 40px;">
+                          <button type="submit" class="btn btn-relief-success" style="margin-right: 15px;">Save</button>
+                          <button type="submit" class="btn btn-relief-dark"
                           (click)="filterToggle = !filterToggle">Cancel</button>
                       </div>
                   </div>
@@ -281,8 +281,8 @@
  <!-- Grid Modal -->
 <ng-template #addContactModal let-modal>
     <div class="modal-header">
-        <h2 class="modal-title" id="modal-basic-title">Grid View Configuration</h2>
-        <button type="button" class="close mr-1 mt-0" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <h2 class="modal-title ml-1 m-0 p-0" id="modal-basic-title">Grid View Configuration</h2>
+        <button type="button" class="close m-0" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
@@ -356,8 +356,8 @@
         <div class="row">
             <div class="col">
                 <div class="m-2 float-right">
-                    <button type="submit" class="btn btn-gradient-primary" style="margin-right: 10px;">Configure</button>
-                    <button type="button" class="btn btn-gradient-dark"
+                    <button type="submit" class="btn btn-relief-success" style="margin-right: 10px;">Configure</button>
+                    <button type="button" class="btn btn-relief-dark"
                     (click)="modal.close('Accept click')">Close</button>
                 </div>
             </div>
@@ -367,8 +367,8 @@
 <!-- Primary Modal -->
 <ng-template #addPrimaryModal let-modal>
     <div class="modal-header">
-        <h2 class="modal-title" id="modal-basic-title">Primary Column Configuration</h2>
-        <button type="button" class="close mt-0 mr-1" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <h2 class="modal-title ml-1 m-0 p-0" id="modal-basic-title">Primary Column Configuration</h2>
+        <button type="button" class="close m-0" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
@@ -441,8 +441,8 @@
     <div class="row">
         <div class="col">
             <div class="m-2 float-right">
-                <button type="submit" class="btn btn-gradient-primary" style="margin-right: 10px;">Configure</button>
-                <button type="button" class="btn btn-gradient-dark"
+                <button type="submit" class="btn btn-relief-success" style="margin-right: 10px;">Configure</button>
+                <button type="button" class="btn btn-relief-dark"
                 (click)="modal.close('Accept click')">Close</button>
             </div>
         </div>

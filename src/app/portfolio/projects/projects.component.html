@@ -30,12 +30,12 @@
 
         <div class="col-sm-6 pr-0">
 
-            <button class="btn btn-gradient-dark float-right"
+            <button class="btn btn-relief-dark float-right"
                 (click)="openn(addOpportunityModal)">
                 <i class="fa fa-plus"></i> Add Project
             </button>
             
-            <button class="btn btn-gradient-secondary float-right" style="margin-right: 10px;"
+            <button class="btn btn-relief-secondary float-right" style="margin-right: 10px;"
              (click)="filterToggle = !filterToggle">
                 <i class="fa fa-align-justify"></i> Filter
             </button>
@@ -78,10 +78,10 @@
                                 </div>
                             </div>
                             <div class="form-group m-b-0 text-right" style="margin-right: 0px;">
-                                <button type="submit" class="btn btn-gradient-info waves-effect waves-light"
+                                <button type="submit" class="btn btn-relief-success waves-effect waves-light"
                                     style="margin-right: 10px;">Save</button>
                                 <button type="submit"
-                                    class="btn btn-gradient-dark waves-effect waves-light"
+                                    class="btn btn-relief-dark waves-effect waves-light"
                                     (click)="filterToggle = !filterToggle">Cancel</button>
                             </div>
                         </div>
@@ -141,7 +141,7 @@
                                 <label for="inputEmail3" class="col-sm-4 mt-0 text-left control-label col-form-label">Select
                                     Industry:</label>
                                 <div class="col-sm-8" for="status" style="color: gray;">
-                                    <select name="status" style="width: 300px;height: 33px; color: gray; ">
+                                    <select name="status" style="height: 33px;width:100%; color: gray; ">
                                         <option value="volvo">-- Select Industry --</option>
                                         <option value="0">Chemicals</option>
                                         <option value="1">Logistics & Supply chain</option>
@@ -187,7 +187,7 @@
                                 <label for="inputEmail3" class="col-sm-4 mt-0 text-left control-label col-form-label">Project
                                     Type:</label>
                                 <div class="col-sm-8" for="status">
-                                    <select name="status" style="width: 300px;height: 33px; color: gray;">
+                                    <select name="status" style="height: 33px; width:100%;color: gray;">
                                         <option value="volvo">-- Select Project --</option>
                                         <option value="0">Demo</option>
                                         <option value="1">IP</option>
@@ -206,7 +206,7 @@
                                     class="col-sm-4 mt-0 text-left control-label col-form-label">Document
                                     Type:</label>
                                 <div class="col-sm-8" for="status">
-                                    <select name="status" style="width: 300px;height: 33px; color: gray;">
+                                    <select name="status" style="height: 33px;width:100%; color: gray;">
                                         <option value="volvo">-- Select Document --</option>
                                         <option value="0">Construction Quals</option>
                                         <option value="1">Logistics Quals</option>
@@ -222,9 +222,9 @@
                 </div>
                 <div class="card-body">
                     <div class="form-group m-b-0 float-right" style="margin-top: -30px;">
-                        <button type="submit" class="btn btn-info waves-effect waves-light"
+                        <button type="submit" class="btn btn-relief-success waves-effect waves-light"
                             style="margin-right:10px">Save</button>
-                        <button type="submit" class="btn btn-dark waves-effect waves-light"
+                        <button type="submit" class="btn btn-relief-dark waves-effect waves-light"
                         (click)="modal.close('Accept click')">Cancel</button>
                     </div>
                 </div>
@@ -282,7 +282,7 @@
                                 <label for="inputEmail3" class="col-sm-4 mt-0  text-left control-label col-form-label">Select
                                     Industry:</label>
                                 <div class="col-sm-8" for="status">
-                                    <select name="status" style="width: 300px;height: 31px;">
+                                    <select name="status" style="width:100%;height: 31px;">
                                         <option value="volvo">-- Select Industry --</option>
                                         <option value="0">Chemicals</option>
                                         <option value="1">Logistics & Supply chain</option>
@@ -328,7 +328,7 @@
                                 <label for="inputEmail3" class="col-sm-4 mt-0  text-left control-label col-form-label">Project
                                     Type:</label>
                                 <div class="col-sm-8" for="status">
-                                    <select name="status" style="width: 300px;height: 31px;">
+                                    <select name="status" style="width:100%;height: 31px;">
                                         <option value="volvo">-- Select Project --</option>
                                         <option value="0">Demo</option>
                                         <option value="1">IP</option>
@@ -347,7 +347,7 @@
                                     class="col-sm-4 mt-0  text-left control-label col-form-label">Document
                                     Type:</label>
                                 <div class="col-sm-8" for="status">
-                                    <select name="status" style="width: 300px;height: 31px;">
+                                    <select name="status" style="width:100%;height: 31px;">
                                         <option value="volvo">-- Select Document --</option>
                                         <option value="0">Construction Quals</option>
                                         <option value="1">Logistics Quals</option>
@@ -363,9 +363,9 @@
                 </div>
                 <div class="card-body">
                     <div class="form-group m-b-0 float-right" style="margin-top: -30px;">
-                        <button type="submit" class="btn btn-info waves-effect waves-light"
+                        <button type="submit" class="btn btn-relief-success waves-effect waves-light"
                             style="margin-right:10px">Save</button>
-                        <button type="submit" class="btn btn-dark waves-effect waves-light"
+                        <button type="submit" class="btn btn-relief-dark waves-effect waves-light"
                         (click)="modal.close('Accept click')">Cancel</button>
                     </div>
                 </div>
@@ -379,7 +379,7 @@
         <div>
             <div class="modal-header">
                 <div class="col-sm-10 d-flex text-left m-0 p-0">
-                    <h3 class="modal-title m-0 p-0" id="modal-basic-title">Add Credentials</h3>
+                    <h3 class="modal-title m-0 p-0" style="font-weight: 500;" id="modal-basic-title">Add Credentials</h3>
                 </div>
                 <div class="col-sm-2 pr-1">
                     <button class="float-right" type="button" class="close ml-0" aria-label="Close"
@@ -445,7 +445,7 @@
 
                     <div class="card-body pr-0">
                         <div class="form-group m-b-0 float-right">
-                            <button type="submit" class="btn btn-info waves-effect waves-light">Save</button>
+                            <button type="submit" class="btn btn-relief-success waves-effect waves-light">Save</button>
                         </div>
                     </div>
 
@@ -487,9 +487,9 @@
                     </div>
 
 
-                    <div class="card-body mb-4 pr-0">
+                    <div class="card-body mb-1 pr-0">
                         <div class="form-group m-b-0 float-right">
-                            <button type="submit" class="btn btn-gradient-dark waves-effect waves-light"
+                            <button type="submit" class="btn btn-relief-dark waves-effect waves-light"
                             (click)="modal.close('Accept click')">Cancel</button>
                         </div>
                     </div>
